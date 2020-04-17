@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body style="background-color: #f7faf8;">
+        <div class="contentSkill" ng-app="myApp" ng-controller="myCtrl">
+            <div class="col-lg-9" id="content">
+                <div id="ques1">
+                    <p id="ques">What will you learn?<span ng-click="myFunc()" class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
+                    <div ng-show="showMe">
+                        <p id="textDisp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                 <div id="ques2">
+                    <p id="ques">Practice assignments<span class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
+                    <p id="textarea1">
+                    </p>
+                </div>
+                 <div id="ques3">
+                    <p id="ques">Technical Scenarios<span class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
+                    <p id="textarea1">
+                    </p>
+                </div>
+                 <div id="ques4">
+                    <p id="ques">Mini Project<span class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
+                    <p id="textarea1">
+                    </p>
+                </div>
+                 <div id="ques5">
+                    <p id="ques">Discussion Forums & FAQs<span class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
+                    <p id="textarea1">
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3" id="skill">
+            <p id="skill"> Skills you learn</p>
+            <button id="btn-skill" type="button" class="btn btn-default">HTML</button>
+            <button id="btn-skill" type="button" class="btn btn-default">CSS</button>
+            <button id="btn-skill" type="button" class="btn btn-default">Graphics</button>
+            <button id="btn-skill" type="button" class="btn btn-default">UI</button>
+            <button id="btn-skill" type="button" class="btn btn-default">Design</button>
+            <button id="btn-skill" type="button" class="btn btn-default">Data Science</button>
+            <button id="btn-skill" type="button" class="btn btn-default">App</button>
+            <button id="btn-skill" type="button" class="btn btn-default">iPhone</button>
+            <button id="btn-skill" type="button" class="btn btn-default">icon</button>
+            <button id="btn-skill" type="button" class="btn btn-default">Web Design</button>
+            
+               <!-- <div class="card">
+                    <p id="txt">Did not understand something?</p>
+                    <p id="txt">Ask your instructor!</p>
+                    <p><textarea rows="5" ></textarea></p>
+                    <p id="sendDoubt">Send</p>
+                </div>-->
+                <div class="card">
+                <mdb-card>
+                    <mdb-text>
+                    <p id="txt">Did not understand something?</p>
+                    <p id="txt">Ask your instructor!</p>
+                     </mdb-text>
+                    <p><textarea rows="5" ></textarea></p>
+                   
+                    <a href id="sendDoubt">Send</a>
+                </mdb-card>
+            </div>
+            </div>
+            
+        </div>
+  
+    <script>
+    var app = angular.module('myApp', []);
+    
+    app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.myFunc = function() {
+        $scope.showMe = !$scope.showMe;
+    }
+});
+</script>
+</body>
+</html>
