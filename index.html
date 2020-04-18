@@ -11,9 +11,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
+
+
+    <!--Content area below video starts-->
+
     <body style="background-color: #f7faf8;">
         <div class="contentSkill" ng-app="myApp" ng-controller="myCtrl">
             <div class="col-lg-9" id="content">
+                <!--Questions start -->
                 <div id="ques1">
                     <p id="ques">What will you learn?<span ng-click="myFunc()" class="glyphicon glyphicon-chevron-down" style="float:right"></span></p>
                     <div ng-show="showMe">
@@ -41,6 +46,9 @@
                     </p>
                 </div>
             </div>
+            <!--Questions ends-->
+
+            <!--Skills area starts-->
             <div class="col-lg-3" id="skill">
             <p id="skill"> Skills you learn</p>
             <button id="btn-skill" type="button" class="btn btn-default">HTML</button>
@@ -53,13 +61,11 @@
             <button id="btn-skill" type="button" class="btn btn-default">iPhone</button>
             <button id="btn-skill" type="button" class="btn btn-default">icon</button>
             <button id="btn-skill" type="button" class="btn btn-default">Web Design</button>
-            
-               <!-- <div class="card">
-                    <p id="txt">Did not understand something?</p>
-                    <p id="txt">Ask your instructor!</p>
-                    <p><textarea rows="5" ></textarea></p>
-                    <p id="sendDoubt">Send</p>
-                </div>-->
+           <!-- Skills area ends-->
+           
+
+           <!--Doubt box starts--> 
+              
                 <div class="card">
                 <mdb-card>
                     <mdb-text>
@@ -71,11 +77,16 @@
                     <a href id="sendDoubt">Send</a>
                 </mdb-card>
             </div>
+            <!--Doubt box ends-->
             </div>
             
         </div>
+
+        <!--Content area below video ends-->
   
     <script>
+
+    /*Dropdown AngularJS*/
     var app = angular.module('myApp', []);
     
     app.controller('myCtrl', function($scope) {
