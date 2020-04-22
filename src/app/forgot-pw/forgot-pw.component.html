@@ -1,0 +1,18 @@
+<div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h3 class="center"><b>Enter Your Email Id To Reset Your Password</b></h3>
+        <div style="border: 1px solid black;border-radius:25px;padding: 20px;">
+            <br/><br/>
+            <form [formGroup]="forgot_pw" role="form" action="/lms/instructor/instructor_forgot-password" method="post"><input type="hidden" name="_csrf" value="0864ec3b-2752-46b6-aea2-07c26fcb279b"/>
+                <div class="form-group">
+                    <label for="email" style="font-size:22px;">Email Id</label>
+                    <input formControlName="emailAddress" type="text" name="email" class="form-control" id="inputinstructornameEmail" style="height:38px;" value="">
+                </div>
+    
+                <button type="submit" class="btn btn-primary">Reset Password</button>
+            </form>
+        </div>
+    </div>
+</div>

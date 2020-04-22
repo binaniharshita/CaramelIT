@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "caramelitacademy"
+    }
+  },
+  "defaultProject": "caramelitacademy",
+  "cli": {
+    "analytics": "df5c75d8-7914-4c99-928c-afe762c00b06"
+  }
 }

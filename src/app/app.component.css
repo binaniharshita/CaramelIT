@@ -1,0 +1,28 @@
+.svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.svg:hover{
+    fill: orange;
+}
+
+.stureg{
+  height:40px;
+}
+.stugl{
+
+width:30px;
+height:26px;
+font-size:20px;
+}
+.stucheck{
+  width:20px;
+  height:20px;
+  color:blue;
+}
+
+.center
+{
+  justify-content: center;
+}

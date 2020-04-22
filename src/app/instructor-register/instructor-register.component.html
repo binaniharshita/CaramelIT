@@ -1,0 +1,121 @@
+<title>Instructor Register</title>
+
+
+  <br/><br/>
+	<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+      <h2 align=center style="color:#111;"><b>New Instructor Registration</b></h2><br>
+
+      <form [formGroup]="inst_reg" novalidate autocomplete="off" action="/lms/instructor/instructor_register" method="post" class="m-t" role="form"
+        data-toggle="validator"><input type="hidden" name="_csrf" value="ac40ba5f-f3d4-4081-b170-9384dad8cc61"/>
+        
+	<div class="row">
+	 <div class="col-md-6">
+        <div class="form-group input-group has-feedback ">
+          
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user stugl"></span>
+          </span>
+          
+          <input formControlNmae="firstName" type="text" placeholder="First Name...." class="form-control stureg" required id="firstName" name="firstName" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+	</div>
+	 <!--         -------firstName closes--------           -->
+	<div class="col-md-6">
+        <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user stugl"></span>
+          </span>
+          <input formControlName="lastName" type="text" placeholder="Last Name...." class="form-control stureg" required id="lastName" name="lastName" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+	</div> 
+	 <!--         -------lastName closes--------           -->
+	</div>
+	 <!--         -------row closes--------           -->
+        <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-envelope stugl"></span>
+          </span>
+          <input formSontrolName="emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
+            data-error="This email address is invalid" required id="email" name="email" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+      <!--         -------email closes--------           -->
+        <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-earphone stugl"></span>
+          </span>
+          <input formControlName="mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg"
+            data-error="This Mobile Number is invalid" required id="mobile" name="mobile" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        <!--         -------mobile closes--------           -->
+      	
+      	 <div class="form-group input-group has-feedback ">
+          
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil stugl"></span>
+          </span>
+          
+          <input formControlName="subjects" type="text" placeholder="Enter your subjects" class="form-control stureg" required id="subject" name="subject" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        
+        <!--          ------ Subject closes-----  -->
+		
+		 <div class="form-group input-group has-feedback">
+		 
+          
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time stugl"></span>
+          </span>
+          <select formControlName="workingHours" class="form-control stureg" required id="time" name="time">
+          	<option value=""> - - - Select By - - - </option>
+          	<option value="fulltime">FullTime</option>
+          	<option value="parttime">PartTime</option>
+          </select>
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        <!--          ------ timing closes-----  -->
+        <div class="form-group input-group has-feedback ">
+          
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-briefcase stugl"></span>
+          </span>
+          
+          <input formControlName="experience" type="text" placeholder="Enter your Experience" class="form-control stureg" required id="experience" name="experience" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+           <!--          ------ experience closes-----  -->
+        
+        <div class="form-group input-group has-feedback ">
+          
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-list-alt stugl"></span>
+          </span>
+          
+          <textarea formControlName="profileDetails" placeholder="Enter your Profile Details" class="form-control stureg" required id="profile" name="profile" ></textarea>
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        
+        
+        
+          <br>
+        
+        <button type="submit" class="btn btn-primary full-width m-b">Register</button>
+		<br>
+		<h3><a href="/instructor-signin" style="color:#111;">Already Registered? Please Login</a></h3><br><br>
+      </form>
+      </div>
+
