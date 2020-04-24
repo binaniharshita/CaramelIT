@@ -18,8 +18,10 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { InstructorSigninComponent } from './instructor-signin/instructor-signin.component';
 import { InstructorRegisterComponent } from './instructor-register/instructor-register.component';
 import { ForgotPwComponent } from './forgot-pw/forgot-pw.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
+  { path:'', pathMatch:'full' , component: NavbarComponent },
   { path:'student-signin' , component: StudentSigninComponent },
   { path:'student-register' , component: StudentRegisterComponent },
   { path:'instructor-signin', component: InstructorSigninComponent},
@@ -47,6 +49,7 @@ const routes: Routes = [
     InstructorSigninComponent,
     InstructorRegisterComponent,
     ForgotPwComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
