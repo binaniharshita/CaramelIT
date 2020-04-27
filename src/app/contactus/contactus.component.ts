@@ -24,5 +24,5 @@ export class ContactusComponent implements OnInit {
       'subcategory':  ['',Validators.required]
     });
   }
-  date: number = new Date().getFullYear();
+  
 }

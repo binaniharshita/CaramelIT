@@ -2592,3 +2592,5 @@ background-color:rgba(76,175,80,1);
 @media(max-width: 500px){
   .about-position{left: 0;top: 30%;}
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

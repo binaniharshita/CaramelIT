@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex>
+        <h3>Course</h3>
+    </div>
+    <div fxFlex>
+        <mat-grid-list cols="4" rowHeight="200px">
+            <mat-grid-tile *ngFor="let course of courses" (click) = "onSelect(course)">
+                <img height="200px" src={{course.image}} alt={{course.name}}>
+                <mat-grid-tile-footer>
+                    <h1>{{course.name}}</h1>
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <app-videosection [course] = "selectedCourse"></app-videosection>
+</div>
+<app-page-content></app-page-content>
+<app-other-courses></app-other-courses>
+<app-footer></app-footer>

@@ -1,0 +1,30 @@
+.row a .card:hover{
+	
+	color:black;
+}
+.row a:hover{
+	text-decoration:none;
+}
+nav ul a{
+	color:lavender;
+}
+nav ul a:hover{
+	color:black;
+}
+
+div a{
+color:lavender;
+font-weight:bold;
+font-size:20px;
+}
+div a:hover{
+color:#111;
+}
+
+.card{
+	background:#17A2B7;
+	border:1px solid #111;
+	padding:30px;
+	height:120px;
+	margin-top:20px;
+}

@@ -1,6 +1,5 @@
 <title>CARAMEL IT ACADEMY</title>
 
-<body>
 	<div class="acaheader" id="topheader">
 		<div class="container-fluid text5">
 			<nav class="navbar navbar-expand-lg bg navbar-light">
@@ -18,21 +17,18 @@
 						<li class="nav-item ">
 							<a class="nav-link px-lg-3 alink" href="#">IT Services Home</a>
 							<!-- <img src="../assets/chevron-down.svg" class="svg"/> -->
-						</li>
+						</li>						
 						<li class="nav-item">
-							<a class="nav-link px-lg-3 alink" routerLink="student-signin" outerLinkActive="active">Student</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-lg-3 alink" routerLink="instructor-signin" routerLinkActive="active">Instructor</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-lg-3 alink" routerLink="corporate-signin" routerLinkActive="active">Corporates</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-lg-3 alink" routerLink="university-signin" routerLinkActive="active">Universities</a>
-            			</li>
-            			<li class="nav-item">
-							<a class="nav-link px-lg-3 alink" routerLink="admin-signin" routerLinkActive="active">Admin</a>
+							<div class="dropdown">
+								<a href="#" class="nav-link px-lg-3 alink">Login/Register <i class="fa fa-caret-down"></i></a>
+								<div class="dropdown-content">
+									<a routerLink="student-signin" routerLinkActive="active">Student</a>
+									<a routerLink="instructor-signin" routerLinkActive="active">Instructor</a>
+									<a routerLink="corporate-signin" routerLinkActive="active">Corporates</a>
+									<a routerLink="university-signin" routerLinkActive="active">Universities</a>
+									<a routerLink="admin-signin" routerLinkActive="active">Admin</a>
+								</div>
+							</div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link px-lg-3 alink" routerLink="contactus" routerLinkActive="active">Contact Us</a>
@@ -42,5 +38,3 @@
 			</nav>
 		</div>
   </div>
-  <router-outlet></router-outlet>
-</body>

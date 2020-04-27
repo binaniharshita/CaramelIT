@@ -19,9 +19,31 @@ import { InstructorSigninComponent } from './instructor-signin/instructor-signin
 import { InstructorRegisterComponent } from './instructor-register/instructor-register.component';
 import { ForgotPwComponent } from './forgot-pw/forgot-pw.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { VideosectionComponent } from './videosection/videosection.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material/material.module';
+import { CourseService } from './services/course.service';
+import { CurrentvideoComponent } from './currentvideo/currentvideo.component';
+import { PageContentComponent } from './page-content/page-content.component';
+import { OtherCoursesComponent } from './other-courses/other-courses.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { CollegeListComponent } from './college-list/college-list.component';
+import { InstructorListComponent } from './instructor-list/instructor-list.component';
+import { OrganisationListComponent } from './organisation-list/organisation-list.component';
+import { ListCourseComponent } from './list-course/list-course.component';
 
 const routes: Routes = [
-  { path:'', pathMatch:'full' , component: NavbarComponent },
+  { path:'', pathMatch:'full' , component: HomepageComponent },
   { path:'student-signin' , component: StudentSigninComponent },
   { path:'student-register' , component: StudentRegisterComponent },
   { path:'instructor-signin', component: InstructorSigninComponent},
@@ -32,7 +54,13 @@ const routes: Routes = [
   { path:'university-register' , component: UniversityRegisterComponent },
   { path:'admin-signin' , component: AdminSigninComponent },  
   { path:'contactus' , component: ContactusComponent },
-  { path:'forgot-password', component: ForgotPwComponent }
+  { path:'forgot-password', component: ForgotPwComponent },
+  { path:'admin-dashboard', component: AdminDashboardComponent },
+  { path:'user_list', component: UserListComponent },
+  { path:'college_list', component: CollegeListComponent },
+  { path:'instructor_list', component: InstructorListComponent },
+  { path:'organisation_list', component: OrganisationListComponent },
+  { path:'list_course', component: ListCourseComponent }
 ]
 
 @NgModule({
@@ -50,6 +78,18 @@ const routes: Routes = [
     InstructorRegisterComponent,
     ForgotPwComponent,
     NavbarComponent,
+    HomepageComponent,
+    VideosectionComponent,
+    CurrentvideoComponent,
+    PageContentComponent,
+    OtherCoursesComponent,
+    FooterComponent,
+    AdminDashboardComponent,
+    UserListComponent,
+    CollegeListComponent,
+    InstructorListComponent,
+    OrganisationListComponent,
+    ListCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,9 +98,17 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MaterialModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
