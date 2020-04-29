@@ -1,12 +1,15 @@
+//built in features
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { RouterModule } from '@angular/router';
-import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
+//components
 import { AdminSigninComponent } from './admin-signin/admin-signin.component';
 import { UniversitySigninComponent } from './university-signin/university-signin.component';
 import { UniversityRegisterComponent } from './university-register/university-register.component';
@@ -22,15 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { VideosectionComponent } from './videosection/videosection.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from './material/material.module';
-import { CourseService } from './services/course.service';
+
 import { CurrentvideoComponent } from './currentvideo/currentvideo.component';
 import { PageContentComponent } from './page-content/page-content.component';
 import { OtherCoursesComponent } from './other-courses/other-courses.component';
@@ -42,26 +37,19 @@ import { InstructorListComponent } from './instructor-list/instructor-list.compo
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
 import { ListCourseComponent } from './list-course/list-course.component';
 
-const routes: Routes = [
-  { path:'', pathMatch:'full' , component: HomepageComponent },
-  { path:'student-signin' , component: StudentSigninComponent },
-  { path:'student-register' , component: StudentRegisterComponent },
-  { path:'instructor-signin', component: InstructorSigninComponent},
-  { path:'instructor-register', component: InstructorRegisterComponent },
-  { path:'corporate-signin' , component: CorporateSigninComponent },
-  { path:'corporate-register' , component: CorporateRegisterComponent },
-  { path:'university-signin' , component: UniversitySigninComponent },
-  { path:'university-register' , component: UniversityRegisterComponent },
-  { path:'admin-signin' , component: AdminSigninComponent },  
-  { path:'contactus' , component: ContactusComponent },
-  { path:'forgot-password', component: ForgotPwComponent },
-  { path:'admin-dashboard', component: AdminDashboardComponent },
-  { path:'user_list', component: UserListComponent },
-  { path:'college_list', component: CollegeListComponent },
-  { path:'instructor_list', component: InstructorListComponent },
-  { path:'organisation_list', component: OrganisationListComponent },
-  { path:'list_course', component: ListCourseComponent }
-]
+//materials
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material/material.module';
+import { CourseService } from './services/course.service';
+
+//routes
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -93,7 +81,6 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
       routes,
@@ -106,7 +93,9 @@ const routes: Routes = [
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [CourseService],
   bootstrap: [AppComponent]
