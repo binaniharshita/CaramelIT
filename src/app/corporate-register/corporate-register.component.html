@@ -14,8 +14,10 @@
       <div class="col-md-6">
         <h2 align=center style="color:#111;"><b>New Organisation/Corporate Registration</b></h2><br>
   
-        <form [formGroup]="corp_reg" novalidate autocomplete="off" action="/lms/organisation/organisation_register" method="post" class="m-t" role="form"
-          data-toggle="validator"><input type="hidden" name="_csrf" value="ac40ba5f-f3d4-4081-b170-9384dad8cc61"/>
+        <form #corporateRegForm="ngForm" (ngSubmit)="onSubmit(corporateRegForm);" autocomplete="off" method="post" class="m-t" role="form"
+          data-toggle="validator">
+          
+          <input type="hidden" name="_csrf" value="ac40ba5f-f3d4-4081-b170-9384dad8cc61"/>
       
           <div class="form-group input-group has-feedback ">
             
@@ -23,7 +25,7 @@
               <span class="glyphicon glyphicon-user stugl"></span>
             </span>
             
-            <input formControlName="corporateName" type="text" placeholder="Your Organisation Name...." class="form-control stureg" required id="organisationName" name="organisationName" value="" />
+            <input #corporateName="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.corporateName" type="text" placeholder="Your Organisation Name...." class="form-control stureg" required id="corporateName" name="corporateName" value="" />
             <span class="glyphicon form-control-feedback"
               aria-hidden="true"></span>
           </div>
@@ -33,8 +35,8 @@
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-envelope stugl"></span>
             </span>
-            <input formControlName="emailAddress" type="email" placeholder="your Email Address...." class="form-control stureg"
-              data-error="This email address is invalid" required id="email" name="email" value="" />
+            <input #emailAddress="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.emailAddress" type="email" placeholder="your Email Address...." class="form-control stureg"
+              data-error="This email address is invalid" required id="emailAddress" name="emailAddress" value="" />
             <span class="glyphicon form-control-feedback"
               aria-hidden="true"></span>
           </div>
@@ -43,8 +45,8 @@
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-earphone stugl"></span>
             </span>
-            <input formControlName="mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg"
-              data-error="This Mobile Number is invalid" required id="mobile" name="mobile" value="" />
+            <input #mobileNumber="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg"
+              data-error="This Mobile Number is invalid" required id="mobileNumber" name="mobileNumber" value="" />
             <span class="glyphicon form-control-feedback"
               aria-hidden="true"></span>
           </div>
@@ -56,9 +58,9 @@
               <span class="glyphicon glyphicon-edit stugl"></span>
             </span>
             
-            <textarea formControlName="others" placeholder="Others....." class="form-control stureg" required id="others" name="others" ></textarea>
+            <textarea #others="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.others" placeholder="Others....." class="form-control stureg" required id="others" name="others" ></textarea>
             <span class="glyphicon form-control-feedback"
-              aria-hidden="true"></span>
+               aria-hidden="true"></span>
           </div>
           <!--         -------others closes--------           -->
             <br>
@@ -69,7 +71,15 @@
           <h3><a routerLink="/corporate-signin" routerLinkActive="active" style="color:#111;">Already Registered? Please Login</a></h3><br><br>
         </form>
         </div>
-        <div class="col-md-3"></div>
+         <!-- Success message -->
+      <div class="alert success alert-info" *ngIf="showSuccessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert alert-info" *ngIf="serverErrorMessage">
+        {{serverErrorMessage}}
+      </div>
        </div>
       </div>
 </body>

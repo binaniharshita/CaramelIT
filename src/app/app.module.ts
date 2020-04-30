@@ -37,6 +37,7 @@ import { InstructorListComponent } from './instructor-list/instructor-list.compo
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
 import { ListCourseComponent } from './list-course/list-course.component';
 
+
 //materials
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,6 +48,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 //routes
 import { routes } from './routes';
@@ -95,7 +98,8 @@ import { routes } from './routes';
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [CourseService],
   bootstrap: [AppComponent]

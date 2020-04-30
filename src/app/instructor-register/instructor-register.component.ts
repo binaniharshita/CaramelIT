@@ -1,29 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+
+import { InstructorUserService } from '../shared-user/instructor/instructor-user.service'
 
 @Component({
   selector: 'app-instructor-register',
   templateUrl: './instructor-register.component.html',
-  styleUrls: ['./instructor-register.component.css']
+  styleUrls: ['./instructor-register.component.css'],
+  providers: [InstructorUserService]
 })
 export class InstructorRegisterComponent implements OnInit {
+  showSuccessMessage: boolean;
+  serverErrorMessage: string;
 
-  inst_reg: FormGroup
-
-  constructor(private fb: FormBuilder) { }
+  
+  constructor(public instructorUserService: InstructorUserService) { }
 
   ngOnInit(): void {
-    this.inst_reg = this.fb.group({
-      'firstName': ['',Validators.required],
-      'lastName': ['',Validators.required],
-      'emailAddress': ['', [Validators.required, Validators.pattern('[a-z0-9.@]*')]],
-      'mobileNumber': ['',[Validators.required,Validators.minLength(10),Validators.maxLength(12)]],
-      'subjects': ['',Validators.required],
-      'workingHours': ['',Validators.required],
-      'experience': ['',Validators.required],
-      'profileDetails': ['',Validators.required]
-    });
+  }
+
+  onSubmit(instructorRegForm: NgForm){
+    this.instructorUserService.postInstructorUser(instructorRegForm.value).subscribe(
+      res => {
+        this.showSuccessMessage = true;
+        setTimeout(()=> this.showSuccessMessage = false, 4000);
+        this.resetForm(instructorRegForm);
+      },
+      err => {
+        if(err.status === 422){
+          this.serverErrorMessage = err.error.join("<br/>");
+        }
+        else{
+          this.serverErrorMessage = 'Something went wrong. Please contact Admin.';
+        }
+      }
+    );
+  }
+
+  resetForm(instructorForm: NgForm){
+    this.instructorUserService.selectedInstructorUser = {
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
+      mobileNumber: 0,
+      subjects: '',
+      workingHours: '',
+      experience: '',
+      profileDetails: ''
+    };
+    instructorForm.resetForm();
+    this.serverErrorMessage = '';
   }
 
 }

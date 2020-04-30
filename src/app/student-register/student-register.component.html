@@ -13,7 +13,7 @@
     <form #studentRegForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(studentRegForm)" class="m-t" role="form"
       data-toggle="validator">
 
-      <input type="hidden" name="_csrf" value="147c7f80-43c1-4ecb-a65f-47d01f526e8a"/>   
+      <input type="hidden" name="_csrf" value="147c7f80-43c1-4ecb-a65f-47d01f526e8a"/> 
       
     <div class="row">
       <div class="col-md-6">
@@ -44,7 +44,7 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-envelope stugl"></span>
         </span>
-        <input #emailAddress="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.emailAddress" [pattern]="emailRegex" type="email" placeholder="Email Address...." class="form-control stureg"
+        <input #emailAddress="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
           data-error="This email address is invalid" id="emailAddress" name="emailAddress" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
@@ -164,12 +164,12 @@
     </form>
       
       <!-- Success message -->
-      <div class="success" *ngIf="showSuccessMessage">
+      <div class="alert success alert-info" *ngIf="showSuccessMessage">
         Saved successfully
       </div>
       
       <!-- Error message -->
-      <div class="alert" *ngIf="serverErrorMessage">
+      <div class="alert alert-info" *ngIf="serverErrorMessage">
         {{serverErrorMessage}}
       </div>
     </div>

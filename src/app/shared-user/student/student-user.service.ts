@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { StudentUser } from './student-user.model';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+
+import { StudentUser } from './student-user.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +20,11 @@ export class StudentUserService {
     state: '',
     collegeName: '',
     skillset: ''
-  }
+  };
 
   constructor(private http: HttpClient) { }
 
   postStudentUser(studentUser: StudentUser){
-    return this.http.post(environment.apiBaseUrl+'/register', studentUser);
+    return this.http.post(environment.apiBaseUrl+'/student-register', studentUser);
   }
 }

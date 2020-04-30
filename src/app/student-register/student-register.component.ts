@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
-import { StudentUserService } from '../shared-user/student-user.service';
+import { StudentUserService } from '../shared-user/student/student-user.service';
 
 @Component({
   selector: 'app-student-register',
@@ -11,8 +11,6 @@ import { StudentUserService } from '../shared-user/student-user.service';
   providers: [StudentUserService]
 })
 export class StudentRegisterComponent implements OnInit {
-  
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSuccessMessage: boolean;
   serverErrorMessage: string;
 
@@ -21,15 +19,18 @@ export class StudentRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
   onSubmit(studentRegForm: NgForm){
     this.studentUserService.postStudentUser(studentRegForm.value).subscribe(
       res => {
         this.showSuccessMessage = true;
         setTimeout(()=> this.showSuccessMessage = false, 4000);
+        this.resetForm(studentRegForm);
       },
       err => {
-        if (err.status == 422){
-          this.serverErrorMessage = err.error.join('<br>');
+        if (err.status === 422){
+          this.serverErrorMessage = err.error.join("<br/>");
         }
         else{
           this.serverErrorMessage = 'Something went wrong. Please contact Admin.';
@@ -44,14 +45,14 @@ export class StudentRegisterComponent implements OnInit {
       firstName: '',
       lastName: '',
       emailAddress: '',
-      password: '',
       mobileNumber: '',
       dateOfBirth:  '', 
+      password: '',
       country: '',
       state: '',
       collegeName: '',
       skillset: ''
-    }
+    };
     studentForm.resetForm();
     this.serverErrorMessage = '';
   }
