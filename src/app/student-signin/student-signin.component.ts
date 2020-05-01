@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { StudentUserService } from '../shared-user/student/student-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-signin',
@@ -9,15 +11,32 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class StudentSigninComponent implements OnInit {
 
-  ssignin: FormGroup;
+  serverErrorMessage: string;
 
-  constructor(private fb: FormBuilder) { }
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  model= {
+    emailAddress: '',
+    password: ''
+  }
+
+
+  constructor(private studentUserService: StudentUserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.ssignin = this.fb.group({
-      'emailAddress': ['',[Validators.required, Validators.pattern('[a-z0-9.@]*')]],
-      'password': ['', Validators.required]
-    });
+    
+  }
+
+  onSubmit(studentSignin: NgForm) {
+    this.studentUserService.login(studentSignin.value).subscribe(
+      res => {
+        this.studentUserService.setToken(res['token']);
+        this.router.navigateByUrl('/profile-page');
+      },
+      err => {
+        this.serverErrorMessage = err.error.message;
+      }
+    )
   }
 
 }

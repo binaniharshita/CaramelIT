@@ -7,13 +7,16 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h2 class="card-title text-center"><b>Sign In As Student</b></h2><br/><br/>
-            <form [formGroup]="ssignin" novalidate class="form-signin" action="/lms/organisation/organisation_login" method="post"><input type="hidden" name="_csrf" value="103e62e0-c7c1-4e11-a230-7832940d144e"/>
+            <form #studSigninForm="ngForm" (ngSubmit)="studSigninForm.valid && onSubmit(studSigninForm)" novalidate class="form-signin" action="/lms/organisation/organisation_login" method="post"><input type="hidden" name="_csrf" value="103e62e0-c7c1-4e11-a230-7832940d144e"/>
               <div class="form-group">
-                <input formControlName="emailAddress" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email" value="">
+                <input #emailAddress="ngModel" [(ngModel)]="model.emailAddress" [pattern]="emailRegex" type="email" id="EmailAddress" class="form-control" placeholder="Email address" required autofocus name="email" value="">
+                <div *ngIf="studSigninForm.submitted && emailAddress.errors?.pattern">
+                  <label class="alert alert-info">Invalid email address.</label>
+                </div>
               </div>
 
               <div class="form-group">
-                <input formControlName="password" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <input #password="ngModel" [(ngModel)]="model.password" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
               </div>
 
               <!-- <div class="custom-control custom-checkbox mb-3">
@@ -26,6 +29,9 @@
               <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
                <a routerLink="/student-register" routerLinkActive="active" style="font-size: 20px;">Sign Up</a><a class="float-right" routerLink="/forgot-password" routerLinkActive="active" style="font-size: 20px;">Forgot password?</a>
             </form>
+            <div class="alert alert-info" *ngIf="serverErrorMessage">
+              {{serverErrorMessage}}
+            </div>
           </div>
         </div>
       </div>

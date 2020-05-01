@@ -7,8 +7,7 @@ import { InstructorUserService } from '../shared-user/instructor/instructor-user
 @Component({
   selector: 'app-instructor-register',
   templateUrl: './instructor-register.component.html',
-  styleUrls: ['./instructor-register.component.css'],
-  providers: [InstructorUserService]
+  styleUrls: ['./instructor-register.component.css']
 })
 export class InstructorRegisterComponent implements OnInit {
   showSuccessMessage: boolean;

@@ -7,8 +7,7 @@ import { StudentUserService } from '../shared-user/student/student-user.service'
 @Component({
   selector: 'app-student-register',
   templateUrl: './student-register.component.html',
-  styleUrls: ['./student-register.component.css'],
-  providers: [StudentUserService]
+  styleUrls: ['./student-register.component.css']
 })
 export class StudentRegisterComponent implements OnInit {
   showSuccessMessage: boolean;

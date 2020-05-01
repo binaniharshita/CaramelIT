@@ -7,8 +7,7 @@ import { CorporateUserService } from '../shared-user/corporate/corporate-user.se
 @Component({
   selector: 'app-corporate-register',
   templateUrl: './corporate-register.component.html',
-  styleUrls: ['./corporate-register.component.css'],
-  providers: [CorporateUserService]
+  styleUrls: ['./corporate-register.component.css']
 })
 
 export class CorporateRegisterComponent implements OnInit {

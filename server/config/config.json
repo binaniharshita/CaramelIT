@@ -3,7 +3,7 @@
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/caramelitacademy",
         "JWT_SECRET": "SECRET#123",
-        "JWT_EXP": "2m"
+        "JWT_EXP": "10m"
     },
     "production": {
         "PORT": 80,

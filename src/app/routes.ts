@@ -22,6 +22,11 @@ import { InstructorListComponent } from './instructor-list/instructor-list.compo
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
 import { ListCourseComponent } from './list-course/list-course.component';
 
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+
+
+import { AuthGuard } from './auth/auth.guard';
+
 
 export const routes: Routes = [
   { path:'', pathMatch:'full' , component: HomepageComponent },
@@ -41,6 +46,7 @@ export const routes: Routes = [
   { path:'college_list', component: CollegeListComponent },
   { path:'instructor_list', component: InstructorListComponent },
   { path:'organisation_list', component: OrganisationListComponent },
-  { path:'list_course', component: ListCourseComponent }
+  { path:'list_course', component: ListCourseComponent },
+  { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]}
 ];
 

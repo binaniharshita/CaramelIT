@@ -7,8 +7,7 @@ import { UniversityUserService } from '../shared-user/university/university-user
 @Component({
   selector: 'app-university-register',
   templateUrl: './university-register.component.html',
-  styleUrls: ['./university-register.component.css'],
-  providers: [UniversityUserService]
+  styleUrls: ['./university-register.component.css']
 })
 
 export class UniversityRegisterComponent implements OnInit {

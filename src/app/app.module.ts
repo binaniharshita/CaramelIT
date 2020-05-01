@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 //components
@@ -53,6 +53,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 //routes
 import { routes } from './routes';
+import { StudentUserService } from './shared-user/student/student-user.service';
+import { InstructorUserService } from './shared-user/instructor/instructor-user.service';
+import { CorporateUserService } from './shared-user/corporate/corporate-user.service';
+import { UniversityUserService } from './shared-user/university/university-user.service';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -81,6 +89,7 @@ import { routes } from './routes';
     InstructorListComponent,
     OrganisationListComponent,
     ListCourseComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,9 +108,13 @@ import { routes } from './routes';
     MatButtonModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule,
+    MatDialogModule
   ],
-  providers: [CourseService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
