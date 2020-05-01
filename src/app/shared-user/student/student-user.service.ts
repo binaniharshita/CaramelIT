@@ -32,11 +32,11 @@ export class StudentUserService {
   }
   
   login(authCredentials) {
-    return this.http.post(environment.apiBaseUrl+'/profile-page', authCredentials,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
   }
 
   getStudentProfile() {
-    return this.http.get(environment.apiBaseUrl+'/profile-page');
+    return this.http.get(environment.apiBaseUrl+'/studentProfile');
   }
 
   //helper methods
@@ -66,7 +66,7 @@ export class StudentUserService {
   isLoggedIn() {
     var userPayload = this.getUserPayload();
     if(userPayload) {
-      return userPayload.exo > Date.now() / 1000;
+      return userPayload.exp > Date.now() / 1000;
     }
     else
       return false;
