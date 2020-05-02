@@ -61,6 +61,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AdminRegisterComponent } from './admin-register/admin-register.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     OrganisationListComponent,
     ListCourseComponent,
     ProfilePageComponent,
+    AdminRegisterComponent,
   ],
   imports: [
     BrowserModule,

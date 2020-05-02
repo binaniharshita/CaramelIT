@@ -12,10 +12,11 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { InstructorSigninComponent } from './instructor-signin/instructor-signin.component';
 import { InstructorRegisterComponent } from './instructor-register/instructor-register.component';
 import { ForgotPwComponent } from './forgot-pw/forgot-pw.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminRegisterComponent } from './admin-register/admin-register.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
 
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { InstructorListComponent } from './instructor-list/instructor-list.component';
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path:'university-signin' , component: UniversitySigninComponent },
   { path:'university-register' , component: UniversityRegisterComponent },
   { path:'admin-signin' , component: AdminSigninComponent },  
+  { path:'admin-register', component: AdminRegisterComponent },
   { path:'contactus' , component: ContactusComponent },
   { path:'forgot-password', component: ForgotPwComponent },
   { path:'admin-dashboard', component: AdminDashboardComponent },
