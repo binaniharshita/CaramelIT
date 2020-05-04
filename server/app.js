@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport'); 
+const cookieParser = require('cookie-parser');
+
 
 require('./config/config');
 
@@ -15,11 +17,10 @@ const connect = require('./dbconnect');
 
 const app = express();
 
-//Body Parser
+//Body Parser, Cors, Cookie parser
 app.use(bodyParser.json());
-
-//Cors
 app.use(cors());
+app.use(cookieParser());
 
 //Passport Middleware
 app.use(passport.initialize());

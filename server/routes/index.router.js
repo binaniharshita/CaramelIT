@@ -16,4 +16,10 @@ router.post('/university-register', ctrlUniversity.register);
 router.post('/student-authenticate', ctrlStudent.authenticate);
 router.get('/studentProfile',jwtHelper.verifyJwtToken, ctrlStudent.studentProfile);
 
+//Reset Student password
+router.post('/student-req-reset-password', ctrlStudent.ResetPassword);
+router.post('/student-new-password', ctrlStudent.NewPassword);
+router.post('/student-valid-password-token', ctrlStudent.ValidPasswordToken);
+
+
 module.exports = router;
