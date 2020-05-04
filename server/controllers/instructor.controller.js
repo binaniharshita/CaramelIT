@@ -47,7 +47,7 @@ module.exports.instructorProfile = (req, res, next) =>{
             if (!instructor)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, instructor : _.pick(instructor,['firstName','lastName','emailAddress']) });
+                return res.status(200).json({ status: true, instructor : _.pick(instructor,['firstName','emailAddress']) });
         }
     );
 }
