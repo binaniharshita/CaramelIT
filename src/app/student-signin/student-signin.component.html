@@ -9,14 +9,14 @@
             <h2 class="card-title text-center"><b>Sign In As Student</b></h2><br/><br/>
             <form #studSigninForm="ngForm" (ngSubmit)="studSigninForm.valid && onSubmit(studSigninForm)" novalidate class="form-signin" action="/lms/organisation/organisation_login" method="post"><input type="hidden" name="_csrf" value="103e62e0-c7c1-4e11-a230-7832940d144e"/>
               <div class="form-group">
-                <input #emailAddress="ngModel" [(ngModel)]="model.emailAddress" [pattern]="emailRegex" type="email" id="EmailAddress" class="form-control" placeholder="Email address" required autofocus name="email" value="">
+                <input #emailAddress="ngModel" [(ngModel)]="model.emailAddress" [pattern]="emailRegex" type="email" id="emailAddress" class="form-control" placeholder="Email address" required autofocus name="email" value="">
                 <div *ngIf="studSigninForm.submitted && emailAddress.errors?.pattern">
                   <label class="alert alert-info">Invalid email address.</label>
                 </div>
               </div>
 
               <div class="form-group">
-                <input #password="ngModel" [(ngModel)]="model.password" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <input #password="ngModel" [(ngModel)]="model.password" type="password" id="password" name="password" class="form-control" placeholder="Password" required>
               </div>
 
               <!-- <div class="custom-control custom-checkbox mb-3">

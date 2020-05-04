@@ -32,7 +32,7 @@ export class StudentUserService {
   }
   
   login(authCredentials) {
-    return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/authenticate', authCredentials,this.noAuthHeader);
   }
 
   getStudentProfile() {
