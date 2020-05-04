@@ -10,21 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-signin.component.css']
 })
 export class StudentSigninComponent implements OnInit {
-
-  serverErrorMessage: string;
-
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+  constructor(private studentUserService: StudentUserService, private router: Router) { }
+  
   model= {
     emailAddress: '',
     password: ''
-  }
-
-
-  constructor(private studentUserService: StudentUserService, private router: Router) { }
-
-  ngOnInit(): void {
-    
+  };
+ 
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessage: string;
+  
+  ngOnInit() {
+    if(this.studentUserService.isLoggedIn())
+    this.router.navigateByUrl('/profile-page');
   }
 
   onSubmit(studentSignin: NgForm) {
@@ -38,5 +36,4 @@ export class StudentSigninComponent implements OnInit {
       }
     )
   }
-
 }

@@ -3,6 +3,7 @@ export class InstructorUser {
     lastName: string;
     emailAddress: string;
     mobileNumber: number;
+    password: string;
     subjects: string;
     workingHours: string;
     experience: string;

@@ -45,6 +45,7 @@ export class CorporateRegisterComponent implements OnInit {
       corporateName: '',
       emailAddress: '',
       mobileNumber: 0,
+      password: '',
       others: ''
     };
     corporateForm.resetForm();

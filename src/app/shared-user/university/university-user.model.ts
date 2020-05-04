@@ -3,6 +3,7 @@ export class UniversityUser {
     universityName: string;
     emailAddress: string;
     mobileNumber: number;
+    password: string;
     country: string;
     state: string;
     skillset: string;

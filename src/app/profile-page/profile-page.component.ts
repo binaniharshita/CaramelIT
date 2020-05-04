@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { StudentUserService } from '../shared-user/student/student-user.service';
 import { Router } from "@angular/router";
+import { InstructorUserService } from '../shared-user/instructor/instructor-user.service';
+import { CorporateUserService } from '../shared-user/corporate/corporate-user.service';
+import { UniversityUserService } from '../shared-user/university/university-user.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -13,15 +16,27 @@ import { Router } from "@angular/router";
       </tr>
   </thead>
   <tbody>
-      <tr>
+      <tr *ngIf=userDetails.firstName>
           <td>First Name</td>
           <td>{{userDetails.firstName}}</td>
       </tr>
-      <tr>
+      <tr *ngIf=userDetails.lastName>
           <td>Last Name</td>
           <td>{{userDetails.lastName}}</td>
       </tr>
-      <tr>
+      <tr *ngIf=userDetails.lastName.corporateName>
+          <td>Last Name</td>
+          <td>{{userDetails.corporateName}}</td>
+      </tr>
+      <tr *ngIf=userDetails.collegeName>
+          <td>Last Name</td>
+          <td>{{userDetails.collegeName}}</td>
+      </tr>
+      <tr *ngIf=userDetails.universityName>
+          <td>Last Name</td>
+          <td>{{userDetails.universityName}}</td>
+      </tr>
+      <tr *ngIf=userDetails.emailAddress>
           <td>Email</td>
           <td>{{userDetails.emailAddress}}</td>
       </tr>
@@ -141,7 +156,11 @@ import { Router } from "@angular/router";
 export class ProfilePageComponent implements OnInit {
   userDetails;
 
-  constructor(private studentUserService: StudentUserService, private router: Router) { }
+  constructor(private studentUserService: StudentUserService,
+              private instructorUserService: InstructorUserService, 
+              private corporateUserService: CorporateUserService,
+              private universityUserService: UniversityUserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.studentUserService.getStudentProfile().subscribe(
@@ -151,6 +170,33 @@ export class ProfilePageComponent implements OnInit {
       err => { 
         console.log(err);
         
+      }
+    );
+
+    this.instructorUserService.getInstructorProfile().subscribe(
+      res => {
+        this.userDetails = res['instructor'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    this.corporateUserService.getCorporateProfile().subscribe(
+      res => {
+        this.userDetails = res['corporate'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    this.universityUserService.getUniversityProfile().subscribe(
+      res => {
+        this.userDetails = res['university'];
+      },
+      err => {
+        console.log(err);
       }
     );
   }
