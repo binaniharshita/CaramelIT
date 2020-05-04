@@ -7,7 +7,7 @@ const Corporate = mongoose.model('Corporate');
 
 module.exports.register = (req, res, next) => {
     var corporate = new Corporate();
-    corporate.corporateName = req.body.organisationName;
+    corporate.corporateName = req.body.corporateName;
     corporate.emailAddress = req.body.emailAddress;
     corporate.password = req.body.password;
     corporate.mobileNumber = req.body.mobileNumber;

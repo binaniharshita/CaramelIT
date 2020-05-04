@@ -46,7 +46,7 @@ module.exports.universityProfile = (req, res, next) =>{
             if (!university)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, university : _.pick(university,['collegeName','emailAddress']) });
+                return res.status(200).json({ status: true, university : _.pick(university,['collegeName','universityName','emailAddress']) });
         }
     );
 }
