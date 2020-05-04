@@ -36,7 +36,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
-    passport.authenticate('local', (err, student, info) => {
+    passport.authenticate('studentLocal', (err, student, info) => {
         // error from passport middleware
         if (err) return res.status(404).json(err);
         // registered student

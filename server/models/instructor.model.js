@@ -15,6 +15,10 @@ const instructorSchema = new mongoose.Schema({
         required : true,
         unique: true
     },
+    password: {
+        type: String,
+        required : true
+    },
     mobileNumber: {
         type: Number
     },
@@ -42,7 +46,30 @@ instructorSchema.path('emailAddress').validate((val) => {
     return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
+// Events
+instructorSchema.pre('save', function (next) {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(this.password, salt, (err, hash) => {
+            this.password = hash;
+            this.saltSecret = salt;
+            next();
+        });
+    });
+});
 
+
+//Methods
+instructorSchema.methods.verifyPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+};
+
+instructorSchema.methods.generateJwt = function () {
+    return jwt.sign({ _id: this._id},
+        process.env.JWT_SECRET,
+    {
+        expiresIn: process.env.JWT_EXP
+    });
+}
 const Instructor = mongoose.model('Instructor', instructorSchema);
 
 module.exports = Instructor;

@@ -4,14 +4,10 @@ const cors = require('cors');
 const passport = require('passport'); 
 const cookieParser = require('cookie-parser');
 
-
 require('./config/config');
-
 const studRoutes = require('./routes/index.router');
-
 //Passport
 require('./config/passport');
-
 //Mongo Connect 
 const connect = require('./dbconnect');
 
