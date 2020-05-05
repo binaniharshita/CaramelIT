@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const universitySchema = new mongoose.Schema({
+    user_type: {
+        type: String //only for checking something
+    },
     collegeName: {
         type: String,
         required : true

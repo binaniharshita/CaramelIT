@@ -10,6 +10,7 @@ import { UniversityUser } from './university-user.model';
 export class UniversityUserService {
 
   selectedUniversityUser: UniversityUser = {
+    user_type: 'University',
     collegeName: '',
     universityName: '',
     emailAddress: '',
@@ -28,7 +29,7 @@ export class UniversityUserService {
   //http methods
 
   postUniversityUser(universityUser: UniversityUser){
-    return this.http.post(environment.apiBaseUrl+'/university-register', universityUser);
+    return this.http.post(environment.apiBaseUrl+'/university-register', universityUser,this.noAuthHeader);
   }
   
   login(authCredentials) {

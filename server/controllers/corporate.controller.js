@@ -7,6 +7,7 @@ const Corporate = mongoose.model('Corporate');
 
 module.exports.register = (req, res, next) => {
     var corporate = new Corporate();
+    corporate.user_type = req.body.user_type; //only for checking something
     corporate.corporateName = req.body.corporateName;
     corporate.emailAddress = req.body.emailAddress;
     corporate.password = req.body.password;
@@ -43,7 +44,7 @@ module.exports.corporateProfile = (req, res, next) =>{
             if (!corporate)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, corporate : _.pick(corporate,['corporateName','emailAddress']) });
+                return res.status(200).json({ status: true, corporate : _.pick(corporate,['user_type','corporateName','emailAddress']) });
         }
     );
 }

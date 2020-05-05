@@ -16,6 +16,10 @@ import { UniversityUserService } from '../shared-user/university/university-user
       </tr>
   </thead>
   <tbody>
+      <tr *ngIf=userDetails.user_type>
+          <td>User Type</td>
+          <td>{{userDetails.user_type}}</td>
+      </tr>
       <tr *ngIf=userDetails.firstName>
           <td>First Name</td>
           <td>{{userDetails.firstName}}</td>
@@ -24,16 +28,16 @@ import { UniversityUserService } from '../shared-user/university/university-user
           <td>Last Name</td>
           <td>{{userDetails.lastName}}</td>
       </tr>
-      <tr *ngIf=userDetails.lastName.corporateName>
-          <td>Last Name</td>
+      <tr *ngIf=userDetails.corporateName>
+          <td>Corporate Name</td>
           <td>{{userDetails.corporateName}}</td>
       </tr>
       <tr *ngIf=userDetails.collegeName>
-          <td>Last Name</td>
+          <td>College Name</td>
           <td>{{userDetails.collegeName}}</td>
       </tr>
       <tr *ngIf=userDetails.universityName>
-          <td>Last Name</td>
+          <td>University Name</td>
           <td>{{userDetails.universityName}}</td>
       </tr>
       <tr *ngIf=userDetails.emailAddress>

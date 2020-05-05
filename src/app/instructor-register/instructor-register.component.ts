@@ -39,6 +39,7 @@ export class InstructorRegisterComponent implements OnInit {
 
   resetForm(instructorForm: NgForm){
     this.instructorUserService.selectedInstructorUser = {
+      user_type: 'Instructor',
       firstName: '',
       lastName: '',
       emailAddress: '',

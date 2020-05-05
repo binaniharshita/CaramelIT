@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 export class StudentUserService {
 
   selectedStudentUser: StudentUser = {
+    user_type: 'Student',
     firstName: '',
     lastName: '',
     emailAddress: '',

@@ -1,4 +1,5 @@
 export class UniversityUser {
+    user_type: string;
     collegeName: string;
     universityName: string;
     emailAddress: string;

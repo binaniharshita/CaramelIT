@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": ""
   },
   "author": "Shrist",
@@ -24,6 +24,5 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
-  "description": "Back End For Login and Registration",
-  "devDependencies": {}
+  "description": "Back End For Login and Registration"
 }

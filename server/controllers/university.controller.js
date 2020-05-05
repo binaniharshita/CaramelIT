@@ -7,6 +7,7 @@ const University = mongoose.model('University');
 
 module.exports.register = (req, res, next) => {
     var university = new University();
+    university.user_type = req.body.user_type; //only for checking something
     university.collegeName = req.body.collegeName;
     university.universityName = req.body.universityName;
     university.emailAddress = req.body.emailAddress;
@@ -46,7 +47,7 @@ module.exports.universityProfile = (req, res, next) =>{
             if (!university)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, university : _.pick(university,['collegeName','universityName','emailAddress']) });
+                return res.status(200).json({ status: true, university : _.pick(university,['user_type','collegeName','universityName','emailAddress']) });
         }
     );
 }

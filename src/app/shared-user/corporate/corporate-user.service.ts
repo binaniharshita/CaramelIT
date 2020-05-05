@@ -10,6 +10,7 @@ import { CorporateUser } from './corporate-user.model';
 export class CorporateUserService {
 
   selectedCorporateUser: CorporateUser = {
+    user_type: 'Corporate', 
     corporateName: '',
     emailAddress: '',
     mobileNumber: 0,

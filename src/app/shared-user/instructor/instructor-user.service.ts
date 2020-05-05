@@ -10,6 +10,7 @@ import { InstructorUser } from './instructor-user.model';
 export class InstructorUserService {
 
   selectedInstructorUser: InstructorUser = {
+    user_type: 'Instructor',
     firstName: '',
     lastName: '',
     emailAddress: '',

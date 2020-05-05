@@ -10,6 +10,7 @@ const Student = mongoose.model('Student');
 
 module.exports.register = (req, res, next) => {
     var student = new Student();
+    student.user_type = req.body.user_type; //only for checking something
     student.firstName = req.body.firstName;
     student.lastName = req.body.lastName;
     student.emailAddress = req.body.emailAddress;
@@ -52,7 +53,7 @@ module.exports.studentProfile = (req, res, next) =>{
             if (!student)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, student : _.pick(student,['firstName','emailAddress','lastName']) });
+                return res.status(200).json({ status: true, student : _.pick(student,['user_type','firstName','lastName','emailAddress']) });
         }
     );
 }

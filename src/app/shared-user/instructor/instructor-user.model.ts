@@ -1,4 +1,5 @@
 export class InstructorUser {
+    user_type: string;
     firstName: string;
     lastName: string;
     emailAddress: string;

@@ -42,6 +42,7 @@ export class CorporateRegisterComponent implements OnInit {
 
   resetForm(corporateForm: NgForm){
     this.corporateUserService.selectedCorporateUser = {
+      user_type: 'Corporate',
       corporateName: '',
       emailAddress: '',
       mobileNumber: 0,

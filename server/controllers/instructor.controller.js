@@ -7,6 +7,7 @@ const Instructor = mongoose.model('Instructor');
 
 module.exports.register = (req, res, next) => {
     var instructor = new Instructor();
+    instructor.user_type = req.body.user_type; //only for checking something
     instructor.firstName = req.body.firstName;
     instructor.lastName = req.body.lastName;
     instructor.emailAddress = req.body.emailAddress;
@@ -47,7 +48,7 @@ module.exports.instructorProfile = (req, res, next) =>{
             if (!instructor)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, instructor : _.pick(instructor,['firstName','lastName','emailAddress']) });
+                return res.status(200).json({ status: true, instructor : _.pick(instructor,['user_type','firstName','lastName','emailAddress']) });
         }
     );
 }
