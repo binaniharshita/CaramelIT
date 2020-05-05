@@ -62,6 +62,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
+import { AdminService } from './shared-user/admin/admin.service';
+import { ResponseResetComponent } from './response-reset/response-reset.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,7 @@ import { AdminRegisterComponent } from './admin-register/admin-register.componen
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
+    ResponseResetComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,7 @@ import { AdminRegisterComponent } from './admin-register/admin-register.componen
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
+  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

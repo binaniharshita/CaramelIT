@@ -24,9 +24,9 @@ import { OrganisationListComponent } from './organisation-list/organisation-list
 import { ListCourseComponent } from './list-course/list-course.component';
 
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-
-
 import { AuthGuard } from './auth/auth.guard';
+import { ResponseResetComponent } from './response-reset/response-reset.component';
+
 
 
 export const routes: Routes = [
@@ -49,6 +49,7 @@ export const routes: Routes = [
   { path:'instructor_list', component: InstructorListComponent },
   { path:'organisation_list', component: OrganisationListComponent },
   { path:'list_course', component: ListCourseComponent },
-  { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]}
+  { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
+  { path:'response-reset', component: ResponseResetComponent }
 ];
 

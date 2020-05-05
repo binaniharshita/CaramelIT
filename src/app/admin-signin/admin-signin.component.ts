@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AdminService } from '../shared-user/admin/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-signin',
@@ -8,15 +10,31 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./admin-signin.component.css']
 })
 export class AdminSigninComponent implements OnInit {
-  admin_signin: FormGroup;
+  constructor(private admin: AdminService, private router: Router) { }
+  
+  model= {
+    emailAddress: '',
+    password: ''
+  };
+ 
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessage: string;
+  
+  ngOnInit() {
+    if(this.admin.isLoggedIn())
+    this.router.navigateByUrl('/profile-page');
+  }
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.admin_signin = this.fb.group({
-      'emailAddress': ['',[Validators.required,Validators.pattern('[a-z0-9.@]*')]],
-      'password': ['',Validators.required]
-    });
+  onSubmit(adminSignin: NgForm) {
+    this.admin.login(adminSignin.value).subscribe(
+      res => {
+        this.admin.setToken(res['token']);
+        this.router.navigateByUrl('/admin-dashboard');
+      },
+      err => {
+        this.serverErrorMessage = err.error.message;
+      }
+    )
   }
 
 }

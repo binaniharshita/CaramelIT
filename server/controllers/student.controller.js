@@ -5,12 +5,11 @@ const _ = require('lodash');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
-const passwordResetToken = require('../models/student-reset-token.model');
+const studentpasswordResetToken = require('../models/Reset Tokens/student-reset-token.model');
 const Student = mongoose.model('Student');
 
 module.exports.register = (req, res, next) => {
     var student = new Student();
-    student.user_type = req.body.user_type; //only for checking something
     student.firstName = req.body.firstName;
     student.lastName = req.body.lastName;
     student.emailAddress = req.body.emailAddress;
@@ -53,7 +52,7 @@ module.exports.studentProfile = (req, res, next) =>{
             if (!student)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, student : _.pick(student,['user_type','firstName','lastName','emailAddress']) });
+                return res.status(200).json({ status: true, student : _.pick(student,['firstName','lastName','emailAddress']) });
         }
     );
 }
@@ -66,17 +65,17 @@ module.exports.ResetPassword = async(req, res)=> {
     .json({ message: 'Email is required' });
     }
     const student = await Student.findOne({
-    emailAddress:req.body.emailAddress
+    emailAddress: req.body.emailAddress
     });
     if (!student) {
     return res
     .status(409)
     .json({ message: 'Email does not exist' });
     }
-    var resettoken = new passwordResetToken({ _studentId: student._id, resettoken: crypto.randomBytes(16).toString('hex') });
+    var resettoken = new studentpasswordResetToken({ _studentId: student._id, resettoken: crypto.randomBytes(16).toString('hex') });
     resettoken.save(function (err) {
     if (err) { return res.status(500).send({ msg: err.message }); }
-    passwordResetToken.find({ _studentId: student._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
+    studentpasswordResetToken.find({ _studentId: student._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
     res.status(200).json({ message: 'Reset Password successfully.' });
     var transporter = nodemailer.createTransport({
       service: 'Gmail',
@@ -96,6 +95,7 @@ module.exports.ResetPassword = async(req, res)=> {
     'If you did not request this, please ignore this email and your password will remain unchanged.\n'
     }
     transporter.sendMail(mailOptions, (err, info) => {
+      console.log("Mail Sent");
     })
     })
     }
@@ -106,7 +106,7 @@ module.exports.ResetPassword = async(req, res)=> {
         .status(500)
         .json({ message: 'Token is required' });
         }
-        const student = await passwordResetToken.findOne({
+        const student = await studentpasswordResetToken.findOne({
         resettoken: req.body.resettoken
         });
         if (!student) {
@@ -122,7 +122,7 @@ module.exports.ResetPassword = async(req, res)=> {
     }
 
     module.exports.NewPassword = async(req, res) => {
-            passwordResetToken.findOne({ resettoken: req.body.resettoken }, function (err, studentToken, next) {
+            studentpasswordResetToken.findOne({ resettoken: req.body.resettoken }, function (err, studentToken, next) {
               if (!studentToken) {
                 return res
                   .status(409)
@@ -161,4 +161,4 @@ module.exports.ResetPassword = async(req, res)=> {
               });
         
             })
-        }
+          }
