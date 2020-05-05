@@ -81,11 +81,12 @@
           <h3><a routerLink="/corporate-signin" routerLinkActive="active" style="color:#111;">Already Registered? Please Login</a></h3><br><br>
         </form>
         </div>
+        <div class="col-md-3"></div>
          <!-- Success message -->
       <div class="alert success alert-info" *ngIf="showSuccessMessage">
         Saved successfully
       </div>
-      <div class="col-md-3"></div>
+      
       <!-- Error message -->
       <div class="alert alert-info" *ngIf="serverErrorMessage">
         {{serverErrorMessage}}

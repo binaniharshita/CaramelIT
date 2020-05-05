@@ -5,11 +5,14 @@ const studentLocalStrategy = require('passport-local').Strategy;
 const instructorLocalStrategy = require('passport-local').Strategy;
 const corporateLocalStrategy = require('passport-local').Strategy;
 const universityLocalStrategy = require('passport-local').Strategy;
+const adminLocalStrategy = require('passport-local').Strategy;
 
 var Student = mongoose.model('Student');
 var Instructor = mongoose.model('Instructor');
 var Corporate = mongoose.model('Corporate');
 var University = mongoose.model('University');
+var Admin = mongoose.model('Admin');
+
 //Student passport
 passport.use('studentLocal',
     new studentLocalStrategy({ usernameField: 'emailAddress' },
@@ -87,6 +90,26 @@ passport.use('universityLocal',
                     // authentication succeeded
                     else
                         return done(null, university);
+                });
+        })
+);
+//Admin passport
+passport.use('adminLocal',
+    new adminLocalStrategy({ usernameField: 'emailAddress' },
+        (username, password, done) => {
+            Admin.findOne({ emailAddress: username },
+                (err, admin) => {
+                    if (err)
+                        return done(err);
+                    // unknown student
+                    else if (!admin)
+                        return done(null, false, { message: 'Email is not registered' });
+                    // wrong password
+                    else if (!admin.verifyPassword(password))
+                        return done(null, false, { message: 'Wrong password.' });
+                    // authentication succeeded
+                    else
+                        return done(null, admin);
                 });
         })
 );
