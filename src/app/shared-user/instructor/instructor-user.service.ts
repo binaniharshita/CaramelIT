@@ -28,7 +28,7 @@ export class InstructorUserService {
   //http methods
 
   postInstructorUser(instructorUser: InstructorUser){
-    return this.http.post(environment.apiBaseUrl+'/instructor-register', instructorUser);
+    return this.http.post(environment.apiBaseUrl+'/instructor-register', instructorUser,this.noAuthHeader);
   }
   
   login(authCredentials) {
