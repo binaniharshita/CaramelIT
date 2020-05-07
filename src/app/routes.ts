@@ -50,6 +50,6 @@ export const routes: Routes = [
   { path:'organisation_list', component: OrganisationListComponent },
   { path:'list_course', component: ListCourseComponent },
   { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
-  { path:'response-reset', component: ResponseResetComponent }
+  { path:'response-reset-password/:token', component: ResponseResetComponent }
 ];
 

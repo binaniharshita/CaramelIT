@@ -15,7 +15,7 @@ export class ForgotPwComponent implements OnInit {
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
-  isValidForm: boolean = true;
+  isValidForm = true;
 
   constructor(private fb: FormBuilder,private authService: AuthService, private router: Router,) { }
 
@@ -26,7 +26,7 @@ export class ForgotPwComponent implements OnInit {
   }
 
   RequestResetUser(form) {
-    console.log(form)
+    console.log(form);
     if (form.valid) {
       this.isValidForm = true;
       this.authService.requestReset(this.forgot_pw.value).subscribe(
@@ -35,7 +35,7 @@ export class ForgotPwComponent implements OnInit {
           this.successMessage = "Reset password link send to email sucessfully.";
           setTimeout(() => {
             this.successMessage = null;
-            this.router.navigate(['sign-in']);
+            this.router.navigate(['']);
           }, 3000);
         },
         err => {

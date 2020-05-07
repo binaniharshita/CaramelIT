@@ -95,7 +95,7 @@ module.exports.ResetPassword = async(req, res)=> {
     'If you did not request this, please ignore this email and your password will remain unchanged.\n'
     }
     transporter.sendMail(mailOptions, (err, info) => {
-      console.log("Mail Sent");
+      console.log("Token "+resettoken.resettoken);
     })
     })
     }
