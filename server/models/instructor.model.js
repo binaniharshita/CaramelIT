@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const instructorSchema = new mongoose.Schema({
-    user_type: {
-        type: String //only for checking something
-    },
     firstName: {
         type: String,
         required : true

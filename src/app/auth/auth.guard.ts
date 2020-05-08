@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 
+
 export class AuthGuard implements CanActivate {
 
   constructor(private studentUserService: StudentUserService, 
@@ -38,5 +39,4 @@ export class AuthGuard implements CanActivate {
       }
     return true;
   }
-  
 }
