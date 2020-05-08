@@ -35,23 +35,18 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { InstructorListComponent } from './instructor-list/instructor-list.component';
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
-import { ListCourseComponent } from './list-course/list-course.component';
+// import { ListtCourseComponent } from './list-course/list-course.component';
 
 
-//materials
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+// materials
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
-//routes
+
+// routes
 import { routes } from './routes';
 import { StudentUserService } from './shared-user/student/student-user.service';
 import { InstructorUserService } from './shared-user/instructor/instructor-user.service';
@@ -62,6 +57,16 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
+import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
+import { CreateCategoryComponent } from './admin-dashboard/manage-category/create-category/create-category.component';
+import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
+import { CategoryService } from './admin-dashboard/manage-category/category.service';
+import { ManageSubcategoryComponent } from './admin-dashboard/manage-subcategory/manage-subcategory.component';
+import { CreateSubcategoryComponent } from './admin-dashboard/manage-subcategory/create-subcategory/create-subcategory.component';
+import { ListSubcategoryComponent } from './admin-dashboard/manage-subcategory/list-subcategory/list-subcategory.component';
+import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
+import { CreateCourseComponent } from './admin-dashboard/manage-course/create-course/create-course.component';
+import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course/list-course.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +97,14 @@ import { AdminRegisterComponent } from './admin-register/admin-register.componen
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
+    ManageCategoryComponent,
+    CreateCategoryComponent,
+    ListCategoryComponent,
+    ManageSubcategoryComponent,
+    CreateSubcategoryComponent,
+    ListSubcategoryComponent,
+    ManageCourseComponent,
+    CreateCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,20 +116,14 @@ import { AdminRegisterComponent } from './admin-register/admin-register.componen
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    MatToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
+  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

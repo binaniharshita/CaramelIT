@@ -1,0 +1,23 @@
+mat-form-field,
+textarea {
+    width: 100%;
+}
+
+.contentForm {
+    margin-top: 1rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+li {
+    list-style: none;
+}
+
+.info-text {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    size: 2rem;
+}

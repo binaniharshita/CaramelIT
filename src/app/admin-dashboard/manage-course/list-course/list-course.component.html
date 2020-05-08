@@ -1,0 +1,17 @@
+<main>
+
+    <mat-accordion *ngIf="courses.length > 0">
+        <mat-expansion-panel *ngFor="let course of courses">
+            <mat-expansion-panel-header>
+                {{course.title}}
+            </mat-expansion-panel-header>
+            {{course.description}}<br> No. of Modules : {{course.noOfModule}}<br> Sub Category : {{course.subCatId}}
+            <mat-action-row>
+                <button mat-button color="primary">Edit</button>
+                <button mat-button color="warn" (click)="onDeleteCourse(course.id)">Delete</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <p *ngIf="courses.length < 1" class="mat-body-1 info-text">No Courses Added</p>
+</main>

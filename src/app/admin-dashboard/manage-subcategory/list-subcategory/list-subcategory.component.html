@@ -1,0 +1,13 @@
+<mat-accordion *ngIf="subCategories.length > 0">
+    <mat-expansion-panel *ngFor="let subCategory of subCategories">
+        <mat-expansion-panel-header>
+            {{subCategory.title}}
+        </mat-expansion-panel-header>
+        {{subCategory.description}}<br> No. of Courses : {{subCategory.noOfCourses}}<br> Category: {{subCategory.catId}}
+        <mat-action-row>
+            <button mat-button color="primary">Edit</button>
+            <button mat-button color="warn" (click)="onDeleteSubCategory(subCategory.id)">Delete</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="subCategories.length < 1" class="mat-body-1 info-text">No Categories Added</p>

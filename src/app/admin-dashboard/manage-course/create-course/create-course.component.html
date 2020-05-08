@@ -1,0 +1,41 @@
+<div class="contentForm">
+    <form (submit)="onAddCourse(courseForm)" #courseForm="ngForm">
+        <mat-card>
+            <mat-form-field>
+                <input matInput type="text" ngModel name="title" #title="ngModel" required placeholder="Title">
+                <mat-error *ngIf="title.invalid">Please enter Course title</mat-error>
+            </mat-form-field>
+            <hr>
+            <mat-form-field>
+                <textarea matInput row="6" ngModel name="description" placeholder="Description" #description="ngModel" required></textarea>
+                <mat-error *ngIf="description.invalid">Please enter Course Description</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" ngModel name="noOfModule" #noOfModule="ngModel" required placeholder="No of Modules">
+                <mat-error *ngIf="noOfModule.invalid">Please mention no of module </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select Category</mat-label>
+                <mat-select ngModel #selectCategory (selectionChange)="fetchSubCat(selectCategory.value)">
+                    <mat-option *ngFor="let category of categories" name="catId" ngModel [value]="category.id">
+                        {{category.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+
+                <mat-label>Select SubCategory</mat-label>
+
+                <mat-select ngModel name="subcatId">
+                    <mat-option *ngFor="let subcategory of updatedSubCategory" name="subcatId" ngModel [value]="subcategory.id">
+                        {{subcategory.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Save Category</button>
+        </mat-card>
+    </form>
+</div>

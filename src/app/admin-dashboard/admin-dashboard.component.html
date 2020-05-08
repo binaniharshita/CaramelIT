@@ -2,13 +2,13 @@
 <mat-toolbar>
     <!--medium to large screen-->
     <mat-toolbar-row fxShow="true" fxHide.lt-sm="true">
-        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/>
+        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
         <h1 class="h1-decor" fxFlex="80%" fxLayoutAlign="center" style="font-size: 30px;">Admin Dashboard</h1>
         <button fxFlex="20%" class="logout_button">logout</button><br/>
     </mat-toolbar-row>
     <!--mobile screen-->
     <mat-toolbar-row fxShow="true" fxHide.gt-xs="true">
-        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/>
+        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
         <span fxFlex="30%"></span>
         <button class="logout_button">logout</button>
     </mat-toolbar-row>
@@ -16,42 +16,42 @@
 
 <!--mobile screen header and hr-->
 <h1 class="h1-decor" fxLayoutAlign="center" fxShow="true" fxHide.gt-xs="true">Admin Dashboard</h1>
-<hr fxLayoutAlign="center" fxShow="true" fxHide.gt-xs="true" class="divider"/>
+<hr fxLayoutAlign="center" fxShow="true" fxHide.gt-xs="true" class="divider" />
 
 <!--medium to large screen hr-->
-<hr fxLayoutAlign="center" fxShow="true" fxHide.lt-sm="true" class="divider"/>
+<hr fxLayoutAlign="center" fxShow="true" fxHide.lt-sm="true" class="divider" />
 
 <!--homepage options-->
 <table width="100%" cell-spacing="50">
     <tr>
         <td>
-            <button class="button_info">
-            <a href="#">
+            <button mat-raised-button routerLink="manage-category" class="button_info">
+            <!-- <a href="#"> -->
                 <img src="../assets/category.svg" class="icon" alt="logo"/>
-            </a>
+            <!-- </a> -->
             Manage Category(Program)
             </button>
         </td>
         <td>
-            <button class="button_info">
-                <a href="#">
+            <button mat-raised-button routerLink="manage-subcategory" class="button_info">
+                <!-- <a href="#"> -->
                     <img src="../assets/student.svg" class="icon" alt="logo"/>
-                </a>
+                <!-- </a> -->
                 Manage Student Enrollment
             </button>
         </td>
     </tr>
     <tr>
         <td>
-            <button class="button_info">
-                <a href="#">
+            <button mat-raised-button routerLink="manage-subcategory" class="button_info">
+                <!-- <a href="#"> -->
                     <img src="../assets/category.svg" class="icon" alt="logo"/>
-                </a>
+                <!-- </a> -->
                 Manage Sub-Category(Sub-Program)
             </button>
         </td>
         <td>
-            <button class="button_info">
+            <button mat-raised-button routerLink="manage-subcategory" class="button_info">
                 <a href="#">
                     <img src="../assets/instructor.svg" class="icon" alt="logo"/>
                 </a>
@@ -61,7 +61,7 @@
     </tr>
     <tr>
         <td>
-            <button class="button_info">
+            <button mat-raised-button routerLink="manage-course" class="button_info">
                 <a href="#">
                     <img src="../assets/courses.svg" class="icon" alt="logo"/>
                 </a>
