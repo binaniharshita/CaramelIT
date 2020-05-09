@@ -1,0 +1,13 @@
+<h2>Recommendation System</h2>
+<table id="recommendations">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let recommendation of recommendations">
+      <td *ngFor="let col of index">
+        {{recommendation[col]}}
+      </td>
+    </tr>
+  </table>
