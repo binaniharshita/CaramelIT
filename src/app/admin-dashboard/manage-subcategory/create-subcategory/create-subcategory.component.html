@@ -1,4 +1,4 @@
-<div class="contentForm" *ngIf="categories.length > 0">
+<div class="contentForm" >
     <form (submit)="onAddSubCategory(subCategoryForm)" #subCategoryForm="ngForm">
         <mat-card>
             <mat-form-field>
@@ -24,4 +24,4 @@
         </mat-card>
     </form>
 </div>
-<p class="mat-body-1 info-text" *ngIf="categories.length <= 0"> No Category available. Please Add category first </p>
+<p class="mat-body-1 info-text"  > No Category available. Please Add category first </p>

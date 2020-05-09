@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubCategory } from './subcategory.model'
 
 @Component({
   selector: 'app-manage-subcategory',
