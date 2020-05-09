@@ -57,7 +57,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
-<<<<<<< HEAD
+
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { CreateCategoryComponent } from './admin-dashboard/manage-category/create-category/create-category.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -68,10 +68,10 @@ import { ListSubcategoryComponent } from './admin-dashboard/manage-subcategory/l
 import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
 import { CreateCourseComponent } from './admin-dashboard/manage-course/create-course/create-course.component';
 import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course/list-course.component';
-=======
+
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
 
 @NgModule({
   declarations: [
@@ -102,7 +102,7 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
-<<<<<<< HEAD
+
     ManageCategoryComponent,
     CreateCategoryComponent,
     ListCategoryComponent,
@@ -111,9 +111,9 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     ListSubcategoryComponent,
     ManageCourseComponent,
     CreateCourseComponent,
-=======
+
     ResponseResetComponent,
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
   ],
   imports: [
     BrowserModule,
@@ -132,11 +132,9 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-<<<<<<< HEAD
-  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
-=======
-  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
+  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

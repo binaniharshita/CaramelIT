@@ -2,21 +2,17 @@
 <mat-toolbar>
     <!--medium to large screen-->
     <mat-toolbar-row fxShow="true" fxHide.lt-sm="true">
-<<<<<<< HEAD
-        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
-=======
+
         <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
         <h1 class="h1-decor" fxFlex="80%" fxLayoutAlign="center" style="font-size: 30px;">Admin Dashboard</h1>
         <button (click)="onLogout()" fxFlex="20%" class="logout_button">logout</button><br/>
     </mat-toolbar-row>
     <!--mobile screen-->
     <mat-toolbar-row fxShow="true" fxHide.gt-xs="true">
-<<<<<<< HEAD
-        <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
-=======
+
         <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
         <span fxFlex="30%"></span>
         <button (click)="onLogout()" class="logout_button">logout</button>
     </mat-toolbar-row>
@@ -41,7 +37,7 @@
             <!-- <a href="#"> -->
                 <img src="../assets/category.svg" class="icon" alt="logo"/>
             <!-- </a> -->
-            Manage Category(Program)
+            Manage Category/Subcategory(Program)
             </button>
         </td>
         <td>
@@ -54,14 +50,7 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <button mat-raised-button routerLink="manage-subcategory" class="button_info">
-                <!-- <a href="#"> -->
-                    <img src="../assets/category.svg" class="icon" alt="logo"/>
-                <!-- </a> -->
-                Manage Sub-Category(Sub-Program)
-            </button>
-        </td>
+
         <td>
             <button mat-raised-button routerLink="manage-subcategory" class="button_info">
                 <a href="#">
@@ -70,8 +59,6 @@
                 Manage Instructor Enrollment
             </button>
         </td>
-    </tr>
-    <tr>
         <td>
             <button mat-raised-button routerLink="manage-course" class="button_info">
                 <a href="#">
@@ -80,6 +67,9 @@
                 Manage Course
             </button>
         </td>
+    </tr>
+    <tr>
+
         <td>
             <button class="button_info">
                 <a href="#">
@@ -88,8 +78,6 @@
                 College(University) Administration
             </button>
         </td>
-    </tr>
-    <tr>
         <td>
             <button class="button_info">
                 <a href="#">
@@ -98,6 +86,8 @@
                 Reports and Dashboard
             </button>
         </td>
+    </tr>
+    <tr>
         <td>
             <button class="button_info">
                 <a href="#">
@@ -106,9 +96,6 @@
                 Corporate(Organisation) Administration
             </button>
         </td>
-    </tr>
-    <tr>
-        <td class="empty"></td>
         <td>
             <button class="button_info">
                 <a href="#">
@@ -119,7 +106,7 @@
         </td>
     </tr>
     <tr>
-        <td class="empty"></td>
+
         <td>
             <button class="button_info">
                 <a href="#">
@@ -128,5 +115,16 @@
                 Manage Recommendation System
             </button>
         </td>
+        <td>
+            <button class="button_info">
+                <a href="#">
+                    <img src="../assets/questionbank.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Templates
+            </button>
+        </td>
+    </tr>
+    <tr>
+
     </tr>
 </table>
