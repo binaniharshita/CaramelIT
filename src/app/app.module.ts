@@ -35,20 +35,20 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { InstructorListComponent } from './instructor-list/instructor-list.component';
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
-import { ListCourseComponent } from './list-course/list-course.component';
+import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
 
 //materials
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 //routes
@@ -62,16 +62,13 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
-<<<<<<< HEAD
 // HEAD
-=======
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
-import { RecommendationSystemComponent } from "./recommendation-system/recommendation-system.component";
-import { QuestionBankComponent } from "./question-bank/question-bank.component";
-import { ReportsComponent } from './reports/reports.component';
+import { RecommendationSystemComponent } from './recommendation-system/recommendation-system.component';
+import { QuestionBankComponent } from './question-bank/question-bank.component';
+// import { ReportsComponent } from './reports/reports.component';
 
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { CreateCategoryComponent } from './admin-dashboard/manage-category/create-category/create-category.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -81,16 +78,13 @@ import { CreateSubcategoryComponent } from './admin-dashboard/manage-subcategory
 import { ListSubcategoryComponent } from './admin-dashboard/manage-subcategory/list-subcategory/list-subcategory.component';
 import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
 import { CreateCourseComponent } from './admin-dashboard/manage-course/create-course/create-course.component';
-<<<<<<< HEAD
-import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
+// import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
-import { AdminService } from './shared-user/admin/admin.service';
-import { ResponseResetComponent } from './response-reset/response-reset.component';
+
+
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component';
 // cbd25a4911795786a57e531898e05a64dbf8bb9b
 
-=======
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,14 +114,11 @@ import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/ma
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
-<<<<<<< HEAD
-// <<<<<<< HEAD
-=======
+    // <<<<<<< HEAD
     ResponseResetComponent,
     RecommendationSystemComponent,
     QuestionBankComponent,
-    ReportsComponent,
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
+    // ReportsComponent,
     ManageCategoryComponent,
     CreateCategoryComponent,
     ListCategoryComponent,
@@ -136,14 +127,11 @@ import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/ma
     ListSubcategoryComponent,
     ManageCourseComponent,
     CreateCourseComponent,
-<<<<<<< HEAD
 
     ResponseResetComponent,
 
     MaganeCatSubcatComponent,
 
-=======
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
   ],
   imports: [
     BrowserModule,
@@ -168,11 +156,8 @@ import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/ma
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-<<<<<<< HEAD
-  }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
-=======
-  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
+    // tslint:disable-next-line: max-line-length
+  }, AdminService, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

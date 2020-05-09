@@ -20,18 +20,16 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { InstructorListComponent } from './instructor-list/instructor-list.component';
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
-import { ListCourseComponent } from './list-course/list-course.component';
+// import { ListCourseComponent } from './list-course/list-course.component';
+import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
-<<<<<<< HEAD
-=======
-import { ResponseResetComponent } from './response-reset/response-reset.component';
+// import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
 import { RecommendationSystemComponent } from './recommendation-system/recommendation-system.component';
-import { ReportsComponent } from './reports/reports.component';
+// import { ReportsComponent } from './reports/reports.component';
 
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { ManageSubcategoryComponent } from './admin-dashboard/manage-subcategory/manage-subcategory.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -41,7 +39,6 @@ import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-co
 import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component'
 
-<<<<<<< HEAD
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
@@ -68,7 +65,7 @@ export const routes: Routes = [
   { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
   { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
   { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent },
-  { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent},
+  { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
@@ -89,39 +86,34 @@ export const routes: Routes = [
   { path: 'organisation_list', component: OrganisationListComponent },
   { path: 'list_course', component: ListCourseComponent },
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
-  { path: 'response-reset-password/:token', component: ResponseResetComponent }
-
-=======
-
-export const routes: Routes = [
-  { path:'', pathMatch:'full' , component: HomepageComponent },
-  { path:'student-signin' , component: StudentSigninComponent },
-  { path:'student-register' , component: StudentRegisterComponent },
-  { path:'instructor-signin', component: InstructorSigninComponent},
-  { path:'instructor-register', component: InstructorRegisterComponent },
-  { path:'corporate-signin' , component: CorporateSigninComponent },
-  { path:'corporate-register' , component: CorporateRegisterComponent },
-  { path:'university-signin' , component: UniversitySigninComponent },
-  { path:'university-register' , component: UniversityRegisterComponent },
-  { path:'admin-signin' , component: AdminSigninComponent },
-  { path:'admin-register', component: AdminRegisterComponent },
-  { path:'contactus' , component: ContactusComponent },
-  { path:'forgot-password', component: ForgotPwComponent },
-  { path:'admin-dashboard', component: AdminDashboardComponent },
-  { path:'user_list', component: UserListComponent },
-  { path:'college_list', component: CollegeListComponent },
-  { path:'instructor_list', component: InstructorListComponent },
-  { path:'organisation_list', component: OrganisationListComponent },
-  { path:'list_course', component: ListCourseComponent },
-  { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
-  { path:'response-reset-password/:token', component: ResponseResetComponent },
-  { path: 'reports', component: ReportsComponent},
-  { path: 'question_bank', component:QuestionBankComponent},
-  { path: 'recommendation_system', component:RecommendationSystemComponent},
+  { path: 'response-reset-password/:token', component: ResponseResetComponent },
+  { path: '', pathMatch: 'full', component: HomepageComponent },
+  { path: 'student-signin', component: StudentSigninComponent },
+  { path: 'student-register', component: StudentRegisterComponent },
+  { path: 'instructor-signin', component: InstructorSigninComponent },
+  { path: 'instructor-register', component: InstructorRegisterComponent },
+  { path: 'corporate-signin', component: CorporateSigninComponent },
+  { path: 'corporate-register', component: CorporateRegisterComponent },
+  { path: 'university-signin', component: UniversitySigninComponent },
+  { path: 'university-register', component: UniversityRegisterComponent },
+  { path: 'admin-signin', component: AdminSigninComponent },
+  { path: 'admin-register', component: AdminRegisterComponent },
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'forgot-password', component: ForgotPwComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'user_list', component: UserListComponent },
+  { path: 'college_list', component: CollegeListComponent },
+  { path: 'instructor_list', component: InstructorListComponent },
+  { path: 'organisation_list', component: OrganisationListComponent },
+  { path: 'list_course', component: ListCourseComponent },
+  { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
+  { path: 'response-reset-password/:token', component: ResponseResetComponent },
+ // { path: 'reports', component: ReportsComponent },
+  { path: 'question_bank', component: QuestionBankComponent },
+  { path: 'recommendation_system', component: RecommendationSystemComponent },
   { path: 'admin-dashboard/manage-category', component: ManageCategoryComponent },
   { path: 'admin-dashboard/manage-category/list-category', component: ListCategoryComponent },
   { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
   { path: 'admin-dashboard/manage-category/list-subcategory', component: ListSubcategoryComponent },
   { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
 ];

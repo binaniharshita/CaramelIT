@@ -10,13 +10,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
-<<<<<<< HEAD
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-=======
-import { MatTabsModule } from '@angular/material/tabs';
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
+
 
 
 const material = [

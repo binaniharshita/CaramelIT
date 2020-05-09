@@ -1,117 +1,64 @@
-<<<<<<< HEAD
-<mat-horizontal-stepper [linear]='isLinear' #stepper>
-    <mat-step [stepControl]="firstForm">
-        <form [formControl]="firstForm">
-            <ng-template matStepLabel>Fill out your name</ng-template>
+<mat-horizontal-stepper>
+    <mat-step [stepControl]="courseDetailFormGroup">
+        <form [formGroup]="courseDetailFormGroup" (ngSubmit)="courseForm()" #courseM="ngForm">
+            <ng-template matStepLabel>Fill the course details</ng-template>
             <mat-form-field>
-                <mat-label>Course name:</mat-label>
-                <input matInput name="title" placeholder="Title" formControlName="title">
-                <!-- <mat-error *ngIf="firstForm.get('title').invalid">Please enter Course title</mat-error> -->
+                <input matInput placeholder="Course title" formControlName="title" required>
             </mat-form-field>
             <mat-form-field>
                 <textarea matInput row="6" name="description" placeholder="Description" formControlName="description"></textarea>
-                <!-- <mat-error *ngIf="firstForm.get('description').invalid">Please enter Course Description</mat-error> -->
             </mat-form-field>
             <mat-form-field>
                 <input matInput type="text" name="noOfModule" placeholder="No of Modules" formControlName="noOfModule">
-                <!-- <mat-error *ngIf="firstForm.get('noOfModule').invalid">Please mention no of module </mat-error> -->
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Select Category</mat-label>
-                <mat-select formControlName="selectCategory" #selectCategory (selectionChange)="fetchSubCat(selectCategory.value)" name="selectCategory">
+                <mat-select formControlName="selectCategory" #selectCat (selectionChange)="fetchSubCat(selectCat.value)" name="selectCategory">
                     <mat-option *ngFor="let category of categories" name="catId" [value]="category.id">
                         {{category.title}}
                     </mat-option>
                 </mat-select>
-                <!-- <mat-error *ngIf="firstForm.get('selectCategory').invalid">Please select category</mat-error> -->
             </mat-form-field>
             <mat-form-field>
-
                 <mat-label>Select SubCategory</mat-label>
-
-                <mat-select name="subcatId" #subcatId formControlName="subcatId">
+                <mat-select name="subcateId" #subcaetId formControlName="subcateogoryId">
                     <mat-option *ngFor="let subcategory  of updatedSubCategory" name="subcatId" [value]="subcategory.id">
                         {{subcategory.title}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <div>
 
+            <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
-
         </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+    <mat-step [stepControl]="moduleDetailFormGroup">
+        <form [formGroup]="moduleDetailFormGroup" (ngSubmit)="moduleForm()" #moduleM="ngForm">
+            <ng-template matStepLabel>Fill the course details</ng-template>
             <div>
-                <mat-label>Image for course</mat-label>
-                <br>
-                <button mat-stroked-button type="button" (click)="imagePicker.click()">Pick image</button>
-                <input type="file" #imagePicker hidden>
+                <mat-label>Upload Image for Course title</mat-label><br>
+                <button mat-raised-button (click)="imageButton.click()">Pick me</button>
+                <input type="file" hidden #imageButton>
             </div>
-            <mat-form-field>
-                <mat-label>Upload table of content</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="Browse" required>
-            </mat-form-field>
-            <br>
-            <a href='#'>(click here to download template)</a>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
+                <mat-label>Upload table of content</mat-label><br>
+                <button mat-raised-button (click)="fileButton.click()">Pick me</button>
+                <input type="file" hidden #fileButton>
+            </div>
+
+            <div>
                 <button mat-button matStepperNext>Next</button>
+                <button mat-button matStepperPrevious>Previous</button>
             </div>
         </form>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
+        <ng-template matStepLabel>Conformation</ng-template>
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-button matStepperReset>Reset</button>
+        <button mat-button type="button" (click)="courseM.ngSubmit.emit();moduleM.ngSubmit.emit()">
+          Submit
+        </button>
     </mat-step>
 </mat-horizontal-stepper>
-=======
-<div class="contentForm">
-    <form (submit)="onAddCourse(courseForm)" #courseForm="ngForm">
-        <mat-card>
-            <mat-form-field>
-                <input matInput type="text" ngModel name="title" #title="ngModel" required placeholder="Title">
-                <mat-error *ngIf="title.invalid">Please enter Course title</mat-error>
-            </mat-form-field>
-            <hr>
-            <mat-form-field>
-                <textarea matInput row="6" ngModel name="description" placeholder="Description" #description="ngModel" required></textarea>
-                <mat-error *ngIf="description.invalid">Please enter Course Description</mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="text" ngModel name="noOfModule" #noOfModule="ngModel" required placeholder="No of Modules">
-                <mat-error *ngIf="noOfModule.invalid">Please mention no of module </mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Select Category</mat-label>
-                <mat-select ngModel #selectCategory (selectionChange)="fetchSubCat(selectCategory.value)">
-                    <mat-option *ngFor="let category of categories" name="catId" ngModel [value]="category.id">
-                        {{category.title}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <mat-form-field>
-
-                <mat-label>Select SubCategory</mat-label>
-
-                <mat-select ngModel name="subcatId">
-                    <mat-option *ngFor="let subcategory of updatedSubCategory" name="subcatId" ngModel [value]="subcategory.id">
-                        {{subcategory.title}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit">Save Category</button>
-        </mat-card>
-    </form>
-</div>
->>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
