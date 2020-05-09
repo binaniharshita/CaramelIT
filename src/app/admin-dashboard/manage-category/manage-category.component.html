@@ -1,7 +1,20 @@
-<mat-toolbar color="primary">
-    ADD CATEGORY
-</mat-toolbar>
 <main>
-    <app-create-category></app-create-category>
-    <app-list-category></app-list-category>
+<mat-tab-group>
+    <mat-tab label="Manage Category (Program)" >
+        <main>
+            <app-create-category></app-create-category>
+            <button mat-raised-button routerLink="list-category" class="button_info1">
+                View Categories
+            </button>
+        </main>
+    </mat-tab>
+    <mat-tab label="Manange Subcategory (Sub-Program)">
+        <main>
+            <app-create-subcategory></app-create-subcategory>
+            <button mat-raised-button routerLink="list-subcategory" class="button_info1">
+                View Sub-Categories
+            </button>
+        </main>
+    </mat-tab>
+  </mat-tab-group>
 </main>

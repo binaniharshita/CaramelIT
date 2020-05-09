@@ -1,0 +1,14 @@
+<h2> Question Bank</h2>
+<table id="questions">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let question of questions">
+      <td *ngFor="let col of index">
+        {{question[col]}}
+      </td>
+    </tr>
+  </table>
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--header-->
 <mat-toolbar>
     <!--medium to large screen-->
@@ -126,3 +127,125 @@
         </td>
     </tr>
 </table>
+=======
+<!--header-->
+<mat-toolbar>
+    <!--medium to large screen-->
+    <mat-toolbar-row fxShow="true" fxHide.lt-sm="true">
+        <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
+        <h1 class="h1-decor" fxFlex="80%" fxLayoutAlign="center" style="font-size: 30px;">Admin Dashboard</h1>
+        <button (click)="onLogout()" fxFlex="20%" class="logout_button">logout</button><br/>
+    </mat-toolbar-row>
+    <!--mobile screen-->
+    <mat-toolbar-row fxShow="true" fxHide.gt-xs="true">
+        <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
+        <span fxFlex="30%"></span>
+        <button (click)="onLogout()" class="logout_button">logout</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!--mobile screen header and hr-->
+<h1 class="h1-decor" fxLayoutAlign="center" fxShow="true" fxHide.gt-xs="true">Admin Dashboard</h1>
+<hr fxLayoutAlign="center" fxShow="true" fxHide.gt-xs="true" class="divider"/>
+
+<!--medium to large screen hr-->
+<hr fxLayoutAlign="center" fxShow="true" fxHide.lt-sm="true" class="divider"/>
+
+<!--welcome message-->
+<h1 class="center">Welcome {{adminDetails.adminName}}</h1>
+
+
+<!--homepage options-->
+<table width="100%" cell-spacing="50">
+    <tr>
+        <td>
+            <button class="button_info" routerLink="manage-category" routerLinkActive="active">
+            <a href="#">
+                <img src="../assets/category.svg" class="icon" alt="logo"/>
+            </a>
+            Manage Structure
+            </button>
+        </td>
+        <td>
+            <button class="button_info" routerLink="/user_list">
+                <a>
+                    <img src="../assets/student.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Student Enrollment
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="button_info">
+                <a href="#">
+                    <img src="../assets/category.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Templates
+            </button>
+        </td>
+        <td>
+            <button class="button_info" routerLink="/instructor_list" routerLinkActive="active">
+                <a routerLink="/instructor_list" routerLinkActive="active" >
+                    <img src="../assets/instructor.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Instructor Enrollment
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button mat-raised-button routerLink="manage-course" class="button_info">
+                <a href="#">
+                    <img src="../assets/courses.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Course
+            </button>
+        </td>
+        <td>
+            <button class="button_info" routerLink="/college_list" routerLinkActive="active">
+                <a>
+                    <img src="../assets/college.svg" class="icon" alt="logo"/>
+                </a>
+                College(University) Administration
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="button_info" routerLink="/reports" routerLinkActive="active">
+                <a>
+                    <img src="../assets/dashboard.svg" class="icon" alt="logo"/>
+                </a>
+                Reports and Dashboard
+            </button>
+        </td>
+        <td>
+            <button class="button_info" routerLink="/organisation_list" routerLinkActive="active">
+                <a>
+                    <img src="../assets/corporate.svg" class="icon" alt="logo"/>
+                </a>
+                Corporate(Organisation) Administration
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="button_info" routerLink="/question_bank" routerLinkActive="active">
+                <a>
+                    <img src="../assets/questionbank.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Question Bank
+            </button>
+        </td>
+        <td>
+            <button class="button_info" routerLink="/recommendation_system" routerLinkActive="active">
+                <a>
+                    <img src="../assets/recommended.svg" class="icon" alt="logo"/>
+                </a>
+                Manage Recommendation System
+            </button>
+        </td>
+    </tr>
+</table>
+>>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90

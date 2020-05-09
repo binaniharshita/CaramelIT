@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :host {
     width: 70%;
 }
@@ -18,3 +19,21 @@ textarea {
 li {
     list-style: none;
 }
+=======
+mat-form-field,
+textarea {
+    width: 100%;
+}
+
+.contentForm {
+    margin-top: 1rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+li {
+    list-style: none;
+}
+>>>>>>> 73f0b3b62d05045f4ddd2bcd198ec57d9f390e90
