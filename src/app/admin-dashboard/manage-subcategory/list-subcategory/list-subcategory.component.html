@@ -1,4 +1,4 @@
-<mat-accordion *ngIf="subCategories.length > 0">
+<mat-accordion>
     <mat-expansion-panel *ngFor="let subCategory of subCategories">
         <mat-expansion-panel-header>
             {{subCategory.title}}
@@ -12,4 +12,4 @@
 </mat-accordion>
 <p *ngIf="subCategories.length < 1" class="mat-body-1 info-text">No Categories Added</p>
 
-
+    

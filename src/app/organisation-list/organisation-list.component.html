@@ -8,29 +8,18 @@
       <h3>Corporate / Organisation List</h3>
       
       <br/><br/>
-      <table role="table"  border="2px 1px 1px 1px solid"  cellpadding="10px">
-          <thead role="rowgroup" class="table table-primary table-striped">
-              <tr role="row">
-                  <th role="columnheader">ID</th>
-                  <th role="columnheader">OrganisationName</th>
-                  <th role="columnheader">Mobile</th>
-                  <th role="columnheader">Email</th>
-                  <th role="columnheader">State</th>
-                  <th role="columnheader">GSTIN NO</th>
-                  <th role="columnheader">Others</th>
-              </tr>
-          </thead>
-          <tbody  role="rowgroup">
-            <tr role="row">
-              <tr>
-                  <td role="cell">9</td>
-                  <td role="cell">Caramel</td>                
-                  <td role="cell">9703606934</td>
-                  <td role="cell">venkatsanju70@gmail.com</td>
-                  <td role="cell">Andhra</td>
-                  <td role="cell">GSTIN0000923</td>
-                  <td role="cell">Nothing</td>
-              </tr>
-          </tbody>
-      </table>
+      
+<table id="corporates">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let corporate of corporates">
+      <td *ngFor="let col of index">
+        {{corporate[col]}}
+      </td>
+    </tr>
+  </table>
+
   </div>   

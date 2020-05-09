@@ -1,39 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from "../rest.service";
+import { Students } from "../Students";
 
-export interface userData {
-  ID: number;
-  firstName: string;
-  lastName: string;
-  mobileNumber: number;
-  emailAddress: string;
-  dateOfBirth: string;
-  state: string;
-  highestQualification: string;
-  collegeName: string;
-  universityName: string;
-  specialisation: string;
-  studentRoll: string;
-  skillset: string;
-  collegeState: string;
-}
 
-const userDataDisplay: userData[] = [
-  { ID: 1,							
-    firstName: 'Vekatasiva',
-    lastName: 'Sampangi',
-    mobileNumber: 9703606934,
-    emailAddress: 'venkatsanju70@gmail.com',
-    dateOfBirth: '1997-02-16',
-    state: 'Andhra',
-    highestQualification: 'B.Tech',
-    collegeName: 'RGMCET',
-    universityName: 'JNTU',
-    specialisation: 'MECH',
-    studentRoll: '15091A03K9',
-    skillset: '',
-    collegeState: 'ANDHRAPRADESH'
-  }
-];
 
 @Component({
   selector: 'app-user-list',
@@ -41,11 +10,21 @@ const userDataDisplay: userData[] = [
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  constructor() { }
+  constructor(private rs : RestService) { }
 
+  columns = ["Student ID", "First Name", "Last Name", "Age", "Email", "Phone No", "Address", "City", "Country", "Date", "No of Courses"];
+  index = ["id", "firstName", "lastName", "age", "email", "phoneNo", "address", "city", "country", "date", "noOfCourses"];
+  
+  students : Students[] = [];
   ngOnInit(): void {
+    this.rs.getStudents().subscribe
+    (
+      (response)=> 
+      {
+        this.students = response;
+      },
+      (error) => console.log(error)
+    )
   }
-  displayedColumns: string[] = ['position', 'ID', 'firstName', 'lastName', 'mobileNumber', 'emailAddress', 'dateOfBirth', 'state', 'highestQualification', 'collegeName', 'universityName', 'specialisation', 'studentRoll', 'skillset', 'collegeState'];
-  dataSource = userDataDisplay;
 
 }
