@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import  { AdminService } from '../shared-user/admin/admin.service';
-import { Router } from "@angular/router";
+import { AdminService } from '../shared-user/admin/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -16,16 +16,16 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getAdminProfile().subscribe(
       res => {
-        this.adminDetails = res['admin'];
+        this.adminDetails = res[' admin '];
       },
-      err => { 
+      err => {
         console.log(err);
-        
+
       }
     )
   }
 
-  onLogout(){
+  onLogout() {
     this.adminService.deleteToken();
     this.router.navigate(['admin-signin']);
   }

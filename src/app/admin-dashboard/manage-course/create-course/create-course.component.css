@@ -1,3 +1,7 @@
+:host {
+    width: 70%;
+}
+
 mat-form-field,
 textarea {
     width: 100%;

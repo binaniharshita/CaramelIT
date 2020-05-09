@@ -1,4 +1,4 @@
-//built in features
+// built in features
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-//components
+// components
 import { AdminSigninComponent } from './admin-signin/admin-signin.component';
 import { UniversitySigninComponent } from './university-signin/university-signin.component';
 import { UniversityRegisterComponent } from './university-register/university-register.component';
@@ -57,7 +57,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
-<<<<<<< HEAD
+// HEAD
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { CreateCategoryComponent } from './admin-dashboard/manage-category/create-category/create-category.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -67,11 +67,12 @@ import { CreateSubcategoryComponent } from './admin-dashboard/manage-subcategory
 import { ListSubcategoryComponent } from './admin-dashboard/manage-subcategory/list-subcategory/list-subcategory.component';
 import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
 import { CreateCourseComponent } from './admin-dashboard/manage-course/create-course/create-course.component';
-import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course/list-course.component';
-=======
+import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
+
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component';
+// cbd25a4911795786a57e531898e05a64dbf8bb9b
 
 @NgModule({
   declarations: [
@@ -102,7 +103,7 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
-<<<<<<< HEAD
+// <<<<<<< HEAD
     ManageCategoryComponent,
     CreateCategoryComponent,
     ListCategoryComponent,
@@ -111,9 +112,11 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     ListSubcategoryComponent,
     ManageCourseComponent,
     CreateCourseComponent,
-=======
+
     ResponseResetComponent,
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
+
+    MaganeCatSubcatComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -132,11 +135,7 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-<<<<<<< HEAD
   }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
-=======
-  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
->>>>>>> cbd25a4911795786a57e531898e05a64dbf8bb9b
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,41 +1,73 @@
-<div class="contentForm">
-    <form (submit)="onAddCourse(courseForm)" #courseForm="ngForm">
-        <mat-card>
+<mat-horizontal-stepper [linear]='isLinear' #stepper>
+    <mat-step [stepControl]="firstForm">
+        <form [formControl]="firstForm">
+            <ng-template matStepLabel>Fill out your name</ng-template>
             <mat-form-field>
-                <input matInput type="text" ngModel name="title" #title="ngModel" required placeholder="Title">
-                <mat-error *ngIf="title.invalid">Please enter Course title</mat-error>
-            </mat-form-field>
-            <hr>
-            <mat-form-field>
-                <textarea matInput row="6" ngModel name="description" placeholder="Description" #description="ngModel" required></textarea>
-                <mat-error *ngIf="description.invalid">Please enter Course Description</mat-error>
+                <mat-label>Course name:</mat-label>
+                <input matInput name="title" placeholder="Title" formControlName="title">
+                <!-- <mat-error *ngIf="firstForm.get('title').invalid">Please enter Course title</mat-error> -->
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" ngModel name="noOfModule" #noOfModule="ngModel" required placeholder="No of Modules">
-                <mat-error *ngIf="noOfModule.invalid">Please mention no of module </mat-error>
+                <textarea matInput row="6" name="description" placeholder="Description" formControlName="description"></textarea>
+                <!-- <mat-error *ngIf="firstForm.get('description').invalid">Please enter Course Description</mat-error> -->
             </mat-form-field>
-
+            <mat-form-field>
+                <input matInput type="text" name="noOfModule" placeholder="No of Modules" formControlName="noOfModule">
+                <!-- <mat-error *ngIf="firstForm.get('noOfModule').invalid">Please mention no of module </mat-error> -->
+            </mat-form-field>
             <mat-form-field>
                 <mat-label>Select Category</mat-label>
-                <mat-select ngModel #selectCategory (selectionChange)="fetchSubCat(selectCategory.value)">
-                    <mat-option *ngFor="let category of categories" name="catId" ngModel [value]="category.id">
+                <mat-select formControlName="selectCategory" #selectCategory (selectionChange)="fetchSubCat(selectCategory.value)" name="selectCategory">
+                    <mat-option *ngFor="let category of categories" name="catId" [value]="category.id">
                         {{category.title}}
                     </mat-option>
                 </mat-select>
+                <!-- <mat-error *ngIf="firstForm.get('selectCategory').invalid">Please select category</mat-error> -->
             </mat-form-field>
-
             <mat-form-field>
 
                 <mat-label>Select SubCategory</mat-label>
 
-                <mat-select ngModel name="subcatId">
-                    <mat-option *ngFor="let subcategory of updatedSubCategory" name="subcatId" ngModel [value]="subcategory.id">
+                <mat-select name="subcatId" #subcatId formControlName="subcatId">
+                    <mat-option *ngFor="let subcategory  of updatedSubCategory" name="subcatId" [value]="subcategory.id">
                         {{subcategory.title}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+            <div>
 
-            <button mat-raised-button color="primary" type="submit">Save Category</button>
-        </mat-card>
-    </form>
-</div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <div>
+                <mat-label>Image for course</mat-label>
+                <br>
+                <button mat-stroked-button type="button" (click)="imagePicker.click()">Pick image</button>
+                <input type="file" #imagePicker hidden>
+            </div>
+            <mat-form-field>
+                <mat-label>Upload table of content</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Browse" required>
+            </mat-form-field>
+            <br>
+            <a href='#'>(click here to download template)</a>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
