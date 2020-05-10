@@ -1,15 +1,38 @@
-<mat-accordion>
-    <mat-expansion-panel *ngFor="let subCategory of subCategories">
-        <mat-expansion-panel-header>
-            {{subCategory.title}}
-        </mat-expansion-panel-header>
-        {{subCategory.description}}<br> No. of Courses : {{subCategory.noOfCourses}}<br> Category: {{subCategory.catId}}
-        <mat-action-row>
-            <button mat-button color="primary">Edit</button>
-            <button mat-button color="warn" (click)="onDeleteSubCategory(subCategory.id)">Delete</button>
-        </mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
-<p *ngIf="subCategories.length < 1" class="mat-body-1 info-text">No Categories Added</p>
+<main>
+    <nav class="navbar navbar-expand-sm">
 
-    
+        <a class="navbar-brand" href="admin-dashboard">
+          <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+        </a>
+       </nav>
+      <div align="center">
+          <h3>Subcategory List</h3>
+
+          <br/><br/>
+    <table id="courses" >
+        <tr>
+            <th>Subcategory Title</th>
+            <th>Subcategory Description</th>
+            <th>No of Courses</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+         <tr *ngFor="let subCategory of subCategories">
+
+            <td>{{subCategory.title}}</td>
+
+            <td>{{subCategory.description}}</td><td>{{subCategory.noOfCourses}}</td>>  <td> {{subCategory.CatId}}</td>
+            <td>
+                <button mat-button color="primary">Edit</button></td>
+              <td>  <button mat-button color="warn" (click)="onDeleteSubCategory(subCategory.id)">Delete</button>
+            </td>
+
+    </tr>
+
+    </table></div>
+</main>
+
+
+
