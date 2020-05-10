@@ -92,9 +92,8 @@ export class CreateCourseComponent implements OnInit {
   }
 
   moduleForm(){
-    console.log("hello")
+    console.log("hello");
     console.log(this.moduleDetailFormGroup.value);
   }
-
 
 }

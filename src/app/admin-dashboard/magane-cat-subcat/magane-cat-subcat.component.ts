@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaganeCatSubcatComponent implements OnInit {
   navLinks = [{
-    title: 'Category', path: 'create-category'
+    title: 'Manage Group', path: 'create-category'
   },
   {
-    title: 'SubCategory', path: 'create-category'
+    title: 'Manage SubGroup', path: 'create-category'
   }
 ]
 

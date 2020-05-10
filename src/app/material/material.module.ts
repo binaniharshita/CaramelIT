@@ -13,10 +13,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
 const material = [
+  MatMenuModule,
+  MatDividerModule,
   MatSlideToggleModule,
   MatStepperModule,
   MatTabsModule,

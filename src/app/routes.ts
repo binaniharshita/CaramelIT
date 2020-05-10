@@ -12,6 +12,7 @@ import { InstructorSigninComponent } from './instructor-signin/instructor-signin
 import { InstructorRegisterComponent } from './instructor-register/instructor-register.component';
 import { ForgotPwComponent } from './forgot-pw/forgot-pw.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminDashboard1Component } from './admin-dashboard1/admin-dashboard1.component'
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
@@ -38,6 +39,10 @@ import { CreateCategoryComponent } from './admin-dashboard/manage-category/creat
 import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component'
+import { ManageComponent } from './admin-dashboard1/sidebar/manage/manage.component';
+import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/create-structure/create-structure.component';
+import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
+
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomepageComponent },
@@ -54,18 +59,13 @@ export const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent, },
   // tslint:disable-next-line: max-line-length
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
   { path: 'instructor_list', component: InstructorListComponent },
   { path: 'organisation_list', component: OrganisationListComponent },
   { path: 'list_course', component: ListCourseComponent },
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
-  { path: 'admin-dashboard/manage-category', component: ManageCategoryComponent },
-  { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
-  { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
-  { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent },
-  { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
@@ -79,7 +79,7 @@ export const routes: Routes = [
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
   { path: 'instructor_list', component: InstructorListComponent },
@@ -100,7 +100,7 @@ export const routes: Routes = [
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
   { path: 'instructor_list', component: InstructorListComponent },
@@ -111,9 +111,18 @@ export const routes: Routes = [
  // { path: 'reports', component: ReportsComponent },
   { path: 'question_bank', component: QuestionBankComponent },
   { path: 'recommendation_system', component: RecommendationSystemComponent },
-  { path: 'admin-dashboard/manage-category', component: ManageCategoryComponent },
-  { path: 'admin-dashboard/manage-category/list-category', component: ListCategoryComponent },
-  { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
-  { path: 'admin-dashboard/manage-category/list-subcategory', component: ListSubcategoryComponent },
-  { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
+  // { path: 'admin-dashboard/manage-category/list-category', component: ListCategoryComponent },
+  // { path: 'admin-dashboard/manage-category/list-subcategory', component: ListSubcategoryComponent },
+  // { path: 'admin-dashboard/manage-category', component: ManageCategoryComponent },
+  // { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
+  // { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
+  // // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
+  // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
+  // { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboard1Component , children:[
+    { path: 'manage', component: ManageComponent},
+    { path: 'manage/add-structure', component: CreateStructureComponent },
+    { path: 'manage/view-structure', component: ViewStructureComponent }
+  ]},
+  // { path: 'admin-dashboard', component: AdminDashboardComponent },
 ];

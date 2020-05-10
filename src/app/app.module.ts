@@ -83,6 +83,17 @@ import { CreateCourseComponent } from './admin-dashboard/manage-course/create-co
 
 
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component';
+import { AdminDashboard1Component } from './admin-dashboard1/admin-dashboard1.component';
+import { SidebarComponent } from './admin-dashboard1/sidebar/sidebar.component';
+import { AdminheaderComponent } from './admin-dashboard1/adminheader/adminheader.component';
+import { AdminfooterComponent } from './admin-dashboard1/adminfooter/adminfooter.component';
+import { StructureComponent } from './admin-dashboard1/manage/structure/structure.component';
+import { ManageComponent } from './admin-dashboard1/sidebar/manage/manage.component';
+
+import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/create-structure/create-structure.component';
+import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
+
+
 // cbd25a4911795786a57e531898e05a64dbf8bb9b
 
 @NgModule({
@@ -131,6 +142,22 @@ import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/ma
     ResponseResetComponent,
 
     MaganeCatSubcatComponent,
+
+    AdminDashboard1Component,
+
+    SidebarComponent,
+
+    AdminheaderComponent,
+
+    AdminfooterComponent,
+
+    StructureComponent,
+
+    ManageComponent,
+
+    CreateStructureComponent,
+
+    ViewStructureComponent,
 
   ],
   imports: [
