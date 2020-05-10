@@ -12,21 +12,16 @@
                     </div>
                 </mat-card>
             </div>
-            <!-- <button mat-raised-button color="primary" (click)="showSubCat()">Sub Category</button>
-            <div *ngIf="showSubCategory">
+            <button mat-raised-button color="primary" (click)="showCourseDiv()">Sub Category</button>
+            <div *ngIf="showCourse">
                 <mat-card fxLayout="row">
                     <div fxFlex fxLayout="column">
-                        <button mat-raised-button color="primary" (click)="openAddSubCatForm()">Add</button>
-                        <button mat-raised-button color="primary" (click)="openDeleteSubCatForm()">Delete</button>
-
-                    </div>
-                    <div fxFlex fxLayout="column">
-                        <button mat-raised-button color="primary" (click)="openViewSubCatForm()">View</button>
-                        <button mat-raised-button color="primary" (click)="openUpdateSubCatForm()">Update</button>
+                        <button mat-raised-button color="primary" routerLink="add-course">Add</button>
+                        <button mat-raised-button color="primary" routerLink="view-course">View</button>
                     </div>
                 </mat-card>
             </div>
-            <button mat-raised-button color="primary" (click)="showCourses()">Courses</button>
+            <!--<button mat-raised-button color="primary" (click)="showCourses()">Courses</button>
             <div *ngIf="showCourse">
                 <mat-card fxLayout="row">
                     <div fxFlex fxLayout="column">

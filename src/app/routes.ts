@@ -42,6 +42,8 @@ import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/ma
 import { ManageComponent } from './admin-dashboard1/sidebar/manage/manage.component';
 import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/create-structure/create-structure.component';
 import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
+import { AddCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/add-course/add-course.component';
+import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/view-course/view-course.component';
 
 
 export const routes: Routes = [
@@ -116,13 +118,15 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-category', component: ManageCategoryComponent },
   // { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
   // { path: 'admin-dashboard/manage-course', component: ManageCourseComponent },
-  // // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
+  // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboard1Component , children:[
     { path: 'manage', component: ManageComponent},
     { path: 'manage/add-structure', component: CreateStructureComponent },
-    { path: 'manage/view-structure', component: ViewStructureComponent }
+    { path: 'manage/view-structure', component: ViewStructureComponent },
+    { path: 'manage/add-course', component: AddCourseComponent },
+    { path: 'manage/view-course', component: ViewCourseComponent },
   ]},
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
 ];

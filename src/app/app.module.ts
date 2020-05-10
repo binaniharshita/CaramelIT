@@ -87,11 +87,12 @@ import { AdminDashboard1Component } from './admin-dashboard1/admin-dashboard1.co
 import { SidebarComponent } from './admin-dashboard1/sidebar/sidebar.component';
 import { AdminheaderComponent } from './admin-dashboard1/adminheader/adminheader.component';
 import { AdminfooterComponent } from './admin-dashboard1/adminfooter/adminfooter.component';
-import { StructureComponent } from './admin-dashboard1/manage/structure/structure.component';
 import { ManageComponent } from './admin-dashboard1/sidebar/manage/manage.component';
 
 import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/create-structure/create-structure.component';
 import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
+import { AddCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/add-course/add-course.component';
+import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/view-course/view-course.component';
 
 
 // cbd25a4911795786a57e531898e05a64dbf8bb9b
@@ -151,13 +152,15 @@ import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage
 
     AdminfooterComponent,
 
-    StructureComponent,
-
     ManageComponent,
 
     CreateStructureComponent,
 
     ViewStructureComponent,
+
+    AddCourseComponent,
+
+    ViewCourseComponent,
 
   ],
   imports: [

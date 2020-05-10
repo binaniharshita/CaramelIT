@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ManageComponent implements OnInit {
 
   showCategory = false;
+  showCourse = false;
 
   constructor() { }
 
@@ -15,6 +16,9 @@ export class ManageComponent implements OnInit {
   }
   showCateDiv(){
     this.showCategory = !this.showCategory;
+  }
+  showCourseDiv(){
+    this.showCourse = !this.showCourse;
   }
 
 }
