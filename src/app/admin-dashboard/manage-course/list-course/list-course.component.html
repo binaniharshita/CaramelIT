@@ -1,35 +1,30 @@
 <main>
-    <nav class="navbar navbar-expand-sm">
+    <div align="center">
+        <h3>Course List</h3>
 
-        <a class="navbar-brand" href="admin-dashboard">
-          <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
-        </a>
-       </nav>
-      <div align="center">
-          <h3>Course List</h3>
+        <br /><br />
+        <table id="courses">
+            <tr>
+                <th>Course Title</th>
+                <th>Course Description</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
 
-          <br/><br/>
-    <table id="courses" >
-        <tr>
-            <th>Course Title</th>
-            <th>Course Description</th>
-            <th>No of Modules</th>
-            <th>Subcategory</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+            <tr *ngFor="let course of courses">
 
-         <tr *ngFor="let course of courses">
+                <td>{{course.title}}</td>
 
-            <td>{{course.title}}</td>
+                <td>{{course.description}}</td>
+                <td> <button mat-button color="warn" (click)="onGetViewCourse(course.id)">View</button></td>>
+                <td> {{course.subCatId}}</td>
+                <td>
+                    <button mat-button color="primary">Edit</button></td>
+                <td> <button mat-button color="warn" (click)="onDeleteCourse(course.id)">Delete</button>
+                </td>
+            </tr>
 
-            <td>{{course.description}}</td><td>{{course.noOfModule}}</td>>  <td> {{course.subCatId}}</td>
-            <td>
-                <button mat-button color="primary">Edit</button></td>
-              <td>  <button mat-button color="warn" (click)="onDeleteCourse(course.id)">Delete</button>
-            </td>
-
-    </tr>
-
-    </table></div>
+        </table>
+    </div>
 </main>

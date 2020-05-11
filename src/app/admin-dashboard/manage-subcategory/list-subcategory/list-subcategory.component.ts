@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-list-subcategory',
   templateUrl: './list-subcategory.component.html',
-  styleUrls: ['./list-subcategory.component.css']
+  styleUrls: ['./list-subcategory.component.scss']
 })
 export class ListSubcategoryComponent implements OnInit {
   subCategories: SubCategory[] = [];

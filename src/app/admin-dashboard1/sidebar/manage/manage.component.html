@@ -1,27 +1,30 @@
-<h2 MatSubheader color="primary">MANAGE</h2>
+<main>
+    <mat-card height>
+        <h2 MatSubheader color="primary">MANAGE</h2>
 
-<div class="container" fxLayoutGap="10px" fxLayout="row">
-    <div fxFlex="50">
-        <div fxFlex fxLayout="column" class="layout">
-            <button mat-raised-button color="primary" (click)="showCateDiv()">Structure</button>
-            <div *ngIf="showCategory">
-                <mat-card fxLayout="row">
-                    <div fxFlex fxLayout="column">
-                        <a mat-raised-button color="primary" routerLink="add-structure">Add</a>
-                        <button mat-raised-button color="primary" routerLink="view-structure">View</button>
+        <div class="container" fxLayoutGap="10px" fxLayout="row">
+            <div fxFlex="50">
+                <div fxFlex fxLayout="column" class="layout">
+                    <button mat-raised-button color="primary" (click)="showCateDiv()"><mat-icon>category</mat-icon> Structure</button>
+                    <div *ngIf="showCategory">
+                        <mat-card fxLayout="row">
+                            <div fxFlex fxLayout="column">
+                                <a mat-raised-button color="primary" routerLink="add-structure">Add</a>
+                                <button mat-raised-button color="primary" routerLink="view-structure">View</button>
+                            </div>
+                        </mat-card>
                     </div>
-                </mat-card>
-            </div>
-            <button mat-raised-button color="primary" (click)="showCourseDiv()">Sub Category</button>
-            <div *ngIf="showCourse">
-                <mat-card fxLayout="row">
-                    <div fxFlex fxLayout="column">
-                        <button mat-raised-button color="primary" routerLink="add-course">Add</button>
-                        <button mat-raised-button color="primary" routerLink="view-course">View</button>
+                    <button mat-raised-button color="primary" (click)="showCourseDiv()">Courses</button>
+                    <div *ngIf="showCourse">
+                        <mat-card fxLayout="row">
+                            <div fxFlex fxLayout="column">
+                                <button mat-raised-button color="primary" routerLink="add-course">Add</button>
+                                <button mat-raised-button color="primary" routerLink="view-course">View</button>
+                            </div>
+                        </mat-card>
                     </div>
-                </mat-card>
-            </div>
-            <!--<button mat-raised-button color="primary" (click)="showCourses()">Courses</button>
+                    <button mat-raised-button color="primary">Corporate(Organisation) Administration</button>
+                    <!--</button> <button mat-raised-button color="primary" (click)="showCourses()">Courses</button>
             <div *ngIf="showCourse">
                 <mat-card fxLayout="row">
                     <div fxFlex fxLayout="column">
@@ -35,14 +38,17 @@
 
                     </div>
                 </mat-card> -->
-            <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div fxFlex="50 ">
+                <div fxFlex fxLayout="column " class="layout">
+                    <button mat-raised-button color="primary"><mat-icon>person</mat-icon> Student</button>
+                    <button mat-raised-button color="primary"><mat-icon>school</mat-icon> University</button>
+                    <button mat-raised-button color="primary"><mat-icon>portrait</mat-icon> Instructor</button>
+                </div>
+            </div>
         </div>
-    </div>
-    <div fxFlex="50 ">
-        <div fxFlex fxLayout="column " class="layout">
-            <button mat-raised-button color="primary">Student</button>
-            <button mat-raised-button color="primary">University</button>
-            <button mat-raised-button color="primary">Instructor</button>
-        </div>
-    </div>
-</div>
+
+    </mat-card>
+</main>

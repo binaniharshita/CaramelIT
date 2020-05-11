@@ -93,6 +93,11 @@ import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/mana
 import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
 import { AddCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/add-course/add-course.component';
 import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/view-course/view-course.component';
+import { ReportsComponent } from './admin-dashboard1/sidebar/reports/reports.component';
+import { WidgetAreaComponent } from './admin-dashboard1/sidebar/reports/widget-area/widget-area.component';
+import { WidgetCardComponent } from './admin-dashboard1/sidebar/reports/widget-card/widget-card.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+
 
 
 // cbd25a4911795786a57e531898e05a64dbf8bb9b
@@ -139,6 +144,9 @@ import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-co
     ListSubcategoryComponent,
     ManageCourseComponent,
     CreateCourseComponent,
+    ReportsComponent,
+    WidgetAreaComponent,
+    WidgetCardComponent,
 
     ResponseResetComponent,
 
@@ -180,7 +188,8 @@ import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-co
     MatButtonModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HighchartsChartModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

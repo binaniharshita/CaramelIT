@@ -1,6 +1,7 @@
 :host {
     button {
-        width: 200px;
+        min-width: 200px;
+        width: auto;
         margin: 20px;
     }
 }

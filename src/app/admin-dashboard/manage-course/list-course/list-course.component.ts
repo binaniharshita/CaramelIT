@@ -28,5 +28,8 @@ export class ListCourseComponent implements OnInit {
     this.courseService.deleteCourse(courseId);
 
   }
+  onGetViewCourse(courseId){
+    this.courseService.getCourse(courseId);
+  }
 
 }

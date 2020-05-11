@@ -1,0 +1,43 @@
+:host {
+    main {
+        width: 80%;
+    }
+}
+
+.info-text {
+    text-align: center;
+}
+
+#courses {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    //margin-left: 100px;
+}
+
+#courses td,
+#courses th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#courses tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#courses tr:hover {
+    background-color: #ddd;
+}
+
+#courses th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #3333ff;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    color: #3333ff;
+}

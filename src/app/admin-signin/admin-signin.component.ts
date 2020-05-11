@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
+import { NgForm } from '@angular/forms';
 
 import { AdminService } from '../shared-user/admin/admin.service';
 import { Router } from '@angular/router';
@@ -11,18 +11,19 @@ import { Router } from '@angular/router';
 })
 export class AdminSigninComponent implements OnInit {
   constructor(private admin: AdminService, private router: Router) { }
-  
-  model= {
+
+  model = {
     emailAddress: '',
     password: ''
   };
- 
+
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessage: string;
-  
+
   ngOnInit() {
-    if(this.admin.isLoggedIn())
-    this.router.navigateByUrl('/profile-page');
+    if (this.admin.isLoggedIn()){
+      this.router.navigateByUrl('/profile-page');
+    }
   }
 
   onSubmit(adminSignin: NgForm) {
@@ -34,7 +35,7 @@ export class AdminSigninComponent implements OnInit {
       err => {
         this.serverErrorMessage = err.error.message;
       }
-    )
+    );
   }
 
 }

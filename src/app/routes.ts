@@ -44,6 +44,7 @@ import { CreateStructureComponent } from './admin-dashboard1/sidebar/manage/mana
 import { ViewStructureComponent } from './admin-dashboard1/sidebar/manage/manage-structure/view-structure/view-structure.component';
 import { AddCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/add-course/add-course.component';
 import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/view-course/view-course.component';
+import { ReportsComponent } from './admin-dashboard1/sidebar/reports/reports.component';
 
 
 export const routes: Routes = [
@@ -127,6 +128,7 @@ export const routes: Routes = [
     { path: 'manage/view-structure', component: ViewStructureComponent },
     { path: 'manage/add-course', component: AddCourseComponent },
     { path: 'manage/view-course', component: ViewCourseComponent },
+    { path: 'reports', component: ReportsComponent}
   ]},
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
 ];

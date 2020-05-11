@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../shared-user/admin/admin.service';
+import { Router } from '@angular/router' ;
 
 @Component({
   selector: 'app-admin-dashboard1',
@@ -6,16 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard1.component.css']
 })
 export class AdminDashboard1Component implements OnInit {
+  adminDetails;
 
   sideBarOpen = true;
 
-  constructor() { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    this.adminService.getAdminProfile().subscribe(
+      res => {
+        this.adminDetails = res['admin'];
+        // console.log(this.adminDetails);
+      },
+      err => {
+        console.log(err);
+
+      }
+    )
   }
 
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;
+  }
+  onLogout(){
+    this.adminService.deleteToken();
+    this.router.navigate(['admin-signin']);
   }
 
 }

@@ -1,15 +1,8 @@
 <main>
-    <nav class="navbar navbar-expand-sm">
+    <div>
 
-        <a class="navbar-brand" href="admin-dashboard">
-          <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
-        </a>
-       </nav>
-      <div align="center">
-          <h3>Category List</h3>
-          
-          <br/><br/>
-          <table id="categories" >
+        <br/><br/>
+        <table id="categories">
             <tr>
                 <th>Category Title</th>
                 <th>Category Description</th>
@@ -21,14 +14,18 @@
             <tr *ngFor="let category of categories">
 
                 <td>{{category.title}}</td>
-    
-                <td>{{category.description}}</td><td>{{category.noOfSubCategories}}</td>>  <td> {{category.noOfCourses}}</td>
+
+                <td>{{category.description}}</td>
+                <td>{{category.noOfSubCategories}}</td>
+                <td> {{category.noOfCourses}}</td>
                 <td>
-                    <button mat-button color="primary">Edit</button></td><td>
-                        <button mat-button color="warn" (click)="onDeleteCategory(category.id)">Delete</button>
+                    <button mat-button color="primary">Edit</button></td>
+                <td>
+                    <button mat-button color="warn" (click)="onDeleteCategory(category.id)">Delete</button>
                 </td>
-    
-        </tr>
-    
-        </table></div>
-    </main>
+
+            </tr>
+
+        </table>
+    </div>
+</main>

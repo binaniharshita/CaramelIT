@@ -1,8 +1,14 @@
-main {
+mat-tab-group {
     margin: auto;
     width: 80%;
 }
 
+table {
+    margin: 0;
+}
+
+
+/*
 .button_info1 {
     border: 1px solid grey;
     border-radius: 2px;
@@ -17,4 +23,4 @@ main {
     font-style: bold;
     width: 100%;
     border-collapse: collapse;
-}
+} */
