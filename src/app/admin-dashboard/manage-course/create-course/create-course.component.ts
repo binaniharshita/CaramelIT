@@ -27,6 +27,7 @@ export class CreateCourseComponent implements OnInit {
   courseDetailFormGroup: FormGroup;
   moduleDetailFormGroup: FormGroup;
   isOptional = false;
+  nom : number;
 
 
   // tslint:disable-next-line: max-line-length
@@ -94,6 +95,11 @@ export class CreateCourseComponent implements OnInit {
   moduleForm(){
     console.log("hello");
     console.log(this.moduleDetailFormGroup.value);
+  }
+
+  getNoOfModule(module){
+    this.nom = module.value;
+    console.log(this.nom);
   }
 
 }

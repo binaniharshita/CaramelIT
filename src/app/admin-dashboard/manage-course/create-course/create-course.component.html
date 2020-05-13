@@ -9,7 +9,7 @@
                 <textarea matInput row="6" name="description" placeholder="Description" formControlName="description"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" name="noOfModule" placeholder="No of Modules" formControlName="noOfModule">
+                <input matInput type="text" name="noOfModule" #noOfModule placeholder="No of Modules" formControlName="noOfModule">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Select Category</mat-label>
@@ -29,22 +29,37 @@
             </mat-form-field>
 
             <div>
-                <button mat-button matStepperNext>Next</button>
+                <button mat-button matStepperNext (click)="getNoOfModule(noOfModule)">Next</button>
             </div>
         </form>
     </mat-step>
     <mat-step [stepControl]="moduleDetailFormGroup">
         <form [formGroup]="moduleDetailFormGroup" (ngSubmit)="moduleForm()" #moduleM="ngForm">
             <ng-template matStepLabel>Fill the course details</ng-template>
+            <br>
             <div>
                 <mat-label>Upload Image for Course title</mat-label><br>
                 <button mat-raised-button (click)="imageButton.click()">Pick me</button>
                 <input type="file" hidden #imageButton>
             </div>
+            <br>
             <div>
+                <span style="font-family: aria-label,aria-labelledby;">Fill details</span>
+                <mat-slide-toggle #slide>Upload Details</mat-slide-toggle>
+            </div>
+            <br>
+            <div *ngIf="slide.checked">
                 <mat-label>Upload table of content</mat-label><br>
                 <button mat-raised-button (click)="fileButton.click()">Pick me</button>
                 <input type="file" hidden #fileButton>
+            </div>
+            <div *ngIf="!slide.checked">
+                <mat-tab-group *ngFor="let tab of nom">
+                    <mat-tab>
+                        hello
+                    </mat-tab>
+
+                </mat-tab-group>
             </div>
 
             <div>
