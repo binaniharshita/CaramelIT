@@ -1,22 +1,24 @@
-const Item = require('../item');
+const express = require('express');
+const router = express.Router();
 
-//Save into MongoDB
-const file = require('../Course.json');
+//Course model
+const Course = require('../models/course/course.model');
 
-const seed = Item.create(file, (error, data) => {
-  if (error) {
-    return (error)
-  } else {
-    console.log('Done')
-  }
+//Create Course
+router.route('/save').post((req, res) => {
+  const file=require('../Content.json');
+  const crs = new Course({
+    title:req.body.title,
+    description:req.body.description,
+    module:req.body.module,
+    category:req.body.category,
+    subcategory:req.body.subcategory,
+    content: file
+});   
+  crs.save((err, doc) => {
+      if (!err) { res.send(doc); }
+      else { console.log('Error in Course Save :' + JSON.stringify(err, undefined, 2)); }
+  });
 });
 
-try {
-  if (fs.existsSync(file)) {
-    module.exports = seed;
-  } else {
-    console.log("Please upload course content first.")
-  }
-} catch (err) {
-  console.error(err)
-}
+module.exports = router;
