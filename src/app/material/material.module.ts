@@ -15,6 +15,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 
@@ -41,12 +42,14 @@ const material = [
   MatInputModule,
   MatExpansionModule,
   MatSelectModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTreeModule
 ];
 
 @NgModule({
   imports: [material],
   exports: [material]
 })
+
 
 export class MaterialModule { }

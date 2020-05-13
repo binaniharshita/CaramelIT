@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport'); 
 const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 
 require('./config/config');
 const studRoutes = require('./routes/index.router');
@@ -23,6 +24,7 @@ app.use(passport.initialize());
 
 //Route
 app.use('/api', studRoutes);
+app.use('/course', require('./routes/upload'));
 
 // error handler
 app.use((err, req, res, next) => {
