@@ -151,7 +151,8 @@ export const COURSES: Course[] = [
                     }
                 ]
             }
-        ]
+        ],
+        enable: true
     },
     {
         id: '100',
@@ -302,7 +303,8 @@ export const COURSES: Course[] = [
                     }
                 ]
             }
-        ]
+        ],
+        enable: true
     },
     {
         id: '100',
@@ -453,7 +455,8 @@ export const COURSES: Course[] = [
                     }
                 ]
             }
-        ]
+        ],
+        enable: true
     },
     {
         id: '100',
@@ -604,6 +607,7 @@ export const COURSES: Course[] = [
                     }
                 ]
             }
-        ]
+        ],
+        enable: true
     }
 ];

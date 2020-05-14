@@ -5,4 +5,5 @@ export class Course{
     name: string;
     image: string;
     chapter: Chapter[];
+    enable: boolean;
 }

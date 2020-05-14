@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": ""
   },
   "author": "Shrist",
@@ -18,7 +18,7 @@
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
-    "mongoose": "^5.9.11",
+    "mongoose": "^5.9.13",
     "nodemailer": "^6.4.6",
     "nodemon": "^2.0.3",
     "passport": "^0.4.1",

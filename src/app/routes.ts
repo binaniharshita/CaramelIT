@@ -26,6 +26,8 @@ import { ListCourseComponent } from './list-course/list-course.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { CoursePageComponent } from './course-page/course-page.component';
+import { StudentCartComponent } from './student-cart/student-cart.component';
 
 
 
@@ -50,6 +52,8 @@ export const routes: Routes = [
   { path:'organisation_list', component: OrganisationListComponent },
   { path:'list_course', component: ListCourseComponent },
   { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
-  { path:'response-reset-password/:token', component: ResponseResetComponent }
+  { path:'response-reset-password/:token', component: ResponseResetComponent },
+  { path:'course-page', component: CoursePageComponent },
+  { path:'student-cart', component: StudentCartComponent }
 ];
 

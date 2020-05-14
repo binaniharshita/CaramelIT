@@ -49,6 +49,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 //routes
@@ -64,6 +65,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { CoursePageComponent } from './course-page/course-page.component';
+import { StudentCartComponent } from './student-cart/student-cart.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +98,8 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     ProfilePageComponent,
     AdminRegisterComponent,
     ResponseResetComponent,
+    CoursePageComponent,
+    StudentCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +118,8 @@ import { ResponseResetComponent } from './response-reset/response-reset.componen
     MatButtonModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

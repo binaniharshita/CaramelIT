@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { routes } from '../routes';
 
 @Component({
   selector: 'app-navbar',
