@@ -58,6 +58,6 @@ corporateSchema.methods.generateJwt = function () {
     });
 }
 
-const Corporate = mongoose.model('Corporate', corporateSchema);
+const Corporate = mongoose.model('Corporate', corporateSchema,'Corporate_Info');
 
 module.exports = Corporate;
