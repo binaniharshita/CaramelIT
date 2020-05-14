@@ -71,6 +71,10 @@ instructorSchema.methods.generateJwt = function () {
         expiresIn: process.env.JWT_EXP
     });
 }
+<<<<<<< HEAD
 const Instructor = mongoose.model('Instructor', instructorSchema, 'Instructor_Info');
+=======
+const Instructor = mongoose.model('Instructor', instructorSchema,'Instructor_Info');
+>>>>>>> 8c21ee07fb60688df0f4c9fad637f44569d1f943
 
 module.exports = Instructor;
