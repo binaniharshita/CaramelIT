@@ -8,6 +8,9 @@ import { SubCategoryService } from '../../manage-subcategory/subcaregory.service
 import { Subscription } from 'rxjs';
 import { SubCategory } from '../../manage-subcategory/subcategory.model';
 import { Category } from '../../manage-category/category.model';
+import { FileUploader } from 'ng2-file-upload';
+
+const URL = 'http://localhost:3000/api/upload';
 
 @Component({
   selector: 'app-create-course',
@@ -27,11 +30,41 @@ export class CreateCourseComponent implements OnInit {
   courseDetailFormGroup: FormGroup;
   moduleDetailFormGroup: FormGroup;
   isOptional = false;
-  nom : number;
+  nom: number;
+  imagePreview: string;
+  filePreview: string;
+  uploader: FileUploader;
+  hasBaseDropZoneOver: boolean;
+  hasAnotherDropZoneOver: boolean;
+  response: string;
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) { }
+  constructor(private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {
+    this.uploader = new FileUploader({
+      url: URL,
+      disableMultipart: true, // 'DisableMultipart' must be 'true' for formatDataFunction to be called.
+      formatDataFunctionIsAsync: true,
+      formatDataFunction: async (item) => {
+        return new Promise((resolve, reject) => {
+          resolve({
+            name: item._file.name,
+            length: item._file.size,
+            contentType: item._file.type,
+            date: new Date()
+          });
+        });
+      }
+    });
+    console.log('hello');
+
+    this.hasBaseDropZoneOver = false;
+    this.hasAnotherDropZoneOver = false;
+
+    this.response = '';
+
+    this.uploader.response.subscribe(res => this.response = res);
+  }
 
   ngOnInit(): void {
 
@@ -61,21 +94,49 @@ export class CreateCourseComponent implements OnInit {
 
     this.courseDetailFormGroup = this.formBuilder.group({
       title: ['', { validators: [Validators.required] }],
-      description:['', { validators: [Validators.required] }],
+      description: ['', { validators: [Validators.required] }],
       noOfModule: ['', { validators: [Validators.required] }],
       selectCategory: ['', { validators: [Validators.required] }],
       subcateogoryId: ['', { validators: [Validators.required] }],
     });
     this.moduleDetailFormGroup = this.formBuilder.group({
-      imageUrl: ['', Validators.required]
+      image: ['', Validators.required],
+      file: ['', Validators.required]
     });
+  }
+
+  public fileOverBase(e: any): void {
+    this.hasBaseDropZoneOver = e;
+  }
+
+  public fileOverAnother(e: any): void {
+    this.hasAnotherDropZoneOver = e;
   }
 
   fetchSubCat(categoryId: string) {
     console.log(this.subCategories);
     this.updatedSubCategory = this.subCategories.filter(subcategory => subcategory.catId === categoryId);
     console.log(this.updatedSubCategory);
-
+  }
+  onFilePicked(event: Event) {
+    const docFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ file: docFile });
+    this.moduleDetailFormGroup.get('file').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.filePreview = reader.result as string;
+    };
+    reader.readAsDataURL(docFile);
+  }
+  onImagePicked(event: Event) {
+    const imageFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ image: imageFile });
+    this.moduleDetailFormGroup.get('image').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(imageFile);
   }
 
   onAddCourse() {
@@ -88,16 +149,15 @@ export class CreateCourseComponent implements OnInit {
     this.courseDetailFormGroup.reset();
 
   }
-  courseForm(){
+  courseForm() {
     console.log(this.courseDetailFormGroup.value);
   }
 
-  moduleForm(){
-    console.log("hello");
+  moduleForm() {
     console.log(this.moduleDetailFormGroup.value);
   }
 
-  getNoOfModule(module){
+  getNoOfModule(module) {
     this.nom = module.value;
     console.log(this.nom);
   }

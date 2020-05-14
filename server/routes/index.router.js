@@ -1,6 +1,15 @@
 const jwtHelper = require('../config/jwtHelper');
 const express = require('express');
 const router = express.Router();
+const app = express();
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200/");
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, DELETE, POST, PATCH, OPTIONS");
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 const ctrlStudent = require('../controllers/student.controller');
 const ctrlCorporate = require('../controllers/corporate.controller');
@@ -9,6 +18,8 @@ const ctrlUniversity = require('../controllers/university.controller');
 const ctrlAdmin = require('../controllers/admin.controller');
 const ctrlCategory = require('../controllers/category.controller');
 const ctrlSubCat = require('../controllers/subcategory.controller');
+const ctrlCourse = require('../controllers/course.controller');
+
 //Register
 router.post('/student-register', ctrlStudent.register);
 router.post('/corporate-register', ctrlCorporate.register);
@@ -72,4 +83,6 @@ router.get('/subcategories', ctrlSubCat.read);
 router.put('/subcategories/:id', ctrlSubCat.update);
 router.delete('/subcategories/:id', ctrlSubCat.delete);
 
+//content add
+router.post('/upload', ctrlCourse.contentPost);
 module.exports = router;

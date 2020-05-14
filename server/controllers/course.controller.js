@@ -2,11 +2,36 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Course = require('../models/category.model');
 const mongoose = require('mongoose');
-
+const multer = require('multer');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//var FILE_PATH = './uploads/';
+var DIR = './uploads/';
+
+var storage = multer.diskStorage({
+    dest: DIR,
+    rename: function(fieldname, filename) {
+        return filename + Date.now();
+    },
+    onFileUploadStart: function(file) {
+        console.log(file.originalname + ' is starting ...');
+    },
+    onFileUploadComplete: function(file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path);
+    }
+});
+
+// var storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//       // Uploads is the Upload_folder_name
+//       cb(null, FILE_PATH)
+//   },
+//   filename: function(req, file, cb) {
+//       cb(null, file.fieldname + ".docx")
+//   }
+// })
 
 module.exports.create = (req, res, next) => {
     console.log(req.body.catId);
@@ -64,6 +89,17 @@ module.exports.read = (req, res, next) => {
             courses: docs
         });
 
+    });
+
+};
+
+module.exports.contentPost = (req, res, next) => {
+    upload(req, res, function(err) {
+        if (err) {
+            return res.end(err.toString());
+        }
+
+        res.end('File is uploaded');
     });
 
 };

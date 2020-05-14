@@ -1,18 +1,28 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const passport = require('passport'); 
+const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+
+const app = express();
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200/");
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, DELETE, POST, PATCH, OPTIONS");
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 
 require('./config/config');
 const studRoutes = require('./routes/index.router');
 //Passport
 require('./config/passport');
-//Mongo Connect 
+//Mongo Connect
 const connect = require('./dbconnect');
 
-const app = express();
 
 //Body Parser, Cors, Cookie parser
 app.use(bodyParser.json());
@@ -24,7 +34,7 @@ app.use(passport.initialize());
 
 //Route
 app.use('/api', studRoutes);
-app.use('/course', require('./routes/upload'));
+// app.use('/course', require('./routes/upload'));
 
 // error handler
 app.use((err, req, res, next) => {

@@ -70,5 +70,8 @@ export class CourseService {
 
     );
   }
+  uploadContent(){
+
+  }
 
 }

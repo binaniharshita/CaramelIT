@@ -97,6 +97,7 @@ import { ReportsComponent } from './admin-dashboard1/sidebar/reports/reports.com
 import { WidgetAreaComponent } from './admin-dashboard1/sidebar/reports/widget-area/widget-area.component';
 import { WidgetCardComponent } from './admin-dashboard1/sidebar/reports/widget-card/widget-card.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -189,7 +190,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    FileUploadModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
