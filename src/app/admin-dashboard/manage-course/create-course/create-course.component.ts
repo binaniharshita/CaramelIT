@@ -8,9 +8,7 @@ import { SubCategoryService } from '../../manage-subcategory/subcaregory.service
 import { Subscription } from 'rxjs';
 import { SubCategory } from '../../manage-subcategory/subcategory.model';
 import { Category } from '../../manage-category/category.model';
-import { FileUploader } from 'ng2-file-upload';
 
-const URL = 'http://localhost:3000/api/upload';
 
 @Component({
   selector: 'app-create-course',
@@ -33,38 +31,10 @@ export class CreateCourseComponent implements OnInit {
   nom: number;
   imagePreview: string;
   filePreview: string;
-  uploader: FileUploader;
-  hasBaseDropZoneOver: boolean;
-  hasAnotherDropZoneOver: boolean;
-  response: string;
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {
-    this.uploader = new FileUploader({
-      url: URL,
-      disableMultipart: true, // 'DisableMultipart' must be 'true' for formatDataFunction to be called.
-      formatDataFunctionIsAsync: true,
-      formatDataFunction: async (item) => {
-        return new Promise((resolve, reject) => {
-          resolve({
-            name: item._file.name,
-            length: item._file.size,
-            contentType: item._file.type,
-            date: new Date()
-          });
-        });
-      }
-    });
-    console.log('hello');
-
-    this.hasBaseDropZoneOver = false;
-    this.hasAnotherDropZoneOver = false;
-
-    this.response = '';
-
-    this.uploader.response.subscribe(res => this.response = res);
-  }
+  constructor(private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {}
 
   ngOnInit(): void {
 
@@ -105,14 +75,6 @@ export class CreateCourseComponent implements OnInit {
     });
   }
 
-  public fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
-  }
-
-  public fileOverAnother(e: any): void {
-    this.hasAnotherDropZoneOver = e;
-  }
-
   fetchSubCat(categoryId: string) {
     console.log(this.subCategories);
     this.updatedSubCategory = this.subCategories.filter(subcategory => subcategory.catId === categoryId);
@@ -138,14 +100,16 @@ export class CreateCourseComponent implements OnInit {
     };
     reader.readAsDataURL(imageFile);
   }
-
   onAddCourse() {
+    console.log('OnAddCourse');
 
     if (this.courseDetailFormGroup.invalid) {
       return;
     }
     // tslint:disable-next-line: max-line-length
-    this.courseServices.addCourse(null, this.courseDetailFormGroup.value.title, this.courseDetailFormGroup.value.description, this.courseDetailFormGroup.value.noOfModule, this.courseDetailFormGroup.value.subcatId);
+    console.log('Subcategory ID: '+ this.courseDetailFormGroup.value.subcateogoryId);
+    // tslint:disable-next-line: max-line-length
+    this.courseServices.addCourse(null, this.courseDetailFormGroup.value.title, this.courseDetailFormGroup.value.description, this.courseDetailFormGroup.value.noOfModule, this.courseDetailFormGroup.value.subcateogoryId, this.moduleDetailFormGroup.value.image);
     this.courseDetailFormGroup.reset();
 
   }

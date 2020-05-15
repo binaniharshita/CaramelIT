@@ -34,7 +34,12 @@ app.use(passport.initialize());
 
 //Route
 app.use('/api', studRoutes);
+<<<<<<< HEAD
 // app.use('/course', require('./routes/upload'));
+=======
+app.use('/api', require('./routes/upload'));
+app.use('/course', require('./routes/seed'));
+>>>>>>> df15963db2292c05134701a08952f1194eb46ccd
 
 // error handler
 app.use((err, req, res, next) => {

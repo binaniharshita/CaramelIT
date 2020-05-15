@@ -6,7 +6,7 @@ const subCategorySchema = new Schema({
     description: { type: String, required: true },
     noOfCourses: { type: Number, default: 0 },
     catId: { type: String, required: true },
-    subCourseList: [{ type: String }]
+    courseList: [{ type: String }]
 });
 
 module.exports = mongoose.model('SubCategory', subCategorySchema);

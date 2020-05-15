@@ -35,13 +35,17 @@ export class CourseService {
     return this.coursesUpdated.asObservable();
   }
 
-  addCourse(id: null, title: string, description: string, noOfModule: number, subCatId: string) {
+  addCourse(id: null, title: string, description: string, noOfModule: number, subCatId: string, image: File) {
+    const courseData = new FormData();
+    courseData.append('title', title);
+    courseData.append('description', description);
+    courseData.append('subCatId', subCatId);
+    courseData.append('image', image , title);
     const course: Course = { id, title, description, noOfModule, subCatId };
-    this.http.post<{ message: string, courseId: string }>('http://localhost:3000/api/courses', course)
-      .subscribe((courseData) => {
-        console.log(courseData);
-        course.id = courseData.courseId;
-        this.courses.push(course);
+    this.http.post<{ message: string, courseId: string }>('http://localhost:3000/api/courses', courseData)
+      .subscribe((responseData) => {
+        const courseAdd: Course = { id: responseData.courseId,  title, description, subCatId, noOfModule }
+        this.courses.push(courseAdd);
         this.coursesUpdated.next([...this.courses]);
       });
 
