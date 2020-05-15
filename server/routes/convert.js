@@ -6,7 +6,7 @@ const fs = require('fs');
 const convert = mammoth.convertToHtml({path: "./uploads/document.docx"})
     .then(function(result){
         const html = result.value; // The generated HTML
-        const converted =tabletojson.convert(html);
+        const converted =tabletojson.convert(html,{ useFirstRowForHeadings: true });
         const content = converted[0];
         fs.writeFile('Content.json', JSON.stringify(content) , function (err) {
             if (err) throw err;
