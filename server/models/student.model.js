@@ -75,10 +75,6 @@ studentSchema.methods.generateJwt = function () {
     });
 }
 
-<<<<<<< HEAD
-const Student = mongoose.model('Student', studentSchema,'Student_Info');
-=======
 const Student = mongoose.model('Student', studentSchema, 'Student_info');
->>>>>>> 8c21ee07fb60688df0f4c9fad637f44569d1f943
 
 module.exports = Student;

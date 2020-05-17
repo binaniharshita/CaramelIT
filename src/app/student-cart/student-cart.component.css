@@ -1,0 +1,27 @@
+.checkout-button {
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 50%;
+    padding: 6px;
+    margin: 6px;
+    background-color: midnightblue;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s ease-in;
+}
+.checkout-button:hover{
+    background-color: white;
+    color: midnightblue;
+    border: 1px solid midnightblue;
+}
+
+.right {
+    display: inline-block;
+    justify-content: right;
+}
+
+.thumbnail {
+    width: 600px;
+    height: 200px;
+    padding-top: 25px;
+}

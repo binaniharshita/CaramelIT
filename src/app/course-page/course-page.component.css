@@ -17,3 +17,8 @@
     margin: 6px;
     font-size: 20px;
 }
+
+.center {
+    display: inline-block;
+    justify-content: center;
+}

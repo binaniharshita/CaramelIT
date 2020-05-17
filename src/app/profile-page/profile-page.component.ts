@@ -46,6 +46,7 @@ import { UniversityUserService } from '../shared-user/university/university-user
       </tr>
       <tr>
           <td colspan="2" class="text-center">
+              <a routerLink="" routerLinkActive="active"><input type="button" value="Home" /></a>
               <input type="button" (click)="onLogout()" value="Logout" />
           </td>
       </tr>

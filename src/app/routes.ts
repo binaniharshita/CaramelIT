@@ -54,6 +54,6 @@ export const routes: Routes = [
   { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
   { path:'response-reset-password/:token', component: ResponseResetComponent },
   { path:'course-page', component: CoursePageComponent },
-  { path:'student-cart', component: StudentCartComponent }
+  { path:'student-cart', component: StudentCartComponent, canActivate:[AuthGuard] }
 ];
 

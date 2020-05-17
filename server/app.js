@@ -11,7 +11,7 @@ require('./config/passport');
 //Mongo Connect 
 const connect = require('./dbconnect');
 
-const studCart = require('./controllers/student-cart.controller');
+const studCart = require('./routes/studentcart.router');
 
 const app = express();
 

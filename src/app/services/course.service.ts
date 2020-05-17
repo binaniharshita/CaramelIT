@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CourseService {
 
   displaycourse: Course;
-  baseUri: string = 'http://localhost:4000/v1';
-  
+  baseUri: string = 'http://localhost:3000/api';
 
+  
   constructor(private http: HttpClient, private router: Router) { }
   getCourses(): Course[]{
     return COURSES;
@@ -31,8 +32,8 @@ export class CourseService {
 
   postCourseToCart(course): Observable<any> {
    
-    console.log(`${this.baseUri}/cart/create`, JSON.stringify(course));
-    const url = `${this.baseUri}/cart/create`;
+    console.log(`${this.baseUri}/studcart/create`, JSON.stringify(course));
+    const url = `${this.baseUri}/studcart/create`;
     //this.total += Number(course.price);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }).set('Content-Type', 'application/json')
@@ -45,15 +46,14 @@ export class CourseService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }).set('Content-Type', 'application/json')
     };
-    return this.http.get(`${this.baseUri}/cart/findall`);
+    return this.http.get(`${this.baseUri}/studcart/findall`);
   }
 
   deleteCourseFromCart(id): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }).set('Content-Type', 'application/json')
     };
-    COURSES.find(item => item.id == id).enable = true;
-    return this.http.delete(`${this.baseUri}/cart/delete/${id}`,httpOptions).pipe(
+    return this.http.delete(`${this.baseUri}/studcart/delete/${id}`,httpOptions).pipe(
       catchError(this.errorMgmt));
   }
 

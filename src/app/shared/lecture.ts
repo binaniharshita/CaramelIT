@@ -1,5 +1,5 @@
 export class Lecture {
-    id: string;
+    lecture_id: string;
     name: string;
     pptlink: string;
 }

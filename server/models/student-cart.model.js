@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const studentCartSchema = new mongoose.Schema(
   {
-    id: {
+    course_id: {
       type: Number,
       required: true,
     },
@@ -15,11 +15,9 @@ const studentCartSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
-      required: true,
     },
-    quantity: {
-      type: Number,
-      default: 1
+    image: {
+      type: String,
     }
   });
 
