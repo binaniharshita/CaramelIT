@@ -81,7 +81,7 @@ import { CreateCourseComponent } from './admin-dashboard/manage-course/create-co
 // import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
 
-
+import {ViewParticularCourseComponent} from './admin-dashboard/manage-course/view-particular-course/view-particular-course.component'
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component';
 import { AdminDashboard1Component } from './admin-dashboard1/admin-dashboard1.component';
 import { SidebarComponent } from './admin-dashboard1/sidebar/sidebar.component';
@@ -98,6 +98,7 @@ import { WidgetAreaComponent } from './admin-dashboard1/sidebar/reports/widget-a
 import { WidgetCardComponent } from './admin-dashboard1/sidebar/reports/widget-card/widget-card.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { FileUploadModule } from 'ng2-file-upload';
+
 
 
 
@@ -170,6 +171,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     AddCourseComponent,
 
     ViewCourseComponent,
+    ViewParticularCourseComponent
 
   ],
   imports: [

@@ -17,7 +17,7 @@
                 <td>{{course.title}}</td>
 
                 <td>{{course.description}}</td>
-                <td> <button mat-button color="warn" (click)="onGetViewCourse(course.id)">View</button></td>>
+                <td> <button mat-button color="warn" [routerLink]="['viewcourse',course.id]">View</button></td>>
                 <td> {{course.subCatId}}</td>
                 <td>
                     <button mat-button color="primary">Edit</button></td>

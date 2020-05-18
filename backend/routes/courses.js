@@ -2,44 +2,96 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 
+var mammoth = require("mammoth");
+const { Tabletojson: tabletojson } = require('tabletojson');
+const fs = require('fs');
+
 const Course = require('../model/course');
 const SubCategory = require('../model/subcategory');
 const Category = require('../model/category');
 
-
-const MIME_TYPE = {
+const MIME_TYPE_IMAGE = {
     'image/png': 'png',
     'image/jpeg': 'jpg',
-    'image/jpg': 'jpg'
+    'image/jpg': 'jpg',
+    'file/docx': 'doc',
+    'file/doc': 'doc',
 }
+
+var docfilename = '';
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const isValid = MIME_TYPE[file.mimetype];
-        let error = new Error('Invalid file type');
-        if (isValid) {
-            error = null;
+        if (file.fieldname === "file") { // if uploading resume
+            cb(null, 'backend/documents');
+        } else { // else uploading image
+            cb(null, 'backend/images');
         }
-        cb(null, 'backend/images');
     },
     filename: (req, file, cb) => {
-        const name = file.originalname.toLowerCase().split(' ').join('-');
-        const ext = MIME_TYPE[file.mimetype];
-        cb(null, name + '-' + Date.now() + '.' + ext);
+        console.log(file.mimetype);
+        var name = file.originalname.toLowerCase().split(' ').join('-');
+        const ext = MIME_TYPE_IMAGE[file.mimetype];
+        name = name + '-' + Date.now() + '.' + ext;
+        docfilename = name;
+        cb(null, name);
+    },
+});
+
+var upload = multer({ storage: storage });
+
+
+
+
+
+
+
+router.post('/content', upload.single('file'), (req, res, next) => {
+    console.log("Hello is bye");
+    try {
+        const document = req.file;
+        // make sure file is available
+        if (!document) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            mammoth.convertToHtml({ path: "./backend/documents/" + docfilename })
+                .then(displayResult)
+                .done();
+
+            function displayResult(result) {
+                const converted = tabletojson.convert(result.value, { useFirstRowForHeadings: true });
+                var content = converted[0];
+                content = JSON.stringify(content);
+                console.log("Inside function" + content);
+                res.send({
+                    message: 'File is uploaded.',
+                    content: content
+                });
+                res.end();
+            }
+        }
+    } catch (err) {
+        res.status(500).send(err);
     }
-})
+});
 
 
-router.post('', multer({ storage: storage }).single('image'), (req, res, next) => {
+// multer({ iStorage: storage }).single('image'),
+router.post('', upload.single('image'), (req, res, next) => {
+
     const course = new Course({
         title: req.body.title,
         description: req.body.description,
         subCatId: req.body.subCatId,
+        content: req.body.content
     });
-    course.save();
+    course.save((err, doc) => { if (err) { console.log(err) } else { console.log(doc) } });
     SubCategory.findById({ _id: req.body.subCatId }, function(err, doc) {
         if (err) { console.log("Error with updateing "); return; }
-        console.log(doc);
         doc.noOfCourses = doc.noOfCourses + 1;
         doc.subCourseList.push(course._id);
         doc.save(() => console.log(doc));
@@ -52,8 +104,10 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
     res.status(201).json({
         message: "Courses added successfully",
         courseId: course._id,
+        content: course.content,
     });
 });
+
 router.delete('/:id', (req, res, next) => {
     console.log('ID = ' + req.params.id);
     Course.deleteOne({ _id: req.params.id }).then(result => {

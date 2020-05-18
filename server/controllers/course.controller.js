@@ -3,35 +3,158 @@ const bodyParser = require('body-parser');
 const Course = require('../models/category.model');
 const mongoose = require('mongoose');
 const multer = require('multer');
+
+const convert = require('../routes/convert.route');
+const FILE_PATH = '../uploads';
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//var FILE_PATH = './uploads/';
-var DIR = './uploads/';
-
 var storage = multer.diskStorage({
-    dest: DIR,
-    rename: function(fieldname, filename) {
-        return filename + Date.now();
+    destination: function(req, file, cb) {
+        // Uploads is the Upload_folder_name
+        cb(null, FILE_PATH)
     },
-    onFileUploadStart: function(file) {
-        console.log(file.originalname + ' is starting ...');
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + ".docx")
+    }
+})
+
+//Configure multer
+const upload = multer({
+    storage: storage,
+    limits: {
+        files: 1, // allow up to 5 files per request,
     },
-    onFileUploadComplete: function(file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path);
+    fileFilter: (req, file, cb) => {
+        // allow doc only
+        if (!file.originalname.match(/\.(doc|docx)$/)) {
+            return cb(new Error('Only doc are allowed.'), false);
+        }
+        cb(null, true);
     }
 });
 
-// var storage = multer.diskStorage({
-//   destination: function(req, file, cb) {
-//       // Uploads is the Upload_folder_name
-//       cb(null, FILE_PATH)
-//   },
-//   filename: function(req, file, cb) {
-//       cb(null, file.fieldname + ".docx")
-//   }
-// })
+//Upload single file
+
+module.exports.loadLesson = (req, res) => {
+    console.log('POST REQUEST');
+    res.end();
+}
+module.exports.uploadLesson = ((upload.single("lesson"), async(req, res) => {
+    try {
+        const lesson = req.file;
+        // make sure file is available
+        if (!lesson) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: lesson.originalname,
+                    mimetype: lesson.mimetype,
+                    size: lesson.size
+                }
+            });
+            res.end();
+            convert.lesson();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}));
+
+module.exports.uploadScenario = (upload.single("scenario"), async(req, res) => {
+    try {
+        const scenario = req.file;
+        // make sure file is available
+        if (!scenario) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: scenario.originalname,
+                    mimetype: scenario.mimetype,
+                    size: scenario.size
+                }
+            });
+            res.end();
+            convert.scenario();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+module.exports.uploadProject = (upload.single("project"), async(req, res) => {
+    try {
+        const project = req.file;
+        // make sure file is available
+        if (!project) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: project.originalname,
+                    mimetype: project.mimetype,
+                    size: project.size
+                }
+            });
+            res.end();
+            convert.project();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+module.exports.uploadTest = (upload.single("test"), async(req, res) => {
+    try {
+        const test = req.file;
+        // make sure file is available
+        if (!test) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: test.originalname,
+                    mimetype: test.mimetype,
+                    size: test.size
+                }
+            });
+            res.end();
+            convert.test();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+
 
 module.exports.create = (req, res, next) => {
     console.log(req.body.catId);
@@ -89,17 +212,6 @@ module.exports.read = (req, res, next) => {
             courses: docs
         });
 
-    });
-
-};
-
-module.exports.contentPost = (req, res, next) => {
-    upload(req, res, function(err) {
-        if (err) {
-            return res.end(err.toString());
-        }
-
-        res.end('File is uploaded');
     });
 
 };

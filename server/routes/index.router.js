@@ -1,15 +1,52 @@
 const jwtHelper = require('../config/jwtHelper');
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+const multer = require('multer');
+const bodyParser = require('body-parser');
+
 const app = express();
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200/");
-    res.setHeader("Access-Control-Allow-Headers", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, DELETE, POST, PATCH, OPTIONS");
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
+// const Course = require('');
+const convert = require('./convert.route');
+const FILE_PATH = '../uploads';
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        // Uploads is the Upload_folder_name
+        cb(null, FILE_PATH)
+    },
+    filename: function(req, file, cb) {
+        console.log('FILE NAME ROUTE UPLOAD LESSON');
+        cb(null, file.fieldname + ".docx")
+    }
+})
+
+//Configure multer
+const upload = multer({
+    storage: storage,
+    limits: {
+        files: 1, // allow up to 5 files per request,
+    },
+    fileFilter: (req, file, cb) => {
+        console.log('FILEFILTTER ROUTE UPLOAD LESSON');
+        // allow doc only
+        if (!file.originalname.match(/\.(doc|docx)$/)) {
+            return cb(new Error('Only doc are allowed.'), false);
+        }
+        cb(null, true);
+    }
 });
+
+
+
+
+
+
 
 const ctrlStudent = require('../controllers/student.controller');
 const ctrlCorporate = require('../controllers/corporate.controller');
@@ -83,6 +120,44 @@ router.get('/subcategories', ctrlSubCat.read);
 router.put('/subcategories/:id', ctrlSubCat.update);
 router.delete('/subcategories/:id', ctrlSubCat.delete);
 
-//content add
-router.post('/upload', ctrlCourse.contentPost);
+//course route
+
+router.post('/courses', ctrlCourse.create);
+router.get('/courses', ctrlCourse.read);
+router.put('/courses/:id', ctrlCourse.update);
+router.delete('/courses/:id', ctrlCourse.delete);
+
+
+router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) => {
+    console.log('POST ROUTE UPLOAD LESSON');
+    try {
+        const lesson = req.file;
+        // make sure file is available
+        if (!lesson) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: lesson.originalname,
+                    mimetype: lesson.mimetype,
+                    size: lesson.size
+                }
+            });
+            res.end();
+            convert.lesson();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+router.post('/courses/upload/project', ctrlCourse.uploadProject);
+router.post('/courses/upload/scenario', ctrlCourse.uploadScenario);
+router.post('/courses/upload/test', ctrlCourse.uploadTest);
+
 module.exports = router;

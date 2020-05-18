@@ -8,6 +8,7 @@ import { SubCategoryService } from '../../manage-subcategory/subcaregory.service
 import { Subscription } from 'rxjs';
 import { SubCategory } from '../../manage-subcategory/subcategory.model';
 import { Category } from '../../manage-category/category.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -30,11 +31,15 @@ export class CreateCourseComponent implements OnInit {
   isOptional = false;
   nom: number;
   imagePreview: string;
-  filePreview: string;
+  fileLessonPreview: string;
+  fileScenarioPreview: string;
+  fileTestPreview: string;
+  fileProjectPreview: string;
+
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {}
+  constructor(public sanitizer: DomSanitizer, private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {}
 
   ngOnInit(): void {
 
@@ -71,7 +76,7 @@ export class CreateCourseComponent implements OnInit {
     });
     this.moduleDetailFormGroup = this.formBuilder.group({
       image: ['', Validators.required],
-      file: ['', Validators.required]
+      file: ['', Validators.required],
     });
   }
 
@@ -80,15 +85,45 @@ export class CreateCourseComponent implements OnInit {
     this.updatedSubCategory = this.subCategories.filter(subcategory => subcategory.catId === categoryId);
     console.log(this.updatedSubCategory);
   }
-  onFilePicked(event: Event) {
-    const docFile = (event.target as HTMLInputElement).files[0];
-    this.moduleDetailFormGroup.patchValue({ file: docFile });
+  onFileLessonPicked(event: Event) {
+    const docLessonFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ lessonFile: docLessonFile });
+    this.moduleDetailFormGroup.get('lessonFile').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.fileLessonPreview = reader.result as string;
+    };
+    reader.readAsDataURL(docLessonFile);
+  }
+  onFileScenarioPicked(event: Event) {
+    const docScenarioFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ file: docScenarioFile });
     this.moduleDetailFormGroup.get('file').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
-      this.filePreview = reader.result as string;
+      this.fileScenarioPreview = reader.result as string;
     };
-    reader.readAsDataURL(docFile);
+    reader.readAsDataURL(docScenarioFile);
+  }
+  onFileTestPicked(event: Event) {
+    const docTestFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ testFile: docTestFile });
+    this.moduleDetailFormGroup.get('testFile').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.fileTestPreview = reader.result as string;
+    };
+    reader.readAsDataURL(docTestFile);
+  }
+  onFileProjectPicked(event: Event) {
+    const docProjectFile = (event.target as HTMLInputElement).files[0];
+    this.moduleDetailFormGroup.patchValue({ ile: docProjectFile });
+    this.moduleDetailFormGroup.get('file').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.fileProjectPreview = reader.result as string;
+    };
+    reader.readAsDataURL(docProjectFile);
   }
   onImagePicked(event: Event) {
     const imageFile = (event.target as HTMLInputElement).files[0];
@@ -103,7 +138,7 @@ export class CreateCourseComponent implements OnInit {
   onAddCourse() {
     console.log('OnAddCourse');
 
-    if (this.courseDetailFormGroup.invalid) {
+    if (this.courseDetailFormGroup.invalid || this.moduleDetailFormGroup.invalid) {
       return;
     }
     // tslint:disable-next-line: max-line-length
@@ -111,6 +146,7 @@ export class CreateCourseComponent implements OnInit {
     // tslint:disable-next-line: max-line-length
     this.courseServices.addCourse(null, this.courseDetailFormGroup.value.title, this.courseDetailFormGroup.value.description, this.courseDetailFormGroup.value.noOfModule, this.courseDetailFormGroup.value.subcateogoryId, this.moduleDetailFormGroup.value.image);
     this.courseDetailFormGroup.reset();
+    this.moduleDetailFormGroup.reset();
 
   }
   courseForm() {
@@ -126,5 +162,22 @@ export class CreateCourseComponent implements OnInit {
     console.log(this.nom);
   }
 
+  addLesson(){
+    console.log('Lesson going to upload');
+    this.courseServices.addLessonFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.docLessonFile);
+  }
+
+  addScenario(){
+    console.log('Scenario going to upload');
+    this.courseServices.addScenarioFile(this.moduleDetailFormGroup.value.scenarioFile);
+  }
+  addProject(){
+    console.log('Project going to upload');
+    this.courseServices.addProjectFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.projectFile);
+  }
+  addTest(){
+    console.log('Test going to upload');
+    this.courseServices.addTestFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.testFile);
+  }
 
 }

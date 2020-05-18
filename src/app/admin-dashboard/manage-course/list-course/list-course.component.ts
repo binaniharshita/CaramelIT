@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../course.model';
 import { Subscription } from 'rxjs';
 import { CourseService } from '../course.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class ListCourseComponent implements OnInit {
   courses: Course[] = [];
   private coursesSubs: Subscription;
 
-  constructor(public courseService: CourseService) { }
+  constructor(private route: Router, public courseService: CourseService) { }
 
   ngOnInit(): void {
     this.courseService.getCourses();
@@ -28,8 +30,8 @@ export class ListCourseComponent implements OnInit {
     this.courseService.deleteCourse(courseId);
 
   }
-  onGetViewCourse(courseId){
-    this.courseService.getCourse(courseId);
-  }
+  // onGetViewCourse(courseId: string){
+  //   this.route.navigate(['/viewcourse',courseId]);
+  // }
 
 }
