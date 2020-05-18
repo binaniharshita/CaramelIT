@@ -67,6 +67,8 @@ import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { StudentCartComponent } from './student-cart/student-cart.component';
+import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
+import { SubProgramComponent } from './program/sub-program/sub-program.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { StudentCartComponent } from './student-cart/student-cart.component';
     ResponseResetComponent,
     CoursePageComponent,
     StudentCartComponent,
+    ProgramSwdComponent,
+    SubProgramComponent,
   ],
   imports: [
     BrowserModule,

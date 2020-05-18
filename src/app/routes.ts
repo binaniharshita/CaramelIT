@@ -28,6 +28,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { StudentCartComponent } from './student-cart/student-cart.component';
+import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
+import { SubProgramComponent } from './program/sub-program/sub-program.component';
 
 
 
@@ -54,6 +56,8 @@ export const routes: Routes = [
   { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
   { path:'response-reset-password/:token', component: ResponseResetComponent },
   { path:'course-page', component: CoursePageComponent },
-  { path:'student-cart', component: StudentCartComponent, canActivate:[AuthGuard] }
+  { path:'student-cart', component: StudentCartComponent, canActivate:[AuthGuard] },
+  {path:'program-swd', component: ProgramSwdComponent },
+  {path:'sub-program', component: SubProgramComponent }
 ];
 
