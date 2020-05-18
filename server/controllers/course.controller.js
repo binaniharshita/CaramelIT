@@ -4,6 +4,8 @@ const Course = require('../models/category.model');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
+
+require('../')
 const convert = require('../routes/convert.route');
 const FILE_PATH = '../uploads';
 
@@ -126,7 +128,7 @@ module.exports.uploadProject = (upload.single("project"), async(req, res) => {
     }
 });
 
-module.exports.uploadTest = (upload.single("test"), async(req, res) => {
+module.exports.uploadTest = upload.single("test"), async(req, res) => {
     try {
         const test = req.file;
         // make sure file is available
@@ -152,7 +154,7 @@ module.exports.uploadTest = (upload.single("test"), async(req, res) => {
     } catch (err) {
         res.status(500).send(err);
     }
-});
+};
 
 
 

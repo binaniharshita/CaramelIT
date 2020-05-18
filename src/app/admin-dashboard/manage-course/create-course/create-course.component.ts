@@ -76,7 +76,11 @@ export class CreateCourseComponent implements OnInit {
     });
     this.moduleDetailFormGroup = this.formBuilder.group({
       image: ['', Validators.required],
-      file: ['', Validators.required],
+      lessonFile: ['', Validators.required],
+      scenarioFile: ['', Validators.required],
+      testFile: ['', Validators.required],
+      projectFile: ['', Validators.required]
+
     });
   }
 
@@ -97,8 +101,8 @@ export class CreateCourseComponent implements OnInit {
   }
   onFileScenarioPicked(event: Event) {
     const docScenarioFile = (event.target as HTMLInputElement).files[0];
-    this.moduleDetailFormGroup.patchValue({ file: docScenarioFile });
-    this.moduleDetailFormGroup.get('file').updateValueAndValidity();
+    this.moduleDetailFormGroup.patchValue({ scenarioFile: docScenarioFile });
+    this.moduleDetailFormGroup.get('scenarioFile').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.fileScenarioPreview = reader.result as string;
@@ -117,8 +121,8 @@ export class CreateCourseComponent implements OnInit {
   }
   onFileProjectPicked(event: Event) {
     const docProjectFile = (event.target as HTMLInputElement).files[0];
-    this.moduleDetailFormGroup.patchValue({ ile: docProjectFile });
-    this.moduleDetailFormGroup.get('file').updateValueAndValidity();
+    this.moduleDetailFormGroup.patchValue({ projectFile: docProjectFile });
+    this.moduleDetailFormGroup.get('projectFile').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.fileProjectPreview = reader.result as string;
@@ -164,7 +168,7 @@ export class CreateCourseComponent implements OnInit {
 
   addLesson(){
     console.log('Lesson going to upload');
-    this.courseServices.addLessonFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.docLessonFile);
+    this.courseServices.addLessonFile(this.moduleDetailFormGroup.value.lessonFile);
   }
 
   addScenario(){
@@ -173,11 +177,11 @@ export class CreateCourseComponent implements OnInit {
   }
   addProject(){
     console.log('Project going to upload');
-    this.courseServices.addProjectFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.projectFile);
+    this.courseServices.addProjectFile(this.moduleDetailFormGroup.value.projectFile);
   }
   addTest(){
     console.log('Test going to upload');
-    this.courseServices.addTestFile(this.courseDetailFormGroup.value.title, this.moduleDetailFormGroup.value.testFile);
+    this.courseServices.addTestFile( this.moduleDetailFormGroup.value.testFile);
   }
 
 }

@@ -39,30 +39,30 @@ export class CourseService {
   }
 
   // Uploading lesson file route
-  addLessonFile(title: string, file: File) {
+  addLessonFile(file: File) {
+    console.log('Inside service' + file);
     const fileData = new FormData();
-    fileData.append('title', title);
-    fileData.append('lesson', file, title);
+    fileData.append('lesson', file);
 
-    this.http.post<{ message: string, content: JSON }>('http://localhost:3000/api/courses/upload/lesson', fileData)
+    console.log(fileData);
+
+    this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/lesson', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
   }
-  addProjectFile(title: string, file: File) {
+  addProjectFile(file: File) {
     const fileData = new FormData();
-    fileData.append('title', title);
-    fileData.append('project', file, title);
+    fileData.append('project', file);
 
-    this.http.post<{ message: string, content: JSON }>('http://localhost:3000/api/courses/upload/project', fileData)
+    this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/project', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
   }
-  addTestFile(title: string, file: File) {
+  addTestFile(file: File) {
     const fileData = new FormData();
-    fileData.append('title', title);
-    fileData.append('test', file, title);
+    fileData.append('test', file);
 
     this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/test', fileData)
       .subscribe((responseData) => {

@@ -9,7 +9,7 @@ const app = express();
 
 // const Course = require('');
 const convert = require('./convert.route');
-const FILE_PATH = '../uploads';
+const FILE_PATH = './uploads';
 
 
 app.use(bodyParser.json());
@@ -156,8 +156,86 @@ router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) =
         res.status(500).send(err);
     }
 });
-router.post('/courses/upload/project', ctrlCourse.uploadProject);
-router.post('/courses/upload/scenario', ctrlCourse.uploadScenario);
-router.post('/courses/upload/test', ctrlCourse.uploadTest);
+router.post('/courses/upload/project', upload.single("project"), async(req, res) => {
+    try {
+        const project = req.file;
+        // make sure file is available
+        if (!project) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: project.originalname,
+                    mimetype: project.mimetype,
+                    size: project.size
+                }
+            });
+            res.end();
+            convert.project();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+router.post('/courses/upload/scenario', upload.single("scenario"), async(req, res) => {
+    try {
+        const scenario = req.file;
+        // make sure file is available
+        if (!scenario) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: scenario.originalname,
+                    mimetype: scenario.mimetype,
+                    size: scenario.size
+                }
+            });
+            res.end();
+            convert.scenario();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+router.post('/courses/upload/test', upload.single("test"), async(req, res) => {
+    try {
+        const test = req.file;
+        // make sure file is available
+        if (!test) {
+            res.status(400).send({
+                status: false,
+                data: 'No file is selected.'
+            });
+        } else {
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded.',
+                data: {
+                    name: test.originalname,
+                    mimetype: test.mimetype,
+                    size: test.size
+                }
+            });
+            res.end();
+            convert.test();
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
 module.exports = router;

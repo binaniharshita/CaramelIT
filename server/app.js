@@ -32,11 +32,11 @@ app.use(cookieParser());
 //Passport Middleware
 app.use(passport.initialize());
 //Route
-app.use('/upload', require('./routes/upload.route'))
-    // app.use('/api', studRoutes);
-    // app.use('/course', require('./routes/upload'));
-    // app.use('/api', require('./routes/upload'));
-    // app.use('/course', require('./routes/seed'));
+// app.use('/upload', require('./routes/upload.route'))
+app.use('/api', studRoutes);
+// app.use('/course', require('./routes/upload'));
+// app.use('/api', require('./routes/upload'));
+// app.use('/course', require('./routes/seed'));
 
 // error handler
 app.use((err, req, res, next) => {
