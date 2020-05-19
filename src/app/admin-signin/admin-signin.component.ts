@@ -21,7 +21,7 @@ export class AdminSigninComponent implements OnInit {
   serverErrorMessage: string;
 
   ngOnInit() {
-    if (this.admin.isLoggedIn()){
+    if (this.admin.isLoggedIn()) {
       this.router.navigateByUrl('/profile-page');
     }
   }

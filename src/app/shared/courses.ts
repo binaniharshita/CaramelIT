@@ -3,149 +3,151 @@ import { Course } from './course';
 
 export const COURSES: Course[] = [
     {
-        id: '100',
+        course_id: '100',
         name: 'Complete full stack web development',
         image: '/assets/images/html.png',
+        description: "A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available.",
+        price: 2500,
         chapter: [
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../src/assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../src/assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../src/assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../src/assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../src/assets/powerpoint/bootstrap.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../src/assets/powerpoint/css.html',
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../src/assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../src/assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../src/assets/powerpoint/bootstrap.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../src/assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../src/assets/powerpoint/bootstrap_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../src/assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../src/assets/powerpoint/bootstrap_tutorial-converted.html'
                     }
@@ -154,149 +156,151 @@ export const COURSES: Course[] = [
         ]
     },
     {
-        id: '100',
+        course_id: '100',
         name: 'Complete CSS web development',
         image: '/assets/images/css.png',
+        description: "A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available.",
+        price: 1000,
         chapter: [
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html',
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     }
@@ -305,149 +309,151 @@ export const COURSES: Course[] = [
         ]
     },
     {
-        id: '100',
+        course_id: '100',
         name: 'Complete JAVASCRIPT web development',
         image: '/assets/images/javascript.png',
+        description: "A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available.",
+        price: 3000,
         chapter: [
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html',
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     }
@@ -456,154 +462,156 @@ export const COURSES: Course[] = [
         ]
     },
     {
-        id: '100',
+        course_id: '100',
         name: 'Complete BOOTSTRAP web development',
         image: '/assets/images/javascript.png',
+        description: "A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available.",
+        price: 2000,
         chapter: [
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../src/assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html',
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/css.html'
                     }
                 ]
             },
             {
-                id: '100.1',
+                chapter_id: '100.1',
                 name: 'Introduction to HTML',
                 lecture: [
                     {
-                        id: '100.1.1',
+                        lecture_id: '100.1.1',
                         name: 'Introduction',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.2',
+                        lecture_id: '100.1.2',
                         name: 'Structure Of Webiste',
                         pptlink: '../assets/powerpoint/css.html'
                     },
                     {
-                        id: '100.1.3',
+                        lecture_id: '100.1.3',
                         name: 'Your First website',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.4',
+                        lecture_id: '100.1.4',
                         name: 'Get your free unlimited web hosting',
                         pptlink: '../assets/powerpoint/javascript_tutorial-converted.html'
                     },
                     {
-                        id: '100.1.5',
+                        lecture_id: '100.1.5',
                         name: 'Set up FTP (Syberduck Version)',
                         pptlink: '../assets/powerpoint/html.html'
                     },
                     {
-                        id: '100.1.6',
+                        lecture_id: '100.1.6',
                         name: 'Headings',
                         pptlink: '../assets/powerpoint/bootstrap_tutorial-converted.html'
                     }
                 ]
             }
-        ]
+        ] 
     }
 ];

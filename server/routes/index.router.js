@@ -80,6 +80,9 @@ router.get('/universityProfile', jwtHelper.verifyJwtToken, ctrlUniversity.univer
 router.post('/admin-authenticate', ctrlAdmin.authenticate);
 router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
 
+router.post('/admin-authenticate', ctrlAdmin.authenticate);
+router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
+
 //Reset Student password
 router.post('/student-req-reset-password', ctrlStudent.ResetPassword);
 router.post('/student-new-password', ctrlStudent.NewPassword);

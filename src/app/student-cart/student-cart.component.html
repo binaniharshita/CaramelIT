@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+
+<div class="container"
+     fxLayout="row"
+     fxLayoutGap="10px" style="margin: 40px;">
+
+     <h3>Your Cart</h3>
+
+
+     <mat-list fxFlex="60%">
+        <mat-card style="max-width: 600px;" *ngFor="let item of items" class="list-content">
+          <h1 matCardTitle class="title"> {{item.name}} </h1>
+          <div fxLayout="row" style="margin: auto;">
+          <img class="thumbnail" matCardImage src="{{item.image}}" alt={{item.title}}>
+          <span fxFlex="10"></span>
+          <p matLine>
+            <span> {{item.description}} </span>
+          </p>
+          
+          <p matLine class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> Rs:{{ item.price }}/- 
+              <mat-card-actions>
+              <button mat-button class="add-to-cart btn btn-default pull-right" (click)="deleteFromCart(item)">
+                <i class="fa fa-times" aria-hidden="true"></i>  Remove</button>
+                </mat-card-actions>
+          </p>
+        </div>
+        </mat-card>
+      </mat-list>
+      <mat-card fxFlex="40%">
+        <mat-card-title>
+          Buy Now
+        </mat-card-title>
+        <hr/>
+        <h1 class="checkout_h1">Total</h1>
+        <mat-card-content>{{total}}</mat-card-content>
+        <mat-card-actions><button class="checkout-button right" mat-button>Checkout</button></mat-card-actions>
+      </mat-card>
+</div>
+
+<app-footer></app-footer>

@@ -1,72 +1,132 @@
-<div data-aos="zoom-in"data-aos-delay="2000" data-aos-offset="100">
-	<div class="container-fluid courses5">
-	  <section class="top-header" id="tophead">
-		<div class="container-fluid" id="coursenav">
-		<nav class="navbar navbar-expand-md navbar-light  naving1" >
-		<div class="container-fluid">
-		<a class="navbar-brand" href="../acadamy.html">
-		  <img class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="200px" alt="forecastr logo">
-		  </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+<div data-aos="zoom-in" data-aos-delay="2000" data-aos-offset="100">
+    <div class="container-fluid courses5">
+        <section class="top-header" id="tophead">
+            <div class="container-fluid" id="coursenav">
+                <nav class="navbar navbar-expand-md navbar-light  naving1">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../acadamy.html">
+                            <img class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="200px" alt="forecastr logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		  <ul class="navbar-nav ml-auto">
-		  <li class="nav-item naving-item">
-			<a class="nav-link px-lg-4 font-weight-bold alink" href="../index.html">IT Services Home</a>
-		  </li>
-		  <li class="nav-item blue-col dropdown dropdowns naving-item">
-				<button mat-button class="blue-col dropdown-toggle" [matMenuTriggerFor]="categories">Categories</button>
-				<mat-menu #categories="matMenu">
-  					<button mat-menu-item [matMenuTriggerFor]="programs">Programs</button>
-  					<button mat-menu-item [matMenuTriggerFor]="subprograms">Sub-Programs</button>
-					<button mat-menu-item [matMenuTriggerFor]="allcourses">All Courses</button>
-				</mat-menu>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item naving-item">
+                                    <a class="nav-link px-lg-4 font-weight-bold alink" href="../index.html">IT Services Home</a>
+                                </li>
+                                <li class="nav-item blue-col dropdown dropdowns naving-item">
+                                    <button mat-button class="blue-col dropdown-toggle" [matMenuTriggerFor]="categories">Categories</button>
+                                    <mat-menu #categories="matMenu">
+                                        <button mat-menu-item [matMenuTriggerFor]="programs">Programs</button>
+                                        <button mat-menu-item [matMenuTriggerFor]="subprograms">Sub-Programs</button>
+                                        <button mat-menu-item [matMenuTriggerFor]="allcourses">All Courses</button>
+                                    </mat-menu>
 
-				<mat-menu #programs="matMenu">
-					<button mat-menu-item >Software Development</button>
-				</mat-menu>
+                                    <mat-menu #programs="matMenu">
+                                        <button mat-menu-item>Software Development</button>
+                                    </mat-menu>
 
-				<mat-menu #subprograms="matMenu">
-					<button mat-menu-item >Backend</button>
-					<button mat-menu-item >Cloud</button>
-					<button mat-menu-item >Cyber</button>
-					<button mat-menu-item >Datascience</button>
-					<button mat-menu-item >Devops</button>
-					<button mat-menu-item >Digital</button>
-					<button mat-menu-item >Erp</button>
-					<button mat-menu-item >Fullstack</button>
-					<button mat-menu-item >FunctionalTestting</button>
-					<button mat-menu-item >It</button>
-					<button mat-menu-item >It Certification</button>
-					<button mat-menu-item >Mobility</button>
-					<button mat-menu-item >UI Courses</button>
-				</mat-menu>
+                                    <mat-menu #subprograms="matMenu">
+                                        <button mat-menu-item>Backend</button>
+                                        <button mat-menu-item>Cloud</button>
+                                        <button mat-menu-item>Cyber</button>
+                                        <button mat-menu-item>Datascience</button>
+                                        <button mat-menu-item>Devops</button>
+                                        <button mat-menu-item>Digital</button>
+                                        <button mat-menu-item>Erp</button>
+                                        <button mat-menu-item>Fullstack</button>
+                                        <button mat-menu-item>FunctionalTestting</button>
+                                        <button mat-menu-item>It</button>
+                                        <button mat-menu-item>It Certification</button>
+                                        <button mat-menu-item>Mobility</button>
+                                        <button mat-menu-item>UI Courses</button>
+                                    </mat-menu>
 
-				<mat-menu #allcourses>
-					<button mat-menu-item >Courses</button>
-				</mat-menu>
-			</li>
-		  <li class="nav-item">
-			<div class="dropdown">
-				<a href="#" class="nav-link px-lg-3 alink blue-col">Registration <i class="fa fa-caret-down"></i></a>
-				<div class="dropdown-content">
-					<a routerLink="student-signin" routerLinkActive="active">Student</a>
-					<a routerLink="instructor-signin" routerLinkActive="active">Instructor</a>
-					<a routerLink="corporate-signin" routerLinkActive="active">Corporates</a>
-					<a routerLink="university-signin" routerLinkActive="active">Universities</a>
-				<a style="color: #f1f1f1;" onmouseover="this.style.color='black'" onmouseout="this.style.color='#f1f1f1'" class="hide" routerLink="admin-signin" routerLinkActive="active">Admin</a>
-				</div>
-			</div>
-		</li>
-		  <li class="nav-item naving-item">
-			<a class="nav-link alink px-lg-4 font-weight-bold" href="../nodeindexcontactform/contactform.html">Contact Us</a>
-		  </li>
-		  </ul>
-		</div>
-		</div>
-	   </nav>
-	   </div>
-	  </section>
+                                    <mat-menu #allcourses>
+                                        <button mat-menu-item>Courses</button>
+                                    </mat-menu>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="dropdown">
+                                        <a href="#" class="nav-link px-lg-3 alink blue-col">Registration <i class="fa fa-caret-down"></i></a>
+                                        <div class="dropdown-content">
+                                            <a routerLink="student-signin" routerLinkActive="active">Student</a>
+                                            <a routerLink="instructor-signin" routerLinkActive="active">Instructor</a>
+                                            <a routerLink="corporate-signin" routerLinkActive="active">Corporates</a>
+                                            <a routerLink="university-signin" routerLinkActive="active">Universities</a>
+                                            <a style="color: #f1f1f1;" onmouseover="this.style.color='black'" onmouseout="this.style.color='#f1f1f1'" class="hide" routerLink="admin-signin" routerLinkActive="active">Admin</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item naving-item">
+                                    <a class="nav-link alink px-lg-4 font-weight-bold" href="../nodeindexcontactform/contactform.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
 
 
+        <title>CARAMEL IT ACADEMY</title>
+
+        <div class="acaheader" id="topheader">
+            <div class="container-fluid text5">
+                <nav class="navbar navbar-expand-lg bg navbar-light">
+                    <!-- Brand-->
+                    <a class="navbar-brand logo1" routerLink=""><img src="../assets/caramelacademy.png" width="200px" height="70px"></a>
+
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav ml-auto font-weight-bold">
+                            <li class="nav-item ">
+                                <a class="nav-link px-lg-3 alink" href="#">IT Services Home</a>
+                                <!-- <img src="../assets/chevron-down.svg" class="svg"/> -->
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a href="#" class="nav-link px-lg-3 alink">Categories <i class="fa fa-caret-down"></i></a>
+                                    <div class="dropdown-content">
+                                        <a routerLink="/program-swd" routerLinkactive="active">Programs</a>
+                                        <a routerLink="/sub-program" routerLinkActive="active">Sub Programs</a>
+                                        <a routerLink="/all-courses" routerLinkAvtice="active">All Courses</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a href="#" class="nav-link px-lg-3 alink">Registration <i class="fa fa-caret-down"></i></a>
+                                    <div class="dropdown-content">
+                                        <a routerLink="/student-signin" routerLinkActive="active">Student</a>
+                                        <a routerLink="/instructor-signin" routerLinkActive="active">Instructor</a>
+                                        <a routerLink="/corporate-signin" routerLinkActive="active">Corporates</a>
+                                        <a routerLink="/university-signin" routerLinkActive="active">Universities</a>
+                                        <a style="color: #f1f1f1;" onmouseover="this.style.color='black'" onmouseout="this.style.color='#f1f1f1'" class="hide" routerLink="/admin-signin" routerLinkActive="active">Admin</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item" *ngIf="userType != ''">
+                                <div class="dropdown">
+                                    <a href="#" class="nav-link px-lg-3 alink">Account <i class="fa fa-caret-down"></i></a>
+                                    <div class="dropdown-content">
+                                        <a routerLink="/profile-page" routerLinkactive="active">Profile Page</a>
+                                        <a routerLink="/student-cart" routerLinkActive="active">Cart</a>
+                                        <a href="#" (click)="onLogout();">Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-lg-3 alink" routerLink="contactus" routerLinkActive="active">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>

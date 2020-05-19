@@ -69,6 +69,6 @@ universitySchema.methods.generateJwt = function () {
     });
 }
 
-const University = mongoose.model('University', universitySchema);
+const University = mongoose.model('University', universitySchema, 'University_Info');
 
 module.exports = University;

@@ -37,8 +37,7 @@ import { InstructorListComponent } from './instructor-list/instructor-list.compo
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
 import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
-
-//materials
+// materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -49,9 +48,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
-//routes
 import { routes } from './routes';
 import { StudentUserService } from './shared-user/student/student-user.service';
 import { InstructorUserService } from './shared-user/instructor/instructor-user.service';
@@ -63,6 +62,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 // HEAD
+
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
 import { RecommendationSystemComponent } from './recommendation-system/recommendation-system.component';
@@ -81,7 +81,7 @@ import { CreateCourseComponent } from './admin-dashboard/manage-course/create-co
 // import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
 
-import {ViewParticularCourseComponent} from './admin-dashboard/manage-course/view-particular-course/view-particular-course.component'
+import { ViewParticularCourseComponent } from './admin-dashboard/manage-course/view-particular-course/view-particular-course.component';
 import { MaganeCatSubcatComponent } from './admin-dashboard/magane-cat-subcat/magane-cat-subcat.component';
 import { AdminDashboard1Component } from './admin-dashboard1/admin-dashboard1.component';
 import { SidebarComponent } from './admin-dashboard1/sidebar/sidebar.component';
@@ -100,9 +100,14 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { FileUploadModule } from 'ng2-file-upload';
 
 
-
-
 // cbd25a4911795786a57e531898e05a64dbf8bb9b
+// import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course/list-course.component';
+
+import { CoursePageComponent } from './course-page/course-page.component';
+import { StudentCartComponent } from './student-cart/student-cart.component';
+import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
+import { SubProgramComponent } from './program/sub-program/sub-program.component';
+
 
 @NgModule({
   declarations: [
@@ -133,7 +138,6 @@ import { FileUploadModule } from 'ng2-file-upload';
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
-    // <<<<<<< HEAD
     ResponseResetComponent,
     RecommendationSystemComponent,
     QuestionBankComponent,
@@ -149,30 +153,23 @@ import { FileUploadModule } from 'ng2-file-upload';
     ReportsComponent,
     WidgetAreaComponent,
     WidgetCardComponent,
-
     ResponseResetComponent,
-
     MaganeCatSubcatComponent,
-
     AdminDashboard1Component,
-
     SidebarComponent,
-
     AdminheaderComponent,
-
     AdminfooterComponent,
-
     ManageComponent,
-
     CreateStructureComponent,
-
     ViewStructureComponent,
-
     AddCourseComponent,
-
     ViewCourseComponent,
-    ViewParticularCourseComponent
-
+    ViewParticularCourseComponent,
+    ResponseResetComponent,
+    CoursePageComponent,
+    StudentCartComponent,
+    ProgramSwdComponent,
+    SubProgramComponent,
   ],
   imports: [
     BrowserModule,
@@ -193,7 +190,9 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     MatDialogModule,
     HighchartsChartModule,
-    FileUploadModule
+    FileUploadModule,
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
