@@ -4,13 +4,15 @@
         <h3>Course</h3>
     </div>
     <div fxFlex>
-        <mat-grid-list cols="2" rowHeight="300px"> <a routerLink="/course-page" routerLinkActive="active">
-            <mat-grid-tile *ngFor="let course of courses" (click) = "onSelect(course)">
-                <img height="200px" src={{course.image}} alt={{course.name}}>
-                <mat-grid-tile-footer>
-                    <h1>{{course.name}}</h1>
-                </mat-grid-tile-footer>
-            </mat-grid-tile></a>
+        <mat-grid-list cols="2" rowHeight="300px">
+            <a routerLink="/course-page" routerLinkActive="active">
+                <mat-grid-tile *ngFor="let course of courses" (click)="onSelect(course)">
+                    <img height="200px" src={{course.image}} alt={{course.name}}>
+                    <mat-grid-tile-footer>
+                        <h1>{{course.name}}</h1>
+                    </mat-grid-tile-footer>
+                </mat-grid-tile>
+            </a>
         </mat-grid-list>
     </div>
     <!--<router-outlet><app-videosection [course] = "selectedCourse"></app-videosection></router-outlet>-->

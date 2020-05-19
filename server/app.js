@@ -26,7 +26,7 @@ const connect = require('./dbconnect');
 
 const studCart = require('./routes/studentcart.router');
 
-const app = express();
+
 
 //Body Parser, Cors, Cookie parser
 app.use(bodyParser.json());
