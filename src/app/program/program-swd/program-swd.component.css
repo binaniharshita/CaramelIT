@@ -1,0 +1,128 @@
+.second {
+    width: 95%;
+    height: 100%;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: white;
+    border-radius: 20px;
+  }
+  
+  .second a:hover {
+    text-decoration: none;
+  }
+  
+  .second:hover {
+    box-shadow: 5px 5px 19px 5px;
+    transform: scale(1);
+  }
+  .second p {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+  }
+  .third {
+    width: 100%;
+    height: 70%;
+  }
+  .third img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .four {
+    width: 100%;
+    height: 30%;
+  }
+  .four p {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    height:50%;
+    width:50%;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-container {
+    margin-top: 5%;
+    background-image: linear-gradient(to left, #0e7fa7, #1d5787, #27386e);
+  }
+  .swiper-wrapper {
+    background: transparent;
+  }
+  .swiper-slide {
+    background: transparent;
+  }
+  .sub-head {
+    width: 60%;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-weight: 800;
+    border-bottom: 2px solid #fc5185;
+  }
+  .ccontent {
+    width: 100%;
+    height: auto;
+    background-color: #1971e152;
+    margin-top: 20px;
+  }
+  
+  .ccontent h3 {
+    color: #292c7d;
+    font-size: 40px;
+    /* margin-left: 20px; */
+    font-weight: bold;
+    height: auto;
+    margin-top: 30px;
+  }
+  .ccontent p {
+    font-size: 25px;
+    /* margin-left: 20px; */
+    text-align: justify;
+  }
+  .cimage {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    background-color: #1971e152;
+  }
+  .cimage img {
+    width: 100%;
+    padding: 40px 20px 0px 20px;
+    height: 240px;
+  }
+  .courses5 {
+    padding: 0px !important;
+  }    
+  #h {
+    /*  margin:-15px;
+  padding: 0px;*/
+    width: 100%;
+    height: auto;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: 30px !important;
+    margin-top: 25px;
+  }
+  

@@ -23,7 +23,7 @@
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-user stugl"></span>
               </span>
-              <input #adminName="ngModel" [(ngModel)]="admin.selectedAdmin.adminName" type="text" placeholder="Enter Your Name...." class="form-control stureg"               data-error="This email address is invalid" required id="fullName" name="fullName" value="" />
+              <input #adminName="ngModel" [(ngModel)]="admin.selectedAdmin.adminName" type="text" placeholder="Enter Your Name...." class="form-control stureg" required id="adminName" name="adminName" value="" />
               <span class="glyphicon form-control-feedback"
                 aria-hidden="true"></span>
             </div>
@@ -33,7 +33,7 @@
                 <span class="glyphicon glyphicon-envelope stugl"></span>
               </span>
               <input #emailAddress="ngModel" [(ngModel)]="admin.selectedAdmin.emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
-                data-error="This email address is invalid" required id="emailAddres" name="emailAddres" value="" />
+                data-error="This email address is invalid" required id="emailAddress" name="emailAddress" value="" />
               <span class="glyphicon form-control-feedback"
                 aria-hidden="true"></span>
             </div>

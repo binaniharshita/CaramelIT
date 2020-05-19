@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const universitySchema = new mongoose.Schema({
-    user_type: {
-        type: String //only for checking something
-    },
     collegeName: {
         type: String,
         required : true
@@ -72,6 +69,6 @@ universitySchema.methods.generateJwt = function () {
     });
 }
 
-const University = mongoose.model('University', universitySchema);
+const University = mongoose.model('University', universitySchema, 'University_Info');
 
 module.exports = University;

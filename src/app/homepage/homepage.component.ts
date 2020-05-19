@@ -10,15 +10,13 @@ import { CourseService } from '../services/course.service';
 export class HomepageComponent implements OnInit {
   courses: Course[];
 
-  selectedCourse: Course;
-
   constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
-    this.courses = this.courseService.getCourse();
+    this.courses = this.courseService.getCourses();
   }
 
   onSelect(course: Course){
-    this.selectedCourse = course;
-  }
+    this.courseService.displayCourse(course);
+}
 }

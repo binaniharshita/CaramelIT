@@ -2,15 +2,23 @@
 <mat-toolbar>
     <!--medium to large screen-->
     <mat-toolbar-row fxShow="true" fxHide.lt-sm="true">
+<<<<<<< HEAD
         <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
+=======
+        <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
         <h1 class="h1-decor" fxFlex="80%" fxLayoutAlign="center" style="font-size: 30px;">Admin Dashboard</h1>
-        <button fxFlex="20%" class="logout_button">logout</button><br/>
+        <button (click)="onLogout()" fxFlex="20%" class="logout_button">logout</button><br/>
     </mat-toolbar-row>
     <!--mobile screen-->
     <mat-toolbar-row fxShow="true" fxHide.gt-xs="true">
+<<<<<<< HEAD
         <img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;" />
+=======
+        <a routerLink="" routerLinkActive="active"><img src="../assets/caramelacademy.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;"/></a>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
         <span fxFlex="30%"></span>
-        <button class="logout_button">logout</button>
+        <button (click)="onLogout()" class="logout_button">logout</button>
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -21,39 +29,70 @@
 <!--medium to large screen hr-->
 <hr fxLayoutAlign="center" fxShow="true" fxHide.lt-sm="true" class="divider" />
 
+<!--welcome message-->
+<h1 class="center">Welcome {{adminDetails.adminName}}</h1>
+
+
 <!--homepage options-->
 <table width="100%" cell-spacing="50">
     <tr>
         <td>
+<<<<<<< HEAD
             <button mat-raised-button routerLink="manage-category" class="button_info">
             <!-- <a href="#"> -->
                 <img src="../assets/category.svg" class="icon" alt="logo"/>
             <!-- </a> -->
+=======
+            <button class="button_info">
+            <a href="#">
+                <img src="../assets/admin-icons/ategory.svg" class="icon" alt="logo"/>
+            </a>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
             Manage Category(Program)
             </button>
         </td>
         <td>
+<<<<<<< HEAD
             <button mat-raised-button routerLink="manage-subcategory" class="button_info">
                 <!-- <a href="#"> -->
                     <img src="../assets/student.svg" class="icon" alt="logo"/>
                 <!-- </a> -->
+=======
+            <button class="button_info">
+                <a routerLink="/user_list" routerLinkActive="active">
+                    <img src="../assets/admin-icons/student.svg" class="icon" alt="logo"/>
+                </a>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
                 Manage Student Enrollment
             </button>
         </td>
     </tr>
     <tr>
         <td>
+<<<<<<< HEAD
             <button mat-raised-button routerLink="manage-subcategory" class="button_info">
                 <!-- <a href="#"> -->
                     <img src="../assets/category.svg" class="icon" alt="logo"/>
                 <!-- </a> -->
+=======
+            <button class="button_info">
+                <a href="#">
+                    <img src="../assets/admin-icons/category.svg" class="icon" alt="logo"/>
+                </a>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
                 Manage Sub-Category(Sub-Program)
             </button>
         </td>
         <td>
+<<<<<<< HEAD
             <button mat-raised-button routerLink="manage-subcategory" class="button_info">
                 <a href="#">
                     <img src="../assets/instructor.svg" class="icon" alt="logo"/>
+=======
+            <button class="button_info">
+                <a routerLink="/instructor_list" routerLinkActive="active">
+                    <img src="../assets/admin-icons/instructor.svg" class="icon" alt="logo"/>
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
                 </a>
                 Manage Instructor Enrollment
             </button>
@@ -63,15 +102,15 @@
         <td>
             <button mat-raised-button routerLink="manage-course" class="button_info">
                 <a href="#">
-                    <img src="../assets/courses.svg" class="icon" alt="logo"/>
+                    <img src="../assets/admin-icons/courses.svg" class="icon" alt="logo"/>
                 </a>
                 Manage Course
             </button>
         </td>
         <td>
             <button class="button_info">
-                <a href="#">
-                    <img src="../assets/college.svg" class="icon" alt="logo"/>
+                <a routerLink="/college_list" routerLinkActive="active">
+                    <img src="../assets/admin-icons/college.svg" class="icon" alt="logo"/>
                 </a>
                 College(University) Administration
             </button>
@@ -80,16 +119,16 @@
     <tr>
         <td>
             <button class="button_info">
-                <a href="#">
-                    <img src="../assets/dashboard.svg" class="icon" alt="logo"/>
+                <a routerLink="/reports" routerLinkActive="active">
+                    <img src="../assets/admin-icons/dashboard.svg" class="icon" alt="logo"/>
                 </a>
                 Reports and Dashboard
             </button>
         </td>
         <td>
             <button class="button_info">
-                <a href="#">
-                    <img src="../assets/corporate.svg" class="icon" alt="logo"/>
+                <a routerLink="/organisation_list" routerLinkActive="active">
+                    <img src="../assets/admin-icons/corporate.svg" class="icon" alt="logo"/>
                 </a>
                 Corporate(Organisation) Administration
             </button>
@@ -99,8 +138,8 @@
         <td class="empty"></td>
         <td>
             <button class="button_info">
-                <a href="#">
-                    <img src="../assets/questionbank.svg" class="icon" alt="logo"/>
+                <a routerLink="/question_bank" routerLinkActive="active">
+                    <img src="../assets/admin-icons/questionbank.svg" class="icon" alt="logo"/>
                 </a>
                 Manage Question Bank
             </button>
@@ -110,8 +149,8 @@
         <td class="empty"></td>
         <td>
             <button class="button_info">
-                <a href="#">
-                    <img src="../assets/recommended.svg" class="icon" alt="logo"/>
+                <a routerLink="/recommendation_system" routerLinkActive="active">
+                    <img src="../assets/admin-icons/recommended.svg" class="icon" alt="logo"/>
                 </a>
                 Manage Recommendation System
             </button>

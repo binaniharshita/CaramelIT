@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const corporateSchema = new mongoose.Schema({
-    user_type: {
-        type: String //only for checking something
-    },
     corporateName: {
         type: String,
         required : true
@@ -61,6 +58,6 @@ corporateSchema.methods.generateJwt = function () {
     });
 }
 
-const Corporate = mongoose.model('Corporate', corporateSchema);
+const Corporate = mongoose.model('Corporate', corporateSchema,'Corporate_Info');
 
 module.exports = Corporate;

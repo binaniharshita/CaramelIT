@@ -43,6 +43,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
+<<<<<<< HEAD
+=======
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
 
 
 
@@ -57,6 +62,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
+<<<<<<< HEAD
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { CreateCategoryComponent } from './admin-dashboard/manage-category/create-category/create-category.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -67,6 +73,14 @@ import { ListSubcategoryComponent } from './admin-dashboard/manage-subcategory/l
 import { ManageCourseComponent } from './admin-dashboard/manage-course/manage-course.component';
 import { CreateCourseComponent } from './admin-dashboard/manage-course/create-course/create-course.component';
 import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course/list-course.component';
+=======
+import { AdminService } from './shared-user/admin/admin.service';
+import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { CoursePageComponent } from './course-page/course-page.component';
+import { StudentCartComponent } from './student-cart/student-cart.component';
+import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
+import { SubProgramComponent } from './program/sub-program/sub-program.component';
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
 
 @NgModule({
   declarations: [
@@ -97,6 +111,7 @@ import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course
     ListCourseComponent,
     ProfilePageComponent,
     AdminRegisterComponent,
+<<<<<<< HEAD
     ManageCategoryComponent,
     CreateCategoryComponent,
     ListCategoryComponent,
@@ -105,6 +120,13 @@ import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course
     ListSubcategoryComponent,
     ManageCourseComponent,
     CreateCourseComponent,
+=======
+    ResponseResetComponent,
+    CoursePageComponent,
+    StudentCartComponent,
+    ProgramSwdComponent,
+    SubProgramComponent,
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
   ],
   imports: [
     BrowserModule,
@@ -118,12 +140,21 @@ import {  ListCourseComponent} from './admin-dashboard/manage-course/list-course
     MaterialModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
+=======
+    MatDialogModule,
+    MatExpansionModule
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
+<<<<<<< HEAD
   }, AuthGuard, CourseService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService, CategoryService],
+=======
+  }, AuthGuard, CourseService, AdminService, StudentUserService, InstructorUserService, CorporateUserService, UniversityUserService],
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
   bootstrap: [AppComponent]
 })
 export class AppModule { }

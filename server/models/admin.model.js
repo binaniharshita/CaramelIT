@@ -55,6 +55,6 @@ adminSchema.methods.generateJwt = function () {
     });
 }
 
-const Admin = mongoose.model('Admin', adminSchema);
+const Admin = mongoose.model('Admin', adminSchema,'Admin_Info');
 
 module.exports = Admin;

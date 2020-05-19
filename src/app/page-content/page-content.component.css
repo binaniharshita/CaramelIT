@@ -86,10 +86,16 @@ p#skill {
 }
 
 .is-table-row {
-        display: table;
-    }
-    .is-table-row [class*="col-"] {
-        float: none;
-        display: table-cell;
-        vertical-align: top;
-    }
+  display: table;
+}
+
+.is-table-row [class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.center {
+  display: inline-block;
+  justify-content: center;
+}

@@ -1,0 +1,54 @@
+<body>
+    <a class="navbar-brand" routerLink="">
+        <img src="../assets/Caramellogo.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+      </a>
+      <div class="row" *ngIf="CurrentState=='Wait'">
+        <div class="col-md-12  close-form">
+            <h2> Please Wait...</h2>
+        </div>
+    </div>
+    <div class="row"
+        *ngIf="CurrentState=='NotVerified'">
+        <div class="col-md-12">
+            <h2> Invalid URL.</h2>
+        </div>
+    </div>
+    <div class="row" *ngIf="CurrentState=='Verified'">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3 class="center"><b>Set New Password</b></h3>
+            <div class="row" *ngIf="CurrentState=='Verified'">
+            <div style="border: 1px solid black;border-radius:25px;padding: 20px;">
+                <br/><br/>
+                <div id="errorMsg" *ngIf="errorMessage">
+                    <span>{{errorMessage}}</span>
+                </div>
+                <div id="successMsg" *ngIf="successMessage">
+                    <span>{{successMessage}}</span>
+                </div>
+                <form [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword(ResponseResetForm)" role="form" method="post">
+                    <input type="hidden" name="_csrf" value="0864ec3b-2752-46b6-aea2-07c26fcb279b"/>
+                    <div class="form-group">
+                        <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Password"
+                                    type="password" id="password" formControlName="newPassword" />
+                                <span *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
+                                    class="help-block">Password is required with atleast 4 characters.</span>
+                            </div>
+                            <div class="form-group">
+                                <input _ngcontent-c0="" class="form-control form-control-lg"
+                                    placeholder="Confirm Password" type="password" id="cpassword"
+                                    formControlName="confirmPassword" />
+                                <span *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid"
+                                    class="help-block">. </span>
+                                <span
+                                    *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid"
+                                    class="help-block">Confirm Password does not match with password.</span>
+                            </div>
+                            <div class="form-group">
+                                <div>
+
+                                    <button type="submit" class="  btn btn-primary">Update
+                                        Password</button>
+
+                                </div>
+        </div>

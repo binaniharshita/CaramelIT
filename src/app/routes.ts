@@ -24,9 +24,8 @@ import { OrganisationListComponent } from './organisation-list/organisation-list
 import { ListCourseComponent } from './list-course/list-course.component';
 
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-
-
 import { AuthGuard } from './auth/auth.guard';
+<<<<<<< HEAD
 import { ManageCategoryComponent } from './admin-dashboard/manage-category/manage-category.component';
 import { ManageSubcategoryComponent } from './admin-dashboard/manage-subcategory/manage-subcategory.component';
 import { ListCategoryComponent } from './admin-dashboard/manage-category/list-category/list-category.component';
@@ -59,5 +58,41 @@ export const routes: Routes = [
   { path: 'admin-dashboard/manage-subcategory', component: ManageSubcategoryComponent },
   { path: 'admin-dashboard/manage-course', component: ManageCourseComponent }
 
+=======
+import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { CoursePageComponent } from './course-page/course-page.component';
+import { StudentCartComponent } from './student-cart/student-cart.component';
+import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
+import { SubProgramComponent } from './program/sub-program/sub-program.component';
+
+
+
+export const routes: Routes = [
+  { path:'', pathMatch:'full' , component: HomepageComponent },
+  { path:'student-signin' , component: StudentSigninComponent },
+  { path:'student-register' , component: StudentRegisterComponent },
+  { path:'instructor-signin', component: InstructorSigninComponent},
+  { path:'instructor-register', component: InstructorRegisterComponent },
+  { path:'corporate-signin' , component: CorporateSigninComponent },
+  { path:'corporate-register' , component: CorporateRegisterComponent },
+  { path:'university-signin' , component: UniversitySigninComponent },
+  { path:'university-register' , component: UniversityRegisterComponent },
+  { path:'admin-signin' , component: AdminSigninComponent },  
+  { path:'admin-register', component: AdminRegisterComponent },
+  { path:'contactus' , component: ContactusComponent },
+  { path:'forgot-password', component: ForgotPwComponent },
+  { path:'admin-dashboard', component: AdminDashboardComponent },
+  { path:'user_list', component: UserListComponent },
+  { path:'college_list', component: CollegeListComponent },
+  { path:'instructor_list', component: InstructorListComponent },
+  { path:'organisation_list', component: OrganisationListComponent },
+  { path:'list_course', component: ListCourseComponent },
+  { path:'profile-page', component: ProfilePageComponent, canActivate:[AuthGuard]},
+  { path:'response-reset-password/:token', component: ResponseResetComponent },
+  { path:'course-page', component: CoursePageComponent },
+  { path:'student-cart', component: StudentCartComponent, canActivate:[AuthGuard] },
+  {path:'program-swd', component: ProgramSwdComponent },
+  {path:'sub-program', component: SubProgramComponent }
+>>>>>>> 5b96b7902dc5388c99ed787b653a14c297b96d78
 ];
 

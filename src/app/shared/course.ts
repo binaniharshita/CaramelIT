@@ -1,8 +1,10 @@
 import { Chapter } from './chapter';
 
 export class Course{
-    id: string;
+    course_id: string;
     name: string;
+    price: number;
+    description: string;
     image: string;
     chapter: Chapter[];
 }

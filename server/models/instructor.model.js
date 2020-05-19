@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const instructorSchema = new mongoose.Schema({
-    user_type: {
-        type: String //only for checking something
-    },
     firstName: {
         type: String,
         required : true
@@ -74,6 +71,6 @@ instructorSchema.methods.generateJwt = function () {
         expiresIn: process.env.JWT_EXP
     });
 }
-const Instructor = mongoose.model('Instructor', instructorSchema);
+const Instructor = mongoose.model('Instructor', instructorSchema,'Instructor_Info');
 
 module.exports = Instructor;

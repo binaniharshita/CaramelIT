@@ -29,7 +29,7 @@ export class StudentSigninComponent implements OnInit {
     this.studentUserService.login(studentSignin.value).subscribe(
       res => {
         this.studentUserService.setToken(res['token']);
-        this.router.navigateByUrl('/profile-page');
+        this.router.navigateByUrl('');
       },
       err => {
         this.serverErrorMessage = err.error.message;
