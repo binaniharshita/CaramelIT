@@ -22,9 +22,8 @@ export class CourseService {
         return {
           title: course.title,
           description: course.description,
-          noOfModule: course.noOfModules,
           id: course._id,
-          subCatId: course.subCatId
+          subCatId: course.subcategoryId
         };
       });
     }))
@@ -46,7 +45,7 @@ export class CourseService {
 
     console.log(fileData);
 
-    this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/lesson', fileData)
+    this.http.post<{ message: string }>('http://localhost:3000/api/courses/upload/lesson', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
@@ -55,21 +54,31 @@ export class CourseService {
     const fileData = new FormData();
     fileData.append('project', file);
 
-    this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/project', fileData)
+    this.http.post<{ message: string }>('http://localhost:3000/api/courses/upload/project', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
   }
+
+  // Add Module file
+  addModule() {
+    const title = '';
+    this.http.post<{ message: string }>('http://localhost:3000/api/module/create', title)
+      .subscribe((responseData) => {
+        console.log(responseData.message);
+      });
+  }
+
   addTestFile(file: File) {
     const fileData = new FormData();
     fileData.append('test', file);
 
-    this.http.post<{ message: string}>('http://localhost:3000/api/courses/upload/test', fileData)
+    this.http.post<{ message: string }>('http://localhost:3000/api/courses/upload/test', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
   }
-  addScenarioFile( file: File) {
+  addScenarioFile(file: File) {
     console.log(file);
     const fileData = new FormData();
     fileData.append('scenario', file);
@@ -81,18 +90,14 @@ export class CourseService {
   }
 
   addCourse(id: null, title: string, description: string, noOfModule: number, subCatId: string, image: File) {
-    const contentString = JSON.stringify(this.content);
-    const courseData = new FormData();
-    courseData.append('title', title);
-    courseData.append('description', description);
-    courseData.append('subCatId', subCatId);
-    courseData.append('image', image, title);
+    const courseData = { id, title, description, noOfModule, subCatId };
 
-    this.http.post<{ message: string, courseId: string, content: string }>('http://localhost:3000/api/courses', courseData)
+
+    this.http.post<{ message: string }>('http://localhost:3000/api/courses', courseData)
       .subscribe((responseData) => {
-        const courseAdd: Course = { id: responseData.courseId, title, description, subCatId, noOfModule };
-        this.courses.push(courseAdd);
-        this.coursesUpdated.next([...this.courses]);
+        // const courseAdd: Course = { id: responseData.courseId, title, description, subCatId, noOfModule };
+        // this.courses.push(courseAdd);
+        // this.coursesUpdated.next([...this.courses]);
       });
 
   }

@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 
 require('./config/config');
 const studRoutes = require('./routes/index.router');
+const moduleRoute = require('./routes/module.route');
 //Passport
 require('./config/passport');
 //Mongo Connect
@@ -34,6 +35,7 @@ app.use(passport.initialize());
 //Route
 // app.use('/upload', require('./routes/upload.route'))
 app.use('/api', studRoutes);
+app.use('/api/module', moduleRoute);
 // app.use('/course', require('./routes/upload'));
 // app.use('/api', require('./routes/upload'));
 // app.use('/course', require('./routes/seed'));

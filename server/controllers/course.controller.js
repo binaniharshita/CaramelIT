@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Course = require('../models/category.model');
+const Course = require('../models/course/course.model');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
@@ -13,159 +13,31 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        // Uploads is the Upload_folder_name
-        cb(null, FILE_PATH)
-    },
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + ".docx")
-    }
-})
-
-//Configure multer
-const upload = multer({
-    storage: storage,
-    limits: {
-        files: 1, // allow up to 5 files per request,
-    },
-    fileFilter: (req, file, cb) => {
-        // allow doc only
-        if (!file.originalname.match(/\.(doc|docx)$/)) {
-            return cb(new Error('Only doc are allowed.'), false);
-        }
-        cb(null, true);
-    }
-});
-
-//Upload single file
-
-module.exports.loadLesson = (req, res) => {
-    console.log('POST REQUEST');
-    res.end();
-}
-module.exports.uploadLesson = ((upload.single("lesson"), async(req, res) => {
-    try {
-        const lesson = req.file;
-        // make sure file is available
-        if (!lesson) {
-            res.status(400).send({
-                status: false,
-                data: 'No file is selected.'
-            });
-        } else {
-            //send response
-            res.send({
-                status: true,
-                message: 'File is uploaded.',
-                data: {
-                    name: lesson.originalname,
-                    mimetype: lesson.mimetype,
-                    size: lesson.size
-                }
-            });
-            res.end();
-            convert.lesson();
-        }
-    } catch (err) {
-        res.status(500).send(err);
-    }
-}));
-
-module.exports.uploadScenario = (upload.single("scenario"), async(req, res) => {
-    try {
-        const scenario = req.file;
-        // make sure file is available
-        if (!scenario) {
-            res.status(400).send({
-                status: false,
-                data: 'No file is selected.'
-            });
-        } else {
-            //send response
-            res.send({
-                status: true,
-                message: 'File is uploaded.',
-                data: {
-                    name: scenario.originalname,
-                    mimetype: scenario.mimetype,
-                    size: scenario.size
-                }
-            });
-            res.end();
-            convert.scenario();
-        }
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-
-module.exports.uploadProject = (upload.single("project"), async(req, res) => {
-    try {
-        const project = req.file;
-        // make sure file is available
-        if (!project) {
-            res.status(400).send({
-                status: false,
-                data: 'No file is selected.'
-            });
-        } else {
-            //send response
-            res.send({
-                status: true,
-                message: 'File is uploaded.',
-                data: {
-                    name: project.originalname,
-                    mimetype: project.mimetype,
-                    size: project.size
-                }
-            });
-            res.end();
-            convert.project();
-        }
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-
-module.exports.uploadTest = upload.single("test"), async(req, res) => {
-    try {
-        const test = req.file;
-        // make sure file is available
-        if (!test) {
-            res.status(400).send({
-                status: false,
-                data: 'No file is selected.'
-            });
-        } else {
-            //send response
-            res.send({
-                status: true,
-                message: 'File is uploaded.',
-                data: {
-                    name: test.originalname,
-                    mimetype: test.mimetype,
-                    size: test.size
-                }
-            });
-            res.end();
-            convert.test();
-        }
-    } catch (err) {
-        res.status(500).send(err);
-    }
-};
-
 
 
 module.exports.create = (req, res, next) => {
-    console.log(req.body.catId);
-    const course = new Course({
+    console.log('Inside route post course create');
+    console.log(req.body.title + " " + req.body.description + " " + req.body.subcategoryId);
+    const mod = require('../data/Module.json')
+
+    var crs = new Course({
         title: req.body.title,
         description: req.body.description,
-        subcat: req.body.subCatId,
+        subcategory: req.body.subcategoryId,
+        price: req.body.price,
+        modules: mod
     });
-    course.save();
+    crs.save((err, doc) => {
+        if (!err) {
+            res.send(doc);
+            console.log("Course saved in DB");
+            //Drop the models collection, so another course can be added
+            mongoose.connection.collections['modules'].drop(function(err) {
+                console.log('collection dropped');
+            });
+        } else { console.log('Error in Course Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+
     SubCategory.findById({ _id: course.subCatId }, function(err, doc) {
         if (err) { console.log("Error with updateing "); return; }
         console.log(doc);

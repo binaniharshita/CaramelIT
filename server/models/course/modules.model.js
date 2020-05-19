@@ -7,57 +7,57 @@ const ModuleSchema = new mongoose.Schema({
     lessons: [{
         S_No: {
             type: String,
-            required: true
+            //required: true
         },
         Lessons_List: {
             type: String,
-            required: true
+            //required: true
         },
         Lessons_Time: {
             type: String,
-            required: true
+            //required: true
         }
     }],
     scenarios: [{
         'S_No': {
             type: String,
-            required: true
+            // required: true
         },
         'Scenarios_List': {
             type: String,
-            required: true
+            //required: true
         },
         'Scenarios_Time': {
             type: String,
-            required: true
+            //required: true
         }
     }],
     assesment: [{
         'S_No': {
-            type:String,
-            required: true
+            type: String,
+            //required: true
         },
         'Tests_List': {
             type: String,
-            required: true
+            //: true
         },
         'Tests_Time': {
             type: String,
-            required: true
+            //required: true
         }
     }],
     project: [{
         'S_No': {
             type: String,
-            required: true
+            // required: true
         },
         'Projects_List': {
             type: String,
-            required: true
+            // required: true
         },
         'Projects_Time': {
             type: String,
-            required: true
+            // required: true
         }
     }]
 });

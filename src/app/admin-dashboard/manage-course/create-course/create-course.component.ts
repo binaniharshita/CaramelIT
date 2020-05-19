@@ -142,9 +142,9 @@ export class CreateCourseComponent implements OnInit {
   onAddCourse() {
     console.log('OnAddCourse');
 
-    if (this.courseDetailFormGroup.invalid || this.moduleDetailFormGroup.invalid) {
-      return;
-    }
+    // if (this.courseDetailFormGroup.invalid || this.moduleDetailFormGroup.invalid) {
+    //   return;
+    // }
     // tslint:disable-next-line: max-line-length
     console.log('Subcategory ID: '+ this.courseDetailFormGroup.value.subcateogoryId);
     // tslint:disable-next-line: max-line-length
@@ -182,6 +182,10 @@ export class CreateCourseComponent implements OnInit {
   addTest(){
     console.log('Test going to upload');
     this.courseServices.addTestFile( this.moduleDetailFormGroup.value.testFile);
+  }
+
+  onAddModule(){
+    this.courseServices.addModule();
   }
 
 }
