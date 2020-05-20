@@ -39,17 +39,16 @@ export class CourseService {
 
   // Uploading lesson file route
   addLessonFile(file: File) {
-    console.log('Inside service' + file);
     const fileData = new FormData();
     fileData.append('lesson', file);
-
-    console.log(fileData);
 
     this.http.post<{ message: string }>('http://localhost:3000/api/courses/upload/lesson', fileData)
       .subscribe((responseData) => {
         console.log(responseData.message);
       });
   }
+
+  // Add Project file
   addProjectFile(file: File) {
     const fileData = new FormData();
     fileData.append('project', file);
@@ -60,15 +59,7 @@ export class CourseService {
       });
   }
 
-  // Add Module file
-  addModule() {
-    const title = '';
-    this.http.post<{ message: string }>('http://localhost:3000/api/module/create', title)
-      .subscribe((responseData) => {
-        console.log(responseData.message);
-      });
-  }
-
+ // Add test file
   addTestFile(file: File) {
     const fileData = new FormData();
     fileData.append('test', file);
@@ -78,6 +69,8 @@ export class CourseService {
         console.log(responseData.message);
       });
   }
+
+  // Add scenario file
   addScenarioFile(file: File) {
     console.log(file);
     const fileData = new FormData();
@@ -88,6 +81,16 @@ export class CourseService {
         console.log(responseData.message);
       });
   }
+
+   // Add Module file
+   addModule() {
+    const title = '';
+    this.http.post<{ message: string }>('http://localhost:3000/api/module/create', title)
+      .subscribe((responseData) => {
+        console.log(responseData.message);
+      });
+  }
+
 
   addCourse(id: null, title: string, description: string, noOfModule: number, subCatId: string, image: File) {
     const courseData = { id, title, description, noOfModule, subCatId };

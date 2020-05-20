@@ -107,6 +107,7 @@ import { CoursePageComponent } from './course-page/course-page.component';
 import { StudentCartComponent } from './student-cart/student-cart.component';
 import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
 import { SubProgramComponent } from './program/sub-program/sub-program.component';
+import { AcademypageComponent } from './academypage/academypage.component';
 
 
 @NgModule({
@@ -170,6 +171,7 @@ import { SubProgramComponent } from './program/sub-program/sub-program.component
     StudentCartComponent,
     ProgramSwdComponent,
     SubProgramComponent,
+    AcademypageComponent,
   ],
   imports: [
     BrowserModule,

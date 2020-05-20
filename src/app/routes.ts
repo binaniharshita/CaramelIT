@@ -121,7 +121,7 @@ export const routes: Routes = [
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
   { path: 'instructor_list', component: InstructorListComponent },

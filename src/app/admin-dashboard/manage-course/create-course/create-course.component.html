@@ -70,7 +70,7 @@
                     <input type="file" hidden #fileScenarioButton (change)="onFileScenarioPicked($event)">
                 </div>
                 <div fxFlex="50" class="image-preview" *ngIf="fileScenarioPreview !== '' && fileScenarioPreview ">
-                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileLessonPreview)" />
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileScenarioPreview)" />
                     <button mat-button color="acsent" (click)="addScenario()">Upload Scenario</button>
                 </div>
 
@@ -79,10 +79,10 @@
                 <div fxFlex="50">
                     <mat-label>Upload Project</mat-label><br>
                     <button mat-raised-button (click)="fileProjectButton.click()">Pick Project</button>
-                    <input type="file" hidden #fileProjectButton (change)="onFileTestPicked($event)">
+                    <input type="file" hidden #fileProjectButton (change)="onFileProjectPicked($event)">
                 </div>
-                <div fxFlex="50" class="image-preview" *ngIf="fileTestPreview !== '' && fileTestPreview ">
-                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileLessonPreview)" />
+                <div fxFlex="50" class="image-preview" *ngIf="fileProjectPreview !== '' && fileProjectPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileProjectPreview)" />
                     <button mat-button color="acsent" (click)="addProject()">Upload Project</button>
                 </div>
 
@@ -91,10 +91,10 @@
                 <div fxFlex="50">
                     <mat-label>Upload Test</mat-label><br>
                     <button mat-raised-button (click)="fileTestButton.click()">Pick Test</button>
-                    <input type="file" hidden #fileTestButton (change)="onFileProjectPicked($event)">
+                    <input type="file" hidden #fileTestButton (change)="onFileTestPicked($event)">
                 </div>
-                <div fxFlex="50" class="image-preview" *ngIf="fileProjectPreview !== '' && fileProjectPreview ">
-                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileLessonPreview)" />
+                <div fxFlex="50" class="image-preview" *ngIf="fileTestPreview !== '' && fileTestPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileTestPreview)" />
                     <button mat-button color="acsent" (click)="addTest()">Upload Test</button>
                 </div>
 
