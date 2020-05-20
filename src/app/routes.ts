@@ -50,6 +50,7 @@ import { AddCourseComponent } from './admin-dashboard1/sidebar/manage/manage-cou
 import { ViewCourseComponent } from './admin-dashboard1/sidebar/manage/manage-course/view-course/view-course.component';
 import { ReportsComponent } from './admin-dashboard1/sidebar/reports/reports.component';
 import { ViewParticularCourseComponent } from './admin-dashboard/manage-course/view-particular-course/view-particular-course.component';
+import { AcademypageComponent } from './academypage/academypage.component';
 
 
 export const routes: Routes = [
@@ -162,5 +163,6 @@ export const routes: Routes = [
       { path: 'manage/view-course/viewcourse/:id', component: ViewParticularCourseComponent }
     ]
   },
+  { path: 'academypage', component: AcademypageComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
 ];
