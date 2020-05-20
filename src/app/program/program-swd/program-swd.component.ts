@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
+
+import { CourseService } from 'src/app/services/course.service';
+import { SubPrograms, subprograms } from 'src/app/shared/subprograms';
+
 
 @Component({
   selector: 'app-program-swd',
@@ -7,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramSwdComponent implements OnInit {
 
-  constructor() { }
+  constructor(private courseService: CourseService) { }
+
+  //selectedsubprog: SubPrograms;
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 400,
+    });
+  }
+
+  selectedSubprog(subprog: string)
+  {
+    //window.alert(subprog);
+    this.courseService.selectedSubprogam(subprog);
   }
 
 }

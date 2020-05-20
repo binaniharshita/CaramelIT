@@ -4,8 +4,9 @@ import { Course } from '../shared/course';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, windowWhen } from 'rxjs/operators';
 import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class CourseService {
 
   displaycourse: Course;
+  sprog: string = '';
   baseUri: string = 'http://localhost:3000/api';
 
   
@@ -71,4 +73,17 @@ export class CourseService {
     return throwError(errorMessage);
   }
 
+
+  //program to subprogram
+  selectedSubprogam(subprog: string) {
+    this.sprog = subprog;
+    //window.alert('test');
+    window.alert(this.sprog);
+  }
+
+  getSubprogam(): string {
+    //window.alert('test');
+    window.alert(this.sprog);
+    return this.sprog;
+  }
 }

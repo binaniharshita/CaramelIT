@@ -16,21 +16,21 @@
         </div>
        </div>
      </div>
-     
-     <div class="swiper-container">
+     <!--Swiper-->
+     <div class="swiper-container" >
        <h1 id="h" style="font-weight: bold;letter-spacing: 2px;font-size: 40px;margin-top: 43px;margin-left: 17px;text-align: center; color: white;">Sub Programs:</h1>
-      <div class="">
-        <div class="swiper-slide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" (click)="selectedSubprog('Frontend');">
           <div class="second">
 						<div class="third" >
-							<a href="/sub-program"><img src="../../assets/program/subprogram/coreui.jpeg"></a>
+							<a routerLink="/sub-program" routerLinkActive="active"><img src="../../assets/program/subprogram/coreui.jpeg"></a>
 						</div>
-						<div class="four" >
+						<div class="four">
 							<p>Frontend</p>
 						</div>
 					</div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Backend');">
         <div class="second">
           <div class="third" >
             <a href="courses/backend.html"><img src="../../assets/program/subprogram/backend2.jpg"></a>
@@ -40,7 +40,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Full Stack');">
         <div class="second ">
           <div class="third" >
             <a href="courses/fullstack.html"><img src="../../assets/program/subprogram/fullstack1.jpg"></a>
@@ -50,7 +50,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Functional Testing');">
         <div class="second">
           <div class="third" >
             <a href="courses/functionaltesting.html"><img src="../../assets/program/subprogram/functionaltesting.png"></a>
@@ -60,7 +60,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Mobility');">
         <div class="second">
           <div class="third" >
             <a href="courses/mobility.html"><img src="../../assets/program/subprogram/mobility1.jpg"></a>
@@ -70,7 +70,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('DevOps');">
         <div class="second">
           <div class="third" >
             <a href="courses/devops.html"><img src="../../assets/program/subprogram/devops1.jpg"></a>
@@ -80,7 +80,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Data Science & AI/ML');">
         <div class="second">
           <div class="third" >
             <a href="courses/datascience.html"><img src="../../assets/program/subprogram/datascience1.jpg"></a>
@@ -90,7 +90,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Cloud Computing');">
         <div class="second">
           <div class="third" >
             <a href="courses/cloud.html"><img src="../../assets/program/subprogram/cloudcomputing1.jpg"></a>
@@ -100,7 +100,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Cyber Security');">
         <div class="second">
           <div class="third" >
             <a href="courses/cyber.html"><img src="../../assets/program/subprogram/cyber.jpg"></a>
@@ -110,7 +110,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Digital Marketing');">
         <div class="second">
           <div class="third" >
             <a href="courses/digital.html"><img src="../../assets/program/subprogram/digi1.jpg"></a>
@@ -120,7 +120,7 @@
           </div>
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('ERP');">
         <div class="second">
           <div class="third" >
             <a href="courses/erp.html"><img src="../../assets/program/subprogram/erp2.jpg"></a>
@@ -130,17 +130,17 @@
           </div>    
         </div>  
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('Information Technology');">
         <div class="second">
           <div class="third" >
             <a href="courses/it.html"><img src="../../assets/program/subprogram/IT2.jpg"></a>
           </div>
           <div class="four" >
-            <p>IT</p>
+            <p>Information Technology</p>
           </div>  
         </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide" (click)="selectedSubprog('IT Certifications');">
         <div class="second">
           <div class="third" >
             <a href="courses/itcertification.html"><img src="../../assets/program/subprogram/it.jpeg"></a>
@@ -150,11 +150,15 @@
           </div>
         </div>
         </div>
-     
+      </div>
+      <!--swiper wrapper end-->
       
-    </div><!--swiper wrapper end-->
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
     </div>
   
 
@@ -168,43 +172,3 @@
 </div>
 </body>
 <!-------------------FOOTER END-------------------------->
-
-<!--<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-        delay: 1500,
-        disableOnInteraction: false,
-      },
-    slidesPerView: 1,
-    spaceBetween: 10,
-    // init: false,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-      1024: {
-        slidesPerView: 5,
-        spaceBetween: 50,
-      },
-    }
-  });
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>-->
-
