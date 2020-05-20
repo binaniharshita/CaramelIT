@@ -48,7 +48,12 @@ export const SUBPROGRAMS: Course[] = [
     },
     {
       name: "Digital Marketing", 
-      image: "../../assets/program/subprogram/erp2.jpg",
+      image: "../../assets/program/subprogram/digimarketing.jpg",
+      link: "#",
+    },
+    {
+      name: "ERP", 
+      image: "../../assets/program/subprogram/erp.jpg",
       link: "#",
     },
     {

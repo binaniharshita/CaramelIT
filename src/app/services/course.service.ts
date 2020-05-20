@@ -81,7 +81,7 @@ export class CourseService {
   }
 
   getSubprogam(): string {
-    window.alert("getting " +this.sprog);
+    // window.alert("getting " +this.sprog);
     return this.sprog;
   }
 }

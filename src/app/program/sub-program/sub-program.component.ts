@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CourseService } from 'src/app/services/course.service';
-import { subprograms, SubPrograms } from 'src/app/shared/subprograms';
-import { programcourses, ProgramCourses } from 'src/app/shared/programcourses';
+import { SUBPROGRAM, SubPrograms } from 'src/app/shared/subprograms';
+import { PROGRAMCOURSES, ProgramCourses } from 'src/app/shared/programcourses';
 
 @Component({
   selector: 'app-sub-program',
@@ -14,25 +14,39 @@ export class SubProgramComponent implements OnInit {
   constructor(private courseService: CourseService) { }
 
   selectedSubprogram: string;
-
-  subprogram: SubPrograms;
-
-  progcourses: ProgramCourses;
+  allSubPrograms: SubPrograms[] = SUBPROGRAM;
+  allProgramCourses: ProgramCourses[] = PROGRAMCOURSES;
+  description: string;
+  image: string;
+  coursesNames: string[];
+  courses: ProgramCourses[];
 
   ngOnInit() {
     this.selectedSubprogram = this.courseService.getSubprogam();
-    //window.alert(this.selectedSubprogram);
-    for(let i=0;i<subprograms.length;i++){
-      if(subprograms[i].title==this.selectedSubprogram){
-        this.subprogram = subprograms[i];
+
+    for (let i = 0; i < this.allSubPrograms.length; i++) {
+      if (this.selectedSubprogram == this.allSubPrograms[i].title) {
+        this.description = this.allSubPrograms[i].description;
+        this.image = this.allSubPrograms[i].image;
+        this.coursesNames = this.allSubPrograms[i].courses;
+        break;
       }
     }
-    for(let i=0;i<programcourses.length;i++)
-    {
-      if(programcourses[i].name==this.subprogram.title) {
-        this.progcourses = programcourses[i];
+
+    // window.alert(this.coursesNames[0]+ "heyooooo");
+    // window.alert(this.allProgramCourses[0].name+ "f");
+
+    for (let k = 0; k < this.coursesNames.length; k++) {
+      for (let j = 0; j < this.allProgramCourses.length; j++) {
+        if(this.allProgramCourses[j].name == this.coursesNames[k]){
+          this.courses[k].name = this.coursesNames[k];
+          this.courses[k].image = this.allProgramCourses[j].image;
+          window.alert(this.coursesNames[0]);
+          break;
+        }
       }
     }
+
   }
 
 }

@@ -3,7 +3,7 @@ export class ProgramCourses {
     image: string;
 }
 
-export const programcourses: ProgramCourses[] = [
+export const PROGRAMCOURSES: ProgramCourses[] = [
     {name: 'Frontend', image: 'src/assests/program/subprogram/coreui.jpeg'},
     {name: 'Advanced UI', image: 'src/assests/program/subprogram/advancedui.jpg'},
     {name: 'Angular JS', image: 'src/assests/program/subprogram/angular.png'},

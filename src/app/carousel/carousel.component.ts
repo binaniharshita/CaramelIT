@@ -28,7 +28,6 @@ export class CarouselComponent implements OnInit {
 
   clicked(slide: string){
     this.selectedProgram = slide;
-    window.alert(this.selectedProgram);
     this.callService();
     this.router.navigateByUrl('/sub-program');
   }
