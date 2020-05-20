@@ -24,7 +24,6 @@ export class ProgramSwdComponent implements OnInit {
 
   selectedSubprog(subprog: string)
   {
-    //window.alert(subprog);
     this.courseService.selectedSubprogam(subprog);
   }
 

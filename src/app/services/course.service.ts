@@ -77,13 +77,11 @@ export class CourseService {
   //program to subprogram
   selectedSubprogam(subprog: string) {
     this.sprog = subprog;
-    //window.alert('test');
-    window.alert(this.sprog);
+    // window.alert(this.sprog + "in sele");
   }
 
   getSubprogam(): string {
-    //window.alert('test');
-    window.alert(this.sprog);
+    window.alert("getting " +this.sprog);
     return this.sprog;
   }
 }

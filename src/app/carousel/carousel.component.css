@@ -1,0 +1,42 @@
+
+   .second {
+    width: 95%;
+    height: 100%;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: white;
+    border-radius: 20px;
+  }
+  
+  .second a:hover {
+    text-decoration: none;
+  }
+  
+  .second:hover {
+    box-shadow: 5px 5px 19px 5px;
+    transform: scale(1);
+  }
+  .second p {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+  }
+  .third {
+    width: 100%;
+    height: 70%;
+  }
+  .third img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .four {
+    width: 100%;
+    height: 30%;
+  }
+  .four p {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+

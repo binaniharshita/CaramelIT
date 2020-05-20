@@ -60,6 +60,9 @@ import { CorporateUserService } from './shared-user/corporate/corporate-user.ser
 import { UniversityUserService } from './shared-user/university/university-user.service';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 
+// carousel module
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
@@ -69,6 +72,10 @@ import { CoursePageComponent } from './course-page/course-page.component';
 import { StudentCartComponent } from './student-cart/student-cart.component';
 import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
 import { SubProgramComponent } from './program/sub-program/sub-program.component';
+import { CarouselComponent } from './carousel/carousel.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -104,6 +111,7 @@ import { SubProgramComponent } from './program/sub-program/sub-program.component
     StudentCartComponent,
     ProgramSwdComponent,
     SubProgramComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,7 +131,8 @@ import { SubProgramComponent } from './program/sub-program/sub-program.component
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SlickCarouselModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
