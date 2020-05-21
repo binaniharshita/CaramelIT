@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm">
+  
+    <a class="navbar-brand" href="/admin-dashboard">
+      <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+    </a>
+   </nav>
+  <div align="center">
+      <h3>Student / User List</h3><br/>
+     
+      
+<table id="students">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td *ngFor="let col of index">
+        {{student[col]}}
+      </td>
+    </tr>
+  </table>
+  </div>      

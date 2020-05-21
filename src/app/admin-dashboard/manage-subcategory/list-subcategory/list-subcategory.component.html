@@ -1,0 +1,32 @@
+<main>
+
+    <div>
+
+        <br/><br/>
+        <table id="courses">
+            <tr>
+                <th>Subcategory Title</th>
+                <th>Subcategory Description</th>
+                <th>No of Courses</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            <tr *ngFor="let subCategory of subCategories">
+
+                <td>{{subCategory.title}}</td>
+
+                <td>{{subCategory.description}}</td>
+                <td>{{subCategory.noOfCourses}}</td>
+                <td> {{subCategory.catId}}</td>
+                <td>
+                    <button mat-button color="primary">Edit</button></td>
+                <td> <button mat-button color="warn" (click)="onDeleteSubCategory(subCategory.id)">Delete</button>
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+</main>

@@ -1,0 +1,14 @@
+.container {
+    margin: 50px auto 50px;
+}
+
+.slider {
+    width: "70%";
+    height: "30%";
+    align-self: flex-end;
+}
+
+.showimage {
+    max-height: 400px;
+    width: 100%;
+}

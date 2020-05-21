@@ -1,0 +1,33 @@
+h2{
+    text-align: center;
+    color:#3333ff;
+}
+#colleges{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#colleges td, #colleges th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#colleges tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+#colleges tr:hover {
+    background-color: #ddd;
+}
+
+#colleges th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#3333ff;
+    color: white;
+}
+
+.btn-primary{
+    margin-top:30px;
+}

@@ -1,0 +1,119 @@
+<mat-horizontal-stepper>
+    <mat-step [stepControl]="courseDetailFormGroup">
+        <form [formGroup]="courseDetailFormGroup" (ngSubmit)="courseForm()" #courseM="ngForm">
+            <ng-template matStepLabel>Fill the course details</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Course title" formControlName="title" required>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput row="6" name="description" placeholder="Description" formControlName="description"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" name="noOfModule" #noOfModule placeholder="No of Modules" formControlName="noOfModule">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Select Category</mat-label>
+                <mat-select formControlName="selectCategory" #selectCat (selectionChange)="fetchSubCat(selectCat.value)" name="selectCategory">
+                    <mat-option *ngFor="let category of categories" name="catId" [value]="category.id">
+                        {{category.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Select SubCategory</mat-label>
+                <mat-select name="subcateId" #subcaetId formControlName="subcateogoryId">
+                    <mat-option *ngFor="let subcategory  of updatedSubCategory" name="subcatId" [value]="subcategory.id">
+                        {{subcategory.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperNext (click)="getNoOfModule(noOfModule)">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="moduleDetailFormGroup">
+        <form [formGroup]="moduleDetailFormGroup" (ngSubmit)="moduleForm()" #moduleM="ngForm">
+            <ng-template matStepLabel>Fill the course details</ng-template>
+            <br>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <mat-label>Upload Image for Course title</mat-label><br>
+                    <button mat-raised-button type="button" (click)="imageButton.click()">Pick me</button>
+                    <input type="file" hidden #imageButton (change)="onImagePicked($event)">
+                </div>
+                <br>
+
+                <div fxFlex="50" class="image-preview" *ngIf="imagePreview !== '' && imagePreview ">
+                    <img [src]="imagePreview" [alt]="moduleDetailFormGroup.value.title">
+                </div>
+
+            </div>
+            <br>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <mat-label>Upload table of content</mat-label><br>
+                    <button mat-raised-button (click)="fileLessonButton.click()">Pick Lesson</button>
+                    <input type="file" hidden #fileLessonButton (change)="onFileLessonPicked($event)">
+                </div>
+                <div fxFlex="50" class="image-preview" *ngIf="fileLessonPreview !== '' && fileLessonPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileLessonPreview)" />
+                    <button mat-button color="acsent" (click)="addLesson()">Upload Lesson</button>
+                </div>
+
+            </div>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <mat-label>Upload Scenrio</mat-label><br>
+                    <button mat-raised-button (click)="fileScenarioButton.click()">Pick Scenario</button>
+                    <input type="file" hidden #fileScenarioButton (change)="onFileScenarioPicked($event)">
+                </div>
+                <div fxFlex="50" class="image-preview" *ngIf="fileScenarioPreview !== '' && fileScenarioPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileScenarioPreview)" />
+                    <button mat-button color="acsent" (click)="addScenario()">Upload Scenario</button>
+                </div>
+
+            </div>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <mat-label>Upload Project</mat-label><br>
+                    <button mat-raised-button (click)="fileProjectButton.click()">Pick Project</button>
+                    <input type="file" hidden #fileProjectButton (change)="onFileProjectPicked($event)">
+                </div>
+                <div fxFlex="50" class="image-preview" *ngIf="fileProjectPreview !== '' && fileProjectPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileProjectPreview)" />
+                    <button mat-button color="acsent" (click)="addProject()">Upload Project</button>
+                </div>
+
+            </div>
+            <div fxLayout="row">
+                <div fxFlex="50">
+                    <mat-label>Upload Test</mat-label><br>
+                    <button mat-raised-button (click)="fileTestButton.click()">Pick Test</button>
+                    <input type="file" hidden #fileTestButton (change)="onFileTestPicked($event)">
+                </div>
+                <div fxFlex="50" class="image-preview" *ngIf="fileTestPreview !== '' && fileTestPreview ">
+                    <embed [src]="sanitizer.bypassSecurityTrustResourceUrl(fileTestPreview)" />
+                    <button mat-button color="acsent" (click)="addTest()">Upload Test</button>
+                </div>
+
+            </div>
+
+
+
+            <div>
+                <button mat-button matStepperNext (click)="onAddModule()">Next</button>
+                <button mat-button matStepperPrevious>Previous</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Conformation</ng-template>
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-button matStepperReset>Reset</button>
+        <button mat-button type="button" (click)="courseM.ngSubmit.emit();onAddCourse()">
+        Submit
+      </button>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,43 @@
+main {
+  margin: auto;
+}
+
+h2 {
+  margin: auto;
+  padding: 15px;
+}
+
+.content {
+  padding-top: 100px;
+  margin: auto;
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  color: white;
+  background-color: #514edf;
+}
+
+.stepper {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.mat-tab-label {
+  margin: auto;
+  min-width: 25px !important;
+  background-color: cornflowerblue;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+
+/* Styles for the active tab label */
+
+.mat-tab-label.mat-tab-label-active {
+  margin: auto;
+  min-width: 25px !important;
+  background-color: #514edf;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}

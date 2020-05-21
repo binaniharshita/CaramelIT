@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm">
+  
+    <a class="navbar-brand" href="admin-dashboard">
+      <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+    </a>
+   </nav>
+  <div align="center">
+      <h3>Corporate / Organisation List</h3>
+      
+      <br/><br/>
+      
+<table id="corporates">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let corporate of corporates">
+      <td *ngFor="let col of index">
+        {{corporate[col]}}
+      </td>
+    </tr>
+  </table>
+
+  </div>   

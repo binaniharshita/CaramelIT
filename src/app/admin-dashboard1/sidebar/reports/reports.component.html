@@ -1,0 +1,74 @@
+<button mat-button color="primary" (click)=backClicked()> Back</button>
+<main>
+    <mat-tab-group>
+        <mat-tab label="Student Dashboard">
+            <main>
+                <div style="width: 100%;">
+                    <app-widget-area></app-widget-area>
+
+                </div>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-card">
+                    <mat-card fxFlex="25">
+                        <app-widget-card label="User" total="18k" percentage="95%"></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                </div>
+                <br>
+
+                <mat-divider></mat-divider>
+                <div>
+                    <div>table</div>
+                    <div>pie chart</div>
+                </div>
+
+
+            </main>
+        </mat-tab>
+        <mat-tab label="Instructor Dashboard">
+            <main>
+                <div style="width: 100%;">
+                    <app-widget-area></app-widget-area>
+
+                </div>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-card">
+                    <mat-card fxFlex="25">
+                        <app-widget-card label="User" total="18k" percentage="95%"></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                    <mat-card fxFlex="25">
+                        <app-widget-card></app-widget-card>
+                    </mat-card>
+                </div>
+                <br>
+
+                <mat-divider></mat-divider>
+                <div>
+                    <div>table</div>
+                    <div>pie chart</div>
+                </div>
+
+            </main>
+        </mat-tab>
+    </mat-tab-group>
+</main>

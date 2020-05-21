@@ -1,0 +1,6 @@
+<div fxFlex *ngIf="lecture">
+    <p>{{lecture.name}}</p>
+  
+  
+    <iframe frameborder="0" [src]=getPptUrl(lecture) width="100%" height="400px"></iframe>
+  </div>

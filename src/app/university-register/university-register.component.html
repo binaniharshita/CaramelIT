@@ -1,0 +1,170 @@
+<title>College Registration </title>
+<body class="register_bg">
+<a class="navbar-brand" routerLink="">
+  <img src="../assets/Caramellogo.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+</a>
+
+  <br/><br/>
+	<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+    <h2 align=center style="color:#111;"><b>{{heading}}</b></h2><br>
+
+    <form #universityRegForm="ngForm" (ngSubmit)="onSubmit(universityRegForm)" autocomplete="off" method="post" class="m-t" role="form"
+        data-toggle="validator"><input type="hidden" name="_csrf" value="7280a0d4-0d52-4b35-b20d-932dd0d48ac9"/>
+      <div class="form-group input-group has-feedback ">
+          
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user stugl"></span>
+        </span>
+          
+        <input #collegeName="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.collegeName" type="text" placeholder="College Name...." class="form-control stureg" required id="collegeName" name="collegeName" value="" />
+        <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+
+      <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-education stugl"></span>
+        </span>
+        <input #universityName="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.universityName" type="text" placeholder="University Name...." class="form-control stureg" required id="universityName" name="universityName" value="" />
+        <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+	 
+	
+      <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-envelope stugl"></span>
+        </span>
+        <input #emailAddress="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
+            data-error="This email address is invalid" required id="emailAddress" name="emailAddress" value="" />
+        <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+
+      <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-earphone stugl"></span>
+        </span>
+        <input #mobileNumber="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg"
+            data-error="This Mobile Number is invalid" required id="mobileNumber" name="mobileNumber" value="" />
+        <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+
+      <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-envelope stugl"></span>
+        </span>
+        <input #password="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.password" type="password" placeholder="Enter Password" class="form-control stureg"
+          id="password" name="password" value="" />
+        <span class="glyphicon form-control-feedback"
+          aria-hidden="true"></span>
+      </div>
+        
+      <div class="form-group input-group has-feedback">
+      	<span class="input-group-addon">
+            <span class="glyphicon glyphicon-flag stugl"></span>
+        </span>
+      	<select #country="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.country" class="form-control stureg" required id="country" name="country">
+       		<option value="" >- - - Select Your Country - - -</option>
+        	<option value="Australia">Australia</option>
+        	<option value="India">India</option>
+        	<option value="UK">UK</option>
+        	<option value="USA">USA</option>
+        	<option value="others">Others</option>
+      	</select>
+      	<span class="glyphicon form-control-feedback"
+          aria-hidden="true"></span>
+      </div>
+		
+		  <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-home stugl"></span>
+          </span>
+          <input #state="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.state" type="text" class="form-control stureg" placeholder="Enter Your State..."
+            data-error="State is invalid" required id="state" name="state" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+        
+        
+      <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-tasks stugl"></span>
+          </span>
+          <input #skillset="ngModel" [(ngModel)]="universityUserService.selectedUniversityUser.skillset" type="text" class="form-control stureg" placeholder="Skill Set if you have any... EX: C, C++,java"
+            data-error="Skill Set is invalid" required id="skillset" name="skillset" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+        
+      <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-edit stugl"></span>
+          </span>
+          <textarea formControlName="others" type="text" class="form-control stureg" placeholder="Others..."
+            data-error="College is invalid" required id="others" name="others" ></textarea>
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+      </div>
+        
+       
+     	<!-- <label style="color:#111;">Technologies You Are Intrested In</label><br>
+     	
+     	<div class="row">
+                  
+          <div class="col-md-3" th:each="user : ${technologies}">
+            <input type="checkbox" th:field="*{technology}" th:value="${user.id}" class="stucheck"
+              required />&ensp;<label style="color:#111;">C/C++</label></input>
+  
+          </div>-->
+           <!--         
+          <div class="col-md-3">
+            <input type="checkbox" th:checked="*{technology}" value="Java" class="stucheck"
+              required />&ensp;<label style="color:#111;">Java</label></input>
+            <br/>
+                <input type="checkbox" th:checked="*{technology}" value="DevOps" class="stucheck"
+              required />&ensp;<label style="color:#111;">DevOps</label> </input>
+          </div>
+          
+          <div class="col-md-3">
+            <input type="checkbox" th:checked="*{technology}" value="Python" class="stucheck"
+              required />&ensp;<label style="color:#111;">Python</label></input>
+            <br/>
+                <input type="checkbox" th:checked="*{technology}" value="Salesforce" class="stucheck"
+              required />&ensp;<label style="color:#111;">Salesforce</label> </input>
+          </div>
+          
+          <div class="col-md-3">
+            <input type="checkbox" th:checked="*{technology}" value="C/C++" class="stucheck"
+              required />&ensp;<label style="color:#111;">Database</label></input>
+            <br/>
+                <input type="checkbox" th:checked="*{technology}" value="Digital Marketing" class="stucheck"
+              required />&ensp;<label style="color:#111;">Marketing</label> </input>
+          </div>
+         </div>  -->
+          <br>
+        
+        <button type="submit"
+          class="btn btn-primary full-width m-b">Register</button>
+		  <br/>
+		<h3><a routerLink="/university-signin" routerLinkActive="active" style="color:#111;">Already Registered? Please Login</a></h3><br><br>
+    </form>
+
+
+       <!-- Success message -->
+       <div class="alert success alert-info" *ngIf="showSuccessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert alert-info" *ngIf="serverErrorMessage">
+        {{serverErrorMessage}}
+      </div>
+  </div>
+
+
+</div>
+</body>

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm">
+  
+    <a class="navbar-brand" href="/admin-dashboard">
+      <img src="../assets/Caramel-Horz.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
+    </a>
+   </nav>
+  <div align="center">
+      <h3>Instructor List</h3>
+      
+      <br/>
+          
+      <br/>
+      <h2>Instructors</h2>
+<table id="instructors">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let instructor of instructors">
+      <td *ngFor="let col of index">
+        {{instructor[col]}}
+      </td>
+    </tr>
+  </table>
+  <button class="btn btn-primary" routerLink="/admin-dashboard">Back to Admin Dashboard</button>
+  </div>   

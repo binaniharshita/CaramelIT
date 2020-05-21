@@ -1,0 +1,30 @@
+<main>
+    <div align="center">
+        <h3>Course List</h3>
+
+        <br /><br />
+        <table id="courses">
+            <tr>
+                <th>Course Title</th>
+                <th>Course Description</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            <tr *ngFor="let course of courses">
+
+                <td>{{course.title}}</td>
+
+                <td>{{course.description}}</td>
+                <td> <button mat-button color="warn" [routerLink]="['viewcourse',course.id]">View</button></td>>
+                <td> {{course.subCatId}}</td>
+                <td>
+                    <button mat-button color="primary">Edit</button></td>
+                <td> <button mat-button color="warn" (click)="onDeleteCourse(course.id)">Delete</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</main>

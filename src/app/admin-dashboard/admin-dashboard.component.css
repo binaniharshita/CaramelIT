@@ -1,0 +1,123 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.h1-decor {
+    color: rgb(16, 21, 68);
+}
+
+.divider {
+    border-color: #2F3061;
+    border-radius: 2px;
+    border: 3px solid midnightblue;
+}
+
+.logout_button {
+    border: 2px solid white;
+    border-radius: 5px;
+    border-color: none;
+    background-color: midnightblue;
+    color: mistyrose;
+    font-size: 15px;
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.logout_button:hover {
+    background-color: white;
+    border: 2px dashed midnightblue;
+    color: midnightblue;
+}
+
+.button_info {
+    border: 1px solid grey;
+    border-radius: 2px;
+    font-size: 20px;
+    padding: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition:all 0.4s ease 0s;
+    cursor: pointer;
+    background-color: rgb(16, 21, 68);
+    color: white;
+    font-style: bold;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.button_info:hover{
+    box-shadow: 5px 10px 8px #888888;
+    background-color: whitesmoke;
+    color: rgb(16, 21, 68);
+    padding-right: 25px;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+    filter: invert(.5);
+}
+
+.icon:hover{
+    filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+tr {
+    width: 100%;
+    align-items: center;
+}
+
+td {
+    width: 50%;
+    height: 180px;
+}
+
+
+/*
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	
+	td, tr { 
+		display: block; 
+	}
+	
+	
+	tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	td { 
+		border: none;
+		position: relative;
+		padding-left: 50%; 
+	}
+}*/
+
+@media all and (max-width: 760px)
+{
+
+table {
+display: block;
+}
+
+table tr {
+display: list-item;
+border: none;
+}
+
+table td {
+display: inline-block;
+margin-right: 0.2rem;
+width: 100%;
+}
+
+td.empty {
+    visibility: collapse;
+}
+
+}

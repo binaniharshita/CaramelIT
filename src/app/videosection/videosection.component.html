@@ -1,0 +1,54 @@
+<div *ngIf="course">
+    <div class="container">
+      <!--<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+      fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  
+       <div fxFlex="60" colHeight="100px" >   
+        <app-currentvideo [lecture] = "selectedLecture"></app-currentvideo>     
+      </div>    
+      <div fxFlex="30" colHeight="100px">
+        <div fxFlex fxLayout="column" class="heading">
+          <div fxFlex>
+            <h4>{{course.name}}</h4>
+          </div>
+          <div class="content">
+            <div *ngFor="let chapter of course.chapter">
+              <mat-list>
+                <h4 >{{chapter.name}}</h4>
+              </mat-list>
+              <mat-list *ngFor="let lecture of chapter.lecture"  (click) = "onSelectLecture(lecture)">
+                {{lecture.name}}
+              </mat-list>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <mat-sidenav-container>
+        <mat-sidenav #sidenav [(opened)]="opened" mode="side" position="end">
+          <div fxLayout="column">
+            <div fxFlex>
+              <h4>{{course.name}}</h4>
+            </div>
+    
+            <div class="content">
+              <div *ngFor="let chapter of course.chapter">
+                <mat-list>
+                  <h4>{{chapter.name}}</h4>
+                </mat-list>
+                <mat-list role="list" *ngFor="let lecture of chapter.lecture" (click)="onSelectLecture(lecture)">
+                  {{lecture.name}}
+                </mat-list>
+              </div>
+            </div>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content position="end"><i class="fa fa-bars fa-ga" (click)="sidenav.toggle()"></i>Main
+          <div fxFlex="100" colHeight="100px">
+            <app-currentvideo [lecture]="selectedLecture"></app-currentvideo>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+  
+  
+  </div>

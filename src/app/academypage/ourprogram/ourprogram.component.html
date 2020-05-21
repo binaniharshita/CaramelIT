@@ -1,0 +1,47 @@
+<h2 style="margin-top: 50px;text-align: center;">OUR PROGRAM</h2>
+<div class="content">
+    <h2>Drive Your Transformation With Us.<br>Collabration Platform For All Technical Training Needs </h2>
+    <a href="#">Join Us Today</a>
+    <br>
+    <button style="align-self: flex-start;" mat-raised-button (click)="onSoftwareDevelopmentClick()">Software Development</button>
+    <div *ngIf=divShow>
+        <div fxLayout="row">
+            <div style="background-color: white;" fxFlex="30">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="All Courses">
+            <div>
+                <div class="container" fxLayout="column" fxLayoutGap="10px">
+
+                    <div fxFlex>
+                        <mat-grid-list cols="4" rowHeight="300px">
+                            <a routerLink="/course-page" routerLinkActive="active">
+                                <mat-grid-tile *ngFor="let course of courses" (click)="onSelect(course)">
+                                    <img height="200px" src={{course.image}} alt={{course.name}}>
+
+
+                                    <mat-grid-tile-footer>
+                                        <br>
+                                        <button mat-raised-button color="primary">{{course.name}}</button>
+                                    </mat-grid-tile-footer>
+                                </mat-grid-tile>
+                            </a>
+                        </mat-grid-list>
+                    </div>
+                    <!--<router-outlet><app-videosection [course] = "selectedCourse"></app-videosection></router-outlet>-->
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab label="Popular Courses"> Content 2 </mat-tab>
+
+    </mat-tab-group>
+
+</div>

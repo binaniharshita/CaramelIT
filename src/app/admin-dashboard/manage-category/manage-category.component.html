@@ -1,0 +1,20 @@
+<main>
+    <mat-tab-group>
+        <mat-tab label="Manage Group (Program)">
+            <main>
+                <app-create-category></app-create-category>
+                <button mat-raised-button routerLink="list-category" class="button_info1">
+                View Categories
+            </button>
+            </main>
+        </mat-tab>
+        <mat-tab label="Manange Sub-Group (Sub-Program)">
+            <main>
+                <app-create-subcategory></app-create-subcategory>
+                <button mat-raised-button routerLink="list-subcategory" class="button_info1">
+                View Sub-Categories
+            </button>
+            </main>
+        </mat-tab>
+    </mat-tab-group>
+</main>

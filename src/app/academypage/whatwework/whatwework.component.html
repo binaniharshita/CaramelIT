@@ -1,0 +1,37 @@
+<div class="container">
+    <div fxLayout="row" fxLayout.md="col">
+        <div fxFlex="20">
+            <mat-slide-toggle #checkbox (change)="onSlideChange()">{{slidetext}}</mat-slide-toggle>
+        </div>
+        <div fxFlex="50">
+            <h2>WHAT WE WORK</h2>
+        </div>
+        <div fxFlex="30">
+            <img class="slider" src="../../../assets/images/academy/show18.png">
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf=checkbox.checked>
+    <div fxLayout="row" fxLayout.md="col">
+        <div class="contain" fxFlex="20">
+            <img class="about" src="../../../assets/images/academy/show8.png">
+            <div class="centered">80%</div>
+            <h3>STUDENTS</h3>
+        </div>
+        <div class="contain" fxFlex="20">
+            <img class="about" src="../../../assets/images/academy/show9.png">
+            <div class="centered">50%</div>
+            <h3>COURSES</h3>
+        </div>
+        <div class="contain" fxFlex="20">
+            <img class="about" src="../../../assets/images/academy/show10.png">
+            <div class="centered">100%</div>
+            <h3>PLACEMENTS</h3>
+        </div>
+        <div fxFlex="40">
+            <img style="align-self: flex-end;" height="300px" width="300px" src="../../../assets/images/academy/show12.png">
+        </div>
+    </div>
+</div>

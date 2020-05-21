@@ -1,0 +1,21 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>{{name| uppercase}}</h2>
+            <h4>example@asd.com</h4>
+        </div>
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xB7Vmyy4QQjDD82jPA6OXgHaLG%26pid%3DApi&f=1">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 MatSubheader>Pages</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="reports">Reports</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Question Bank</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="manage">Manage</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Template</a>
+
+    <mat-divider></mat-divider>
+    <h2 MatSubheader>Tools</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>first_page</mat-icon>Logout
+    </a>
+</mat-nav-list>
