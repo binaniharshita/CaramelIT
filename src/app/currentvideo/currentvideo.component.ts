@@ -5,7 +5,7 @@ import { Lecture } from '../shared/lecture';
 @Component({
   selector: 'app-currentvideo',
   templateUrl: './currentvideo.component.html',
-  styleUrls: ['./currentvideo.component.scss']
+  styleUrls: ['./currentvideo.component.css']
 })
 export class CurrentvideoComponent implements OnInit {
 

@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const ItemSchema = new mongoose.Schema({
     0: {
         type: String,
-        required : true
+        required: true
     },
     1: {
         type: String,
-        required : true
+        required: true
     },
     2: {
         type: String,
-        required : true
+        required: true
     }
 });
 

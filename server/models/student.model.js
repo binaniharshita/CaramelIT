@@ -5,20 +5,20 @@ const jwt = require('jsonwebtoken');
 const studentSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required : true
+        required: true
     },
     lastName: {
         type: String,
-        required : true
+        required: true
     },
     emailAddress: {
         type: String,
-        required : true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        required : true
+        required: true
     },
     mobileNumber: {
         type: Number
@@ -26,19 +26,19 @@ const studentSchema = new mongoose.Schema({
     dateOfBirth: {
         type: Date
     },
-    country:{
+    country: {
         type: String
     },
-    state:{
+    state: {
         type: String
     },
-    collegeName:{
+    collegeName: {
         type: String
     },
     skillset: {
         type: String
     },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now
     },
@@ -52,7 +52,7 @@ studentSchema.path('emailAddress').validate((val) => {
 }, 'Invalid e-mail.');
 
 // Events
-studentSchema.pre('save', function (next) {
+studentSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -63,16 +63,15 @@ studentSchema.pre('save', function (next) {
 });
 
 // Methods
-studentSchema.methods.verifyPassword = function (password) {
+studentSchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-studentSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
-        process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXP
-    });
+studentSchema.methods.generateJwt = function() {
+    return jwt.sign({ _id: this._id },
+        process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXP
+        });
 }
 
 const Student = mongoose.model('Student', studentSchema, 'Student_info');

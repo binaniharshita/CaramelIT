@@ -1,15 +1,17 @@
-.view-course{
+.view-course {
     margin-left: 100px;
 }
-.admin{
+
+.admin {
     margin-left: 500px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.view-categories{
-    margin-left:10px;
+.view-categories {
+    margin-left: 10px;
 }
-.view-subcategories{
-    margin-left:10px;
+
+.view-subcategories {
+    margin-left: 10px;
 }

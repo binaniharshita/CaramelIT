@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="contentForm">
     <form (submit)="onAddCategory(categoryForm)" #categoryForm="ngForm">
         <mat-card>
@@ -14,3 +15,21 @@
         </mat-card>
     </form>
 </div>
+=======
+<div class="contentForm">
+    <form (submit)="onAddCategory(categoryForm)" #categoryForm="ngForm">
+        <mat-card>
+            <mat-form-field>
+                <input matInput type="text" ngModel name="title" #title="ngModel" required placeholder="Title">
+                <mat-error *ngIf="title.invalid">Please enter Category title</mat-error>
+            </mat-form-field>
+            <hr>
+            <mat-form-field>
+                <textarea matInput row="6" ngModel name="description" placeholder="Description" #description="ngModel" required></textarea>
+                <mat-error *ngIf="description.invalid">Please enter Category Description</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Save Category</button>
+        </mat-card>
+    </form>
+</div>
+>>>>>>> 8ed553dd8625d2ae24959feee22832d9125272d3

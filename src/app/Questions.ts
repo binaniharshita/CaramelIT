@@ -10,7 +10,7 @@ export class Questions
         constructor(id, number,type, level, Status, Category)
         {
             this.id = id;
-            this.number = number;      
+            this.number = number;
             this.type = type;
             this.level = level;
             this.Status = Status;

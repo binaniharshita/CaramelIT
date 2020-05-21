@@ -44,119 +44,119 @@ module.exports.authenticate = (req, res, next) => {
     })(req, res);
 }
 
-module.exports.universityProfile = (req, res, next) =>{
+module.exports.universityProfile = (req, res, next) => {
     University.findOne({ _id: req._id },
         (err, university) => {
             if (!university)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, university : _.pick(university,['collegeName','universityName','emailAddress']) });
+                return res.status(200).json({ status: true, university: _.pick(university, ['collegeName', 'universityName', 'emailAddress']) });
         }
     );
 }
 
 //Reset password Logic
-module.exports.ResetPassword = async(req, res)=> {
+module.exports.ResetPassword = async(req, res) => {
     if (!req.body.emailAddress) {
-    return res
-    .status(500)
-    .json({ message: 'Email is required' });
+        return res
+            .status(500)
+            .json({ message: 'Email is required' });
     }
     const university = await University.findOne({
-    emailAddress:req.body.emailAddress
+        emailAddress: req.body.emailAddress
     });
     if (!university) {
-    return res
-    .status(409)
-    .json({ message: 'Email does not exist' });
+        return res
+            .status(409)
+            .json({ message: 'Email does not exist' });
     }
     var resettoken = new passwordResetToken({ _universityId: university._id, resettoken: crypto.randomBytes(16).toString('hex') });
-    resettoken.save(function (err) {
-    if (err) { return res.status(500).send({ msg: err.message }); }
-    passwordResetToken.find({ _universityId: university._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
-    res.status(200).json({ message: 'Reset Password successfully.' });
-    var transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      port: 465,
-      auth: {
-        user: 'user',
-        pass: 'password'
-      }
-    });
-    var mailOptions = {
-    to: university.emailAddress,
-    from: 'mail@gmail.com',
-    subject: 'Node.js Password Reset',
-    text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-    'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-    'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
-    'If you did not request this, please ignore this email and your password will remain unchanged.\n'
-    }
-    transporter.sendMail(mailOptions, (err, info) => {
-      console.log("Mail Sent");
-    })
-    })
-    }
-    
-    module.exports.ValidPasswordToken = async(req, res) => {
-        if (!req.body.resettoken) {
-        return res
-        .status(500)
-        .json({ message: 'Token is required' });
-        }
-        const university = await passwordResetToken.findOne({
-        resettoken: req.body.resettoken
+    resettoken.save(function(err) {
+        if (err) { return res.status(500).send({ msg: err.message }); }
+        passwordResetToken.find({ _universityId: university._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
+        res.status(200).json({ message: 'Reset Password successfully.' });
+        var transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            port: 465,
+            auth: {
+                user: 'user',
+                pass: 'password'
+            }
         });
-        if (!university) {
-        return res
-        .status(409)
-        .json({ message: 'Invalid URL' });
+        var mailOptions = {
+            to: university.emailAddress,
+            from: 'mail@gmail.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
+                'If you did not request this, please ignore this email and your password will remain unchanged.\n'
         }
-        University.findOneAndUpdate({ _id: university._universityId }).then(() => {
-        res.status(200).json({ message: 'Token verified successfully.' });
-        }).catch((err) => {
-        return res.status(500).send({ msg: err.message });
-        });
-    }
+        transporter.sendMail(mailOptions, (err, info) => {
+            console.log("Mail Sent");
+        })
+    })
+}
 
-    module.exports.NewPassword = async(req, res) => {
-            passwordResetToken.findOne({ resettoken: req.body.resettoken }, function (err, universityToken, next) {
-              if (!universityToken) {
+module.exports.ValidPasswordToken = async(req, res) => {
+    if (!req.body.resettoken) {
+        return res
+            .status(500)
+            .json({ message: 'Token is required' });
+    }
+    const university = await passwordResetToken.findOne({
+        resettoken: req.body.resettoken
+    });
+    if (!university) {
+        return res
+            .status(409)
+            .json({ message: 'Invalid URL' });
+    }
+    University.findOneAndUpdate({ _id: university._universityId }).then(() => {
+        res.status(200).json({ message: 'Token verified successfully.' });
+    }).catch((err) => {
+        return res.status(500).send({ msg: err.message });
+    });
+}
+
+module.exports.NewPassword = async(req, res) => {
+    passwordResetToken.findOne({ resettoken: req.body.resettoken }, function(err, universityToken, next) {
+        if (!universityToken) {
+            return res
+                .status(409)
+                .json({ message: 'Token has expired' });
+        }
+
+        University.findOne({
+            _id: universityToken._universityId
+        }, function(err, universityEmail, next) {
+            if (!universityEmail) {
                 return res
-                  .status(409)
-                  .json({ message: 'Token has expired' });
-              }
-        
-              University.findOne({
-                _id: universityToken._universityId
-              }, function (err, universityEmail, next) {
-                if (!universityEmail) {
-                  return res
                     .status(409)
                     .json({ message: 'Email not registered' });
-                }
-                return bcrypt.hash(req.body.newPassword, 10, (err, hash) => {
-                  if (err) {
+            }
+            return bcrypt.hash(req.body.newPassword, 10, (err, hash) => {
+                if (err) {
                     return res
-                      .status(400)
-                      .json({ message: 'Error hashing password' });
-                  }
-                  universityEmail.password = hash;
-                  universityEmail.save(function (err) {
-                    if (err) {
-                      return res
                         .status(400)
-                        .json({ message: 'Password can not reset.' });
+                        .json({ message: 'Error hashing password' });
+                }
+                universityEmail.password = hash;
+                universityEmail.save(function(err) {
+                    if (err) {
+                        return res
+                            .status(400)
+                            .json({ message: 'Password can not reset.' });
                     } else {
-                      universityToken.remove();
-                      return res
-                        .status(201)
-                        .json({ message: 'Password reset successfully' });
+                        universityToken.remove();
+                        return res
+                            .status(201)
+                            .json({ message: 'Password reset successfully' });
                     }
-        
-                  });
+
                 });
-              });
-        
-            })
-        }
+            });
+        });
+
+    })
+}

@@ -5,37 +5,37 @@ const jwt = require('jsonwebtoken');
 const instructorSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required : true
+        required: true
     },
     lastName: {
         type: String,
-        required : true
+        required: true
     },
     emailAddress: {
         type: String,
-        required : true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        required : true
+        required: true
     },
     mobileNumber: {
         type: Number
     },
-    subjects:{
+    subjects: {
         type: String
     },
-    workingHours:{
+    workingHours: {
         type: String
     },
-    experience:{
+    experience: {
         type: String
     },
     profileDetails: {
         type: String
     },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now
     }
@@ -48,7 +48,7 @@ instructorSchema.path('emailAddress').validate((val) => {
 }, 'Invalid e-mail.');
 
 // Events
-instructorSchema.pre('save', function (next) {
+instructorSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -60,17 +60,16 @@ instructorSchema.pre('save', function (next) {
 
 
 //Methods
-instructorSchema.methods.verifyPassword = function (password) {
+instructorSchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-instructorSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
-        process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXP
-    });
+instructorSchema.methods.generateJwt = function() {
+    return jwt.sign({ _id: this._id },
+        process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXP
+        });
 }
-const Instructor = mongoose.model('Instructor', instructorSchema,'Instructor_Info');
+const Instructor = mongoose.model('Instructor', instructorSchema, 'Instructor_Info');
 
 module.exports = Instructor;

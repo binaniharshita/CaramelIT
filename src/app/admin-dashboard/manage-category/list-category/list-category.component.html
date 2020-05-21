@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <main>
     <div>
 
@@ -29,3 +30,36 @@
         </table>
     </div>
 </main>
+=======
+<main>
+    <div>
+
+        <br/><br/>
+        <table id="categories">
+            <tr>
+                <th>Category Title</th>
+                <th>Category Description</th>
+                <th>No of Subcategories</th>
+                <th>No of Courses</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let category of categories">
+
+                <td>{{category.title}}</td>
+
+                <td>{{category.description}}</td>
+                <td>{{category.noOfSubCategories}}</td>
+                <td> {{category.noOfCourses}}</td>
+                <td>
+                    <button mat-button color="primary">Edit</button></td>
+                <td>
+                    <button mat-button color="warn" (click)="onDeleteCategory(category.id)">Delete</button>
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+</main>
+>>>>>>> 8ed553dd8625d2ae24959feee22832d9125272d3

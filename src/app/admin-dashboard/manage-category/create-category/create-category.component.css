@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 mat-form-field,
 textarea {
     width: 100%;
@@ -14,3 +15,21 @@ textarea {
 li {
     list-style: none;
 }
+=======
+mat-form-field,
+textarea {
+    width: 100%;
+}
+
+.contentForm {
+    margin-top: 1rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+li {
+    list-style: none;
+}
+>>>>>>> 8ed553dd8625d2ae24959feee22832d9125272d3

@@ -5,34 +5,34 @@ const jwt = require('jsonwebtoken');
 const universitySchema = new mongoose.Schema({
     collegeName: {
         type: String,
-        required : true
+        required: true
     },
     universityName: {
         type: String,
-        required : true
+        required: true
     },
     emailAddress: {
         type: String,
-        required : true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        required : true
+        required: true
     },
     mobileNumber: {
         type: Number
     },
-    country:{
+    country: {
         type: String
     },
-    state:{
+    state: {
         type: String
     },
     skillset: {
         type: String
     },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now
     }
@@ -45,7 +45,7 @@ universitySchema.path('emailAddress').validate((val) => {
 }, 'Invalid e-mail.');
 
 // Events
-universitySchema.pre('save', function (next) {
+universitySchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -57,18 +57,17 @@ universitySchema.pre('save', function (next) {
 
 
 // Methods
-universitySchema.methods.verifyPassword = function (password) {
+universitySchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-universitySchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
-        process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXP
-    });
+universitySchema.methods.generateJwt = function() {
+    return jwt.sign({ _id: this._id },
+        process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXP
+        });
 }
 
-const University = mongoose.model('University', universitySchema,'University_Info');
+const University = mongoose.model('University', universitySchema, 'University_Info');
 
 module.exports = University;

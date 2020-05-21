@@ -5,16 +5,16 @@ const jwt = require('jsonwebtoken');
 const corporateSchema = new mongoose.Schema({
     corporateName: {
         type: String,
-        required : true
+        required: true
     },
     emailAddress: {
         type: String,
-        required : true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        required : true
+        required: true
     },
     mobileNumber: {
         type: Number
@@ -22,7 +22,7 @@ const corporateSchema = new mongoose.Schema({
     others: {
         type: String
     },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now
     }
@@ -35,7 +35,7 @@ corporateSchema.path('emailAddress').validate((val) => {
 }, 'Invalid e-mail.');
 
 // Events
-corporateSchema.pre('save', function (next) {
+corporateSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -46,18 +46,17 @@ corporateSchema.pre('save', function (next) {
 });
 
 //Methods
-corporateSchema.methods.verifyPassword = function (password) {
+corporateSchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-corporateSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
-        process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXP
-    });
+corporateSchema.methods.generateJwt = function() {
+    return jwt.sign({ _id: this._id },
+        process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXP
+        });
 }
 
-const Corporate = mongoose.model('Corporate', corporateSchema,'Corporate_Info');
+const Corporate = mongoose.model('Corporate', corporateSchema, 'Corporate_Info');
 
 module.exports = Corporate;

@@ -16,7 +16,7 @@ import { UniversityUserService } from '../shared-user/university/university-user
 
 export class NavbarComponent implements OnInit {
 
-  userType: string = '';
+  userType = '';
   studentLogin: boolean;
 
   constructor(private studentUserService: StudentUserService,
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
 
 
   onLogout() {
-    if (this.studentUserService.selectedStudentUser.user_type = "Student") {
+    if (this.studentUserService.selectedStudentUser.user_type === 'Student') {
       this.studentUserService.deleteToken();
       this.router.navigate(['student-signin']);
     }

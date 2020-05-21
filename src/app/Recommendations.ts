@@ -15,7 +15,7 @@ export class Recommendations
         {
             this.id = id;
             this.name = name;
-            
+
             this.email = email;
             this.phoneNo = phoneNo;
             this.address = address;
