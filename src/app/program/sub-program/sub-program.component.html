@@ -17,18 +17,16 @@
             </div>
             <h1 class="lasthead">Courses Listing:</h1>
         </div>
-        <div *ngFor="let course of courses" class="slide">
-            <mat-grid-list cols="3" rowHeight="300px" [gutterSize]="'8px'">
-                <mat-grid-tile>
-                    <mat-card class="course-card">
-                        <mat-card-content>
-                            <img mat-card-image id="courseimg" src="{{'/' + course.image}}" alt="core java"/>
-                            <mat-card-title>{{course.name}}</mat-card-title>
-                        </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </div>
+        <mat-grid-list cols="3" rowHeight="300px" [gutterSize]="'8px'">
+          <mat-grid-tile *ngFor="let course of courses" class="slide">
+              <mat-card class="course-card">
+                  <mat-card-content>
+                      <img mat-card-image id="courseimg" src="{{'/' + course.image}}" alt="core java"/>
+                      <mat-card-title>{{course.name}}</mat-card-title>
+                  </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+      </mat-grid-list>
 
        
   <!---footer section start--->

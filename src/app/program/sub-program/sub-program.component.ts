@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { CourseService } from 'src/app/services/course.service';
 import { SUBPROGRAM, SubPrograms } from 'src/app/shared/subprograms';
-import { PROGRAMCOURSES, ProgramCourses } from 'src/app/shared/programcourses';
+import { ProgramCourses } from 'src/app/shared/programcourses';
+
 
 @Component({
   selector: 'app-sub-program',
@@ -15,10 +16,10 @@ export class SubProgramComponent implements OnInit {
 
   selectedSubprogram: string;
   allSubPrograms: SubPrograms[] = SUBPROGRAM;
-  allProgramCourses: ProgramCourses[] = PROGRAMCOURSES;
+  // allProgramCourses: ProgramCourses[] = PROGRAMCOURSES;
   description: string;
   image: string;
-  coursesNames: string[];
+  // coursesNames: string[];
   courses: ProgramCourses[];
 
   ngOnInit() {
@@ -28,24 +29,34 @@ export class SubProgramComponent implements OnInit {
       if (this.selectedSubprogram == this.allSubPrograms[i].title) {
         this.description = this.allSubPrograms[i].description;
         this.image = this.allSubPrograms[i].image;
-        this.coursesNames = this.allSubPrograms[i].courses;
+        this.courses = this.allSubPrograms[i].courses;
         break;
       }
     }
 
-    // window.alert(this.coursesNames[0]+ "heyooooo");
+    // window.alert(this.coursesNames.length+ "heyooooo");
     // window.alert(this.allProgramCourses[0].name+ "f");
 
-    for (let k = 0; k < this.coursesNames.length; k++) {
-      for (let j = 0; j < this.allProgramCourses.length; j++) {
-        if(this.allProgramCourses[j].name == this.coursesNames[k]){
-          this.courses[k].name = this.coursesNames[k];
-          this.courses[k].image = this.allProgramCourses[j].image;
-          window.alert(this.coursesNames[0]);
-          break;
-        }
-      }
-    }
+    // for (let i = 0; i < this.coursesNames.length; i++) {
+    //   this.courses[i].name = this.coursesNames[i];
+    //   this.courses[i].image = "";
+
+    //         window.alert(this.coursesNames[i]);
+
+
+    //   for (let j = 0; j < this.allProgramCourses.length; j++) {
+    //     // window.alert("allprogs" + this.allProgramCourses[j].name);
+    //     // window.alert((this.allProgramCourses[j].name == this.coursesNames[k]));
+
+    //     // if(this.allProgramCourses[j].name == this.coursesNames[i]){
+    //     //   this.courses[i].image = this.allProgramCourses[j].image;
+    //       window.alert(this.coursesNames[0]);
+    //     //   break;
+    //     // }
+    //   }
+    // }
+
+    // window.alert(this.courses[0].name);
 
   }
 

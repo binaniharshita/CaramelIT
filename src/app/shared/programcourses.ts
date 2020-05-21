@@ -3,6 +3,8 @@ export class ProgramCourses {
     image: string;
 }
 
+//should be assets instead of assests
+// list has image link mistakes - for corrects ones refer to subprograms page 
 export const PROGRAMCOURSES: ProgramCourses[] = [
     {name: 'Frontend', image: 'src/assests/program/subprogram/coreui.jpeg'},
     {name: 'Advanced UI', image: 'src/assests/program/subprogram/advancedui.jpg'},

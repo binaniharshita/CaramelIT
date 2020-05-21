@@ -62,7 +62,7 @@ export const SUBPROGRAMS: Course[] = [
       link: "#",
     },
     {
-      name: "IT Certifications", 
+      name: "IT Certification", 
       image: "../../assets/program/subprogram/it.jpeg",
       link: "#",
     }
