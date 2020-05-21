@@ -6,9 +6,10 @@
     <h1 id="heading">Related Courses</h1>
     <div class='nav-btn next-slide'></div>
 
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+    (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
     <div ngxSlickItem *ngFor="let course of relatedCourses" class="slide">
-      <div>
+      <div class="container">
         <div class="card-course">         
           <img id="img-card" src = "{{course.image}}" alt = "portfolio-image">
           <!-- <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p> -->
@@ -22,8 +23,8 @@
                 </a>
               </div>
               <div>
-                <a href="#" class="card-action" style="float: left;">
-                  <img src = "{{downloadImage}}" >Enroll
+                <a href="#" class="card-action" style="float: right;">
+                  <img id="tick" src = "{{tickImage}}" >Enroll
                 </a>
               </div>
             </div>
@@ -33,7 +34,6 @@
     </div>
   </ngx-slick-carousel>
   </div>
-
 
 
 <!--     

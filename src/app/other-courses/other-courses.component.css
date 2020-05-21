@@ -1,10 +1,18 @@
 
+.container{
+    height: 300px;
+    width: 250px;
+    align-content: center;
+    padding: 10px;
+}
+
 #heading {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 35px;
     font-weight: bold;
     text-align: center;
-    padding: 25px;
+    padding: 20px;
+    background-color: transparent;
 }
 
 .carousel{
@@ -22,7 +30,13 @@
     background-color: white;
     border: 1px solid black;
     overflow: hidden;
+    transition: transform .5s; 
   }
+
+  .card-course:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.698), 0 6px 20px 0 rgba(0, 0, 0, 0.651);
+    transform: scale(1.05);
+}
   
   #img-card {
       width:100%;
@@ -49,6 +63,31 @@
   }
 
   .card-action img{
-      width: 100%;
+      max-width: 100%;
+      max-height: 80%;
       padding-top: 5%;
   }
+
+  #tick{
+      padding-left: 15%;
+      margin-left: 5px;
+      padding-top: 5px;
+      padding-right: 10%;
+      border-radius: 70%;
+      max-height: 75%;
+      max-width: 80%;
+
+  }
+
+  
+  .nav-btn {
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 100px !important;
+  }
+  
+
+
+  

@@ -18,6 +18,7 @@ export class OtherCoursesComponent implements OnInit {
   allSubPrograms: SubPrograms[] = SUBPROGRAMS;
   index: number;
   downloadImage:string = '/assets/images/download.png';
+  tickImage:string = '/assets/images/tick.png';
 
   // related courses are other courses within the subprogram the current course is a part of 
 
@@ -33,7 +34,6 @@ export class OtherCoursesComponent implements OnInit {
         if (this.allSubPrograms[i].courses[j].name == this.courseName) {
           this.relatedCourses = this.allSubPrograms[i].courses;
           this.index= j;
-          // window.alert(this.allSubPrograms[i].courses[0].name);
           found = 1;
           break;
         }
@@ -41,10 +41,14 @@ export class OtherCoursesComponent implements OnInit {
       if (found) break;
     }
 
-    // in order to remove the course itself from the related courses list
-    if (this.index !== -1) {
-        this.relatedCourses.splice(this.index, 1);
-    }      
+    // in order to make sure that the course is not in the related courses
+    let updated = [];
+    for (let el of this.relatedCourses) {
+        if (el.name !== this.courseName) {
+            updated.push(el);
+        }
+    }
+    this.relatedCourses = updated;
   }
 
   clicked(){
@@ -59,8 +63,27 @@ export class OtherCoursesComponent implements OnInit {
     "nextArrow": "<div class='nav-btn next-slide'></div>",
     "prevArrow": "<div class='nav-btn prev-slide'></div>",
     "dots": true,
-    "infinite": false
+    "infinite": true,
+    "autoplay": true,
+    "autoplaySpeed": 1500
   };
+
+  slickInit(e) {
+    console.log('slick initialized');
+  }
+
+  breakpoint(e) {
+    console.log('breakpoint');
+  }
+
+  afterChange(e) {
+    console.log('afterChange');
+  }
+
+  beforeChange(e) {
+    console.log('beforeChange');
+  }
+
 
 
 }
