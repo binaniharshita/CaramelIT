@@ -17,6 +17,7 @@ export class OtherCoursesComponent implements OnInit {
   relatedCourses: ProgramCourses[];   // should be changed to course later on - all program courses needs to be updated!!!
   allSubPrograms: SubPrograms[] = SUBPROGRAMS;
   index: number;
+  downloadImage:string = '/assets/images/download.png';
 
   // related courses are other courses within the subprogram the current course is a part of 
 
