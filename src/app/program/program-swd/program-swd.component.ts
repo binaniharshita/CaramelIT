@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 
 import { CourseService } from 'src/app/services/course.service';
-import { SubPrograms, subprograms } from 'src/app/shared/subprograms';
+// import { SubPrograms, subprograms } from 'src/app/shared/subprograms';
 
 
 @Component({

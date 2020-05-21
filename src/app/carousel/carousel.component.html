@@ -1,11 +1,12 @@
   <!-- You can now use your library component in app.component.html -->
   <div>
+    <h1 id="h" >Sub Programs:</h1>
+
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
     (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
       <div class="second">
         <div class="third" >
-            <!-- <a routerLink={{slide.link}}><img src={{slide.image}}></a> -->
             <button (click)="clicked(slide.name)"><img src={{slide.image}}></button>
         </div>
         <div class="four">
