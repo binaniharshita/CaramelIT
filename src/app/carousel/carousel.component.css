@@ -5,6 +5,7 @@
     border: 1px solid black;
     margin: 5px;
     background-color: white;
+    overflow: hidden;
     /* border-radius: 20px; */
   }
   
@@ -22,6 +23,7 @@
     font-weight: bold;
     text-align: center;
   }
+  
 
   .third {
     width: 100%;

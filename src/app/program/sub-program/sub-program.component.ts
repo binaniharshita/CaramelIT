@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CourseService } from 'src/app/services/course.service';
-import { SUBPROGRAM, SubPrograms } from 'src/app/shared/subprograms';
+import { SUBPROGRAMS, SubPrograms } from 'src/app/shared/subprograms';
 import { ProgramCourses } from 'src/app/shared/programcourses';
 
 
@@ -15,7 +15,7 @@ export class SubProgramComponent implements OnInit {
   constructor(private courseService: CourseService) { }
 
   selectedSubprogram: string;
-  allSubPrograms: SubPrograms[] = SUBPROGRAM;
+  allSubPrograms: SubPrograms[] = SUBPROGRAMS;
   // allProgramCourses: ProgramCourses[] = PROGRAMCOURSES;
   description: string;
   image: string;

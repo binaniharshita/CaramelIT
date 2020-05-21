@@ -8,7 +8,7 @@ export class SubPrograms {
 }
 
 
-export const SUBPROGRAM: SubPrograms[] = [
+export const SUBPROGRAMS: SubPrograms[] = [
     {title: 'Frontend', description: 'User interface (UI) developers combine programming, psychology and creative design to craft intuitive controls for software and hardware. ... There is a range of UI development classes and college degrees featuring coursework in the skills needed to become a user interface developer.', 
             courses: [{name: 'Frontend', image: '../../../assets/program/subprogram/coreui.jpeg'}, {name: 'Advanced UI', image: '../../../assets/program/subprogram/advancedui.jpg'}, {name: 'Angular JS', image: '../../../assets/program/subprogram/angular.png'}, {name: 'React JS', image: '../../../assets/program/subprogram/react2.jpg'}, {name: 'Vue JS', image: '../../../assets/program/subprogram/vue js.jpeg'}],image: '../../../assets/program/subprogram/frontend.jpg'},
 

@@ -1,91 +1,37 @@
 
 
 
-        <!-- Other Relevant Courses Starts-->
-        <div class="otherCourses">
-        
-            <h3 align="center" style="border:10px;border-color: black;"> OTHER RELEVANT COURSES</h3>
-    
-            <div class="row">
-    
-          
-            <div class="card-course">
-                    
-                        <img id="img-card" src = "/assets/images/portfolio-image.png" alt = "portfolio-image">
-                        <p id="card-content"><mat-card-title>Course 1</mat-card-title></p>
-                        <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p>
-                        <hr style="margin-top: 1%;margin-bottom: 1%">
-                        <mat-card-actions layout="row" layout-align="center">
-                          <a href="#" id="card-action">Curriculum</a>
-                          <a href="#" id="card-action">Enroll</a>
-                          <a href="#" id="card-action">Add to Cart</a>
-                        </mat-card-actions>
-                  
-                </div>
-    
-                <div class="card-course">
-                    
-                        <img id="img-card" mat-card-image src = "/assets/images/portfolio-image.png"  alt = "portfolio-image">
-                        <p id="card-content"><mat-card-title>Course 1</mat-card-title></p>
-                        <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p>
-                        <hr style="margin-top: 1%;margin-bottom: 1%">
-                        <div layout="row" layout-align="center">
-                          <a href="#" id="card-action">Curriculum</a>
-                          <a href="#" id="card-action">Enroll</a>
-                          <a href="#" id="card-action">Add to Cart</a>
-                        </div>
-                    
-                    
-                </div>
-    
-                <div class="card-course">
-                    
-                        <img id="img-card" mat-card-image src = "/assets/images/portfolio-image.png"  alt = "portfolio-image">
-                        <p id="card-content"><mat-card-title>Course 1</mat-card-title></p>
-                        <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p>
-                        <hr style="margin-top: 1%;margin-bottom: 1%">
-                        <div layout="row" layout-align="center">
-                          <a href="#" id="card-action">Curriculum</a>
-                          <a href="#" id="card-action">Enroll</a>
-                          <a href="#" id="card-action">Add to Cart</a>
-                        </div>
-                    
-                </div>
-    
-                <div class="card-course">
-                   
-                        <img id="img-card" mat-card-image src = "/assets/images/portfolio-image.png"  alt = "portfolio-image">
-                        <p id="card-content"><mat-card-title>Course 1</mat-card-title></p>
-                        <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p>
-                        <hr style="margin-top: 1%;margin-bottom: 1%">
-                        <div layout="row" layout-align="center">
-                          <a href="#" id="card-action">Curriculum</a>
-                          <a href="#" id="card-action">Enroll</a>
-                          <a href="#" id="card-action">Add to Cart</a>
-                        </div>
-                    
-                </div>
-    
-                <div class="card-course">
-                    
-                        <img id="img-card" mat-card-image src = "/assets/images/portfolio-image.png"  alt = "portfolio-image">
-                        <p id="card-content"><mat-card-title>Course 1</mat-card-title></p>
-                        <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p>
-                        <hr style="margin-top: 1%;margin-bottom: 1%">
-                        <div layout="row" layout-align="center">
-                          <a href="#" id="card-action">Curriculum</a>
-                          <a href="#" id="card-action">Enroll</a>
-                          <a href="#" id="card-action">Add to Cart</a>
-                        </div>
-                    
-                </div>
-                
+
+  <div>
+    <h1 id="heading">Related Courses</h1>
+    <div class='nav-btn next-slide'></div>
+
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let course of relatedCourses" class="slide">
+      <div>
+        <div class="card-course">         
+          <img id="img-card" src = "{{course.image}}" alt = "portfolio-image">
+          <!-- <p id="card-content"><mat-card-subtitle>Course description</mat-card-subtitle></p> -->
+          <p id="course-name"><mat-card-title>{{course.name}}</mat-card-title></p>
+          <hr style="margin-top: 1%;margin-bottom: 1%">
+          <mat-card-actions layout="row" layout-align="center">
+            <div class="card-content">
+              <div><a href="#" class="card-action" style="float: left;">Curriculum</a></div>
+              <div><a href="#" class="card-action" style="float: right;">Enroll</a></div>
             </div>
+          </mat-card-actions>
         </div>
-    
-            <!--Other Relevant Courses Ends-->
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  </div>
+
+
+
+<!--     
+            Other Relevant Courses Ends
     
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
     

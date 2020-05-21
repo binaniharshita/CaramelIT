@@ -42,7 +42,7 @@ export class CarouselComponent implements OnInit {
     "nextArrow": "<div class='nav-btn next-slide'></div>",
     "prevArrow": "<div class='nav-btn prev-slide'></div>",
     "dots": true,
-    "infinite": true
+    "infinite": false
   };
 
 

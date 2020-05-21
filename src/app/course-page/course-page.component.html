@@ -37,5 +37,5 @@
       <button class="enroll-button center" *ngIf="addedToCart" routerLink="/student-cart" routerLinkActive="active">Go to Cart</button>
     </div>
 </div>  
-<app-other-courses></app-other-courses>
+<app-other-courses [course]= "selectedCourse"></app-other-courses>
 <app-footer></app-footer>
