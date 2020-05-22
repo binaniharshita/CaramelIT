@@ -6,91 +6,28 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 ccontent">
-                    <h3>FullStack</h3>
+                    <h3>{{selectedSubprogram}}</h3>
                 <p>
-                 FullStack Developers are computer programmers who are proficient in both front and back end coding. Their primary responsibilities include designing user interactions on websites, developing servers and databases for website functionality and coding for mobile platforms.
+                    {{description}}
                 </p>
                 </div>
                 <div class="col-lg-4 cimage">
-                    <img src="../../assets/program/subprogram/fullstack.jpg" />
+                    <img src={{image}} />
                 </div>
             </div>
             <h1 class="lasthead">Courses Listing:</h1>
         </div>
         <mat-grid-list cols="3" rowHeight="300px" [gutterSize]="'8px'">
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/core-java.jpg" alt="core java"/>
-                        <mat-card-title>Core java</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/dotnetcore.jpeg" alt="core java"/>
-                        <mat-card-title>.NetCore</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/mevn.jpg" alt="core java"/>
-                        <mat-card-title>MEVN</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/advanced1.png" alt="core java"/>
-                        <mat-card-title>Advanced java</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/mean1.jpg" alt="core java"/>
-                        <mat-card-title>MEAN</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/golang.png" alt="core java"/>
-                        <mat-card-title>Golang</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/full stack.net.jpg" alt="core java"/>
-                        <mat-card-title>.Net</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/measn.jpg" alt="core java"/>
-                        <mat-card-title>MEASN</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="course-card">
-                    <mat-card-content>
-                        <img mat-card-image id="courseimg" src="../../assets/program/subprogram/ruby1.jpg" alt="core java"/>
-                        <mat-card-title>Ruby</mat-card-title>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
+          <mat-grid-tile *ngFor="let course of courses" class="slide">
+              <mat-card class="course-card">
+                  <mat-card-content>
+                      <img mat-card-image id="courseimg" src="{{'/' + course.image}}" alt="core java"/>
+                      <mat-card-title>{{course.name}}</mat-card-title>
+                  </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+      </mat-grid-list>
+
        
   <!---footer section start--->
   

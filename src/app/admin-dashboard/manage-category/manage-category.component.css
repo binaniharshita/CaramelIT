@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 main {
     margin: auto;
     width: 80%;
 }
+
 .button_info1 {
     border: 1px solid grey;
     border-radius: 2px;
@@ -10,31 +10,11 @@ main {
     padding: 25px;
     text-align: center;
     text-transform: uppercase;
-    transition:all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
     cursor: pointer;
     background-color: rgb(16, 21, 68);
     color: white;
     font-style: bold;
     width: 100%;
     border-collapse: collapse;
-=======
-main {
-    margin: auto;
-    width: 80%;
-}
-.button_info1 {
-    border: 1px solid grey;
-    border-radius: 2px;
-    font-size: 20px;
-    padding: 25px;
-    text-align: center;
-    text-transform: uppercase;
-    transition:all 0.4s ease 0s;
-    cursor: pointer;
-    background-color: rgb(16, 21, 68);
-    color: white;
-    font-style: bold;
-    width: 100%;
-    border-collapse: collapse;
->>>>>>> 8ed553dd8625d2ae24959feee22832d9125272d3
 }

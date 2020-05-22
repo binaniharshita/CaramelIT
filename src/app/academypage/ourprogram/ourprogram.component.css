@@ -1,43 +1,58 @@
 main {
-  margin: auto;
+    margin: auto;
 }
 
 h2 {
-  margin: auto;
-  padding: 15px;
+    margin: auto;
+    padding: 15px;
 }
 
 .content {
-  padding-top: 100px;
-  margin: auto;
-  width: 100%;
-  height: 400px;
-  text-align: center;
-  color: white;
-  background-color: #514edf;
+    padding-top: 100px;
+    margin: auto;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    color: white;
+    background-color: #514edf;
 }
 
 .stepper {
-  margin: auto;
-  width: 100%;
-  text-align: center;
+    margin: auto;
+    width: 100%;
+    text-align: center;
 }
 
 .mat-tab-label {
-  margin: auto;
-  min-width: 25px !important;
-  background-color: cornflowerblue;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
+    margin: auto;
+    min-width: 25px !important;
+    background-color: cornflowerblue;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
 }
 
 
 /* Styles for the active tab label */
 
 .mat-tab-label.mat-tab-label-active {
-  margin: auto;
-  min-width: 25px !important;
-  background-color: #514edf;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
+    margin: auto;
+    min-width: 25px !important;
+    background-color: #514edf;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.course-card {
+    max-width: 400px;
+}
+
+li {
+    list-style-position: inside;
+    list-style-type: armenian;
+    cursor: pointer;
+}
+
+.course-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
 }
