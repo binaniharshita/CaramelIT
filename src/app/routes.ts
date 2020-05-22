@@ -24,6 +24,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { InstructorListComponent } from './instructor-list/instructor-list.component';
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 // import { ListCourseComponent } from './list-course/list-course.component';
 import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
@@ -152,6 +153,7 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'student-dashboard', component: StudentDashboardComponent },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
