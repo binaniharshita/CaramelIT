@@ -1,0 +1,92 @@
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: left;
+    justify-content: left;
+    padding-top: 15px;
+  }
+  
+
+
+#prodisplay{
+    margin: 0px;
+    background-color: rgb(111, 112, 112);
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+#prodisplay h1{
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+  p{
+      text-align: center;
+  }
+  i{
+      font-size: x-large;
+  }
+  .image-cropper {
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 30px;
+    display: block;
+    text-align: center;
+}
+
+.image-cropper img {
+    display: inline;
+    margin: 0 auto;
+    width: 100px;
+}
+.sidebutarea{
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    padding-bottom: 50px;
+}
+.sidebut{
+    width: 100%;
+    padding: 20px;
+    border-radius: 30%;
+}
+.sidenavv{
+    background-color: rgb(111, 112, 112);
+}
+.logout{
+    padding-top: 30px;
+    text-align: center;
+}
+
+button i{
+    padding-left: 10px;
+}
+
+/*MAIN CONTENT SECTION*/
+.main-content{
+    padding: 10px;
+    height: 120%;
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 20px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
