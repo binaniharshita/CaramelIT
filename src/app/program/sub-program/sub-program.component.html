@@ -1,8 +1,6 @@
-<body>
-    <div data-aos="zoom-in" data-aos-delay="2000" data-aos-offset="100"></div>
+<!-- <body> -->
     <div class="container-fluid courses5">
       <app-navbar></app-navbar>
-      <h1 class="sub-head">Sub Programs</h1>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 ccontent">
@@ -15,18 +13,24 @@
                     <img src={{image}} />
                 </div>
             </div>
-            <h1 class="lasthead">Courses Listing:</h1>
         </div>
-        <mat-grid-list cols="3" rowHeight="300px" [gutterSize]="'8px'">
-          <mat-grid-tile *ngFor="let course of courses" class="slide">
-              <mat-card class="course-card">
-                  <mat-card-content>
-                      <img mat-card-image id="courseimg" src="{{'/' + course.image}}" alt="core java"/>
-                      <mat-card-title>{{course.name}}</mat-card-title>
-                  </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
-      </mat-grid-list>
+        <div style="padding-left: 100px; padding-right: 100px; padding-top: 40px;">
+          <mat-grid-list cols="4" rowHeight="200px" [gutterSize]="'8px'">
+            <mat-grid-tile *ngFor="let course of courses" class="slide">
+              <div class ="container">
+                <div class="second">
+                  <div class="third" >
+                      <button><img src={{course.image}}></button>
+                  </div>
+                  <div class="four">
+                      <p>{{course.name}}</p>
+                  </div>
+                 </div>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+        </div>
 
        
   <!---footer section start--->
@@ -34,7 +38,7 @@
   <!---------------------FOOTER STARTS--------------------->
   <app-footer></app-footer>
   </div>
-  </body>
+  <!-- </body> -->
   <!-------------------FOOTER END-------------------------->
   
   <!--<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
