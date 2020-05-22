@@ -17,6 +17,7 @@ import { CorporateSigninComponent } from './corporate-signin/corporate-signin.co
 import { CorporateRegisterComponent } from './corporate-register/corporate-register.component';
 import { StudentSigninComponent } from './student-signin/student-signin.component';
 import { StudentRegisterComponent } from './student-register/student-register.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { InstructorSigninComponent } from './instructor-signin/instructor-signin.component';
 import { InstructorRegisterComponent } from './instructor-register/instructor-register.component';
@@ -181,6 +182,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProgramSwdComponent,
     SubProgramComponent,
     AcademypageComponent,
+    StudentDashboardComponent,
     HowweworkComponent,
     OurprogramComponent,
     WhatweworkComponent,
