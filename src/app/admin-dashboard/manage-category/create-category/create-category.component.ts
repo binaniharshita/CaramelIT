@@ -97,7 +97,6 @@ export class CreateCategoryComponent implements OnInit {
       );
     }
     this.form.reset();
-
   }
 
 }

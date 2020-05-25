@@ -20,7 +20,7 @@
 
                 <mat-label>Select Category</mat-label>
                 <mat-select formControlName="catId">
-                    <mat-option *ngFor="let category of categories" formControlName="catId" [value]="category.id">
+                    <mat-option *ngFor="let category of categories" [value]="category.id">
                         {{category.title}}
                     </mat-option>
                 </mat-select>
