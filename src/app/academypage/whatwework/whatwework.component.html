@@ -1,7 +1,8 @@
 <div class="container">
     <div fxLayout="row" fxLayout.md="col">
         <div fxFlex="20">
-            <mat-slide-toggle #checkbox (change)="onSlideChange()">{{slidetext}}</mat-slide-toggle>
+            <mat-slide-toggle #checkbox hidden>{{slidetext}}</mat-slide-toggle>
+            <button mat-button color="primary" (click)="checkbox.toggle();onSlideChange()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
         </div>
         <div fxFlex="50">
             <h2>WHAT WE WORK</h2>

@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { SubCategory } from '../../manage-subcategory/subcategory.model';
 import { Category } from '../../manage-category/category.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import { mimeType } from './mime-type.validator';
 
 
 @Component({
@@ -35,20 +36,61 @@ export class CreateCourseComponent implements OnInit {
   fileScenarioPreview: string;
   fileTestPreview: string;
   fileProjectPreview: string;
+  isLoading = false;
 
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(public sanitizer: DomSanitizer, private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) {}
+  constructor(public sanitizer: DomSanitizer, private formBuilder: FormBuilder, public courseServices: CourseService, public subCatService: SubCategoryService, public route: ActivatedRoute, public categoriesServices: CategoryService) { }
 
   ngOnInit(): void {
 
+    // FIRST STEPPER VALIDATOR
+    this.courseDetailFormGroup = this.formBuilder.group({
+      title: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      description: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      selectCategory: ['', { validators: [Validators.required] }],
+      subcateogoryId: ['', { validators: [Validators.required] }],
+    });
 
+    // SECOND STEPPER VALIDATOR
+    this.moduleDetailFormGroup = this.formBuilder.group({
+      image: new FormControl(null, {
+        validators: [Validators.required],
+      }),
+      lessonFile: ['', Validators.required],
+      scenarioFile: ['', Validators.required],
+      testFile: ['', Validators.required],
+      projectFile: ['', Validators.required]
+
+    });
+
+    // SELECT MODE : CREATE OR EDIT
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('courseId')) {
         this.mode = 'edit';
         this.courseId = paramMap.get('courseId');
-        this.course = this.courseServices.getCourse(this.courseId);
+        this.isLoading = true;
+        this.courseServices.getCourse(this.courseId).subscribe(courseData => {
+          this.isLoading = false;
+          this.course = {
+            id: courseData._id,
+            title: courseData.title,
+            subCatId: courseData.subCatId,
+            description: courseData.description,
+            imagePath: courseData.imagePath,
+            contentModule: courseData.module
+          };
+          this.courseDetailFormGroup.setValue({
+            title: this.course.title,
+            content: this.course.description,
+            image: this.course.imagePath
+          });
+        });
       }
       else {
         this.mode = 'create';
@@ -67,21 +109,8 @@ export class CreateCourseComponent implements OnInit {
     this.categorySubs = this.categoriesServices.getCategoriesUpdateListener().subscribe((categories: Category[]) => { this.categories = categories; });
     console.log(this.categories);
 
-    this.courseDetailFormGroup = this.formBuilder.group({
-      title: ['', { validators: [Validators.required] }],
-      description: ['', { validators: [Validators.required] }],
-      noOfModule: ['', { validators: [Validators.required] }],
-      selectCategory: ['', { validators: [Validators.required] }],
-      subcateogoryId: ['', { validators: [Validators.required] }],
-    });
-    this.moduleDetailFormGroup = this.formBuilder.group({
-      image: ['', Validators.required],
-      lessonFile: ['', Validators.required],
-      scenarioFile: ['', Validators.required],
-      testFile: ['', Validators.required],
-      projectFile: ['', Validators.required]
 
-    });
+
   }
 
   fetchSubCat(categoryId: string) {
@@ -139,52 +168,59 @@ export class CreateCourseComponent implements OnInit {
     };
     reader.readAsDataURL(imageFile);
   }
-  onAddCourse() {
-    console.log('OnAddCourse');
 
+  // CALLING ADDCOURSE SERVICE FUNCTION
+  onAddCourse() {
     // if (this.courseDetailFormGroup.invalid || this.moduleDetailFormGroup.invalid) {
     //   return;
     // }
-    // tslint:disable-next-line: max-line-length
-    console.log('Subcategory ID: '+ this.courseDetailFormGroup.value.subcateogoryId);
-    // tslint:disable-next-line: max-line-length
-    this.courseServices.addCourse(null, this.courseDetailFormGroup.value.title, this.courseDetailFormGroup.value.description, this.courseDetailFormGroup.value.noOfModule, this.courseDetailFormGroup.value.subcateogoryId, this.moduleDetailFormGroup.value.image);
+
+    this.isLoading = true;
+    if (this.mode === 'create') {
+      console.log('Hello');
+      this.courseServices.addCourse(
+        this.courseDetailFormGroup.value.title,
+        this.courseDetailFormGroup.value.description,
+        this.courseDetailFormGroup.value.subcateogoryId,
+        this.moduleDetailFormGroup.value.image
+      );
+    }
+    else {
+      this.courseServices.updateCourse(
+        this.courseId,
+        this.courseDetailFormGroup.value.title,
+        this.courseDetailFormGroup.value.description,
+        this.courseDetailFormGroup.value.subcateogoryId,
+        this.moduleDetailFormGroup.value.image
+
+      )
+
+    }
     this.courseDetailFormGroup.reset();
     this.moduleDetailFormGroup.reset();
 
   }
-  courseForm() {
-    console.log(this.courseDetailFormGroup.value);
-  }
 
-  moduleForm() {
-    console.log(this.moduleDetailFormGroup.value);
-  }
-
-  getNoOfModule(module) {
-    this.nom = module.value;
-    console.log(this.nom);
-  }
-
-  addLesson(){
-    console.log('Lesson going to upload');
+  addLesson() {
+    this.isLoading = true;
     this.courseServices.addLessonFile(this.moduleDetailFormGroup.value.lessonFile);
   }
 
-  addScenario(){
-    console.log('Scenario going to upload');
+  addScenario() {
+    this.isLoading = true;
     this.courseServices.addScenarioFile(this.moduleDetailFormGroup.value.scenarioFile);
   }
-  addProject(){
-    console.log('Project going to upload');
+  addProject() {
+    this.isLoading = true;
     this.courseServices.addProjectFile(this.moduleDetailFormGroup.value.projectFile);
   }
-  addTest(){
-    console.log('Test going to upload');
-    this.courseServices.addTestFile( this.moduleDetailFormGroup.value.testFile);
+  addTest() {
+    this.isLoading = true;
+    this.courseServices.addTestFile(this.moduleDetailFormGroup.value.testFile);
   }
 
-  onAddModule(){
+  onAddModule() {
+    this.isLoading = true;
     this.courseServices.addModule();
   }
 

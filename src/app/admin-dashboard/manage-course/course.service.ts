@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -13,28 +14,121 @@ export class CourseService {
   sharedData: string;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
+
+
+  // GET ALL COURSE
   getCourses() {
-    this.http.get<{ message: string, courses: any }>('http://localhost:3000/api/courses').pipe(map((coursesData) => {
-      console.log(coursesData);
-      return coursesData.courses.map(course => {
-        console.log(course);
-        return {
-          title: course.title,
-          description: course.description,
-          id: course._id,
-          subCatId: course.subcategoryId
-        };
-      });
-    }))
+    this.http
+      .get<{ message: string, courses: any }>('http://localhost:3000/api/courses')
+      .pipe(
+        map(coursesData => {
+          console.log(coursesData);
+          return coursesData.courses.map(course => {
+            return {
+              title: course.title,
+              description: course.description,
+              id: course._id,
+              subCatId: course.subcategoryId,
+              imagePath: course.imagePath,
+              module: course.module,
+            };
+          });
+        }))
       .subscribe((transformedData) => {
-        console.log(transformedData);
         this.courses = transformedData;
         this.coursesUpdated.next([...this.courses]);
       });
   }
   getCoursesUpdateListener() {
     return this.coursesUpdated.asObservable();
+  }
+  getCourse(id: string) {
+    return this.http.get<{ _id: string, title: string, description: string, subCatId: string, imagePath: string, module: string }>(
+      'http://localhost:3000/api/courses/' + id
+    );
+  }
+  // GET ROUTE OVER
+
+  // ADD COURSE LOGIC
+  addCourse(title: string, description: string, subCatId: string, image: File) {
+    const courseData = new FormData();
+    courseData.append('title', title);
+    courseData.append('description', description);
+    courseData.append('subcategoryId', subCatId);
+    courseData.append('image', image, title);
+    this.http
+      .post<{ message: string, course: Course }>(
+        'http://localhost:3000/api/courses',
+        courseData
+      )
+      .subscribe((responseData) => {
+        const courseAdd: Course = {
+          id: responseData.course.id,
+          title,
+          description,
+          subCatId,
+          imagePath: responseData.course.imagePath,
+          contentModule: responseData.course.contentModule,
+        };
+        this.courses.push(courseAdd);
+        this.coursesUpdated.next([...this.courses]);
+        this.router.navigate(['/']);
+      });
+
+  }
+
+  // UPDATE COURSE LOGIC
+  updateCourse(id: string, title: string, description: string, subCatId: string, image: File | string) {
+    let courseData: Course | FormData;
+    if (typeof image === 'object') {
+      courseData = new FormData();
+      courseData.append('id', id);
+      courseData.append('title', title);
+      courseData.append('description', description);
+      courseData.append('image', image, title);
+    } else {
+      courseData = {
+        id,
+        title,
+        description,
+        imagePath: image,
+        subCatId,
+        contentModule: '',
+      };
+    }
+
+    this.http.put('http://localhost:3000/api/categories/' + id, courseData)
+      .subscribe(response => {
+        const updatedCourses = [...this.courses];
+        const oldCourseIndex = updatedCourses.findIndex(c => c.id === id);
+        const course: Course = {
+          id,
+          title,
+          description,
+          subCatId,
+          imagePath: '',
+          contentModule: '',
+        };
+        updatedCourses[oldCourseIndex] = course;
+        this.courses = updatedCourses;
+        this.coursesUpdated.next([...this.courses]);
+        this.router.navigate(['/']);
+
+      });
+  }
+
+  // DELETE COURSE LOGIC
+  deleteCourse(courseId: string) {
+    this.http
+      .delete('http://localhost:3000/api/courses/' + courseId)
+      .subscribe(() => {
+        const updatedCoures = this.courses.filter(course => course.id !== courseId);
+        this.courses = updatedCoures;
+        this.coursesUpdated.next([...this.courses]);
+      }
+
+      );
   }
 
   // Uploading lesson file route
@@ -59,7 +153,7 @@ export class CourseService {
       });
   }
 
- // Add test file
+  // Add test file
   addTestFile(file: File) {
     const fileData = new FormData();
     fileData.append('test', file);
@@ -82,8 +176,8 @@ export class CourseService {
       });
   }
 
-   // Add Module file
-   addModule() {
+  // Add Module file
+  addModule() {
     const title = '';
     this.http.post<{ message: string }>('http://localhost:3000/api/module/create', title)
       .subscribe((responseData) => {
@@ -92,44 +186,5 @@ export class CourseService {
   }
 
 
-  addCourse(id: null, title: string, description: string, noOfModule: number, subCatId: string, image: File) {
-    const courseData = { id, title, description, noOfModule, subCatId };
-
-
-    this.http.post<{ message: string }>('http://localhost:3000/api/courses', courseData)
-      .subscribe((responseData) => {
-        // const courseAdd: Course = { id: responseData.courseId, title, description, subCatId, noOfModule };
-        // this.courses.push(courseAdd);
-        // this.coursesUpdated.next([...this.courses]);
-      });
-
-  }
-
-  updateCourse(id: string, title: string, description: string, noOfModule: number, subCatId: string, content: string) {
-    const course: Course = { id, title, description, noOfModule, subCatId };
-    this.http.put('http://localhost:3000/api/categories/' + id, course)
-      .subscribe(data => {
-        console.log(data);
-
-      });
-  }
-
-  getCourse(id: string) {
-    return { ...this.courses.find(c => c.id === id) };
-  }
-  deleteCourse(courseId: string) {
-    console.log(courseId);
-    this.http.delete('http://localhost:3000/api/courses/' + courseId).subscribe(() => {
-      console.log(' Deleted ');
-      const updatedCoures = this.courses.filter(course => course.id !== courseId);
-      this.courses = updatedCoures;
-      this.coursesUpdated.next([...this.courses]);
-    }
-
-    );
-  }
-  uploadContent() {
-
-  }
 
 }

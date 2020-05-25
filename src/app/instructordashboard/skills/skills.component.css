@@ -1,0 +1,17 @@
+.category-select{
+    margin-top: 50px;
+    margin-left: 12%;
+}
+.list-item{
+    display: inline-block;
+    height: 100px;
+    margin-left : 30px;
+    width: 160px;
+}
+.header{
+    margin-left: 240px;
+}
+.upload{
+    margin-left: 320px;
+    margin-top: 5px;
+}

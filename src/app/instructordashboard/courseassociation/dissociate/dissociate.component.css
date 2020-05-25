@@ -1,0 +1,19 @@
+.course-image{
+    width: 16rem;
+    height:100px;
+}
+.card{
+    display: inline-block;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.page-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 30%;
+}
+.back-btn{
+    margin-top:10px;
+    margin-left: 41%;
+    margin-bottom: 10px;
+}

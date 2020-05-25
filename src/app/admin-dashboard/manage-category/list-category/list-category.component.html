@@ -5,19 +5,19 @@
         <table id="categories">
             <tr>
                 <th>Category Title</th>
-                <th>Category Description</th>
                 <th>No of Subcategories</th>
                 <th>No of Courses</th>
+                <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             <tr *ngFor="let category of categories">
 
                 <td>{{category.title}}</td>
-
-                <td>{{category.description}}</td>
                 <td>{{category.noOfSubCategories}}</td>
                 <td> {{category.noOfCourses}}</td>
+                <td>
+                    <button mat-button color="primary" [routerLink]="['viewprogram',category.id]">View</button></td>
                 <td>
                     <button mat-button color="primary">Edit</button></td>
                 <td>

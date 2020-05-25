@@ -116,6 +116,17 @@ import { HowweworkComponent } from './academypage/howwework/howwework.component'
 import { OurprogramComponent } from './academypage/ourprogram/ourprogram.component';
 import { WhatweworkComponent } from './academypage/whatwework/whatwework.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { InstructordashboardComponent } from './instructordashboard/instructordashboard.component';
+import { CourseassociationComponent } from './instructordashboard/courseassociation/courseassociation.component';
+import { ChoosecourseComponent } from './instructordashboard/courseassociation/choosecourse/choosecourse.component';
+import { ListcourseComponent } from './instructordashboard/courseassociation/listcourse/listcourse.component';
+import { DissociateComponent } from './instructordashboard/courseassociation/dissociate/dissociate.component';
+
+import { SkillsComponent } from './instructordashboard/skills/skills.component';
+import { AddskillComponent } from './instructordashboard/skills/addskill/addskill.component';
+import { SkillsetComponent } from './instructordashboard/skills/skillset/skillset.component';
+
+import { StudentsComponent } from './instructordashboard/students/students.component';
 
 
 
@@ -187,6 +198,15 @@ import { CarouselComponent } from './carousel/carousel.component';
     OurprogramComponent,
     WhatweworkComponent,
     CarouselComponent,
+    InstructordashboardComponent,
+    CourseassociationComponent,
+    ChoosecourseComponent,
+    ListcourseComponent,
+    DissociateComponent,
+    SkillsComponent,
+    AddskillComponent,
+    SkillsetComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -210,7 +230,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     FileUploadModule,
     MatDialogModule,
     MatExpansionModule,
-    SlickCarouselModule
+    SlickCarouselModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

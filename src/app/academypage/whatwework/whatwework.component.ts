@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class WhatweworkComponent implements OnInit {
 
   slidetext = 'Show More';
+  icon = 'keyboard_arrow_down';
 
 
   constructor() { }
@@ -15,13 +16,14 @@ export class WhatweworkComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSlideChange(){
-    if(this.slidetext === 'Show More'){
+  onSlideChange() {
+    if (this.slidetext === 'Show More') {
       this.slidetext = 'Show less';
+      this.icon = 'keyboard_arrow_up';
     }
-    else{
+    else {
       this.slidetext = 'Show More';
+      this.icon = 'keyboard_arrow_down';
     }
   }
-
 }

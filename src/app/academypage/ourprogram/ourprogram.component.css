@@ -14,15 +14,15 @@ h2 {
 .info {
     margin: 20px;
     color: rgb(255, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: xx-large;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .slider {
-    width: "70%";
+    width: auto;
     height: "30%";
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 .content {
@@ -32,7 +32,10 @@ h2 {
     height: auto;
     text-align: center;
     color: white;
-    background-color: #514edf;
+    background-color: rgb(31, 29, 122);
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, rgb(24, 28, 87), rgb(44, 10, 233));
+    /* Standard syntax (must be last) */
 }
 
 .stepper {
@@ -59,7 +62,7 @@ h2 {
 .mat-tab-label.mat-tab-label-active {
     margin: auto;
     min-width: 25px !important;
-    background-color: #514edf;
+    background-color: #2ac77d;
     color: rgb(255, 255, 255);
     font-weight: 700;
 }
@@ -69,8 +72,6 @@ h2 {
 }
 
 li {
-    list-style-position: inside;
-    list-style-type: armenian;
     cursor: pointer;
 }
 

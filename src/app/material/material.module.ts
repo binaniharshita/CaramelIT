@@ -16,11 +16,13 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTreeModule} from '@angular/material/tree';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
 
 const material = [
+  MatProgressSpinnerModule,
   MatMenuModule,
   MatDividerModule,
   MatSlideToggleModule,

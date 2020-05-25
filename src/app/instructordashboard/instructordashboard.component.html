@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <span class="navbar-brand"><img src="/assets/images/logo.png" class="logo"></span>
+
+    </nav>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div class="ins-name">INSTRUCTOR NAME</div>
+                <div class="ins-image"><img src="/assets/images/person.jpg" class="ins-image"></div>
+
+                <div class="button" routerLink="course-assocition" routerLinkActive>
+                    <div class="list">
+                        <h4>Manage Course Association</h4>
+                    </div>
+                </div>
+                <div class="button" routerLink="students">
+                    <div class="list">
+                        <h4>Manage Students</h4>
+                    </div>
+                </div>
+                <div class="button" routerLink="skills">
+                    <div class="list">
+                        <h4>Manage Skills</h4>
+                    </div>
+                </div>
+                <div class="button" routerLink="/">
+                    <div class="list">
+                        <h4>Manage Course Performance</h4>
+                    </div>
+                </div>
+                <div class="button" routerLink="/">
+                    <div class="list">
+                        <h4>Instructor Student Relation</h4>
+                    </div>
+                </div>
+                <button class="btn btn-danger logout-btn">Logout</button>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

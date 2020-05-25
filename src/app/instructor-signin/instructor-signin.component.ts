@@ -12,25 +12,26 @@ import { Router } from '@angular/router';
 export class InstructorSigninComponent implements OnInit {
 
   constructor(private instructorUserService: InstructorUserService, private router: Router) { }
-  
-  model= {
+
+  model = {
     emailAddress: '',
     password: ''
   };
- 
+
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessage: string;
-  
+
   ngOnInit() {
-    if(this.instructorUserService.isLoggedIn())
-    this.router.navigateByUrl('/profile-page');
+    if (this.instructorUserService.isLoggedIn()){
+      this.router.navigateByUrl('/instructor-dashboard');
+    }
   }
 
   onSubmit(instructorSignin: NgForm) {
     this.instructorUserService.login(instructorSignin.value).subscribe(
       res => {
         this.instructorUserService.setToken(res['token']);
-        this.router.navigateByUrl('/profile-page');
+        this.router.navigateByUrl('/instructor-dashboard');
       },
       err => {
         this.serverErrorMessage = err.error.message;

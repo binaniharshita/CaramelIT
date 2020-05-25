@@ -8,7 +8,9 @@ const CourseSchema = new mongoose.Schema({
     price: { type: Number },
     category: { type: String },
     subcategory: { type: String },
-    modules: [Module]
+    modules: [Module],
+    imagePath: { type: String }
+
 });
 
 const Course = mongoose.model('Course', CourseSchema, "All_Course");

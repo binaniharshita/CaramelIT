@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const url = "mongodb://localhost:27017/caramelitacademy";
+const url = "mongodb+srv://admin_caramel:69120@NivaN@cluster0-cyssi.mongodb.net/test?retryWrites=true&w=majority/caramelitacademy";
 
 const connect = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

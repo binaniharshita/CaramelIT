@@ -3,6 +3,7 @@ export interface SubCategory {
   title: string;
   description: string;
   noOfCourses: number;
+  imagePath: string;
   catId: string;
 }
 

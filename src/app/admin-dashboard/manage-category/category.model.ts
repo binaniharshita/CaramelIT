@@ -4,5 +4,6 @@ export interface Category {
   description: string;
   noOfSubCategories: number;
   noOfCourses: number;
+  imagePath: string;
 }
 

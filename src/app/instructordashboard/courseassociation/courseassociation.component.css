@@ -1,0 +1,13 @@
+.category-select{
+    margin-top: 50px;
+    margin-left: 20%;
+}
+.list-item{
+    display: inline-block;
+   
+    margin-left : 30px;
+    width: 100px;
+}
+.header{
+    margin-left: 50px;
+}

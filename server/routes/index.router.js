@@ -4,8 +4,13 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
 const bodyParser = require('body-parser');
+const CourseRoute = require('./course.route');
+const CategoryRoute = require('./category.route')
+const SubCategoryRoute = require('./subcategory.route');
+
 
 const app = express();
+
 
 // const Course = require('');
 const convert = require('./convert.route');
@@ -53,7 +58,7 @@ const ctrlCorporate = require('../controllers/corporate.controller');
 const ctrlInstructor = require('../controllers/instructor.controller');
 const ctrlUniversity = require('../controllers/university.controller');
 const ctrlAdmin = require('../controllers/admin.controller');
-const ctrlCategory = require('../controllers/category.controller');
+
 const ctrlSubCat = require('../controllers/subcategory.controller');
 const ctrlCourse = require('../controllers/course.controller');
 
@@ -112,23 +117,13 @@ router.post('/admin-valid-password-token', ctrlAdmin.ValidPasswordToken);
 
 
 //Category Routes
-router.post('/categories', ctrlCategory.create);
-router.get('/categories', ctrlCategory.getResult);
-router.put('/categories/:id', ctrlCategory.update);
-router.delete('/categories/:id', ctrlCategory.delete);
+router.use('/categories', CategoryRoute);
 
 //subcategory Routes
-router.post('/subcategories', ctrlSubCat.create);
-router.get('/subcategories', ctrlSubCat.read);
-router.put('/subcategories/:id', ctrlSubCat.update);
-router.delete('/subcategories/:id', ctrlSubCat.delete);
+router.use('/subcategories', SubCategoryRoute);
 
 //course route
-
-router.post('/courses', ctrlCourse.create);
-router.get('/courses', ctrlCourse.read);
-router.put('/courses/:id', ctrlCourse.update);
-router.delete('/courses/:id', ctrlCourse.delete);
+router.use('/courses', CourseRoute);
 
 
 router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) => {

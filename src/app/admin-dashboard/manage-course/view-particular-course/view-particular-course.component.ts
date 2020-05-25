@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { CourseService } from '../course.service';
 import { Course } from '../course.model';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,15 +12,20 @@ import { Course } from '../course.model';
 })
 export class ViewParticularCourseComponent implements OnInit {
   id: string;
-  course: Course;
+  courses: Course[] = [];
+  isLoading = false;
+  private courseSubs: Subscription;
 
   constructor( private route: ActivatedRoute, private courseService: CourseService ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.course = this.courseService.getCourse(this.id);
-    console.log(this.id);
-    console.log(this.course);
+    this.isLoading = true;
+    this.courseService.getCourses();
+    this.courseSubs = this.courseService.getCoursesUpdateListener()
+      .subscribe((courses: Course[]) => {
+        this.isLoading = false;
+        this.courses = courses;
+      });
 
   }
 

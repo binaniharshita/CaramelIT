@@ -6,13 +6,15 @@
     width: "70%";
     height: "30%";
     align-self: flex-end;
+    font-family: "Montserrat", sans-serif;
+    color: blue;
 }
 
 h2 {
     margin-left: 150px;
     padding-right: 0px;
     color: blue;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: xx-large;
     font-weight: bolder;
 }
