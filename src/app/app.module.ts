@@ -73,6 +73,7 @@ import { StudentCartComponent } from './student-cart/student-cart.component';
 import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
 import { SubProgramComponent } from './program/sub-program/sub-program.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { CourseContentDisplayComponent } from './course-content-display/course-content-display.component';
 
 
 
@@ -112,6 +113,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProgramSwdComponent,
     SubProgramComponent,
     CarouselComponent,
+    CourseContentDisplayComponent,
   ],
   imports: [
     BrowserModule,
