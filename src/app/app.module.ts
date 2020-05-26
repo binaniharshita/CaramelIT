@@ -1,6 +1,7 @@
 // built in features
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { RouterModule } from '@angular/router';
@@ -39,7 +40,7 @@ import { OrganisationListComponent } from './organisation-list/organisation-list
 import { ListCourseComponent } from './admin-dashboard/manage-course/list-course/list-course.component';
 
 // materials
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -127,6 +128,8 @@ import { AddskillComponent } from './instructordashboard/skills/addskill/addskil
 import { SkillsetComponent } from './instructordashboard/skills/skillset/skillset.component';
 
 import { StudentsComponent } from './instructordashboard/students/students.component';
+import { TopTransformationComponent } from './academypage/top-transformation/top-transformation.component';
+import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-it.component';
 
 
 
@@ -206,7 +209,9 @@ import { StudentsComponent } from './instructordashboard/students/students.compo
     SkillsComponent,
     AddskillComponent,
     SkillsetComponent,
-    StudentsComponent
+    StudentsComponent,
+    TopTransformationComponent,
+    WhyCaramelItComponent
   ],
   imports: [
     BrowserModule,

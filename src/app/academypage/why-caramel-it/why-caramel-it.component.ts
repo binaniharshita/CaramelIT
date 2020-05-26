@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { openClose } from 'src/app/animation/animation';
 
+
+
 @Component({
-  selector: 'app-howwework',
-  templateUrl: './howwework.component.html',
-  styleUrls: ['./howwework.component.css'],
+  selector: 'app-why-caramel-it',
+  templateUrl: './why-caramel-it.component.html',
+  styleUrls: ['./why-caramel-it.component.css'],
   animations: [
     openClose()
   ],
 })
-export class HowweworkComponent implements OnInit {
+export class WhyCaramelItComponent implements OnInit {
   slidetext = 'Show More';
   icon ='keyboard_arrow_down';
-  isOpen = false;
+  isOpen = true;
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
   toggle() {
     this.isOpen = !this.isOpen;
     if(this.slidetext === 'Show More'){
@@ -29,7 +32,6 @@ export class HowweworkComponent implements OnInit {
       this.slidetext = 'Show More';
       this.icon = 'keyboard_arrow_down';
     }
-  }
-
+}
 
 }

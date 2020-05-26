@@ -1,8 +1,7 @@
 <div class="container">
     <div fxLayout="row" fxLayout.md="col">
         <div fxFlex="20">
-            <mat-slide-toggle #checkbox hidden>{{slidetext}}</mat-slide-toggle>
-            <button mat-button color="primary" (click)="checkbox.toggle();onSlideChange()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
+            <button (click)="toggle()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
         </div>
         <div fxFlex="50">
             <h2>WHAT WE WORK</h2>
@@ -14,7 +13,7 @@
 </div>
 
 
-<div class="container" *ngIf=checkbox.checked>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
     <div fxLayout="row" fxLayout.md="col">
         <div class="contain" fxFlex="20">
             <img class="about" src="../../../assets/images/academy/show8.png">

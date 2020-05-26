@@ -1,0 +1,19 @@
+<div class="container">
+    <div fxLayout="row" fxLayout.md="col">
+        <div fxFlex="30">
+            <img class="slider" src="../../../assets/images/academy/show5.png">
+        </div>
+
+        <div fxFlex="50">
+            <h2>WHY CARAMEL IT</h2>
+        </div>
+        <div fxFlex="10">
+            <button mat-button color="primary" (click)="toggle()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
+        </div>
+    </div>
+</div>
+<span></span>
+
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+    <a href="https://caramelit.com/"><img src="../../../assets/images/academy/caramelitservices.png" class="showimage"></a>
+</div>

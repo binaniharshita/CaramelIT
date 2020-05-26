@@ -3,11 +3,8 @@
 }
 
 .slider {
-    width: "70%";
-    height: "30%";
-    align-self: flex-end;
-    font-family: "Montserrat", sans-serif;
-    color: blue;
+    max-width: 30%;
+    margin-top: 20px;
 }
 
 h2 {
@@ -22,4 +19,8 @@ h2 {
 .showimage {
     max-height: 600px;
     width: 100%;
+}
+
+.container {
+    padding: 0%;
 }
