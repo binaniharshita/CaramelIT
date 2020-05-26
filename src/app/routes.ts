@@ -65,11 +65,18 @@ import { SkillsetComponent } from './instructordashboard/skills/skillset/skillse
 
 import { StudentsComponent } from './instructordashboard/students/students.component';
 import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.component';
+import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
+import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
-  { path : 'college-dashboard', component: CollegeDashboardComponent },
+
+  { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
+    { path: 'dashboard' , component: DashboardComponent },
+    { path: 'dashboard/course' , component: DashboardComponent },
+    { path: 'course', component: CollegeCourseComponent }
+  ] },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
   { path: 'instructor-signin', component: InstructorSigninComponent },

@@ -17,11 +17,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
 
 const material = [
+  MatChipsModule,
+  MatTooltipModule,
   MatProgressSpinnerModule,
   MatMenuModule,
   MatDividerModule,
