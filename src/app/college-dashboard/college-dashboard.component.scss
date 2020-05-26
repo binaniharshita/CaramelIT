@@ -1,0 +1,35 @@
+host {
+    padding: 0rem;
+}
+
+li {
+    list-style: none;
+    width: 40px
+}
+
+.main-section {
+    background-color: #c060a1;
+    height: 100%;
+    min-height: max-content;
+}
+
+.button-container {
+    margin: 2rem 1rem;
+    float: right;
+    max-width: fit-content;
+    max-height: fit-content;
+    background-color: transparentize($color: #ffdcb4, $amount: 0.5);
+}
+
+.main-heading {
+    display: block;
+    background-color: #6a097d;
+    color: #ffdcb4;
+    text-align: center;
+    margin: auto;
+    padding: 40px;
+}
+
+.contain {
+    padding: 0%;
+}

@@ -130,6 +130,8 @@ import { SkillsetComponent } from './instructordashboard/skills/skillset/skillse
 import { StudentsComponent } from './instructordashboard/students/students.component';
 import { TopTransformationComponent } from './academypage/top-transformation/top-transformation.component';
 import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-it.component';
+import { CollegeDashboardComponent } from './college-dashboard/college-dashboard.component';
+import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 
 
 
@@ -211,7 +213,9 @@ import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-
     SkillsetComponent,
     StudentsComponent,
     TopTransformationComponent,
-    WhyCaramelItComponent
+    WhyCaramelItComponent,
+    CollegeDashboardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

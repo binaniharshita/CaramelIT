@@ -64,10 +64,12 @@ import { AddskillComponent } from './instructordashboard/skills/addskill/addskil
 import { SkillsetComponent } from './instructordashboard/skills/skillset/skillset.component';
 
 import { StudentsComponent } from './instructordashboard/students/students.component';
+import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
+  { path : 'college-dashboard', component: CollegeDashboardComponent },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
   { path: 'instructor-signin', component: InstructorSigninComponent },
