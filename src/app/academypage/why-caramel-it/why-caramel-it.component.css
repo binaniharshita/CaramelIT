@@ -1,14 +1,17 @@
 .container {
-    margin: 50px auto 50px;
+    margin-top: 40px;
+    /* align-items: left; */
 }
 
 .slider {
-    max-width: 30%;
+    max-width: 400px;
     margin-top: 20px;
+    align-self: flex-end;
+    font-family: "Montserrat", sans-serif;
 }
 
 h2 {
-    margin-left: 150px;
+    /* margin-left: 150px; */
     padding-right: 0px;
     color: blue;
     font-family: "Montserrat", sans-serif;
@@ -17,8 +20,9 @@ h2 {
 }
 
 .showimage {
-    max-height: 600px;
-    width: 100%;
+    max-height: 550px;
+    max-width: 100%;
+    width: auto;
 }
 
 .container {

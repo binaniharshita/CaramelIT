@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { openClose } from 'src/app/animation/animation';
 
 
@@ -15,7 +14,7 @@ import { openClose } from 'src/app/animation/animation';
 export class WhyCaramelItComponent implements OnInit {
   slidetext = 'Show More';
   icon ='keyboard_arrow_down';
-  isOpen = true;
+  isOpen = false;
 
 
   constructor() { }

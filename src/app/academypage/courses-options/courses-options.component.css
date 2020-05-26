@@ -1,0 +1,63 @@
+.dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 1200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .categories {
+    color: black;
+    padding: 10px;
+    width: 200px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+  }
+  
+  .categories:hover {background-color: white;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  .course-container{
+      width: 1200px;       /* 200 *6  - fit 6 sub category names*/
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;        /* adds rows if boxes don't fit on one row*/
+  }
+
+  .course-box{
+      height: 150px;
+      width: 150px;
+      margin: 10px;
+      border: 1px solid;
+      border-radius: 10px;
+      border-color: black;
+      color: black;
+      font-size: 12px;
+      font-weight: bold;
+      overflow: hidden;
+  }
+
+  .course-image{
+      height: 110px;
+      width: 100%;
+      margin-bottom: 2px;
+  }
+
+  
