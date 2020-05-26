@@ -134,6 +134,8 @@ import { CollegeDashboardComponent } from './college-dashboard/college-dashboard
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CollegeCouseComponent } from './college-dashboard/college-couse/college-couse.component';
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
+import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
+import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 
 
 
@@ -219,7 +221,9 @@ import { CollegeCourseComponent } from './college-dashboard/college-course/colle
     CollegeDashboardComponent,
     DashboardComponent,
     CollegeCouseComponent,
-    CollegeCourseComponent
+    CollegeCourseComponent,
+    CoursesOptionsComponent,
+    FeaturedCoursesComponent,
   ],
   imports: [
     BrowserModule,

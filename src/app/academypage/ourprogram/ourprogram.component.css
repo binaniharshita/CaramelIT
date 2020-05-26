@@ -12,7 +12,7 @@ h2 {
 }
 
 .info {
-    margin: 20px;
+    /* margin: 20px; */
     color: rgb(255, 255, 255);
     font-family: "Montserrat", sans-serif;
     font-size: xx-large;
@@ -26,10 +26,10 @@ h2 {
 }
 
 .content {
-    padding-top: 100px;
+    padding-top: 50px;
     margin: auto;
     width: 100%;
-    height: auto;
+    height: 770px;
     text-align: center;
     color: white;
     background-color: rgb(31, 29, 122);
