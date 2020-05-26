@@ -133,6 +133,7 @@ import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-
 import { CollegeDashboardComponent } from './college-dashboard/college-dashboard.component';
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
+import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 
 
 
@@ -217,7 +218,8 @@ import { CoursesOptionsComponent } from './academypage/courses-options/courses-o
     WhyCaramelItComponent,
     CollegeDashboardComponent,
     DashboardComponent,
-    CoursesOptionsComponent
+    CoursesOptionsComponent,
+    FeaturedCoursesComponent
   ],
   imports: [
     BrowserModule,
