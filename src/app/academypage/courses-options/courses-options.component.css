@@ -1,44 +1,55 @@
 .dropbtn {
-    padding: 16px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 10px;
     border: none;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: transparent;
+    color: white;
   }
   
   .dropdown {
     position: relative;
     display: inline-block;
-    background-color: white;
+    color: white;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     width: 1200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1!important;
   }
   
   .categories {
-    color: black;
+    color: white;
     padding: 10px;
     width: 200px;
+    border: none;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;
+    font-size: 14px;
+    background-color: #0e387d;
+    border: 2px solid transparent;
   }
   
-  .categories:hover {background-color: white;}
+  .categories:hover {
+      border: 2px solid white;
+      color: #DFBE1A;
+    }
   
   .dropdown:hover .dropdown-content {display: block;}
   
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {background-color: #13701e;}
 
   .course-container{
       width: 1200px;       /* 200 *6  - fit 6 sub category names*/
       height: auto;
       display: flex;
       flex-wrap: wrap;        /* adds rows if boxes don't fit on one row*/
+      background-color: white;
   }
 
   .course-box{
