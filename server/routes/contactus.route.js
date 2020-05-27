@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const contactRoute = express.Router()
 const nodemailer = require('nodemailer')
 
-let Contact = require('./module.contact')
+let Contact = require('../models/module.contactus')
 
 app.use(cors());
 app.use(bodyparser.json());
