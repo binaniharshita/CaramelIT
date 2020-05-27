@@ -1,25 +1,35 @@
 .container {
-    margin: 50px auto 50px;
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
 }
 
 .slider {
-    width: "70%";
-    height: "30%";
-    align-self: flex-end;
+    width: "100%";
+    max-width: 500px;
+    height: auto;
+    /* align-self: flex-end; */
     font-family: "Montserrat", sans-serif;
     color: blue;
 }
 
 h2 {
-    margin-left: 150px;
+    /* margin-left: 150px; */
     padding-right: 0px;
     color: blue;
     font-family: "Montserrat", sans-serif;
     font-size: xx-large;
     font-weight: bolder;
+    text-align: right;
+    margin-right: 20px;
 }
 
 .showimage {
     max-height: 600px;
     width: 100%;
 }
+
+/* button{
+    margin-top: 10px;
+} */

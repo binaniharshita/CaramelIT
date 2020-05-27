@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { openClose } from 'src/app/animation/animation';
 
-
 @Component({
   selector: 'app-whatwework',
   templateUrl: './whatwework.component.html',
@@ -9,13 +8,12 @@ import { openClose } from 'src/app/animation/animation';
   animations: [
     openClose()
   ],
-
 })
+
 export class WhatweworkComponent implements OnInit {
   slidetext = 'Show More';
   icon ='keyboard_arrow_down';
   isOpen = false;
-
 
   constructor() { }
 
