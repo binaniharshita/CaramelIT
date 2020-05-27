@@ -4,7 +4,7 @@
             <button (click)="toggle()" mat-button color="primary"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
         </div>
         <div fxFlex="40">
-            <h2>OUR SUCCESSES</h2>
+            <h2>LEARN MORE</h2>
         </div>
         <div fxFlex="20">
             <img class="slider" src="../../../assets/images/academy/show18.png">
@@ -14,24 +14,5 @@
 
 
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
-    <div fxLayout="row" fxLayout.md="col" class="stats">
-        <div class="contain" fxFlex="20">
-            <img class="about" src="../../../assets/images/academy/show8.png">
-            <div class="centered">80%</div>
-            <h3>STUDENTS</h3>
-        </div>
-        <div class="contain" fxFlex="20">
-            <img class="about" src="../../../assets/images/academy/show9.png">
-            <div class="centered">50%</div>
-            <h3>COURSES</h3>
-        </div>
-        <div class="contain" fxFlex="20">
-            <img class="about" src="../../../assets/images/academy/show10.png">
-            <div class="centered">100%</div>
-            <h3>PLACEMENTS</h3>
-        </div>
-        <div fxFlex="40">
-            <img style="align-self: flex-end;" height="200px" width="200px" src="../../../assets/images/academy/show12.png">
-        </div>
-    </div>
+<app-stats></app-stats>
 </div>

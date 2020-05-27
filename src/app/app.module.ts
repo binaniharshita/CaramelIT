@@ -137,6 +137,7 @@ import { CollegeCourseComponent } from './college-dashboard/college-course/colle
 import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
+import { StatsComponent } from './academypage/stats/stats.component';
 
 
 
@@ -226,6 +227,7 @@ import { CollegeNotifyComponent } from './college-dashboard/college-notify/colle
     CoursesOptionsComponent,
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,

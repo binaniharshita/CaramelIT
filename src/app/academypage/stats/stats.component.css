@@ -1,0 +1,39 @@
+.stats{
+    height: auto;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contain {
+    position: relative;
+    text-align: center;
+    height: auto;
+}
+
+.about {
+    width: 150px;
+    height: 150px;
+}
+
+.contain h3{
+    width: auto;
+    height: auto;
+
+}
+
+.stat-container{
+    width: auto;
+    height: auto;
+}
+
+.image img{
+    height: 180px; 
+    width: 50%;
+    margin-left: 50px;
+
+}
