@@ -1,17 +1,21 @@
 <div class="container">
-    <div class="dropdown">
-        <button class="dropbtn">SOFTWARE DEVELOPMENT</button>
-        <div class="dropdown-content">
-            <div>
-                <button class="categories" *ngFor="let category of categories" (click)="categorySelected(category.title)">{{category.title}}</button>
-            </div>
-            <div class="course-container">
-                <button *ngFor="let course of courses" class="course-box">
-                    <img src={{course.image}} class="course-image">
-                    <p>{{course.name}}</p>
+    <div>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <div *ngFor="let category of categories" class="dropdown">
+            <button class="dropbtn" (mouseenter)="fetchsubcategory(category.id)" [routerLink]="['program-swd',category.id]">{{category.title}}</button>
+            <div class="dropdown-content">
+                <div>
+                    <button class="categories" *ngFor="let subcategory of getSubCategory" (mouseenter)="fetchcourse(subcategory.id)">{{subcategory.title}}</button>
+                </div>
+                <div class="course-container">
+                    <button *ngFor="let course of getCourse" class="course-box">
+                    <img src={{course.imagePath}} class="course-image">
+
+                    <p>{{course.title}}</p>
                 </button>
+                </div>
             </div>
         </div>
-      </div>   
+    </div>
 
 </div>

@@ -53,8 +53,9 @@ export class SubCategoryService {
     subCategoryData.append('title', title);
     subCategoryData.append('description', description);
     subCategoryData.append('catId', catId);
-    subCategoryData.append('image', image, title);
     console.log(subCategoryData);
+    subCategoryData.append('image', image, title);
+
     this.http.post<{ message: string, subCategory: SubCategory }>('http://localhost:3000/api/subcategories', subCategoryData)
       .subscribe((subcategoriesData) => {
         const subCategoryAdd: SubCategory = {

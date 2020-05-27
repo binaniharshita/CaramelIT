@@ -6,25 +6,25 @@
     font-weight: bold;
     background-color: transparent;
     color: white;
-  }
-  
-  .dropdown {
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
     color: white;
     width: 100%;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
     width: 97.6%;
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
     z-index: 1!important;
-  }
-  
-  .categories {
+}
+
+.categories {
     color: white;
     padding-left: 3px;
     padding-right: 3px;
@@ -37,41 +37,44 @@
     font-size: 14px;
     background-color: #0e387d;
     border: 2px solid transparent;
-  }
-  
-  .categories:hover {
-      border: 2px solid white;
-      color: #DFBE1A;
-    }
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #13701e;}
+}
 
-  .course-container{
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;        /* adds rows if boxes don't fit on one row*/
-      background-color: white;
-  }
+.categories:hover {
+    border: 2px solid white;
+    color: #DFBE1A;
+}
 
-  .course-box{
-      height: 150px;
-      width: 150px;
-      margin: 10px;
-      border: 1px solid;
-      border-radius: 10px;
-      border-color: black;
-      color: black;
-      font-size: 12px;
-      font-weight: bold;
-      overflow: hidden;
-  }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-  .course-image{
-      height: 110px;
-      width: 100%;
-      margin-bottom: 2px;
-  }
+.dropdown:hover .dropbtn {
+    background-color: #13701e;
+}
 
-  
+.course-container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* adds rows if boxes don't fit on one row*/
+    background-color: white;
+}
+
+.course-box {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: black;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.course-image {
+    height: 110px;
+    width: 100%;
+    margin-bottom: 2px;
+}

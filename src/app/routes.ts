@@ -67,6 +67,7 @@ import { StudentsComponent } from './instructordashboard/students/students.compo
 import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.component';
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
+import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 
 
 export const routes: Routes = [
@@ -75,7 +76,8 @@ export const routes: Routes = [
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },
     { path: 'dashboard/course' , component: DashboardComponent },
-    { path: 'course', component: CollegeCourseComponent }
+    { path: 'course', component: CollegeCourseComponent },
+    { path : 'notify', component: CollegeNotifyComponent},
   ] },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
@@ -155,6 +157,7 @@ export const routes: Routes = [
   { path: 'course-page', component: CoursePageComponent },
   { path: 'student-cart', component: StudentCartComponent, canActivate: [AuthGuard] },
   { path: 'program-swd', component: ProgramSwdComponent },
+  { path: 'program-swd/:id', component: ProgramSwdComponent },
   { path: 'sub-program', component: SubProgramComponent },
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
