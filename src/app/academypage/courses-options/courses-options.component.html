@@ -1,6 +1,6 @@
 <div class="container">
     <div class="dropdown">
-        <button class="dropbtn">SOFTWARE DEVELOPMENT</button>
+        <button class="dropbtn" routerLink="program-swd">SOFTWARE DEVELOPMENT</button>
         <div class="dropdown-content">
             <div>
                 <button class="categories" *ngFor="let category of categories" (click)="categorySelected(category.title)">{{category.title}}</button>
