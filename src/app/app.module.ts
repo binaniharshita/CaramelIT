@@ -132,6 +132,8 @@ import { TopTransformationComponent } from './academypage/top-transformation/top
 import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-it.component';
 import { CollegeDashboardComponent } from './college-dashboard/college-dashboard.component';
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
+import { CollegeCouseComponent } from './college-dashboard/college-couse/college-couse.component';
+import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 
@@ -218,8 +220,10 @@ import { FeaturedCoursesComponent } from './academypage/featured-courses/feature
     WhyCaramelItComponent,
     CollegeDashboardComponent,
     DashboardComponent,
+    CollegeCouseComponent,
+    CollegeCourseComponent,
     CoursesOptionsComponent,
-    FeaturedCoursesComponent
+    FeaturedCoursesComponent,
   ],
   imports: [
     BrowserModule,

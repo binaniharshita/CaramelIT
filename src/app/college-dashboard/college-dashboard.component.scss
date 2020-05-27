@@ -9,15 +9,13 @@ li {
 
 .main-section {
     background-color: #c060a1;
-    height: 100%;
-    min-height: max-content;
 }
 
 .button-container {
     margin: 2rem 1rem;
     float: right;
     max-width: fit-content;
-    max-height: fit-content;
+    max-height: 250px;
     background-color: transparentize($color: #ffdcb4, $amount: 0.5);
 }
 
@@ -32,4 +30,5 @@ li {
 
 .contain {
     padding: 0%;
+    text-align: left;
 }
