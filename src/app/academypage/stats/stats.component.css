@@ -1,0 +1,33 @@
+/* .stats{
+    height: 100%;
+    max-height: 400px;
+} */
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contain {
+    position: relative;
+    text-align: center;
+    height: auto;
+}
+
+.about {
+    width: 170px;
+    height: 170px;
+}
+
+.contain h3{
+    width: auto;
+    height: auto;
+
+}
+
+.stat-container{
+    width: auto;
+    height: auto;
+}
