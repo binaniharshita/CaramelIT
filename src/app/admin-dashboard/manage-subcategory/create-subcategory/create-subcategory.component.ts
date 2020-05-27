@@ -92,6 +92,7 @@ export class CreateSubcategoryComponent implements OnInit {
     }
     this.isLoading = true;
     if (this.mode === 'create') {
+      console.log(this.form.value);
       this.subCategoryService.addSubCategory(
         this.form.value.title,
         this.form.value.description,

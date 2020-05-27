@@ -2,8 +2,13 @@ host {}
 
 .profile-card {
     margin: 2rem 0.5rem;
-    background-color: aliceblue;
+    background-color: transparentize($color: #cae8d5, $amount: 0.5);
     border: 10px;
     border-radius: 5px;
     min-height: 200px;
+}
+
+a.course-container {
+    color: white;
+    text-decoration: none;
 }
