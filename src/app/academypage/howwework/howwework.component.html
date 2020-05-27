@@ -1,17 +1,17 @@
 <div class="container">
     <div fxLayout="row" fxLayout.md="col">
-        <div fxFlex="20">
-            <button (click)="toggle()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
+        <div fxFlex="40">
+            <button (click)="toggle()" mat-button color="primary"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
         </div>
-        <div fxFlex="50">
+        <div fxFlex="40">
             <h2>HOW WE WORK</h2>
         </div>
-        <div fxFlex="30">
+        <div fxFlex="20">
             <img class="slider" src="../../../assets/images/academy/show18.png">
         </div>
     </div>
 </div>
-<span></span>
+<!-- <span></span> -->
 
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
     <img src="../../../assets/images/academy/how it works.png" class="showimage">

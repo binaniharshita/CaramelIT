@@ -9,6 +9,7 @@ import { openClose } from 'src/app/animation/animation';
     openClose()
   ],
 })
+
 export class HowweworkComponent implements OnInit {
   slidetext = 'Show More';
   icon ='keyboard_arrow_down';

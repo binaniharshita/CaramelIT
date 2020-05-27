@@ -1,12 +1,12 @@
 <div class="container">
     <div fxLayout="row" fxLayout.md="col">
+        <div fxFlex="40">
+            <button (click)="toggle()" mat-button color="primary"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
+        </div>
+        <div fxFlex="40">
+            <h2>OUR SUCCESSES</h2>
+        </div>
         <div fxFlex="20">
-            <button (click)="toggle()"><mat-icon>{{icon}}</mat-icon>{{slidetext}}</button>
-        </div>
-        <div fxFlex="50">
-            <h2>WHAT WE WORK</h2>
-        </div>
-        <div fxFlex="30">
             <img class="slider" src="../../../assets/images/academy/show18.png">
         </div>
     </div>
@@ -14,7 +14,7 @@
 
 
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
-    <div fxLayout="row" fxLayout.md="col">
+    <div fxLayout="row" fxLayout.md="col" class="stats">
         <div class="contain" fxFlex="20">
             <img class="about" src="../../../assets/images/academy/show8.png">
             <div class="centered">80%</div>
@@ -31,7 +31,7 @@
             <h3>PLACEMENTS</h3>
         </div>
         <div fxFlex="40">
-            <img style="align-self: flex-end;" height="300px" width="300px" src="../../../assets/images/academy/show12.png">
+            <img style="align-self: flex-end;" height="200px" width="200px" src="../../../assets/images/academy/show12.png">
         </div>
     </div>
 </div>

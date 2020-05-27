@@ -1,18 +1,22 @@
 
 .slider {
-    max-width: 400px;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
     margin-top: 40px;
-    /* align-self: flex-end; */
+    align-self: flex-end;
     font-family: "Montserrat", sans-serif;
 }
 
-h2 {
+h1 {
     padding-right: 0px;
     color: blue;
     font-family: "Montserrat", sans-serif;
     font-size: xx-large;
     font-weight: bolder;
     margin-top: 40px;
+    text-align: left;
+    margin-left: 25px;
 }
 
 button{
