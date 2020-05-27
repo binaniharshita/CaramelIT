@@ -6,6 +6,9 @@ import { Colleges } from "./Colleges";
 import { Corporates } from "./Corporates";
 import { Questions } from "./Questions";
 import { Recommendations } from "./Recommendations";
+import { User } from './user';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +52,14 @@ ur2: string =  "http://localhost:3000/Recommendations/";
 getRecommendations()
 {
     return this.http.get<Recommendations[]>(this.ur2);
+}
+
+_url = 'http://localhost:6688/add';
+
+
+enroll (user: User) {
+  return this.http.post<any>(this._url, user)
+    
 }
 
 }
