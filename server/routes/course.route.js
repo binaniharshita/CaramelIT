@@ -9,7 +9,7 @@ const router = express.Router();
 
 //Model
 const Course = require('../models/course/course.model');
-const SubCategory = require('../models/subcategory.model');
+const SubCategory = require('../models/course/subcategory.model');
 const Category = require('../models/course/category.model');
 const Module = require('../models/course/modules.model');
 
@@ -68,7 +68,8 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
     });
     course.save((err, doc) => {
         if (!err) {
-            SubCategory.findById({ _id: course.subcategory }, function(err, doc) {
+            console.log(course.subcategory);
+            SubCategory.findById(course.subcategory, function(err, doc) {
                 if (err) { console.log("Error with updateing "); return; }
                 console.log(doc);
                 doc.noOfCourses = doc.noOfCourses + 1;
@@ -137,4 +138,11 @@ router.put(
     }
 );
 
+router.delete('/:id', (req, res, next) => {
+    console.log('ID = ' + req.params.id);
+    Course.deleteOne({ _id: req.params.id }).then(result => {
+        console.log("Delete");
+    })
+    res.status(201).json({ message: "Course deleted" });
+});
 module.exports = router;

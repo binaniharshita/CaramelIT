@@ -48,7 +48,7 @@ router.post(
                     id: createdCategory._id
                 }
             });
-        });
+        }).catch(err => next(err));
     }
 );
 
@@ -80,7 +80,7 @@ router.get("", (req, res, next) => {
             message: "Posts fetched successfully!",
             categories: documents
         });
-    });
+    }).catch(err => next(err));
 });
 
 router.get("/:id", (req, res, next) => {

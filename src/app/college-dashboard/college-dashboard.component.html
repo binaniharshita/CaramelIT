@@ -2,8 +2,9 @@
 <div class="contain">
     <div fxLayout="row" class="main-heading">
         <div fxFlex="60">
-            <h1 style="font-weight: bold;text-decoration: underline #03e916;">ABC College of PQR</h1>
-            <p style="color:white">Lorem Ipsum is simply dummy text of the printing<br>and typesetting industry. Lorem Ipsum has been the industry's<br>standard dummy text ever since the 1500s</p>
+            <h1 style="font-weight: bold;text-decoration: underline #cae8d5;text-align:left">ABC College of PQR</h1>
+            <p style="color:white;text-align:left">Lorem Ipsum is simply dummy text of the printing<br>and typesetting industry. Lorem Ipsum has been the industry's<br>standard dummy text ever since the 1500s</p>
+            <button mat-button>Edit Profile</button>
         </div>
         <div fxFlex="40">
             <img src="../../assets/images/logo.png" height="auto" width="200px">
@@ -14,16 +15,15 @@
     <div fxLayout="row">
         <div fxFlex="25" class="button-container">
             <mat-nav-list>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard">Dashboard</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard"><span style="color:#ffffff;"><mat-icon color="#ffffff">dashboard</mat-icon>Dashboard</span></a>
                 <mat-divider></mat-divider>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="course">Our Courses</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="course"><span style="color:#ffffff;"><mat-icon>import_contacts</mat-icon>Our Courses</span></a>
                 <mat-divider></mat-divider>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="manage">Student</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="manage"><span style="color:#ffffff;"><mat-icon>perm_identity</mat-icon>Student</span></a>
                 <mat-divider></mat-divider>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Notify Student</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="notify"><span style="color:#ffffff;"><mat-icon>note_add</mat-icon>Notify Student</span></a>
                 <mat-divider></mat-divider>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Account</a>
-
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles"><span style="color:#ffffff;"><mat-icon>account_circle</mat-icon>Account</span></a>
             </mat-nav-list>
         </div>
         <div fxFlex="70">

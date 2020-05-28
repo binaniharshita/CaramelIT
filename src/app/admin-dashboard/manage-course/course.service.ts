@@ -29,7 +29,7 @@ export class CourseService {
               title: course.title,
               description: course.description,
               id: course._id,
-              subCatId: course.subcategoryId,
+              subCatId: course.subcategory,
               imagePath: course.imagePath,
               module: course.module,
             };
@@ -58,7 +58,7 @@ export class CourseService {
     courseData.append('subcategoryId', subCatId);
     courseData.append('image', image, title);
     this.http
-      .post<{ message: string, course: Course }>(
+      .post<{ message: string, course: any }>(
         'http://localhost:3000/api/courses',
         courseData
       )
@@ -67,7 +67,7 @@ export class CourseService {
           id: responseData.course.id,
           title,
           description,
-          subCatId,
+          subCatId: responseData.course.subcategory,
           imagePath: responseData.course.imagePath,
           contentModule: responseData.course.contentModule,
         };
