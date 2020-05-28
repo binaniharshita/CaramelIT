@@ -5,10 +5,13 @@
 <!-- <app-page-content></app-page-content> -->
 
 
-<h1>Course Content</h1>
+<!-- <h1>Course Content</h1>
 <div class="container"
      fxLayout="row"
      fxLayoutGap="10px">
+
+
+     EEEEEEEEEEEEENNNNNNNNNNNRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLLLLLL
 
 <mat-accordion fxFlex>
     <mat-expansion-panel *ngFor="let chapter of selectedCourse.chapter"  >
@@ -38,6 +41,6 @@
       <button class="enroll-button center" *ngIf="addedToCart == false" (click)="addToCart(selectedCourse); addedToCart=true;">Enroll Now</button>
       <button class="enroll-button center" *ngIf="addedToCart" routerLink="/student-cart" routerLinkActive="active">Go to Cart</button>
     </div>
-</div>  
+</div>   -->
 <app-other-courses [course]= "selectedCourse"></app-other-courses>
 <app-footer></app-footer>
