@@ -138,6 +138,7 @@ import { CoursesOptionsComponent } from './academypage/courses-options/courses-o
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 
 
@@ -228,6 +229,7 @@ import { StatsComponent } from './academypage/stats/stats.component';
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
     StatsComponent,
+    Contactus1Component,
   ],
   imports: [
     BrowserModule,
