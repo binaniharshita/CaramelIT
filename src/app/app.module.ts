@@ -132,12 +132,16 @@ import { TopTransformationComponent } from './academypage/top-transformation/top
 import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-it.component';
 import { CollegeDashboardComponent } from './college-dashboard/college-dashboard.component';
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
-import { CollegeCouseComponent } from './college-dashboard/college-couse/college-couse.component';
+
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
+import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
+import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
+import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
+import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
 
 
 
@@ -222,12 +226,15 @@ import { StatsComponent } from './academypage/stats/stats.component';
     WhyCaramelItComponent,
     CollegeDashboardComponent,
     DashboardComponent,
-    CollegeCouseComponent,
     CollegeCourseComponent,
     CoursesOptionsComponent,
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
     StatsComponent,
+    OrganizationDashboardComponent,
+    OrganizationCourseComponent,
+    OrganizationNotifyComponent,
+    OrganizationDashComponent,
   ],
   imports: [
     BrowserModule,

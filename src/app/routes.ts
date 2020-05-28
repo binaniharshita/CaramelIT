@@ -68,10 +68,20 @@ import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
+import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
+import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
+import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
+import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
+  { path : 'organization-dashboard', component: OrganizationDashboardComponent , children:[
+    { path: 'dashboard' , component: OrganizationDashComponent },
+    { path: 'dashboard/course' , component: OrganizationCourseComponent },
+    { path: 'course', component: OrganizationCourseComponent },
+    { path : 'notify', component: OrganizationNotifyComponent},
+  ] },
 
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },
