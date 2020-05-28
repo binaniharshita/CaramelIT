@@ -1,0 +1,22 @@
+
+.container{
+  width: 100%;
+  padding: 30px;
+}
+
+.title{
+  font-family: "Lato";
+  border-bottom: 2px solid #04C5FF;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.title:hover{
+  transform: scale(1.02);
+}
+
+.desription{
+  font-family: "Lato";
+}

@@ -1,0 +1,14 @@
+
+.container{
+    padding: 20px;
+}
+
+.skills{
+    width: 30%;
+    float: right;
+}
+
+.info{
+    width: 70%;
+    float: left;
+}

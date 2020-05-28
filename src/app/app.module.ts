@@ -50,6 +50,7 @@ import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 //routes
@@ -73,7 +74,11 @@ import { StudentCartComponent } from './student-cart/student-cart.component';
 import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
 import { SubProgramComponent } from './program/sub-program/sub-program.component';
 import { CarouselComponent } from './carousel/carousel.component';
-
+import { CourseContentDisplayComponent } from './course-page/course-content-display/course-content-display.component';
+import { CoursePageTabsComponent } from './course-page/course-page-tabs/course-page-tabs.component';
+import { CourseInfoTabComponent } from './course-page/course-info-tab/course-info-tab.component';
+import { CourseSkillsComponent } from './course-page/course-info-tab/course-skills/course-skills.component';
+import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/course-info-dropdowns/course-info-dropdowns.component';
 
 
 
@@ -112,6 +117,11 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProgramSwdComponent,
     SubProgramComponent,
     CarouselComponent,
+    CourseContentDisplayComponent,
+    CoursePageTabsComponent,
+    CourseInfoTabComponent,
+    CourseSkillsComponent,
+    CourseInfoDropdownsComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,7 +142,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     FormsModule,
     MatDialogModule,
     MatExpansionModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatTabsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

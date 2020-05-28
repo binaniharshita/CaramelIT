@@ -63,9 +63,9 @@ export class OtherCoursesComponent implements OnInit {
     "nextArrow": "<div class='nav-btn next-slide'></div>",
     "prevArrow": "<div class='nav-btn prev-slide'></div>",
     "dots": true,
-    "infinite": true,
-    "autoplay": true,
-    "autoplaySpeed": 1500
+    "infinite": false,
+    // "autoplay": true,
+    // "autoplaySpeed": 1500
   };
 
   slickInit(e) {

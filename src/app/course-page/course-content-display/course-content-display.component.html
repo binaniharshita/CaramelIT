@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="line">
+        <h1>{{courseName}}</h1>
+    </div>
+
+    <div class="container-fluid main">
+        <div class="row container-fluid">
+          <div class="col-md-8">
+            <img src={{slide}} id="course-img" alt="File Not Found" />
+          </div>
+
+          <div class="col-md-4" id="wrapper">
+            <div class="lecturelist">
+                <div class="duration">{{lectures.length}} Lectures</div>
+              <div class="toprow scrollbar" id="style-14">
+                <div class="lec-title force-overflow" id="1" *ngFor="let lecture of lectures; index as i">
+                  <div class="title">{{i+1}}. {{lecture}}</div>
+                  <div class="lec-duration">1:56</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</div>

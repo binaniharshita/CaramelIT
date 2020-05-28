@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <div class="skills container card">
+      <div class="row container-fluid" style="display: grid;">
+        <div class="badge badge-pill badge-warning skills-child">
+          <h2 >Skills You Learn</h2>
+        </div>
+      </div>
+      <div class="row container" style="display: table-row-group;">
+        <button class="btn btn-langs"  *ngFor="let skill of skills">{{skill}}</button>
+      </div>
+    </div>
+    <div class="row container-fluid" style="margin-left: 10px;">
+      <div class="instructor">
+        <form>
+          <div class="form-group">
+            <p class="message">Instructor - {{instructorName}}<br />Message Your Instructor!</p>
+          </div>
+          <div class="form-group justify-content-center align-items-center">
+            <textarea
+              name="message"
+              id="message"
+              class="form-control messageArea"
+              placeholder="Enter Message"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btnsend float-right">
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

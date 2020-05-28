@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngFor="let question of info, let i = index">
+        <p class="title" data-toggle="collapse" attr.data-target="#textDisp{{i}}" >{{question.title}}</p>
+        <div class="description" id="textDisp{{i}}" class="collapse">
+            <p>{{question.description}}</p>
+        </div>
+    </div>
+</div>
