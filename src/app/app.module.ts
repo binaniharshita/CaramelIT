@@ -80,6 +80,7 @@ import { CourseInfoTabComponent } from './course-page/course-info-tab/course-inf
 import { CourseSkillsComponent } from './course-page/course-info-tab/course-skills/course-skills.component';
 import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/course-info-dropdowns/course-info-dropdowns.component';
 import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
+import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
 
 
 
@@ -124,6 +125,7 @@ import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.co
     CourseSkillsComponent,
     CourseInfoDropdownsComponent,
     EnrollPanelComponent,
+    TableOfContentsTabComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,11 @@ button{
   background-color: transparent;
 }
 
+#add{
+  width: 100%;
+  margin-top: 20px;
+}
+
 .header:hover{
   transform: scale(1.02);
 }
