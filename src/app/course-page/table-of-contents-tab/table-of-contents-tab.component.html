@@ -4,6 +4,7 @@
         <ol class="content">
             <ng-container *ngFor="let module of modules; let i = index"> 
                 <li class="module"><span class="title">{{module.title}}</span>
+                    <button class="edit" type="button">Edit</button>
                     <ul class="submodule">
                         <ng-container *ngIf="modules[i].submodules.length > 0">
                             <ng-container *ngFor="let submodule of module.submodules">
@@ -14,10 +15,13 @@
                 </li>
             </ng-container>
         </ol>
+        <button type="button" id="add">+ Add Module</button>
     </div>
     <div class="instructor">
         <div class="instructor-image"><img src={{instructorImage}}></div>
         <div class="instructor-name"><h4>{{instructorName}}</h4></div>
+        <p class="instructor-title"><em>Meet Your Instructor!</em></p>
         <div class="instructor-info">{{instructorInfo}}</div>
+        <button class="edit" type="button" id="instructor-edit">Edit</button>
     </div>
 </div>

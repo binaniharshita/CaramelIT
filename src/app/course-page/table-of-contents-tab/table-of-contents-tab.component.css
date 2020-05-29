@@ -7,14 +7,13 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 40px;
 }
 
 .table{
     float: left;
     min-width: 70%;
 }
-
-
 
 h1{
     border-bottom: 2px solid #04C5FF;
@@ -24,7 +23,7 @@ h1{
 }
 
 .content{
-    margin-left: 50px;
+    margin-left: 70px;
     margin-top: 40px;
     margin-bottom: 30px;
 }
@@ -51,12 +50,12 @@ h1{
 .instructor{
     float: right;
     /* width: 100%; */
-    border: 1px solid #f7f7f7;
+    border: 1px solid #ededed;
     border-radius: 20px;
     margin: 30px;
     padding: 20px;
     justify-content: center;
-    background-color: #f7f7f7;
+    background-color: #ededed;
     margin-left: 50px;
     overflow: hidden;
 }
@@ -67,7 +66,7 @@ h1{
 
 .instructor-name{
     font-family: "Lato", Times, serif;
-    font-weight: bold;
+    font-weight: bolder;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 10px;
@@ -81,3 +80,39 @@ h1{
 .instructor-image img{
     width: 90%;
 }
+
+.instructor-title{
+    font-size: 17px;
+    color: #284c71;
+    font-weight: bold;
+}
+
+.instructor-info{
+    text-align: justify;
+    color: #284c71;
+}
+
+.edit{
+    padding: 0px;
+    float: right;
+    color: grey;
+    text-decoration: underline;
+    border: none;
+    font-size: 17px;
+    background-color: transparent;
+  }
+
+  #add{
+    width: 100%;
+    margin-top: 20px;
+    padding: 0px;
+    color: grey;
+    text-decoration: underline;
+    border: none;
+    font-size: 17px;
+    background-color: transparent;
+  }
+
+  #instructor-edit{
+      margin-top: 20px;
+  }

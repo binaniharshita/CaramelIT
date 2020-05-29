@@ -2,10 +2,10 @@
 .container{
   width: 100%;
   padding: 30px;
+  font-family: "Lato", Times, serif;
 }
 
 .header{
-  font-family: "Lato", Times, serif;
   border-bottom: 2px solid #04C5FF;
   margin-top: 20px;
   margin-bottom: 30px;
