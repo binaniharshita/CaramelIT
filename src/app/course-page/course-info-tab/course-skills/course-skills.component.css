@@ -10,7 +10,7 @@
   .skills-child {
     margin-bottom: 20px;
     font-family: "Lato", Times, serif;
-    color: #284c71;
+    color: black;
     background-color: transparent;
     text-align: center;
   }
@@ -24,7 +24,7 @@
     background-color: transparent;
     border-bottom: 2px solid #04C5FF;
     font-family: "Lato", Times, serif;
-    color: #284c71;
+    color: black;
     padding-bottom: 10px;
     margin-bottom: 10px;
     margin-left: 15px;
@@ -45,7 +45,7 @@
     margin: 25px;
   }
   .message {
-    color: #284c71;
+    color: black;
     font-weight: normal;
     font-size: 1.2em;
     font-family: "Lato", Times, serif;
@@ -64,3 +64,13 @@
     margin-right: 15px;
   }
   
+
+  .edit{
+    padding: 0px;
+    float: right;
+    color: grey;
+    text-decoration: underline;
+    border: none;
+    font-size: 17px;
+    background-color: transparent;
+  }

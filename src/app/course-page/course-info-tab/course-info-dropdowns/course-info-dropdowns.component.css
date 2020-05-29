@@ -4,16 +4,34 @@
   padding: 30px;
 }
 
-.title{
-  font-family: "Lato";
+.header{
+  font-family: "Lato", Times, serif;
   border-bottom: 2px solid #04C5FF;
   margin-top: 20px;
   margin-bottom: 30px;
   font-size: 20px;
   padding: 10px;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
 }
 
-.title:hover{
+title{
+  float: left;
+  color: black;
+}
+
+button{
+  padding: 0px;
+  float: right;
+  color: grey;
+  text-decoration: underline;
+  border: none;
+  font-size: 17px;
+  background-color: transparent;
+}
+
+.header:hover{
   transform: scale(1.02);
 }
 
