@@ -1,163 +1,165 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(182, 128, 231);">
     <img class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="150px" alt="forecastr logo">
-      <a class="navbar-brand" href="#"></a>
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <form class="form-inline my-2 my-lg-0 example-spacer">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <button class="btn">
+        <form class="form-inline my-2 my-lg-0 example-spacer">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <button class="btn">
           <a class="nav-link" href="#">Wishlist  <i class="fa fa-heart"></i></a>
         </button>
-        </li>
-        <li class="nav-item">
-            <button class="btn">
+            </li>
+            <li class="nav-item">
+                <button class="btn">
           <a class="nav-link" href="#">Cart  <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
         </button>
-        </li>
-      </ul>
+            </li>
+            <li>
+                <button mat-raised-button routerLink="generate-test">Generate Test</button>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>
 <div>
-  <mat-drawer-container class="example-container" autosize>
-    <div>
-        <div class="example-sidenav-content">
-            <button class="btn btn-outline-dark" type="button" mat-button (click)="drawer.toggle()">
+    <router-outlet></router-outlet>
+</div>
+<div>
+    <mat-drawer-container class="example-container" autosize>
+        <div>
+            <div class="example-sidenav-content">
+                <button class="btn btn-outline-dark" type="button" mat-button (click)="drawer.toggle()">
               <span>TOGGLE SIDENAV<i class="fa fa-bars"></i></span>
             </button>
-          </div>
-        </div>
-    <mat-drawer #drawer class="sidenavv" mode="side">
-      <div id="prodisplay">
-          <h1>Student Name</h1>
-          <div class="image-cropper">
-          <img src="../../assets/student.svg" class="center">
             </div>
         </div>
-    <div class="sidebutarea">
-    <button class="btn btn-dark sidebut">
+        <mat-drawer #drawer class="sidenavv" mode="side">
+            <div id="prodisplay">
+                <h1>Student Name</h1>
+                <div class="image-cropper">
+                    <img src="../../assets/student.svg" class="center">
+                </div>
+            </div>
+            <div class="sidebutarea">
+                <button class="btn btn-dark sidebut">
         <span>MY COURSES<i class="fa fa-th-list"></i></span>
         <a href=""></a>
     </button>
-    <i class="fa fa-grid"></i>
-    </div>
-    <div class="sidebutarea">
-        <button class="btn btn-dark sidebut">
+                <i class="fa fa-grid"></i>
+            </div>
+            <div class="sidebutarea">
+                <button class="btn btn-dark sidebut">
             <span>PROGRESS REPORT<i class="fa fa-line-chart"></i></span>
             <a href=""></a>
         </button>
-    </div>
-    <div class="sidebutarea">
-        <button class="btn btn-dark sidebut">
+            </div>
+            <div class="sidebutarea">
+                <button class="btn btn-dark sidebut">
             <span>EXAM REPORT<i class="fa fa-bar-chart"></i></span>
             <a href=""></a>
         </button>
-    </div>
-    <div class="logout">
-        <button class="btn btn-dark">
+            </div>
+            <div class="logout">
+                <button class="btn btn-dark">
         <h1>Logout <i class="fa fa-chevron-circle-right"></i></h1>
     </button>
-    </div>
-    </mat-drawer>
-    <div class="main-content">
-        <h1>RECOMMENDED COURSES</h1>
-        <div class="row">
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
             </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
+        </mat-drawer>
+        <div class="main-content">
+            <h1>RECOMMENDED COURSES</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
             </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Courses</mat-card-title>
+                            <mat-card-subtitle>Course Number</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-        </div>
-    </div>
-</mat-drawer-container>
+    </mat-drawer-container>
 </div>
-
-
-
-

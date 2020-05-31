@@ -1,0 +1,16 @@
+<p>generate-test works!</p>
+<p>{{studentId}}</p>
+<form [formGroup]="form" (submit)="onFormSend()">
+    <mat-card>
+        <mat-form-field>
+            <input matInput type="text" formControlName="title" placeholder="Program Title">
+            <mat-error *ngIf="form.get('title').invalid">Please enter a program title.</mat-error>
+        </mat-form-field>
+        <hr>
+        <mat-form-field>
+            <textarea matInput row="6" formControlName="description" placeholder="Description" required></textarea>
+            <mat-error *ngIf="form.get('description').invalid">Please enter Category Description</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Save Category</button>
+    </mat-card>
+</form>

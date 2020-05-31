@@ -72,6 +72,7 @@ import { OrganizationDashboardComponent } from './organization-dashboard/organiz
 import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
 import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
 import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
+import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
 
 
 export const routes: Routes = [
@@ -187,7 +188,9 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent },
+  { path: 'student-dashboard', component: StudentDashboardComponent, children :[
+    { path : 'generate-test', component : GenerateTestComponent}
+  ] },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
