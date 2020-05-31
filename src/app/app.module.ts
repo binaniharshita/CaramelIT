@@ -139,10 +139,14 @@ import { CoursesOptionsComponent } from './academypage/courses-options/courses-o
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
+<<<<<<< HEAD
 import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
 import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
 import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
 import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
+=======
+import { Contactus1Component } from './contactus1/contactus1.component';
+>>>>>>> 2c3769d9f8e94d1b3ec2e025cee8251cfd884d6d
 
 import { CourseContentDisplayComponent } from './course-page/course-content-display/course-content-display.component';
 import { CoursePageTabsComponent } from './course-page/course-page-tabs/course-page-tabs.component';
@@ -238,6 +242,7 @@ import { GenerateTestComponent } from './student-dashboard/generate-test/generat
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
     StatsComponent,
+<<<<<<< HEAD
     OrganizationDashboardComponent,
     OrganizationCourseComponent,
     OrganizationNotifyComponent,
@@ -248,6 +253,9 @@ import { GenerateTestComponent } from './student-dashboard/generate-test/generat
     CourseSkillsComponent,
     CourseInfoDropdownsComponent,
     GenerateTestComponent,
+=======
+    Contactus1Component,
+>>>>>>> 2c3769d9f8e94d1b3ec2e025cee8251cfd884d6d
   ],
   imports: [
     BrowserModule,
