@@ -27,13 +27,16 @@
     </div>
 
     <div class="reviews">
-        <div class="user">
-            <h4>John Doe</h4>
+        <div class="review" *ngFor="let rating of ratings">
+            <div class="user">
+                <div><img src="../../assets/images/CoursePage/user.png"></div>
+                <h4>{{rating.name}}</h4>
+                <p>Rating : {{rating.numRating}}/5</p>
+            </div>
+            <div>
+                <p class="text">"{{rating.textRating}}"</p>
+            </div>
         </div>
-        <div>
-            <p>"This course was extremely good and enjoyanble"</p>
-        </div>
-
 
     </div>
 

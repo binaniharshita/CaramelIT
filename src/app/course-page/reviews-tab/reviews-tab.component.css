@@ -124,3 +124,39 @@
     color:#04C5FF;
     font-size: 25px;
 }
+
+.reviews{
+    padding-top: 30px;
+}
+
+.review{
+    padding-top: 20px;
+    border-top: 2px solid #04C5FF;
+}
+
+.user{
+    display: flex;
+    padding-bottom: 15px;
+}
+
+.user img{
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.user h4{
+    padding-top: 10px;
+}
+
+.user p {
+    padding-top: 10px;
+    margin-left: 40px;
+    color: #284c71;
+    font-size: 20px;
+}
+
+.text{
+    font-size: 15px;
+    padding-bottom: 17px;
+}
+
