@@ -73,6 +73,7 @@ import { OrganizationCourseComponent } from './organization-dashboard/organizati
 import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
 import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
 import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 
 export const routes: Routes = [
@@ -142,7 +143,7 @@ export const routes: Routes = [
   { path: 'university-register', component: UniversityRegisterComponent },
   { path: 'admin-signin', component: AdminSigninComponent },
   { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
+ // { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
   // { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
@@ -155,7 +156,7 @@ export const routes: Routes = [
   { path: 'university-register', component: UniversityRegisterComponent },
   { path: 'admin-signin', component: AdminSigninComponent },
   { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
+ // { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'user_list', component: UserListComponent },
@@ -212,7 +213,8 @@ export const routes: Routes = [
     { path: 'skills/addskills' , component: AddskillComponent },
     { path: 'skills/skillset' , component: SkillsetComponent },
     { path: 'students' , component: StudentsComponent },
-  ]}
+  ]},
   // { path: 'academypage', component: AcademypageComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'contactus1', component : Contactus1Component }
 ];
