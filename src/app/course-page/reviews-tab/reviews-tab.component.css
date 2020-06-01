@@ -1,0 +1,123 @@
+.container{
+    padding: 40px;
+    font-family: "Lato", Times, serif;
+    /* display: inline; */
+    display: flex;
+    vertical-align: middle;
+}
+
+.summary{
+    /* height: 300px;
+    width: 300px; */
+    border: 1px solid #ededed;
+    border-radius: 20px;
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+    background-color: #ededed;
+    text-align: center;
+    width: 100%;
+}
+
+.rating{
+    height: 100%;
+    width: 33.3333%;
+    padding: 40px;
+    border-right: 2px solid #04C5FF;
+    float: left;
+}
+
+.rating p{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.bar-container{
+    width: 100%; 
+    background-color: #b8f5ff ;
+}
+
+.bar{
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    width: 80%; 
+    background-color: #04C5FF;
+}
+
+.animation:hover{
+    transform: scale(1.02);
+}
+
+.recommend{
+    height: 100%;
+    width: 35%;
+    padding: 20px;
+    border-right: 2px solid #04C5FF;
+    float: left;
+    /* justify-content: center;
+    text-align: center; */
+}
+
+.prec{
+    top: 30px;
+    position: relative;
+    font-size: 30px;
+}
+
+.circle{
+    position: relative;
+    top: 5px;
+    left: 5px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #E6F4F7;
+
+}
+
+.active-border{
+    position: relative;
+    text-align: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+
+    background-color:#04C5FF;
+    background-image:
+        linear-gradient(162deg, transparent 50%, #b8f5ff 50%),
+        linear-gradient(240deg, #b8f5ff 50%, transparent 50%);  
+}
+
+.graphic-container{
+    display:inline-block;
+    margin-top: 20px;
+}
+
+.time{
+    height: 100%;
+    width: 30%;
+    padding: 30px;
+    /* border-right: 2px solid #04C5FF; */
+    float: right;
+    justify-content: center;
+}
+
+#num-weeks{
+    font-size: 60px;
+    line-height: 30%;
+    color: #284c71;
+    margin-top: 50px;
+}
+
+/* #sent-1{
+    line-height: 170%;
+} */
+
+#weeks{
+    color: #284c71;
+    font-size: 25px;
+}
