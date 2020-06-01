@@ -1,29 +1,30 @@
 .container{
     padding: 40px;
+    margin: 0 auto;     /*enabled centreing of content*/
     font-family: "Lato", Times, serif;
-    /* display: inline; */
-    display: flex;
-    vertical-align: middle;
+    width: 100%;
+    /* position:relative; */
+    /* display: block;
+    justify-content: center; */
+    /* text-align: center; */
 }
 
 .summary{
-    /* height: 300px;
-    width: 300px; */
+    display: flex;
     border: 1px solid #ededed;
     border-radius: 20px;
     margin: 30px;
     padding: 20px;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: #ededed;
     text-align: center;
-    width: 100%;
+
 }
 
 .rating{
     height: 100%;
     width: 33.3333%;
     padding: 40px;
-    border-right: 2px solid #04C5FF;
     float: left;
 }
 
@@ -55,6 +56,7 @@
     width: 35%;
     padding: 20px;
     border-right: 2px solid #04C5FF;
+    border-left: 2px solid #04C5FF;
     float: left;
     /* justify-content: center;
     text-align: center; */
@@ -109,8 +111,8 @@
 #num-weeks{
     font-size: 60px;
     line-height: 30%;
-    color: #284c71;
-    margin-top: 50px;
+    color:#04C5FF;
+    margin-top: 45px;
 }
 
 /* #sent-1{
@@ -118,6 +120,7 @@
 } */
 
 #weeks{
-    color: #284c71;
+    /* color: #284c71; */
+    color:#04C5FF;
     font-size: 25px;
 }
