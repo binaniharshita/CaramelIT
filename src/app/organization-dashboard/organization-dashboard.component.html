@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="contain">
+    <div fxLayout="row" class="main-heading">
+        <div fxFlex="60">
+            <h1 style="font-weight: bold;text-decoration: underline #cae8d5;text-align:left">Caramel IT</h1>
+            <p style="color:white;text-align:left">Lorem Ipsum is simply dummy text of the printing<br>and typesetting industry. Lorem Ipsum has been the industry's<br>standard dummy text ever since the 1500s</p>
+            <button mat-button>Edit Profile</button>
+        </div>
+        <div fxFlex="40">
+            <img src="../../assets/images/logo.png" height="auto" width="200px">
+        </div>
+    </div>
+</div>
+<div class="main-section">
+    <div fxLayout="row">
+        <div fxFlex="25" class="button-container">
+            <mat-nav-list>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard"><span style="color:#ffffff;"><mat-icon color="#ffffff">dashboard</mat-icon>Dashboard</span></a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="course"><span style="color:#ffffff;"><mat-icon>import_contacts</mat-icon>Our Courses</span></a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="manage"><span style="color:#ffffff;"><mat-icon>perm_identity</mat-icon>Employee</span></a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="notify"><span style="color:#ffffff;"><mat-icon>note_add</mat-icon>Notify Employee</span></a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles"><span style="color:#ffffff;"><mat-icon>account_circle</mat-icon>Account</span></a>
+            </mat-nav-list>
+        </div>
+        <div fxFlex="70">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

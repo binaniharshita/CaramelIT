@@ -31,13 +31,13 @@ export class StudentUserService {
   postStudentUser(studentUser: StudentUser){
     return this.http.post(environment.apiBaseUrl+'/student-register', studentUser,this.noAuthHeader);
   }
-  
+
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
   }
 
   getStudentProfile() {
-    return this.http.get(environment.apiBaseUrl+'/studentProfile');
+    return this.http.get(environment.apiBaseUrl + '/studentProfile');
   }
 
   //helper methods

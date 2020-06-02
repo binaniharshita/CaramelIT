@@ -59,8 +59,6 @@ const ctrlInstructor = require('../controllers/instructor.controller');
 const ctrlUniversity = require('../controllers/university.controller');
 const ctrlAdmin = require('../controllers/admin.controller');
 
-const ctrlSubCat = require('../controllers/subcategory.controller');
-const ctrlCourse = require('../controllers/course.controller');
 
 //Register
 router.post('/student-register', ctrlStudent.register);
@@ -81,9 +79,6 @@ router.get('/corporateProfile', jwtHelper.verifyJwtToken, ctrlCorporate.corporat
 
 router.post('/university-authenticate', ctrlUniversity.authenticate);
 router.get('/universityProfile', jwtHelper.verifyJwtToken, ctrlUniversity.universityProfile);
-
-router.post('/admin-authenticate', ctrlAdmin.authenticate);
-router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
 
 router.post('/admin-authenticate', ctrlAdmin.authenticate);
 router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);

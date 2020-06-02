@@ -68,10 +68,22 @@ import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
+import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
+import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
+import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
+import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
+import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
+  { path : 'organization-dashboard', component: OrganizationDashboardComponent , children:[
+    { path: 'dashboard' , component: OrganizationDashComponent },
+    { path: 'dashboard/course' , component: OrganizationCourseComponent },
+    { path: 'course', component: OrganizationCourseComponent },
+    { path : 'notify', component: OrganizationNotifyComponent},
+  ] },
 
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },
@@ -131,7 +143,7 @@ export const routes: Routes = [
   { path: 'university-register', component: UniversityRegisterComponent },
   { path: 'admin-signin', component: AdminSigninComponent },
   { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
+ // { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
   // { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
@@ -144,7 +156,7 @@ export const routes: Routes = [
   { path: 'university-register', component: UniversityRegisterComponent },
   { path: 'admin-signin', component: AdminSigninComponent },
   { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
+ // { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'user_list', component: UserListComponent },
@@ -177,7 +189,9 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent },
+  { path: 'student-dashboard', component: StudentDashboardComponent, children :[
+    { path : 'generate-test', component : GenerateTestComponent}
+  ] },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
@@ -199,7 +213,8 @@ export const routes: Routes = [
     { path: 'skills/addskills' , component: AddskillComponent },
     { path: 'skills/skillset' , component: SkillsetComponent },
     { path: 'students' , component: StudentsComponent },
-  ]}
+  ]},
   // { path: 'academypage', component: AcademypageComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'contactus1', component : Contactus1Component }
 ];
