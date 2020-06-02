@@ -154,6 +154,10 @@ import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/cour
 import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
 
 
+import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
+import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
+import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
+import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.component';
 
 
 
@@ -253,7 +257,11 @@ import { GenerateTestComponent } from './student-dashboard/generate-test/generat
     CourseInfoDropdownsComponent,
     GenerateTestComponent,
     Contactus1Component,
-   ],
+    EnrollPanelComponent,
+    TableOfContentsTabComponent,
+    CourseProjectsTabComponent,
+    ReviewsTabComponent,
+  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
