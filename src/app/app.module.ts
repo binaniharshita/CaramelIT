@@ -156,6 +156,7 @@ import { GenerateTestComponent } from './student-dashboard/generate-test/generat
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -252,7 +253,7 @@ import { GenerateTestComponent } from './student-dashboard/generate-test/generat
     CourseInfoDropdownsComponent,
     GenerateTestComponent,
     Contactus1Component,
-  ],
+   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
