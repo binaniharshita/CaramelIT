@@ -1,6 +1,25 @@
 
 .container{
-    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.header{
+    padding-top: 40px;
+    padding-left: 40px;
+    width: 70%;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-family: "Lato", Times, serif;
+}
+
+img{
+    height: 60px;
+    width: auto;
+    float: right;
 }
 
 .skills{
