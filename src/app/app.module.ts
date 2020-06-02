@@ -139,14 +139,12 @@ import { CoursesOptionsComponent } from './academypage/courses-options/courses-o
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
-<<<<<<< HEAD
 import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
 import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
 import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
 import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
-=======
+
 import { Contactus1Component } from './contactus1/contactus1.component';
->>>>>>> 2c3769d9f8e94d1b3ec2e025cee8251cfd884d6d
 
 import { CourseContentDisplayComponent } from './course-page/course-content-display/course-content-display.component';
 import { CoursePageTabsComponent } from './course-page/course-page-tabs/course-page-tabs.component';
@@ -154,12 +152,22 @@ import { CourseInfoTabComponent } from './course-page/course-info-tab/course-inf
 import { CourseSkillsComponent } from './course-page/course-info-tab/course-skills/course-skills.component';
 import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/course-info-dropdowns/course-info-dropdowns.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
 =======
 import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
 import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
 import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
 >>>>>>> nav_bar
+=======
+import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
+
+
+import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
+import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
+import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
+import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.component';
+>>>>>>> 78973bec63b8b83f9086b92c08b95d53dd2946b6
 
 
 
@@ -248,7 +256,6 @@ import { CourseProjectsTabComponent } from './course-page/course-projects-tab/co
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
     StatsComponent,
-<<<<<<< HEAD
     OrganizationDashboardComponent,
     OrganizationCourseComponent,
     OrganizationNotifyComponent,
@@ -259,6 +266,7 @@ import { CourseProjectsTabComponent } from './course-page/course-projects-tab/co
     CourseSkillsComponent,
     CourseInfoDropdownsComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     GenerateTestComponent,
 =======
     Contactus1Component,
@@ -268,6 +276,14 @@ import { CourseProjectsTabComponent } from './course-page/course-projects-tab/co
     TableOfContentsTabComponent,
     CourseProjectsTabComponent,
 >>>>>>> nav_bar
+=======
+    GenerateTestComponent,
+    Contactus1Component,
+    EnrollPanelComponent,
+    TableOfContentsTabComponent,
+    CourseProjectsTabComponent,
+    ReviewsTabComponent,
+>>>>>>> 78973bec63b8b83f9086b92c08b95d53dd2946b6
   ],
   imports: [
     BrowserModule,

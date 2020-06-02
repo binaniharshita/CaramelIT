@@ -1,18 +1,12 @@
 .container {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 16px;
-    padding: 16px;
-    border-radius: 8px; */
-    margin-left: 0px;
+    padding-right: 0px;
     padding-left: 0px;
-
     min-width: 100%;
 }
 
 ::ng-deep .mat-tab-labels { /*ng-deep allows for cutomisation of*/
     color:black;
+    background-color: #b8f5ff;
 }
 
 ::ng-deep .mat-tab-label-active, .mat-ink-bar  { /*ng-deep allows for cutomisation of*/

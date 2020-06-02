@@ -33,6 +33,10 @@ h1{
     font-size: 23px;
 }
 
+.module:hover{
+    transform: scale(1.02);
+}
+
 .title{
     border-bottom: 2px solid #04C5FF;
 }
