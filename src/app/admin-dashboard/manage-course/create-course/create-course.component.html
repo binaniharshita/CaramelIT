@@ -9,6 +9,10 @@
             <mat-form-field>
                 <textarea matInput row="6" name="description" placeholder="Description" formControlName="description"></textarea>
             </mat-form-field>
+        <!--skill covered added -->    
+            <mat-form-field>
+                <textarea matInput row="6" name="skillCovered" placeholder="skill covered" formControlName="skillCovered"></textarea>
+            </mat-form-field>
             <mat-form-field>
                 <mat-label>Select Category</mat-label>
                 <mat-select formControlName="selectCategory" #selectCat (selectionChange)="fetchSubCat(selectCat.value)" name="selectCategory">
