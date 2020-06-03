@@ -8,6 +8,7 @@ import { Course } from '../../admin-dashboard/manage-course/course.model';
 })
 export class CourseContentDisplayComponent implements OnInit {
   courseName;
+  public courseDiscription;
 
   @Input()
   course: Course;
@@ -24,6 +25,8 @@ export class CourseContentDisplayComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.course.contentModule);
     this.courseName = this.course.title;
+    this.courseDiscription = this.course.description;
+
 
     this.lectures = this.course.contentModule[2];
     console.log(this.lectures);
