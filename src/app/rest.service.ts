@@ -54,7 +54,7 @@ getRecommendations()
     return this.http.get<Recommendations[]>(this.ur2);
 }
 
-_url = 'http://localhost:6688/add';
+_url = 'http://localhost:3000/api/contactus';
 
 
 enroll (user: User) {
