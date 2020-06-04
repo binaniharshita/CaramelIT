@@ -6,7 +6,9 @@ const fs = require('fs');
 const convert_lesson = () => {
     mammoth.convertToHtml({ path: "./uploads/lesson.docx" })
         .then(function(result) {
+            console.log('Inside route');
             const html = result.value; // The generated HTML
+            console.log(html);
             const converted = tabletojson.convert(html, { useFirstRowForHeadings: true });
             var reswe = converted[0];
             fs.writeFile('data/lessons.json', JSON.stringify(reswe), function(err) {

@@ -4,8 +4,18 @@ export interface Course {
   description: string;
   subCatId: string;
   imagePath: string;
-  contentModule: string;
+  contentModule: Object;
 }
 
-
-
+// export class Module{
+//   lesson: Lesson[];
+//   scenario: [];
+//   project: [];
+//   test: [];
+// }
+// class Lesson{
+//   sno: string;
+//   lessonsTime: number;
+//   lessonsList: string;
+//   pptLink: string;
+// }

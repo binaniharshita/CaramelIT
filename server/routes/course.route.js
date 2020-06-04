@@ -93,8 +93,9 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
 
     res.status(201).json({
         message: "Courses added successfully",
-        courseId: course._id,
-        imagePath: course.imagePath
+        courseId: doc._id,
+        imagePath: doc.imagePath,
+        module: doc.modules
     });
 });
 

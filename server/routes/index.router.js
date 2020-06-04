@@ -26,7 +26,6 @@ var storage = multer.diskStorage({
         cb(null, FILE_PATH)
     },
     filename: function(req, file, cb) {
-        console.log('FILE NAME ROUTE UPLOAD LESSON');
         cb(null, file.fieldname + ".docx")
     }
 })
@@ -38,7 +37,6 @@ const upload = multer({
         files: 1, // allow up to 5 files per request,
     },
     fileFilter: (req, file, cb) => {
-        console.log('FILEFILTTER ROUTE UPLOAD LESSON');
         // allow doc only
         if (!file.originalname.match(/\.(doc|docx)$/)) {
             return cb(new Error('Only doc are allowed.'), false);
@@ -122,9 +120,9 @@ router.use('/courses', CourseRoute);
 
 
 router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) => {
-    console.log('POST ROUTE UPLOAD LESSON');
     try {
         const lesson = req.file;
+        console.log('Inside route');
         // make sure file is available
         if (!lesson) {
             res.status(400).send({

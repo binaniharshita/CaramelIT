@@ -12,21 +12,26 @@ export class CourseContentDisplayComponent implements OnInit {
   @Input()
   course: Course;
 
-  lectures:string;
+  contentLength: number;
+  lectures;
   // courseName: string;
-  // lectures: string[] = ["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5", "Topic 6", "Topic 7", "Topic 8", "Topic 9","Topic 10", "Topic 11",
+  // lectures: string[] = ["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5"
+  // , "Topic 6", "Topic 7",
+  // "Topic 8", "Topic 9","Topic 10", "Topic 11",
   // "Topic 12", "Topic 13","Topic 14","Topic 15","Topic 16", "Topic 17", "Topic 18","Topic 19"];
 
-  slide: string = "../../assets/images/CoursePage/slide.jpg"
+  slide = '../../assets/images/CoursePage/slide.jpg';
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.course.contentModule);
     this.courseName = this.course.title;
 
-    this.lectures = this.course.contentModule[2];
-    console.log(this.lectures);
+    this.lectures = this.course.contentModule;
+    this.lectures = this.lectures[0][2];
+
+    // this.contentLength = this.lectures;
+    // console.log(this.contentLength);
 
   }
 

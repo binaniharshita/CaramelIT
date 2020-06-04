@@ -64,7 +64,7 @@ export class CourseService {
       )
       .subscribe((responseData) => {
         const courseAdd: Course = {
-          id: responseData.course.id,
+          id: responseData.course._id,
           title,
           description,
           subCatId: responseData.course.subcategory,
