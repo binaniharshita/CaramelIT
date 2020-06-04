@@ -69,20 +69,20 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 import { AdminService } from './shared-user/admin/admin.service';
 import { ResponseResetComponent } from './response-reset/response-reset.component';
-import { CoursePageComponent } from './course-page/course-page.component';
+import { UserCoursePageComponent } from './user-course-page/user-course-page.component';
 import { StudentCartComponent } from './student-cart/student-cart.component';
 import { ProgramSwdComponent } from './program/program-swd/program-swd.component';
 import { SubProgramComponent } from './program/sub-program/sub-program.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { CourseContentDisplayComponent } from './course-page/course-content-display/course-content-display.component';
-import { CoursePageTabsComponent } from './course-page/course-page-tabs/course-page-tabs.component';
-import { CourseInfoTabComponent } from './course-page/course-info-tab/course-info-tab.component';
-import { CourseSkillsComponent } from './course-page/course-info-tab/course-skills/course-skills.component';
-import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/course-info-dropdowns/course-info-dropdowns.component';
-import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
-import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
-import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
-import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.component';
+import { UserCourseContentDisplayComponent } from './user-course-page/user-course-content-display/user-course-content-display.component';
+import { UserCoursePageTabsComponent } from './user-course-page/user-course-page-tabs/user-course-page-tabs.component';
+import { UserCourseInfoTabComponent } from './user-course-page/user-course-info-tab/user-course-info-tab.component';
+import { UserCourseSkillsComponent } from './user-course-page/user-course-info-tab/user-course-skills/user-course-skills.component';
+import { UserCourseInfoDropdownsComponent } from './user-course-page/user-course-info-tab/user-course-info-dropdowns/user-course-info-dropdowns.component';
+import { UserEnrollPanelComponent } from './user-course-page/user-enroll-panel/user-enroll-panel.component';
+import { UserTableOfContentsTabComponent } from './user-course-page/user-table-of-contents-tab/user-table-of-contents-tab.component';
+import { UserCourseProjectsTabComponent } from './user-course-page/user-course-projects-tab/user-course-projects-tab.component';
+import { UserReviewsTabComponent } from './user-course-page/user-reviews-tab/user-reviews-tab.component';
 
 
 
@@ -116,20 +116,20 @@ import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.compo
     ProfilePageComponent,
     AdminRegisterComponent,
     ResponseResetComponent,
-    CoursePageComponent,
+    UserCoursePageComponent,
     StudentCartComponent,
     ProgramSwdComponent,
     SubProgramComponent,
     CarouselComponent,
-    CourseContentDisplayComponent,
-    CoursePageTabsComponent,
-    CourseInfoTabComponent,
-    CourseSkillsComponent,
-    CourseInfoDropdownsComponent,
-    EnrollPanelComponent,
-    TableOfContentsTabComponent,
-    CourseProjectsTabComponent,
-    ReviewsTabComponent,
+    UserCourseContentDisplayComponent,
+    UserCoursePageTabsComponent,
+    UserCourseInfoTabComponent,
+    UserCourseSkillsComponent,
+    UserCourseInfoDropdownsComponent,
+    UserEnrollPanelComponent,
+    UserTableOfContentsTabComponent,
+    UserCourseProjectsTabComponent,
+    UserReviewsTabComponent,
   ],
   imports: [
     BrowserModule,

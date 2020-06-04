@@ -1,0 +1,18 @@
+<mat-tab-group dynamicHeight class="container">
+    <mat-tab>
+      <ng-template mat-tab-label class="tab-label">Course Information</ng-template>
+      <app-user-course-info-tab></app-user-course-info-tab>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label class="tab-label">Learn More</ng-template>
+      <app-user-table-of-contents-tab></app-user-table-of-contents-tab>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label class="tab-label">Projects</ng-template>
+      <app-user-course-projects-tab></app-user-course-projects-tab>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label class="tab-label">Reviews</ng-template>
+      <app-user-reviews-tab></app-user-reviews-tab>
+    </mat-tab>
+  </mat-tab-group>

@@ -1,0 +1,5 @@
+<div class="container">
+    <button type="button" *ngIf="addedToCart == false" (click)="addToCart(selectedCourse); addedToCart=true;"><span>Enroll Now</span></button>
+    <button type="button" *ngIf="addedToCart" routerLink="/student-cart" routerLinkActive="active"><span>Go To Cart</span></button>
+    <button type="button"><span>Visit Program Page</span></button>
+</div>

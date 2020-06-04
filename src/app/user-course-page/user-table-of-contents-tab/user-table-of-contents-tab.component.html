@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="table">
+        <h1>Table of Contents</h1>
+        <ol class="content">
+            <ng-container *ngFor="let module of modules; let i = index"> 
+                <li class="module"><span class="title">{{module.title}}</span>
+                    <ul class="submodule">
+                        <ng-container *ngIf="modules[i].submodules.length > 0">
+                            <ng-container *ngFor="let submodule of module.submodules">
+                                <li class="subitem">{{submodule}}</li>
+                            </ng-container>
+                        </ng-container>
+                    </ul>
+                </li>
+            </ng-container>
+        </ol>
+    </div>
+    <div class="instructor">
+        <div class="instructor-image"><img src={{instructorImage}}></div>
+        <div class="instructor-name"><h4>{{instructorName}}</h4></div>
+        <p class="instructor-title"><em>Meet Your Instructor!</em></p>
+        <div class="instructor-info">{{instructorInfo}}</div>
+    </div>
+</div>

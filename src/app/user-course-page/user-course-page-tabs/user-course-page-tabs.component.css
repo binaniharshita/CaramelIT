@@ -1,0 +1,16 @@
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+    min-width: 100%;
+}
+
+::ng-deep .mat-tab-labels { /*ng-deep allows for cutomisation of*/
+    color:black;
+    background-color: #04C5FF;
+}
+
+::ng-deep .mat-tab-label-active, .mat-ink-bar  { /*ng-deep allows for cutomisation of*/
+    color:white;
+    background-color: #002333;
+}
+    
