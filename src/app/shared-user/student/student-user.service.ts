@@ -15,12 +15,20 @@ export class StudentUserService {
     lastName: '',
     emailAddress: '',
     password: '',
+    userRole: '',
     mobileNumber: '',
     dateOfBirth:  '',
     country: '',
     state: '',
     collegeName: '',
-    skillset: ''
+    noOfSkill: '',
+    skillset: '',
+    skill1: '',
+    skill2: '',
+    skill3: '',
+    skill4: '',
+    skill5: '',
+    skill6: ''
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'}) };

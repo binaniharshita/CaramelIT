@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { StudentUserService } from '../shared-user/student/student-user.service';
+import { StudentUser } from '../shared-user/student/student-user.model';
 
 @Component({
   selector: 'app-student-register',
@@ -12,15 +13,26 @@ import { StudentUserService } from '../shared-user/student/student-user.service'
 export class StudentRegisterComponent implements OnInit {
   showSuccessMessage: boolean;
   serverErrorMessage: string;
+  studentForm: StudentUser;
 
   constructor(public studentUserService: StudentUserService) { }
 
   ngOnInit(): void {
   }
-
   
-
   onSubmit(studentRegForm: NgForm){
+    //console.log(studentRegForm.value);
+    //console.log(studentRegForm.controls['skill'].value);
+    this.studentForm = studentRegForm.value;
+    this.studentForm.skill1 = this.studentForm.skillset.split(',')[0].trim();
+    this.studentForm.skill2 = this.studentForm.skillset.split(',')[1].trim();
+    this.studentForm.skill3 = this.studentForm.skillset.split(',')[2].trim();
+    this.studentForm.skill4 = this.studentForm.skillset.split(',')[3].trim();
+    this.studentForm.skill5 = this.studentForm.skillset.split(',')[4].trim();
+    this.studentForm.skill6 = this.studentForm.skillset.split(',')[5].trim();
+    this.studentForm.noOfSkill = '6';
+    studentRegForm.setValue(this.studentForm);
+    console.log(studentRegForm.value);
     this.studentUserService.postStudentUser(studentRegForm.value).subscribe(
       res => {
         this.showSuccessMessage = true;
@@ -48,13 +60,22 @@ export class StudentRegisterComponent implements OnInit {
       mobileNumber: '',
       dateOfBirth:  '', 
       password: '',
+      userRole: '',
       country: '',
       state: '',
       collegeName: '',
-      skillset: ''
+      noOfSkill: '',
+      skillset: '',
+      skill1: '',
+      skill2: '',
+      skill3: '',
+      skill4: '',
+      skill5: '',
+      skill6: ''
     };
     studentForm.resetForm();
     this.serverErrorMessage = '';
   }
+
 
 }

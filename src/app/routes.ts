@@ -64,6 +64,10 @@ import { AddskillComponent } from './instructordashboard/skills/addskill/addskil
 import { SkillsetComponent } from './instructordashboard/skills/skillset/skillset.component';
 
 import { StudentsComponent } from './instructordashboard/students/students.component';
+import { SEnrolledcoursesComponent } from './student-dashboard/s-enrolledcourses/s-enrolledcourses.component';
+import { SReccomedcoursesComponent } from './student-dashboard/s-reccomedcourses/s-reccomedcourses.component';
+import { SProgrepComponent } from './student-dashboard/s-progrep/s-progrep.component';
+import { SExamrepComponent } from './student-dashboard/s-examrep/s-examrep.component';
 
 
 export const routes: Routes = [
@@ -165,7 +169,13 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent },
+  { path: 'student-dashboard', component: StudentDashboardComponent, children: [
+    { path: 's-enrolledcourses', component: SEnrolledcoursesComponent },
+    { path: '', pathMatch: 'full', component: SReccomedcoursesComponent },
+    { path: 's-progrep', component: SProgrepComponent },
+    { path: 's-examrep', component: SExamrepComponent }
+    ] 
+  },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },

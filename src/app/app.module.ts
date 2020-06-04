@@ -50,6 +50,13 @@ import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+
+
 
 
 import { routes } from './routes';
@@ -127,6 +134,10 @@ import { AddskillComponent } from './instructordashboard/skills/addskill/addskil
 import { SkillsetComponent } from './instructordashboard/skills/skillset/skillset.component';
 
 import { StudentsComponent } from './instructordashboard/students/students.component';
+import { SEnrolledcoursesComponent } from './student-dashboard/s-enrolledcourses/s-enrolledcourses.component';
+import { SReccomedcoursesComponent } from './student-dashboard/s-reccomedcourses/s-reccomedcourses.component';
+import { SProgrepComponent } from './student-dashboard/s-progrep/s-progrep.component';
+import { SExamrepComponent } from './student-dashboard/s-examrep/s-examrep.component';
 
 
 
@@ -206,7 +217,11 @@ import { StudentsComponent } from './instructordashboard/students/students.compo
     SkillsComponent,
     AddskillComponent,
     SkillsetComponent,
-    StudentsComponent
+    StudentsComponent,
+    SEnrolledcoursesComponent,
+    SReccomedcoursesComponent,
+    SProgrepComponent,
+    SExamrepComponent
   ],
   imports: [
     BrowserModule,
@@ -231,6 +246,10 @@ import { StudentsComponent } from './instructordashboard/students/students.compo
     MatDialogModule,
     MatExpansionModule,
     SlickCarouselModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
+    MatSidenavModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

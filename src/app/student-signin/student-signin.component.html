@@ -3,10 +3,12 @@
     <img src="../assets/Caramellogo.png" alt="logo" style="width:240px; height:65px; margin:0px 0px 0px 0px;">
   </a>
       <div class="row">
+        
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div class="card card-signin my-5">
+            <button routerLink="/student-dashboard" routerLinkActive="active">S Dash</button>
             <div class="card-body">
-              <h2 class="card-title text-center"><b>Sign In As Student</b></h2><br/><br/>
+              <h2 class="card-title text-center"><b>Sign In As User</b></h2><br/><br/>
               <form #studSigninForm="ngForm" (ngSubmit)="studSigninForm.valid && onSubmit(studSigninForm)" novalidate class="form-signin" action="/lms/organisation/organisation_login" method="post"><input type="hidden" name="_csrf" value="103e62e0-c7c1-4e11-a230-7832940d144e"/>
                 <div class="form-group">
                   <input #emailAddress="ngModel" [(ngModel)]="model.emailAddress" [pattern]="emailRegex" type="email" id="emailAddress" class="form-control" placeholder="Email address" required autofocus name="emailAddress" value="">

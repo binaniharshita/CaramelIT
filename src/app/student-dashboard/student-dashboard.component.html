@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(182, 128, 231);">
-    <img class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="150px" alt="forecastr logo">
-      <a class="navbar-brand" href="#"></a>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(88, 175, 209);"> <!--rgb(182, 128, 231);-->
+    <img routerLink="" routerLinkActive="active" class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="150px" alt="forecastr logo">
+      <a class="navbar-brand" ></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,23 +25,24 @@
     </div>
   </nav>
 <div>
-  <mat-drawer-container class="example-container" autosize>
-    <div>
-        <div class="example-sidenav-content">
+  <mat-drawer-container class="example-container" style="width: 100%; height: 100%;">
+        <!--<div class="example-sidenav-content">
             <button class="btn btn-outline-dark" type="button" mat-button (click)="drawer.toggle()">
-              <span>TOGGLE SIDENAV<i class="fa fa-bars"></i></span>
+              <span>MENU<i class="fa fa-bars"></i></span>
             </button>
           </div>
-        </div>
-    <mat-drawer #drawer class="sidenavv" mode="side">
-      <div id="prodisplay">
-          <h1>Student Name</h1>
+        </div> -->
+    <mat-drawer #drawer class="sidenav-container" mode="side" disableClose="true" opened="true"
+    
+    (mouseenter)="showMenu=!showMenu; mainHover=true" (mouseleave)="showMenu=!showMenu; mainHover=false;">
+      <!-- <div id="prodisplay">
+          <h1>Student Name: {{userDetails.name}}</h1>
           <div class="image-cropper">
           <img src="../../assets/student.svg" class="center">
             </div>
-        </div>
-    <div class="sidebutarea">
-    <button class="btn btn-dark sidebut">
+        </div> -->
+    <!-- <div class="sidebutarea">
+    <button routerLink="s-enrolledcourses" routerLinkActive="active" class="btn btn-dark sidebut">
         <span>MY COURSES<i class="fa fa-th-list"></i></span>
         <a href=""></a>
     </button>
@@ -62,102 +64,39 @@
         <button class="btn btn-dark">
         <h1>Logout <i class="fa fa-chevron-circle-right"></i></h1>
     </button>
-    </div>
+    </div> -->
+
+    <mat-nav-list>
+      <mat-list-item routerLink="s-enrolledcourses" routerLinkActive="active">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">MY COURSES</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="s-progrep" routerLinkActive="active">
+        <mat-icon mat-list-icon>show_chart</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">PROGRESS REPORT</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="s-examrep" routerLinkActive="active">
+        <mat-icon mat-list-icon>bar_chart</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">EXAM REPORT</h4>
+      </mat-list-item>
+      <mat-list-item (click)="onLogout();">
+        <mat-icon mat-list-icon>login</mat-icon>
+        <h4 mat-line *ngIf="showMenu">LOGOUT</h4>
+      </mat-list-item>
+    </mat-nav-list>
+
+
     </mat-drawer>
-    <div class="main-content">
-        <h1>RECOMMENDED COURSES</h1>
-        <div class="row">
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Courses</mat-card-title>
-                      <mat-card-subtitle>Course Number</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="../../assets/course.jpg" alt="Photo of a Courses">
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
+  <mat-drawer-content [ngStyle]="mainHover ? {'opacity': 0.2} : {'opacity':1}"> 
+    <div id="prodisplay" >
+      <h1>Welcome Student Name: Student</h1> <!--{{userDetails.name}}-->
+      <div class="image-cropper" routerLink="/profile-page" routerLinkActive="active">
+      <img src="../../assets/student.svg" class="center">
         </div>
     </div>
-</mat-drawer-container>
-</div>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+    <!-- <div class="main-content"> -->
+  </mat-drawer-container>
 
-
-
-
+<app-footer></app-footer>
