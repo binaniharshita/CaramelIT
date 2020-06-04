@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <!-- <app-videosection [course] = "selectedCourse"></app-videosection> -->
-<app-course-content-display [course]= "selectedCourse"></app-course-content-display>
+<h2 >{{selectedCourse.title}}</h2>
+
+ <app-course-content-display [course]= "selectedCourse"></app-course-content-display>  
 <app-course-page-tabs></app-course-page-tabs>
 <!-- <app-page-content></app-page-content> -->
 
@@ -42,5 +44,5 @@
       <button class="enroll-button center" *ngIf="addedToCart" routerLink="/student-cart" routerLinkActive="active">Go to Cart</button>
     </div>
 </div>   -->
-<app-other-courses [course]= "selectedCourse"></app-other-courses>
+ <!-- <app-other-courses [course]= "selectedCourse"></app-other-courses> -->
 <app-footer></app-footer>

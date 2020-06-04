@@ -9,6 +9,7 @@
       <div class="row container" style="display: table-row-group;">
         <button class="btn btn-langs"  *ngFor="let skill of skills">{{skill}}</button>
       </div>
+      <button class="edit" type="button">Edit</button>
     </div>
     <div class="row container-fluid" style="margin-left: 10px;">
       <div class="instructor">
@@ -17,16 +18,9 @@
             <p class="message">Instructor - {{instructorName}}<br />Message Your Instructor!</p>
           </div>
           <div class="form-group justify-content-center align-items-center">
-            <textarea
-              name="message"
-              id="message"
-              class="form-control messageArea"
-              placeholder="Enter Message"
-            ></textarea>
+            <textarea name="message" id="message" class="form-control messageArea" placeholder="Enter Message"></textarea>
           </div>
-          <button type="submit" class="btn btnsend float-right">
-            Send
-          </button>
+          <button type="submit" class="btn btnsend float-right">Send</button>
         </form>
       </div>
     </div>

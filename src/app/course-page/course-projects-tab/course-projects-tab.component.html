@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="projects">
+        <h3>Mini Projects<button class="edit" type="button">Edit</button></h3>
+        <button type="button" class="project" *ngFor="let project of miniProjects"> 
+            <img src={{project.image}}>
+            <h5>{{project.title}}</h5>
+            <p>{{project.description}}</p>
+        </button>
+    </div>
+    <div class="projects">
+        <h3>Projects<button class="edit" type="button">Edit</button></h3>
+        <button type="button" class="project" *ngFor="let project of projects"> 
+            <img src={{project.image}}>
+            <h5>{{project.title}}</h5>
+            <p>{{project.description}}</p>
+        </button>
+    </div>
+</div>

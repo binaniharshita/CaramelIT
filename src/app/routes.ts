@@ -167,6 +167,7 @@ export const routes: Routes = [
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'response-reset-password/:token', component: ResponseResetComponent },
   { path: 'course-page', component: CoursePageComponent },
+  
   { path: 'student-cart', component: StudentCartComponent, canActivate: [AuthGuard] },
   { path: 'program-swd', component: ProgramSwdComponent },
   { path: 'program-swd/:id', component: ProgramSwdComponent },
@@ -198,9 +199,10 @@ export const routes: Routes = [
       { path: 'manage/add-structure', component: CreateStructureComponent },
       { path: 'manage/view-structure', component: ViewStructureComponent },
       { path: 'manage/add-course', component: AddCourseComponent },
-      { path: 'manage/view-course', component: ViewCourseComponent, },
+     { path: 'manage/view-course', component: ViewCourseComponent, },
+     { path: 'manage/view-course/course-page/:id', component: CoursePageComponent },
       { path: 'reports', component: ReportsComponent },
-      { path: 'manage/view-course/viewcourse/:id', component: ViewParticularCourseComponent },
+      // { path: 'manage/view-course/viewcourse/:id', component: ViewParticularCourseComponent },
       { path: 'manage/view-structure/viewprogram/:id', component: ProgramSwdComponent }
     ]
   },

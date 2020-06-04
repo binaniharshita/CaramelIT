@@ -31,7 +31,7 @@ export class CourseService {
               id: course._id,
               subCatId: course.subcategory,
               imagePath: course.imagePath,
-              module: course.module,
+              contentModule: course.modules,
             };
           });
         }))
@@ -69,7 +69,7 @@ export class CourseService {
           description,
           subCatId: responseData.course.subcategory,
           imagePath: responseData.course.imagePath,
-          contentModule: responseData.course.contentModule,
+          contentModule: responseData.course.modules,
         };
         this.courses.push(courseAdd);
         this.coursesUpdated.next([...this.courses]);
