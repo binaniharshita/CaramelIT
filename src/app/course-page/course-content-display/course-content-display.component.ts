@@ -27,7 +27,7 @@ export class CourseContentDisplayComponent implements OnInit {
     this.courseName = this.course.title;
     //this.courseDiscription = this.course.contentModule[1];
 
-     document.getElementById("tableCon").innerHTML = JSON.stringify(this.course.contentModule,null,4);
+     document.getElementById("tableCon").innerHTML = JSON.stringify(this.course.contentModule);
     //this.lectures = this.course.contentModule[0][3][1];
     console.log(this.lectures);
 
