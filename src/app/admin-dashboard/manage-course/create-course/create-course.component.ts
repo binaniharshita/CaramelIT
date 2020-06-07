@@ -53,6 +53,9 @@ export class CreateCourseComponent implements OnInit {
       description: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
+      skillCovered: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
       selectCategory: ['', { validators: [Validators.required] }],
       subcateogoryId: ['', { validators: [Validators.required] }],
     });

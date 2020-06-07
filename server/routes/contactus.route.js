@@ -1,4 +1,4 @@
-require('dotenv').config;
+
 const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
@@ -22,11 +22,11 @@ let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'data.web.development@gmail.com',//enter gmail account from which you want to send email
-        pass : '@99advanced'//enter password of your gmail
+        pass : 'express.Route'//enter password of your gmail
     }
 });
 
-contactRoute.route('/').get(function(req,res){
+contactRoute.get(('/'),function(req,res){
     Contact.find(function(err,contacts){
         if(err)
         {
@@ -37,7 +37,7 @@ contactRoute.route('/').get(function(req,res){
     })
 })
 
-contactRoute.route('/add').post(function(req,res){
+contactRoute.post(('/'), function(req,res){
     let contactinfo = new Contact(req.body)
     
     contactinfo.save()
@@ -69,9 +69,8 @@ contactRoute.route('/add').post(function(req,res){
                }) 
 })
 
+exports = module.exports = contactRoute
 
-app.use('/',contactRoute)
 
-app.listen(6688,() =>{
-    console.log("server started at http://localhost:6688")
-})
+
+
