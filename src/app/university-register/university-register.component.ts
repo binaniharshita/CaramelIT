@@ -50,7 +50,7 @@ export class UniversityRegisterComponent implements OnInit {
       collegeName: '',
       universityName: '',
       emailAddress: '',
-      mobileNumber: 0,
+      mobileNumber: '',
       password: '',
       country: '',
       state: '',

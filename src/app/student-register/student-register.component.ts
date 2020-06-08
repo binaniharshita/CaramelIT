@@ -38,8 +38,6 @@ export class StudentRegisterComponent implements OnInit {
     this.studentForm.skill6 = this.studentForm.skillset.split(',')[5].trim();
     this.studentForm.noOfSkill = '6';
     studentRegForm.setValue(this.studentForm);
-    console.log(studentRegForm.value);
-
     if(this.selectedRole === 'Student') {
       console.log(studentRegForm.value);
     this.studentUserService.postStudentUser(studentRegForm.value).subscribe(
