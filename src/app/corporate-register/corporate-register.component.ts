@@ -45,7 +45,7 @@ export class CorporateRegisterComponent implements OnInit {
       user_type: 'Corporate',
       corporateName: '',
       emailAddress: '',
-      mobileNumber: 0,
+      mobileNumber: '',
       password: '',
       others: ''
     };

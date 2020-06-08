@@ -10,10 +10,14 @@
 
 .page-title{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 30%;
+    margin-left: 40%;
 }
 .back-btn{
     margin-top:10px;
     margin-left: 41%;
     margin-bottom: 10px;
+}
+
+.center {
+    justify-content: center;
 }

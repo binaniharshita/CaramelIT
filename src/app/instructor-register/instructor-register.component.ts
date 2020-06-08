@@ -43,7 +43,7 @@ export class InstructorRegisterComponent implements OnInit {
       firstName: '',
       lastName: '',
       emailAddress: '',
-      mobileNumber: 0,
+      mobileNumber: '',
       password: '',
       subjects: '',
       workingHours: '',

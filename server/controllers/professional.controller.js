@@ -1,35 +1,34 @@
-require('../models/student.model');
+require('../models/professional.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const _ = require('lodash');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
-const studentpasswordResetToken = require('../models/Reset Tokens/student-reset-token.model');
-const Student = mongoose.model('Student');
+const professionalpasswordResetToken = require('../models/Reset Tokens/professional-reset-token.model');
+const Professional = mongoose.model('Professional');
 
 module.exports.register = (req, res, next) => {
-    var student = new Student();
-    student.firstName = req.body.firstName;
-    student.lastName = req.body.lastName;
-    student.emailAddress = req.body.emailAddress;
-    student.password = req.body.password;
-    student.userRole = req.body.userRole;
-    student.mobileNumber = req.body.mobileNumber;
-    student.dateOfBirth = req.body.dateOfBirth;
-    student.country = req.body.country;
-    student.state = req.body.state;
-    student.collegeName = req.body.collegeName;
-    student.noOfSkill = req.body.noOfSkill;
-    student.skillset = req.body.skillset;
-    student.skill1 = req.body.skill1;
-    student.skill2 = req.body.skill2;
-    student.skill3 = req.body.skill3;
-    student.skill4 = req.body.skill4;
-    student.skill5 = req.body.skill5;
-    student.skill6 = req.body.skill6;
-    student.createdAt = req.body.createdAt;
-    student.save((err, doc) => {
+    var professional = new Professional();
+    professional.firstName = req.body.firstName;
+    professional.lastName = req.body.lastName;
+    professional.emailAddress = req.body.emailAddress;
+    professional.password = req.body.password;
+    professional.userRole = req.body.userRole;
+    professional.mobileNumber = req.body.mobileNumber;
+    professional.dateOfBirth = req.body.dateOfBirth;
+    professional.country = req.body.country;
+    professional.state = req.body.state;
+    professional.noOfSkill = req.body.noOfSkill;
+    professional.skillset = req.body.skillset;
+    professional.skill1 = req.body.skill1;
+    professional.skill2 = req.body.skill2;
+    professional.skill3 = req.body.skill3;
+    professional.skill4 = req.body.skill4;
+    professional.skill5 = req.body.skill5;
+    professional.skill6 = req.body.skill6;
+    professional.createdAt = req.body.createdAt;
+    professional.save((err, doc) => {
         if (!err)
             res.send(doc);
         else {
@@ -44,23 +43,23 @@ module.exports.register = (req, res, next) => {
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
-    passport.authenticate('studentLocal', (err, student, info) => {
+    passport.authenticate('professionalLocal', (err, professional, info) => {
         // error from passport middleware
         if (err) return res.status(404).json(err);
-        // registered student
-        if (student) return res.status(200).json({ "token": student.generateJwt() });
+        // registered professional
+        if (professional) return res.status(200).json({ "token": professional.generateJwt() });
         // unknown or wrong password
         else return res.status(401).json(info);
     })(req, res);
 }
 
-module.exports.studentProfile = (req, res, next) => {
-    Student.findOne({ _id: req._id },
-        (err, student) => {
-            if (!student)
+module.exports.professionalProfile = (req, res, next) => {
+    Professional.findOne({ _id: req._id },
+        (err, professional) => {
+            if (!professional)
                 return res.status(404).json({ status: false, message: 'Record not found.' });
             else
-                return res.status(200).json({ status: true, student: _.pick(student, ['firstName', 'lastName', 'emailAddress']) });
+                return res.status(200).json({ status: true, professional: _.pick(professional, ['firstName', 'lastName', 'emailAddress']) });
         }
     );
 }
@@ -72,18 +71,18 @@ module.exports.ResetPassword = async(req, res) => {
             .status(500)
             .json({ message: 'Email is required' });
     }
-    const student = await Student.findOne({
+    const professional = await Professional.findOne({
         emailAddress: req.body.emailAddress
     });
-    if (!student) {
+    if (!professional) {
         return res
             .status(409)
             .json({ message: 'Email does not exist' });
     }
-    var resettoken = new studentpasswordResetToken({ _studentId: student._id, resettoken: crypto.randomBytes(16).toString('hex') });
+    var resettoken = new professionalpasswordResetToken({ _professionalId: professional._id, resettoken: crypto.randomBytes(16).toString('hex') });
     resettoken.save(function(err) {
         if (err) { return res.status(500).send({ msg: err.message }); }
-        studentpasswordResetToken.find({ _studentId: student._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
+        professionalpasswordResetToken.find({ _professionalId: professional._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
         res.status(200).json({ message: 'Reset Password successfully.' });
         var transporter = nodemailer.createTransport({
             service: 'Gmail',
@@ -94,7 +93,7 @@ module.exports.ResetPassword = async(req, res) => {
             }
         });
         var mailOptions = {
-            to: student.emailAddress,
+            to: professional.emailAddress,
             from: 'shristdas@gmail.com',
             subject: 'Node.js Password Reset',
             text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
@@ -114,15 +113,16 @@ module.exports.ValidPasswordToken = async(req, res) => {
             .status(500)
             .json({ message: 'Token is required' });
     }
-    const student = await studentpasswordResetToken.findOne({
+    const professional = await professionalpasswordResetToken.findOne({
         resettoken: req.body.resettoken
     });
-    if (!student) {
+    if (!professional) {
         return res
             .status(409)
             .json({ message: 'Invalid URL' });
     }
-    Student.findOneAndUpdate({ _id: student._studentId }).then(() => {
+    
+    Professional.findOneAndUpdate({ _id: professional._professionalId }).then(() => {
         res.status(200).json({ message: 'Token verified successfully.' });
     }).catch((err) => {
         return res.status(500).send({ msg: err.message });
@@ -130,17 +130,17 @@ module.exports.ValidPasswordToken = async(req, res) => {
 }
 
 module.exports.NewPassword = async(req, res) => {
-    studentpasswordResetToken.findOne({ resettoken: req.body.resettoken }, function(err, studentToken, next) {
-        if (!studentToken) {
+    professionalpasswordResetToken.findOne({ resettoken: req.body.resettoken }, function(err, professionalToken, next) {
+        if (!professionalToken) {
             return res
                 .status(409)
                 .json({ message: 'Token has expired' });
         }
 
-        Student.findOne({
-            _id: studentToken._studentId
-        }, function(err, studentEmail, next) {
-            if (!studentEmail) {
+        Professional.findOne({
+            _id: professionalToken._professionalId
+        }, function(err, professionalEmail, next) {
+            if (!professionalEmail) {
                 return res
                     .status(409)
                     .json({ message: 'Email not registered' });
@@ -151,14 +151,14 @@ module.exports.NewPassword = async(req, res) => {
                         .status(400)
                         .json({ message: 'Error hashing password' });
                 }
-                studentEmail.password = hash;
-                studentEmail.save(function(err) {
+                professionalEmail.password = hash;
+                professionalEmail.save(function(err) {
                     if (err) {
                         return res
                             .status(400)
                             .json({ message: 'Password can not reset.' });
                     } else {
-                        studentToken.remove();
+                        professionalToken.remove();
                         return res
                             .status(201)
                             .json({ message: 'Password reset successfully' });

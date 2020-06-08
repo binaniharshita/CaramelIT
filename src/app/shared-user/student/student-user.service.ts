@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { StudentUser } from './student-user.model';
+import { StudentUser, ProfessionalUser } from './student-user.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -31,6 +31,29 @@ export class StudentUserService {
     skill6: ''
   };
 
+  selectedProfessionalUser: ProfessionalUser = {
+    user_type: 'Student',
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    password: '',
+    userRole: '',
+    mobileNumber: '',
+    dateOfBirth:  '',
+    country: '',
+    state: '',
+    noOfSkill: '',
+    skillset: '',
+    skill1: '',
+    skill2: '',
+    skill3: '',
+    skill4: '',
+    skill5: '',
+    skill6: '',
+    currentOrg: '',
+    yearsExperience: ''
+  };
+
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'}) };
   constructor(private http: HttpClient) { }
 
@@ -40,12 +63,20 @@ export class StudentUserService {
     return this.http.post(environment.apiBaseUrl+'/student-register', studentUser,this.noAuthHeader);
   }
   
+  postProfesionalUser(professionalUser: ProfessionalUser){
+    return this.http.post(environment.apiBaseUrl+'/professional-register', professionalUser,this.noAuthHeader);
+  }
+  
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
   }
 
   getStudentProfile() {
     return this.http.get(environment.apiBaseUrl+'/studentProfile');
+  }
+
+  getProfessionalProfile() {
+    return this.http.get(environment.apiBaseUrl+'/professionalProfile');
   }
 
   //helper methods

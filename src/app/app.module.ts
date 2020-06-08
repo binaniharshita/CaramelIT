@@ -54,6 +54,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -249,7 +250,8 @@ import { SExamrepComponent } from './student-dashboard/s-examrep/s-examrep.compo
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatBadgeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

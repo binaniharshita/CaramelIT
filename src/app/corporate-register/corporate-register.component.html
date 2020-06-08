@@ -12,7 +12,7 @@
       <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <h2 align=center style="color:#111;"><b>New Organisation/Corporate Registration</b></h2><br>
+        <h2 style="color:#111; justify-content: 'center';"><b>New <br>Organisation/Corporate Registration</b></h2><br>
   
         <form #corporateRegForm="ngForm" (ngSubmit)="onSubmit(corporateRegForm)" autocomplete="off" method="post" class="m-t" role="form"
           data-toggle="validator">
@@ -35,7 +35,7 @@
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-envelope stugl"></span>
             </span>
-            <input #emailAddress="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.emailAddress" type="email" placeholder="your Email Address...." class="form-control stureg"
+            <input #emailAddress="ngModel" [(ngModel)]="corporateUserService.selectedCorporateUser.emailAddress" type="email" placeholder="Your Email Address...." class="form-control stureg"
               data-error="This email address is invalid" required id="emailAddress" name="emailAddress" value="" />
             <span class="glyphicon form-control-feedback"
               aria-hidden="true"></span>

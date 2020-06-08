@@ -54,6 +54,7 @@ const upload = multer({
 
 
 const ctrlStudent = require('../controllers/student.controller');
+const ctrlProfessional = require('../controllers/professional.controller');
 const ctrlCorporate = require('../controllers/corporate.controller');
 const ctrlInstructor = require('../controllers/instructor.controller');
 const ctrlUniversity = require('../controllers/university.controller');
@@ -64,6 +65,7 @@ const ctrlCourse = require('../controllers/course.controller');
 
 //Register
 router.post('/student-register', ctrlStudent.register);
+router.post('/professional-register', ctrlProfessional.register);
 router.post('/corporate-register', ctrlCorporate.register);
 router.post('/instructor-register', ctrlInstructor.register);
 router.post('/university-register', ctrlUniversity.register);
@@ -72,6 +74,9 @@ router.post('/admin-register', ctrlAdmin.register);
 //Login
 router.post('/student-authenticate', ctrlStudent.authenticate);
 router.get('/studentProfile', jwtHelper.verifyJwtToken, ctrlStudent.studentProfile);
+
+router.post('/professional-authenticate', ctrlProfessional.authenticate);
+router.get('/professionalProfile', jwtHelper.verifyJwtToken, ctrlProfessional.professionalProfile);
 
 router.post('/instructor-authenticate', ctrlInstructor.authenticate);
 router.get('/instructorProfile', jwtHelper.verifyJwtToken, ctrlInstructor.instructorProfile);
@@ -92,6 +97,11 @@ router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
 router.post('/student-req-reset-password', ctrlStudent.ResetPassword);
 router.post('/student-new-password', ctrlStudent.NewPassword);
 router.post('/student-valid-password-token', ctrlStudent.ValidPasswordToken);
+
+//Reset Professional password
+router.post('/professional-req-reset-password', ctrlProfessional.ResetPassword);
+router.post('/professional-new-password', ctrlProfessional.NewPassword);
+router.post('/professional-valid-password-token', ctrlProfessional.ValidPasswordToken);
 
 //Reset Instructor password
 router.post('/instructor-req-reset-password', ctrlInstructor.ResetPassword);

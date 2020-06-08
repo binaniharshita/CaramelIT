@@ -1,10 +1,77 @@
-<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(89, 76, 173);"> 
+    <img routerLink="home" routerLinkActive="active" class="logo1 horizontal-logo" src="../assets/caramelacademy.png" width="150px" alt="forecastr logo">
+      <a class="navbar-brand" routerLink="home" routerLinkActive="active"  ></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <form class="form-inline my-2 my-lg-0 example-spacer">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active" style="text-align: right;">
+        <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<mat-drawer-container class="example-container" style="width: 100%; height: 100%;">
+
+    <mat-drawer #drawer class="sidenav-container" mode="side" disableClose="true" opened="true"
+    (mouseenter)="showMenu=!showMenu; mainHover=true" (mouseleave)="showMenu=!showMenu; mainHover=false;">
+    <mat-nav-list>
+      <mat-list-item routerLink="course-association" routerLinkActive="active">
+        <mat-icon mat-list-icon>format_list_bulleted</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">MANAGE COURSE ASSOCIATION</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="students" routerLinkActive="active">
+        <mat-icon mat-list-icon>face</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">MANAGE STUDENTS</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="skills" routerLinkActive="active">
+        <mat-icon mat-list-icon>stars</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">MANAGE SKILLS</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="s-examrep" routerLinkActive="active">
+        <mat-icon mat-list-icon>format_list_bulleted</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">MANAGE COURSE PERFORMANCE</h4>
+      </mat-list-item>
+      <mat-list-item routerLink="s-examrep" routerLinkActive="active">
+        <mat-icon mat-list-icon>forum</mat-icon>
+        <h4 mat-line  *ngIf="showMenu">INSTRUCTOR STUDENT RELATION</h4>
+      </mat-list-item>
+      <mat-list-item (click)="onLogout();">
+        <mat-icon mat-list-icon>login</mat-icon>
+        <h4 mat-line *ngIf="showMenu">LOGOUT</h4>
+      </mat-list-item>
+    </mat-nav-list>
+    
+    
+    </mat-drawer>
+    <mat-drawer-content [ngStyle]="mainHover ? {'opacity': 0.2} : {'opacity':1}"> 
+    <div id="prodisplay" >
+      <h1>Welcome Instructor: </h1> <!--{{userDetails.name}}-->
+      <div class="image-cropper" routerLink="/profile-page" routerLinkActive="active">
+      <img src="../../assets/admin-icons/instructor.svg" class="center">
+        </div>
+    </div>
+    <router-outlet style="overflow: 'hidden';"></router-outlet>
+    </mat-drawer-content>
+    <!-- <div class="main-content"> -->
+    </mat-drawer-container>
+    
+    <app-footer></app-footer>
+
+
+<!-- <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-custom">
         <span class="navbar-brand"><img src="/assets/images/logo.png" class="logo"></span>
 
     </nav>
 
-</div>
+</div> 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -45,4 +112,4 @@
             <router-outlet></router-outlet>
         </div>
     </div>
-</div>
+</div> -->

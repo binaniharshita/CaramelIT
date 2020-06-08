@@ -72,6 +72,7 @@ import { SExamrepComponent } from './student-dashboard/s-examrep/s-examrep.compo
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
+  { path: 'home', pathMatch: 'full', component: AcademypageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
   { path: 'instructor-signin', component: InstructorSigninComponent },
@@ -189,11 +190,11 @@ export const routes: Routes = [
     ]
   },
   { path: 'instructor-dashboard', component: InstructordashboardComponent, children:[
-    { path: 'course-assocition' , component: CourseassociationComponent },
+    { path: 'course-association' , component: CourseassociationComponent },
     { path: 'skills' , component: SkillsComponent },
-    { path: 'course-assocition/choose-course' , component: ChoosecourseComponent },
-    { path: 'course-assocition/dissociate' , component: DissociateComponent },
-    { path: 'course-assocition/list-course' , component: ListcourseComponent },
+    { path: 'course-association/choose-course' , component: ChoosecourseComponent },
+    { path: 'course-association/dissociate' , component: DissociateComponent },
+    { path: 'course-association/list-course' , component: ListcourseComponent },
     { path: 'skills/addskills' , component: AddskillComponent },
     { path: 'skills/skillset' , component: SkillsetComponent },
     { path: 'students' , component: StudentsComponent },

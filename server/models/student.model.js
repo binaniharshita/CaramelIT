@@ -20,6 +20,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    userRole: {
+        type: String,
+        required: true
+    },
     mobileNumber: {
         type: Number
     },
@@ -35,7 +39,28 @@ const studentSchema = new mongoose.Schema({
     collegeName: {
         type: String
     },
+    noOfSkillset: {
+        type: String
+    },
     skillset: {
+        type: String
+    },
+    skillset1: {
+        type: String
+    },
+    skillset2: {
+        type: String
+    },
+    skillset3: {
+        type: String
+    },
+    skillset4: {
+        type: String
+    },
+    skillset5: {
+        type: String
+    },
+    skillset6: {
         type: String
     },
     createdAt: {

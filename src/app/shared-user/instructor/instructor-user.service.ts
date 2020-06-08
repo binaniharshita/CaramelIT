@@ -14,7 +14,7 @@ export class InstructorUserService {
     firstName: '',
     lastName: '',
     emailAddress: '',
-    mobileNumber: 0,
+    mobileNumber: '',
     password: '',
     subjects: '',
     workingHours: '',

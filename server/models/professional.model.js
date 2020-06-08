@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const studentSchema = new mongoose.Schema({
+const professionalSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true
@@ -20,22 +20,20 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    userRole: {
+        type: String,
+        required: true
+    },
     mobileNumber: {
         type: Number
     },
     dateOfBirth: {
         type: Date
     },
-    userRole: {
-        type: String
-    },
     country: {
         type: String
     },
     state: {
-        type: String
-    },
-    collegeName: {
         type: String
     },
     noOfSkillset: {
@@ -62,6 +60,12 @@ const studentSchema = new mongoose.Schema({
     skillset6: {
         type: String
     },
+    currentOrg: {
+        type: String
+    },
+    yearsExperience: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -70,13 +74,13 @@ const studentSchema = new mongoose.Schema({
 });
 
 // Custom validation for email
-studentSchema.path('emailAddress').validate((val) => {
+professionalSchema.path('emailAddress').validate((val) => {
     emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
 // Events
-studentSchema.pre('save', function(next) {
+professionalSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -87,17 +91,17 @@ studentSchema.pre('save', function(next) {
 });
 
 // Methods
-studentSchema.methods.verifyPassword = function(password) {
+professionalSchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-studentSchema.methods.generateJwt = function() {
+professionalSchema.methods.generateJwt = function() {
     return jwt.sign({ _id: this._id },
         process.env.JWT_SECRET, {
             expiresIn: process.env.JWT_EXP
         });
 }
 
-const Student = mongoose.model('Student', studentSchema, 'Student_info');
+const Professional = mongoose.model('Professional', professionalSchema, 'Professional_info');
 
-module.exports = Student;
+module.exports = Professional; 

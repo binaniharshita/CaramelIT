@@ -3,7 +3,7 @@ export class UniversityUser {
     collegeName: string;
     universityName: string;
     emailAddress: string;
-    mobileNumber: number;
+    mobileNumber: string;
     password: string;
     country: string;
     state: string;

@@ -14,7 +14,7 @@ export class UniversityUserService {
     collegeName: '',
     universityName: '',
     emailAddress: '',
-    mobileNumber: 0,
+    mobileNumber: '',
     password: '',
     country: '',
     state: '',
