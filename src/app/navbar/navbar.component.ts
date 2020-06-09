@@ -17,7 +17,11 @@ import { UniversityUserService } from '../shared-user/university/university-user
 export class NavbarComponent implements OnInit {
 
   userType = '';
+  showReg = true;
   studentLogin: boolean;
+  instructorLogin: boolean;
+  universityLogin: boolean;
+  corporateLogin: boolean;
 
   constructor(private studentUserService: StudentUserService,
               private instructorUserService: InstructorUserService,
@@ -30,16 +34,46 @@ export class NavbarComponent implements OnInit {
       this.studentLogin = this.studentUserService.isLoggedIn();
       // window.alert(this.studentUserService.selectedStudentUser.user_type + " " + this.studentLogin);
       this.userType = this.studentUserService.selectedStudentUser.user_type;
+      this.showReg = false;
+    }
+    else if (this.instructorUserService.isLoggedIn()) {
+      this.instructorLogin = this.instructorUserService.isLoggedIn();
+      window.alert(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
+      this.userType = this.instructorUserService.selectedInstructorUser.user_type;
+      this.showReg = false;
+    }
+    else if (this.corporateUserService.isLoggedIn()) {
+      this.corporateLogin = this.corporateUserService.isLoggedIn();
+      this.userType = this.corporateUserService.selectedCorporateUser.user_type;
+      this.showReg = false;
+    }
+    else if (this.universityUserService.isLoggedIn()) {
+      this.universityLogin = this.universityUserService.isLoggedIn();
+      this.userType = this.universityUserService.selectedUniversityUser.user_type;
+      this.showReg = false;
     }
   }
 
-
-
-
   onLogout() {
-    if (this.studentUserService.selectedStudentUser.user_type === 'Student') {
+    if (this.studentUserService.selectedStudentUser.user_type === 'Student' && this.studentLogin) {
       this.studentUserService.deleteToken();
       this.router.navigate(['student-signin']);
+      this.showReg = true;
+    }
+    else if (this.instructorUserService.selectedInstructorUser.user_type === 'Instructor' && this.instructorLogin) {
+      this.studentUserService.deleteToken();
+      this.router.navigate(['instructor-signin']);
+      this.showReg = true;
+    }
+    else if (this.corporateUserService.selectedCorporateUser.user_type === 'Corporate' && this.corporateLogin) {
+      this.studentUserService.deleteToken();
+      this.router.navigate(['corporate-signin']);
+      this.showReg = true;
+    }
+    else if (this.universityUserService.selectedUniversityUser.user_type === 'University' && this.universityLogin) {
+      this.studentUserService.deleteToken();
+      this.router.navigate(['university-signin']);
+      this.showReg = true;
     }
   }
 

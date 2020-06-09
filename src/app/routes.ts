@@ -68,10 +68,16 @@ import { CollegeDashboardComponent} from './college-dashboard/college-dashboard.
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
+import { Component } from '@angular/core';
+import { EnrolledcoursesComponent } from './student-dashboard/enrolledcourses/enrolledcourses.component';
+import { RecommendedcoursesComponent } from './student-dashboard/recommendedcourses/recommendedcourses.component';
+import { ProgrepComponent } from './student-dashboard/progrep/progrep.component';
+import { ExamrepComponent } from './student-dashboard/examrep/examrep.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
+  { path: 'home', pathMatch: 'full', component: AcademypageComponent },
 
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },
@@ -92,13 +98,6 @@ export const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent, },
   // tslint:disable-next-line: max-line-length
-
-  { path: 'user_list', component: UserListComponent },
-  { path: 'college_list', component: CollegeListComponent },
-  { path: 'instructor_list', component: InstructorListComponent },
-  { path: 'organisation_list', component: OrganisationListComponent },
-  { path: 'list_course', component: ListCourseComponent },
-  { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
  // { path: '', pathMatch: 'full', component: HomepageComponent },
   { path: 'student-signin', component: StudentSigninComponent },
   { path: 'student-register', component: StudentRegisterComponent },
@@ -113,39 +112,7 @@ export const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'forgot-password', component: ForgotPwComponent },
 
-  { path: 'user_list', component: UserListComponent },
-  { path: 'college_list', component: CollegeListComponent },
-  { path: 'instructor_list', component: InstructorListComponent },
-  { path: 'organisation_list', component: OrganisationListComponent },
-  { path: 'list_course', component: ListCourseComponent },
-  { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
-  { path: 'response-reset-password/:token', component: ResponseResetComponent },
  //  { path: '', pathMatch: 'full', component: HomepageComponent },
-  { path: 'student-signin', component: StudentSigninComponent },
-  { path: 'student-register', component: StudentRegisterComponent },
-  { path: 'instructor-signin', component: InstructorSigninComponent },
-  { path: 'instructor-register', component: InstructorRegisterComponent },
-  { path: 'corporate-signin', component: CorporateSigninComponent },
-  { path: 'corporate-register', component: CorporateRegisterComponent },
-  { path: 'university-signin', component: UniversitySigninComponent },
-  { path: 'university-register', component: UniversityRegisterComponent },
-  { path: 'admin-signin', component: AdminSigninComponent },
-  { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
-  { path: 'forgot-password', component: ForgotPwComponent },
-  // { path: '', pathMatch: 'full', component: HomepageComponent },
-  { path: 'student-signin', component: StudentSigninComponent },
-  { path: 'student-register', component: StudentRegisterComponent },
-  { path: 'instructor-signin', component: InstructorSigninComponent },
-  { path: 'instructor-register', component: InstructorRegisterComponent },
-  { path: 'corporate-signin', component: CorporateSigninComponent },
-  { path: 'corporate-register', component: CorporateRegisterComponent },
-  { path: 'university-signin', component: UniversitySigninComponent },
-  { path: 'university-register', component: UniversityRegisterComponent },
-  { path: 'admin-signin', component: AdminSigninComponent },
-  { path: 'admin-register', component: AdminRegisterComponent },
-  { path: 'contactus', component: ContactusComponent },
-  { path: 'forgot-password', component: ForgotPwComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
@@ -177,7 +144,14 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent },
+  { path: 'student-dashboard', component: StudentDashboardComponent,canActivate: [AuthGuard], children: [
+    { path: 'enrolledcourses', component: EnrolledcoursesComponent },
+    { path: '', pathMatch: 'full', component: RecommendedcoursesComponent },
+    { path: 'recommended', pathMatch: 'full', component: RecommendedcoursesComponent },
+    { path: 'progrep', component: ProgrepComponent },
+    { path: 'examrep', component: ExamrepComponent }
+    ] 
+  },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
@@ -190,7 +164,7 @@ export const routes: Routes = [
       { path: 'manage/view-structure/viewprogram/:id', component: ProgramSwdComponent }
     ]
   },
-  { path: 'instructor-dashboard', component: InstructordashboardComponent, children:[
+  { path: 'instructor-dashboard', component: InstructordashboardComponent, canActivate: [AuthGuard], children:[
     { path: 'course-assocition' , component: CourseassociationComponent },
     { path: 'skills' , component: SkillsComponent },
     { path: 'course-assocition/choose-course' , component: ChoosecourseComponent },

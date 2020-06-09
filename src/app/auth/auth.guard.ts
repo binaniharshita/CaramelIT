@@ -30,12 +30,15 @@ export class AuthGuard implements CanActivate {
       } else if(!this.instructorUserService.isLoggedIn()) {
         this.router.navigateByUrl('instructor-signin');
         this.instructorUserService.deleteToken();
+        return false;
       } else if(!this.corporateUserService.isLoggedIn()){
         this.router.navigateByUrl('corporate-signin');
         this.corporateUserService.deleteToken();
+        return false;
       } else if(!this.universityUserService.isLoggedIn()) {
         this.router.navigateByUrl('university-signin');
         this.universityUserService.deleteToken();
+        return false;
       }
     return true;
   }

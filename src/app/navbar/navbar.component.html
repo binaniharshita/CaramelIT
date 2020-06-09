@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="showReg">
                         <div class="dropdown">
                             <a href="#" class="nav-link px-lg-3 alink">Registration <i class="fa fa-caret-down"></i></a>
                             <div class="dropdown-content">
@@ -40,12 +40,23 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item" *ngIf="userType != ''">
+                    <li class="nav-item" *ngIf="userType === 'Student'">
                         <div class="dropdown">
                             <a href="#" class="nav-link px-lg-3 alink">Account <i class="fa fa-caret-down"></i></a>
                             <div class="dropdown-content">
+                                <a routerLink="/student-dashboard" routerLinkactive="active">Dashboard</a>
                                 <a routerLink="/profile-page" routerLinkactive="active">Profile Page</a>
                                 <a routerLink="/student-cart" routerLinkActive="active">Cart</a>
+                                <a href="#" (click)="onLogout();">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" *ngIf="userType === 'Instructor'">
+                        <div class="dropdown">
+                            <a href="#" class="nav-link px-lg-3 alink">Account <i class="fa fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a routerLink="/instructor-dashboard" routerLinkactive="active">Dashboard</a>
+                                <a routerLink="/profile-page" routerLinkactive="active">Profile Page</a>
                                 <a href="#" (click)="onLogout();">Logout</a>
                             </div>
                         </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from "@angular/router";
+import { InstructorUserService } from '../shared-user/instructor/instructor-user.service';
+
 @Component({
   selector: 'app-instructordashboard',
   templateUrl: './instructordashboard.component.html',
@@ -7,10 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructordashboardComponent implements OnInit {
   title = 'dashboard';
+  userDetails;
+  showMenu = false;
+  mainHover=false;
 
-  constructor() { }
+  constructor(private instructorUserService: InstructorUserService,private router: Router) { }
 
   ngOnInit(): void {
+    this.instructorUserService.getInstructorProfile().subscribe(
+      res => {
+        this.userDetails = res['instructor'];
+      },
+      err => { 
+        console.log(err);
+      });
+  }
+
+  onLogout(){
+    this.instructorUserService.deleteToken();
+    this.router.navigate(['home']);
   }
 
 }

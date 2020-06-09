@@ -1,4 +1,3 @@
-
 <title>Student Registration </title>
 <body class="register_bg">
 <a class="navbar-brand" routerLink="">
@@ -8,13 +7,28 @@
 <div class="row">
 <div class="col-md-3"></div>
 <div class="col-md-6">
-    <h2 align="center" style="color:#111;"><b>New Student Registration</b></h2><br>
+    <h2 style="color:#111; justify-content: center;"><b>New User Registration</b></h2><br>
 
-    <form #studentRegForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(studentRegForm)" class="m-t" role="form"
+    <form #studentRegForm="ngForm" autocomplete="off" class="m-t" role="form"
+    (ngSubmit)="onSubmit(studentRegForm);"
       data-toggle="validator">
 
       <input type="hidden" name="_csrf" value="147c7f80-43c1-4ecb-a65f-47d01f526e8a"/> 
-      
+      <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-flag stugl"></span>
+        </span>
+        <select #userRole="ngModel" [(ngModel)]=" selectedRole ==='Student' ? studentUserService.selectedStudentUser.userRole : studentUserService.selectedProfessionalUser.userRole" 
+        (change)="selectChangeHandler($event); toggle();" class="form-control stureg" required id="userRole" name="userRole">
+           <option value="" >- - - Select Your Role - - -</option>
+          <option value="Student">Student</option>
+          <option value="IT Professional">IT Professional</option>
+          <option value="Non IT Professional">Non IT Professional</option>
+        </select>
+        <span class="glyphicon form-control-feedback"
+          aria-hidden="true"></span>
+    </div>
+    <div [@loadForm]="stateName">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group input-group has-feedback ">
@@ -23,7 +37,7 @@
             <span class="glyphicon glyphicon-user stugl"></span>
           </span>
         
-          <input #firstName="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.firstName"  type="text" placeholder="First Name...." class="form-control stureg" 
+          <input #firstName="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.firstName : studentUserService.selectedProfessionalUser.firstName"  type="text" placeholder="First Name...." class="form-control stureg" 
           required id="firstName" name="firstName" value="" />
           <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -33,7 +47,7 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-user stugl"></span>
         </span>
-        <input #lastName="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.lastName"  type="text" placeholder="Last Name...." class="form-control stureg" 
+        <input #lastName="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.lastName : studentUserService.selectedProfessionalUser.lastName"  type="text" placeholder="Last Name...." class="form-control stureg" 
         required id="lastName" name="lastName" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
@@ -44,7 +58,7 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-envelope stugl"></span>
         </span>
-        <input #emailAddress="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
+        <input #emailAddress="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.emailAddress : studentUserService.selectedProfessionalUser.emailAddress" type="email" placeholder="Email Address...." class="form-control stureg"
           data-error="This email address is invalid" id="emailAddress" name="emailAddress" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
@@ -53,8 +67,8 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-earphone stugl"></span>
         </span>
-        <input #mobileNumber="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg" 
-          data-error="This Mobile Number is invalid" required id="mobileNumber" name="mobileNumber" value="" />
+        <input #mobileNumber="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.mobileNumber : studentUserService.selectedProfessionalUser.mobileNumber" type="number" placeholder="Your Mobile Number...." class="form-control stureg" 
+          data-error="This Mobile Number is invalid" maxlength="10" required id="mobileNumber" name="mobileNumber" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
       </div>
@@ -62,7 +76,7 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-list-alt stugl"></span>
         </span>
-        <input #dateOfBirth="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.dateOfBirth" type="date" class="form-control stureg"
+        <input #dateOfBirth="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.dateOfBirth : studentUserService.selectedProfessionalUser.dateOfBirth" type="date" class="form-control stureg"
           data-error="Date Of Birth is invalid" required id="dob" name="dob" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
@@ -71,16 +85,17 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-envelope stugl"></span>
         </span>
-        <input #password="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.password" type="password" placeholder="Enter Password" class="form-control stureg"
+        <input #password="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.password : studentUserService.selectedProfessionalUser.password" type="password" placeholder="Enter Password..." class="form-control stureg"
            id="password" name="password" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
       </div>
+  
      <div class="form-group input-group has-feedback">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-flag stugl"></span>
         </span>
-        <select #country="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.country" class="form-control stureg" required id="country" name="country">
+        <select #country="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.country : studentUserService.selectedProfessionalUser.country" class="form-control stureg" required id="country" name="country">
            <option value="" >- - - Select Your Country - - -</option>
           <option value="Australia">Australia</option>
           <option value="India">India</option>
@@ -96,31 +111,80 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-home stugl"></span>
         </span>
-        <input #state="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.state" type="text" class="form-control stureg" placeholder="Enter Your State..."
+        <input #state="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.state : studentUserService.selectedProfessionalUser.state" type="text" class="form-control stureg" placeholder="Enter Your State..."
           data-error="State is invalid" required id="state" name="state" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
       </div>
       
+         <input width="100%" #noOfSkill="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.noOfSkill : studentUserService.selectedProfessionalUser.noOfSkill" type="hidden" class="form-control stureg" placeholder="Number of Skill Sets if you have any..."
+          data-error="Skill Set is invalid" min="1" max="6" required id="noOfSkill" name="noOfSkill" value="" />
+
+       <div class="form-group input-group has-feedback">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-tasks stugl"></span>
+        </span>
+        <input class="form-control stureg complete" #skillset="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skillset : studentUserService.selectedProfessionalUser.skillset"
+        type="text" placeholder="Enter upto any 6 Skills if you have ... EX: C, C++,java" 
+        data-error="Skill Set is invalid" required id="skillset" name="skillset" value="" />
+        <span class="glyphicon form-control-feedback"
+          aria-hidden="true"></span>
+      </div> 
+        <input #skill1="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill1 : studentUserService.selectedProfessionalUser.skill1"
+        type="hidden" class="form-control stureg" placeholder="Skill 1 if you have any... EX: C, C++,java"
+          data-error="Skill Set is invalid" required id="skill1" name="skill1" value="" />
+      
+        <input #skill2="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill2 : studentUserService.selectedProfessionalUser.skill2"
+        type="hidden" class="form-control stureg" placeholder="Skill 2"
+          data-error="Skill Set is invalid" required id="skill2" name="skill2" value="" />
+     
+        <input #skill3="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill3 : studentUserService.selectedProfessionalUser.skill3"
+        type="hidden" class="form-control stureg" placeholder="Skill 3"
+          data-error="Skill Set is invalid" required id="skill3" name="skill3" value="" />
+      
+        <input #skill4="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill4 : studentUserService.selectedProfessionalUser.skill4"
+        type="hidden" class="form-control stureg" placeholder="Skill 4"
+          data-error="Skill Set is invalid" required id="skill4" name="skill4" value="" />
+        
+        <input #skill5="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill5 : studentUserService.selectedProfessionalUser.skill5"
+        type="hidden" class="form-control stureg" placeholder="Skill 5"
+          data-error="Skill Set is invalid" required id="skill5" name="skill5" value="" />
+        
+        <input #skill6="ngModel" [(ngModel)]="selectedRole ==='Student' ? studentUserService.selectedStudentUser.skill6 : studentUserService.selectedProfessionalUser.skill6"
+        type="hidden" class="form-control stureg" placeholder="Skill 6"
+          data-error="Skill Set is invalid" required id="skill6" name="skill6" value="" />
+        
+
+        
       <div class="form-group input-group has-feedback">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-education stugl"></span>
         </span>
-        <input #college="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.collegeName" type="text" class="form-control stureg" placeholder="Your College/University Name..."
-          data-error="College is invalid" required id="college" name="college" value="" />
-        <span class="glyphicon form-control-feedback"
-          aria-hidden="true"></span>
-      </div>       
-      
-      <div class="form-group input-group has-feedback">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-tasks stugl"></span>
-        </span>
-        <input #skillset="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.skillset" type="text" class="form-control stureg" placeholder="Skill Set if you have any... EX: C, C++,java"
-          data-error="Skill Set is invalid" required id="skill" name="skill" value="" />
+        <input *ngIf="selectedRole === 'Student'" #collegeName="ngModel" [(ngModel)]="studentUserService.selectedStudentUser.collegeName" type="text" class="form-control stureg" placeholder="Your College Name..."
+          data-error="college is invalid" required id="college" name="college" value="" />
         <span class="glyphicon form-control-feedback"
           aria-hidden="true"></span>
       </div>
+
+        <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-education stugl"></span>
+          </span>
+          <input *ngIf="selectedRole === 'IT Professional' || selectedRole === 'Non IT Professional'" #currentOrg="ngModel" [(ngModel)]="studentUserService.selectedProfessionalUser.currentOrg" type="text" class="form-control stureg" placeholder="Your Current Organisation Name..."
+            data-error="invalid" required id="currentOrg" name="currentOrg" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-education stugl"></span>
+          </span>
+          <input *ngIf="selectedRole === 'IT Professional' || selectedRole === 'Non IT Professional'" #yearsExperience="ngModel" [(ngModel)]="studentUserService.selectedProfessionalUser.yearsExperience" type="text" class="form-control stureg" placeholder="How Many Years Of Experience"
+            data-error="invalid" required id="yearsExperience" name="yearsExperience" value="" />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+        </div>
      <!-- <label style="color:#111;">Technologies You Are Intrested In</label><br>
      
      <div class="row">
@@ -128,7 +192,6 @@
         <div class="col-md-3" th:each="user : ${technologies}">
           <input type="checkbox" th:field="*{technology}" th:value="${user.id}" class="stucheck"
             required />&ensp;<label style="color:#111;">C/C++</label></input>
-
         </div>-->
          <!--         
         <div class="col-md-3">
@@ -155,13 +218,12 @@
             required />&ensp;<label style="color:#111;">Marketing</label> </input>
         </div>
        </div>  -->
-        <br>
+        
       
       <button type="submit"
         class="btn btn-primary full-width m-b">Register</button>
   <br>
   <h3><a routerLink="/student-signin" routerLinkActive="active" style="color:#111;">Already Registered? Please Login</a></h3><br><br>
-    </form>
       
       <!-- Success message -->
       <div class="alert success alert-info" *ngIf="showSuccessMessage">
@@ -172,6 +234,3 @@
       <div class="alert alert-info" *ngIf="serverErrorMessage">
         {{serverErrorMessage}}
       </div>
-    </div>
-    </div>
-    </body>

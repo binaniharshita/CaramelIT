@@ -139,6 +139,10 @@ import { FeaturedCoursesComponent } from './academypage/featured-courses/feature
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
 import { Contactus1Component } from './contactus1/contactus1.component';
+import { EnrolledcoursesComponent } from './student-dashboard/enrolledcourses/enrolledcourses.component';
+import { ExamrepComponent } from './student-dashboard/examrep/examrep.component';
+import { ProgrepComponent } from './student-dashboard/progrep/progrep.component';
+import { RecommendedcoursesComponent } from './student-dashboard/recommendedcourses/recommendedcourses.component';
 
 
 
@@ -230,6 +234,10 @@ import { Contactus1Component } from './contactus1/contactus1.component';
     CollegeNotifyComponent,
     StatsComponent,
     Contactus1Component,
+    EnrolledcoursesComponent,
+    ExamrepComponent,
+    ProgrepComponent,
+    RecommendedcoursesComponent
   ],
   imports: [
     BrowserModule,
