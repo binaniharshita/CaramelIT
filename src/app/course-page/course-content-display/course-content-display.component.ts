@@ -39,7 +39,7 @@ export class CourseContentDisplayComponent implements OnInit {
   }
   onLectureClick(lecture){
     this.currentSlide = lecture.pptLink;
-    console.log(currentSlide);
+    console.log(this.currentSlide);
   }
 
   getPptUrl(slides){
