@@ -1,4 +1,4 @@
-import { Course } from './course.model';
+import { Course, Module, Lesson } from './course.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -25,13 +25,38 @@ export class CourseService {
         map(coursesData => {
           console.log(coursesData);
           return coursesData.courses.map(course => {
+            const lesson = course.modules[0].lessons;
+            let lessonName;
+            let lessonTime;
+            let lessonSNo;
+            let lessonId;
+            let lessonPPT;
+            const lesson1: Lesson[] = [];
+            // tslint:disable-next-line: prefer-for-of
+            for (let i = 0; i < lesson.length; i++) {
+              const element = lesson[i];
+              lessonName = element.Lessons_List;
+              lessonTime = element.Lessons_Time;
+              lessonSNo = element.S_No;
+              lessonId = element._id;
+              lessonPPT = element.Ppt_link;
+              lesson1.push({ lessonsName: lessonName, lessonsTime: lessonTime, sno: lessonSNo, pptLink: lessonPPT })
+            }
+
+
+            const project = course.modules.lessons;
+            console.log(lesson);
+            const scenario = course.modules.lessons;
+            const test = course.modules.lessons;
+            const module: Module = { lesson: lesson1, scenario, project, test };
+            console.log(module);
             return {
               title: course.title,
               description: course.description,
               id: course._id,
               subCatId: course.subcategory,
               imagePath: course.imagePath,
-              module: course.module,
+              contentModule: module,
             };
           });
         }))
@@ -64,12 +89,12 @@ export class CourseService {
       )
       .subscribe((responseData) => {
         const courseAdd: Course = {
-          id: responseData.course.id,
+          id: responseData.course._id,
           title,
           description,
           subCatId: responseData.course.subcategory,
           imagePath: responseData.course.imagePath,
-          contentModule: responseData.course.contentModule,
+          contentModule: responseData.course.modules,
         };
         this.courses.push(courseAdd);
         this.coursesUpdated.next([...this.courses]);
@@ -79,44 +104,45 @@ export class CourseService {
   }
 
   // UPDATE COURSE LOGIC
-  updateCourse(id: string, title: string, description: string, subCatId: string, image: File | string) {
-    let courseData: Course | FormData;
-    if (typeof image === 'object') {
-      courseData = new FormData();
-      courseData.append('id', id);
-      courseData.append('title', title);
-      courseData.append('description', description);
-      courseData.append('image', image, title);
-    } else {
-      courseData = {
-        id,
-        title,
-        description,
-        imagePath: image,
-        subCatId,
-        contentModule: '',
-      };
-    }
+  // updateCourse(id: string, title: string, description: string, subCatId: string, image: File | string) {
+  //   let courseData: Course | FormData;
+  //   if (typeof image === 'object') {
+  //     courseData = new FormData();
+  //     courseData.append('id', id);
+  //     courseData.append('title', title);
+  //     courseData.append('description', description);
+  //     courseData.append('image', image, title);
+  //   } else {
+  //     courseData = {
+  //       id,
+  //       title,
+  //       description,
+  //       imagePath: image,
+  //       subCatId,
+  //       contentModule : contentModule1,
+  //     };
+  //   }
 
-    this.http.put('http://localhost:3000/api/categories/' + id, courseData)
-      .subscribe(response => {
-        const updatedCourses = [...this.courses];
-        const oldCourseIndex = updatedCourses.findIndex(c => c.id === id);
-        const course: Course = {
-          id,
-          title,
-          description,
-          subCatId,
-          imagePath: '',
-          contentModule: '',
-        };
-        updatedCourses[oldCourseIndex] = course;
-        this.courses = updatedCourses;
-        this.coursesUpdated.next([...this.courses]);
-        this.router.navigate(['/']);
+  //   this.http.put<{ message: string, course: any }>('http://localhost:3000/api/categories/' + id, courseData)
+  //     .subscribe(response => {
+  //       const contentModuleBack = response.course.modules;
+  //       const updatedCourses = [...this.courses];
+  //       const oldCourseIndex = updatedCourses.findIndex(c => c.id === id);
+  //       const course: Course = {
+  //         id,
+  //         title,
+  //         description,
+  //         subCatId,
+  //         imagePath: '',
+  //         contentModule: contentModuleBack,
+  //       };
+  //       updatedCourses[oldCourseIndex] = course;
+  //       this.courses = updatedCourses;
+  //       this.coursesUpdated.next([...this.courses]);
+  //       this.router.navigate(['/']);
 
-      });
-  }
+  //     });
+  // }
 
   // DELETE COURSE LOGIC
   deleteCourse(courseId: string) {

@@ -24,5 +24,4 @@ export class AuthService {
   ValidPasswordToken(body): Observable<any> {
     return this.http.post(`${BASEURL}/valid-password-token`, body);
   }
-  
 }

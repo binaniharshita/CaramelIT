@@ -49,8 +49,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { CourseService } from './services/course.service';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import { routes } from './routes';
@@ -132,19 +133,35 @@ import { TopTransformationComponent } from './academypage/top-transformation/top
 import { WhyCaramelItComponent } from './academypage/why-caramel-it/why-caramel-it.component';
 import { CollegeDashboardComponent } from './college-dashboard/college-dashboard.component';
 import { DashboardComponent } from './college-dashboard/dashboard/dashboard.component';
-import { CollegeCouseComponent } from './college-dashboard/college-couse/college-couse.component';
+
 import { CollegeCourseComponent } from './college-dashboard/college-course/college-course.component';
 import { CoursesOptionsComponent } from './academypage/courses-options/courses-options.component';
 import { FeaturedCoursesComponent } from './academypage/featured-courses/featured-courses.component';
 import { CollegeNotifyComponent } from './college-dashboard/college-notify/college-notify.component';
 import { StatsComponent } from './academypage/stats/stats.component';
+import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
+import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
+import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
+import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
+
 import { Contactus1Component } from './contactus1/contactus1.component';
 import { EnrolledcoursesComponent } from './student-dashboard/enrolledcourses/enrolledcourses.component';
 import { ExamrepComponent } from './student-dashboard/examrep/examrep.component';
 import { ProgrepComponent } from './student-dashboard/progrep/progrep.component';
 import { RecommendedcoursesComponent } from './student-dashboard/recommendedcourses/recommendedcourses.component';
 
+import { CourseContentDisplayComponent } from './course-page/course-content-display/course-content-display.component';
+import { CoursePageTabsComponent } from './course-page/course-page-tabs/course-page-tabs.component';
+import { CourseInfoTabComponent } from './course-page/course-info-tab/course-info-tab.component';
+import { CourseSkillsComponent } from './course-page/course-info-tab/course-skills/course-skills.component';
+import { CourseInfoDropdownsComponent } from './course-page/course-info-tab/course-info-dropdowns/course-info-dropdowns.component';
 
+
+import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
+import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.component';
+import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
+import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
+import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.component';
 
 
 @NgModule({
@@ -227,17 +244,30 @@ import { RecommendedcoursesComponent } from './student-dashboard/recommendedcour
     WhyCaramelItComponent,
     CollegeDashboardComponent,
     DashboardComponent,
-    CollegeCouseComponent,
     CollegeCourseComponent,
     CoursesOptionsComponent,
     FeaturedCoursesComponent,
     CollegeNotifyComponent,
     StatsComponent,
+    OrganizationDashboardComponent,
+    OrganizationCourseComponent,
+    OrganizationNotifyComponent,
+    OrganizationDashComponent,
+    CourseContentDisplayComponent,
+    CoursePageTabsComponent,
+    CourseInfoTabComponent,
+    CourseSkillsComponent,
+    CourseInfoDropdownsComponent,
+    GenerateTestComponent,
     Contactus1Component,
     EnrolledcoursesComponent,
     ExamrepComponent,
     ProgrepComponent,
-    RecommendedcoursesComponent
+    RecommendedcoursesComponent,
+    EnrollPanelComponent,
+    TableOfContentsTabComponent,
+    CourseProjectsTabComponent,
+    ReviewsTabComponent
   ],
   imports: [
     BrowserModule,
@@ -262,6 +292,7 @@ import { RecommendedcoursesComponent } from './student-dashboard/recommendedcour
     MatDialogModule,
     MatExpansionModule,
     SlickCarouselModule,
+    MatTabsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

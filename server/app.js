@@ -26,6 +26,7 @@ const connect = require('./dbconnect');
 
 // const studCart = require('./routes/studentcart.router');
 
+const contactusRoute = require('./routes/contactus.route')
 
 
 //Body Parser, Cors, Cookie parser
@@ -39,6 +40,7 @@ app.use(passport.initialize());
 // app.use('/upload', require('./routes/upload.route'))
 app.use('/api', studRoutes);
 app.use('/api/module', moduleRoute);
+app.use('/api/contactus',contactusRoute);
 // app.use('/course', require('./routes/upload'));
 // app.use('/api', require('./routes/upload'));
 // app.use('/course', require('./routes/seed'));

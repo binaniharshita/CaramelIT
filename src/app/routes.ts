@@ -73,11 +73,23 @@ import { EnrolledcoursesComponent } from './student-dashboard/enrolledcourses/en
 import { RecommendedcoursesComponent } from './student-dashboard/recommendedcourses/recommendedcourses.component';
 import { ProgrepComponent } from './student-dashboard/progrep/progrep.component';
 import { ExamrepComponent } from './student-dashboard/examrep/examrep.component';
+import { OrganizationDashboardComponent } from './organization-dashboard/organization-dashboard.component';
+import { OrganizationCourseComponent } from './organization-dashboard/organization-course/organization-course.component';
+import { OrganizationNotifyComponent } from './organization-dashboard/organization-notify/organization-notify.component';
+import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
+import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
   { path: 'home', pathMatch: 'full', component: AcademypageComponent },
+  { path : 'organization-dashboard', component: OrganizationDashboardComponent , children:[
+    { path: 'dashboard' , component: OrganizationDashComponent },
+    { path: 'dashboard/course' , component: OrganizationCourseComponent },
+    { path: 'course', component: OrganizationCourseComponent },
+    { path : 'notify', component: OrganizationNotifyComponent},
+  ] },
 
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },
@@ -113,6 +125,31 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPwComponent },
 
  //  { path: '', pathMatch: 'full', component: HomepageComponent },
+  { path: 'student-signin', component: StudentSigninComponent },
+  { path: 'student-register', component: StudentRegisterComponent },
+  { path: 'instructor-signin', component: InstructorSigninComponent },
+  { path: 'instructor-register', component: InstructorRegisterComponent },
+  { path: 'corporate-signin', component: CorporateSigninComponent },
+  { path: 'corporate-register', component: CorporateRegisterComponent },
+  { path: 'university-signin', component: UniversitySigninComponent },
+  { path: 'university-register', component: UniversityRegisterComponent },
+  { path: 'admin-signin', component: AdminSigninComponent },
+  { path: 'admin-register', component: AdminRegisterComponent },
+ // { path: 'contactus', component: ContactusComponent },
+  { path: 'forgot-password', component: ForgotPwComponent },
+  // { path: '', pathMatch: 'full', component: HomepageComponent },
+  { path: 'student-signin', component: StudentSigninComponent },
+  { path: 'student-register', component: StudentRegisterComponent },
+  { path: 'instructor-signin', component: InstructorSigninComponent },
+  { path: 'instructor-register', component: InstructorRegisterComponent },
+  { path: 'corporate-signin', component: CorporateSigninComponent },
+  { path: 'corporate-register', component: CorporateRegisterComponent },
+  { path: 'university-signin', component: UniversitySigninComponent },
+  { path: 'university-register', component: UniversityRegisterComponent },
+  { path: 'admin-signin', component: AdminSigninComponent },
+  { path: 'admin-register', component: AdminRegisterComponent },
+ // { path: 'contactus', component: ContactusComponent },
+  { path: 'forgot-password', component: ForgotPwComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'user_list', component: UserListComponent },
   { path: 'college_list', component: CollegeListComponent },
@@ -122,6 +159,7 @@ export const routes: Routes = [
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'response-reset-password/:token', component: ResponseResetComponent },
   { path: 'course-page', component: CoursePageComponent },
+  
   { path: 'student-cart', component: StudentCartComponent, canActivate: [AuthGuard] },
   { path: 'program-swd', component: ProgramSwdComponent },
   { path: 'program-swd/:id', component: ProgramSwdComponent },
@@ -152,15 +190,19 @@ export const routes: Routes = [
     { path: 'examrep', component: ExamrepComponent }
     ] 
   },
+  { path: 'student-dashboard', component: StudentDashboardComponent, children :[
+    { path : 'generate-test', component : GenerateTestComponent}
+  ] },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
       { path: 'manage/add-structure', component: CreateStructureComponent },
       { path: 'manage/view-structure', component: ViewStructureComponent },
       { path: 'manage/add-course', component: AddCourseComponent },
-      { path: 'manage/view-course', component: ViewCourseComponent, },
+     { path: 'manage/view-course', component: ViewCourseComponent, },
+     { path: 'manage/view-course/course-page/:id', component: CoursePageComponent },
       { path: 'reports', component: ReportsComponent },
-      { path: 'manage/view-course/viewcourse/:id', component: ViewParticularCourseComponent },
+      // { path: 'manage/view-course/viewcourse/:id', component: ViewParticularCourseComponent },
       { path: 'manage/view-structure/viewprogram/:id', component: ProgramSwdComponent }
     ]
   },
@@ -173,7 +215,8 @@ export const routes: Routes = [
     { path: 'skills/addskills' , component: AddskillComponent },
     { path: 'skills/skillset' , component: SkillsetComponent },
     { path: 'students' , component: StudentsComponent },
-  ]}
+  ]},
   // { path: 'academypage', component: AcademypageComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'contactus1', component : Contactus1Component }
 ];

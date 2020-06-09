@@ -68,6 +68,7 @@ router.post('/upload/scenarios', upload.single("scenario"), async(req, res) => {
     try {
         const scenario = req.file;
         // make sure file is available
+        console.log("Hello");
         if (!scenario) {
             res.status(400).send({
                 status: false,

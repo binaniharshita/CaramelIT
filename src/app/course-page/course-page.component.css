@@ -1,4 +1,4 @@
-.enroll-button {
+/* .enroll-button {
     border-radius: 5px;
     border: 1px solid white;
     width: 50%;
@@ -21,4 +21,9 @@
 .center {
     display: inline-block;
     justify-content: center;
+} */
+
+.container{
+    background-color: white;
+    padding: 0px;
 }

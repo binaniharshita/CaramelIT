@@ -21,7 +21,6 @@ router.route('/create').post((req, res) => {
     const tests = require('../data/tests.json');
 
     const mds = new Module({
-        name: req.body.name,
         lessons: lessons,
         scenarios: scenarios,
         assesment: tests,

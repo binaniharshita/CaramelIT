@@ -69,12 +69,13 @@ export class StudentUserService {
     return this.http.post(environment.apiBaseUrl+'/professional-register', professionalUser,this.noAuthHeader);
   }
   
+
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
   }
 
   getStudentProfile() {
-    return this.http.get(environment.apiBaseUrl+'/studentProfile');
+    return this.http.get(environment.apiBaseUrl + '/studentProfile');
   }
 
   getProfessionalProfile() {
