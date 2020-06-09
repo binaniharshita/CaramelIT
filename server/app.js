@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 
 require('./config/config');
-const studRoutes = require('./routes/index.router');
+const studRoutes = require('./routes/index.router'); 
 const moduleRoute = require('./routes/module.route');
 //Passport
 require('./config/passport');
