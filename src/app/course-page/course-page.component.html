@@ -1,10 +1,9 @@
-
 <div class="container">
-  <app-navbar></app-navbar>
-  <app-course-content-display [course]= "selectedCourse"></app-course-content-display>  
-  <app-course-page-tabs></app-course-page-tabs>
-  <app-footer></app-footer>
+    <app-navbar></app-navbar>
+    <p hidden>{{selectedCourse.contentModule.lesson}}</p>
+    <app-course-content-display [course]="selectedCourse"></app-course-content-display>
+    <app-course-page-tabs></app-course-page-tabs>
+    <app-footer></app-footer>
 
 
 </div>
-

@@ -80,14 +80,14 @@ export class CreateCourseComponent implements OnInit {
         this.isLoading = true;
         this.courseServices.getCourse(this.courseId).subscribe(courseData => {
           this.isLoading = false;
-          this.course = {
-            id: courseData._id,
-            title: courseData.title,
-            subCatId: courseData.subCatId,
-            description: courseData.description,
-            imagePath: courseData.imagePath,
-            contentModule: courseData.module
-          };
+          // this.course = {
+          //   id: courseData._id,
+          //   title: courseData.title,
+          //   subCatId: courseData.subCatId,
+          //   description: courseData.description,
+          //   imagePath: courseData.imagePath,
+          //   contentModule: courseData.module
+          // };
           this.courseDetailFormGroup.setValue({
             title: this.course.title,
             content: this.course.description,
@@ -189,14 +189,14 @@ export class CreateCourseComponent implements OnInit {
       );
     }
     else {
-      this.courseServices.updateCourse(
-        this.courseId,
-        this.courseDetailFormGroup.value.title,
-        this.courseDetailFormGroup.value.description,
-        this.courseDetailFormGroup.value.subcateogoryId,
-        this.moduleDetailFormGroup.value.image
+      // this.courseServices.updateCourse(
+      //   this.courseId,
+      //   this.courseDetailFormGroup.value.title,
+      //   this.courseDetailFormGroup.value.description,
+      //   this.courseDetailFormGroup.value.subcateogoryId,
+      //   this.moduleDetailFormGroup.value.image
 
-      )
+      // )
 
     }
     this.courseDetailFormGroup.reset();

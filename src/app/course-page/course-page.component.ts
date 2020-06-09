@@ -16,17 +16,20 @@ import { Subscription } from 'rxjs';
 })
 export class CoursePageComponent implements OnInit {
   id: string;
-  selectedCourse : Course;
-  courseSubs : Subscription;
+  selectedCourse: Course;
+  courseSubs: Subscription;
 
   // selectedCourse: Course = this.courseService.selectedCourse();
   // selectedChapter: Chapter[]  = this.selectedCourse.chapter;
-  //selectedLectures: Lecture[] = this.selectedChapter.lecture;
+  // selectedLectures: Lecture[] = this.selectedChapter.lecture;
   panelOpenState = false;
   selectedLecture: Lecture;
   addedToCart: boolean = false;
 
-  constructor(private route: ActivatedRoute,private courseService: CourseService,private studentUserService: StudentUserService, private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private courseService: CourseService,
+              private studentUserService: StudentUserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -36,18 +39,15 @@ export class CoursePageComponent implements OnInit {
     this.courseService.getCourses();
     this.courseSubs = this.courseService.getCoursesUpdateListener()
       .subscribe((courses: Course[]) => {
-       
-        
         this.selectedCourse = courses.filter(c => c.id === this.id)[0];
-        console.log(this.selectedCourse);
       });
-    
-  // CODE BY ARYA AND SHRIYA
-  //   this.selectedCourse = this.courseService.selectedCourse();
-  // this.selectedChapter = this.selectedCourse.chapter;
-  
-  //this.selectedChapter = this.selectedCourse.chapter.values();
-    //this.selectedLectures = this.selectedChapter.lecture;
+
+    // CODE BY ARYA AND SHRIYA
+    //   this.selectedCourse = this.courseService.selectedCourse();
+    // this.selectedChapter = this.selectedCourse.chapter;
+
+    // this.selectedChapter = this.selectedCourse.chapter.values();
+    // this.selectedLectures = this.selectedChapter.lecture;
   }
 
   // addToCart(product: Course) {

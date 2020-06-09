@@ -66,7 +66,7 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
         imagePath: url + "/images/" + req.file.filename
 
     });
-    course.save((err, doc) => {
+    course.save((err, courseDoc) => {
         if (!err) {
             console.log(course.subcategory);
             SubCategory.findById(course.subcategory, function(err, doc) {
@@ -93,6 +93,7 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
 
     res.status(201).json({
         message: "Courses added successfully",
+        course: courseDoc,
         courseId: doc._id,
         imagePath: doc.imagePath,
         module: doc.modules
@@ -102,7 +103,7 @@ router.post('', multer({ storage: storage }).single('image'), (req, res, next) =
 router.get('', (req, res, next) => {
     Course.find().then(docs => {
         res.status(200).json({
-            message: "Categories fetched successfully",
+            message: "Courses fetched successfully",
             courses: docs
         });
 
@@ -134,7 +135,7 @@ router.put(
         });
         console.log(course);
         Course.updateOne({ _id: req.params.id }, post).then(result => {
-            res.status(200).json({ message: "Update successful!" });
+            res.status(200).json({ message: "Update successful!", course: course });
         });
     }
 );

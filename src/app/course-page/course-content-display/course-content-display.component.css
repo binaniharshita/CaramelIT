@@ -1,12 +1,12 @@
-.container{
+.container {
     min-width: 100%;
     height: 650px;
     background-color: #002333;
     color: white;
 }
 
-h1{
-    width:100%;
+h1 {
+    width: 100%;
     height: 50px;
     font-size: 30px;
     margin-left: 0px;
@@ -14,7 +14,7 @@ h1{
     margin-bottom: 10px;
 }
 
-.line{
+.line {
     border-bottom: 2px solid #04C5FF;
     /* width: 100%; */
     margin-left: 30px;
@@ -26,7 +26,7 @@ h1{
     margin-top: 5px;
 }
 
-#course-img{
+#course-img {
     height: 500px;
     width: 100%;
     margin-top: 20px;
@@ -34,12 +34,12 @@ h1{
 }
 
 .lecture-list {
-  margin-left: 100px;
-  margin-top: 10px;
-  width: 100%;
-  color: white;
-  font-size: 20px;
-  overflow-x: hidden;
+    margin-left: 100px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    overflow-x: hidden;
 }
 
 .toprow {
@@ -49,7 +49,6 @@ h1{
     font-size: 15px;
     height: 500px;
 }
-
 
 .scrollbar {
     margin-left: 30px;
@@ -63,39 +62,40 @@ h1{
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
 }
 
 .duration {
-  margin-left: 30px;
-  font-size: 1.2em;
-  font-family: "Lato", serif;
-  padding-top: 10px;
+    margin-left: 30px;
+    font-size: 1.2em;
+    font-family: "Lato", serif;
+    padding-top: 10px;
 }
 
 .title {
-  display: inline-block;
-  margin-left: 10px;
-  margin-top: 5px;
-  width: 75%;
-  font-family: "Lato", serif;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 75%;
+    font-family: "Lato", serif;
 }
 
 .lec-duration {
-  display: inline-block;
+    display: inline-block;
 }
 
 .lec-title:hover {
-  border: 1px solid #04C5FF;
-  border-radius: 10px;
-  -ms-transform: scale(1.06);
-  -webkit-transform: scale(1.06);
-  transform: scale(1.06);
+    border: 1px solid #04C5FF;
+    border-radius: 10px;
+    -ms-transform: scale(1.06);
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
 }
 
 .lec-title {
-  font-family: "Lato", serif;
-  height: 40px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+    font-family: "Lato", serif;
+    min-height: 40px;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

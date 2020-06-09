@@ -4,18 +4,18 @@ export interface Course {
   description: string;
   subCatId: string;
   imagePath: string;
-  contentModule: Object;
+  contentModule: Module;
 }
 
-// export class Module{
-//   lesson: Lesson[];
-//   scenario: [];
-//   project: [];
-//   test: [];
-// }
-// class Lesson{
-//   sno: string;
-//   lessonsTime: number;
-//   lessonsList: string;
-//   pptLink: string;
-// }
+export class Module{
+  lesson: Lesson[];
+  scenario: [];
+  project: [];
+  test: [];
+}
+export class Lesson{
+  sno: string;
+  lessonsTime: number;
+  lessonsName: string;
+  pptLink: string;
+}

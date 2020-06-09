@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Course } from '../../admin-dashboard/manage-course/course.model';
+import { Course, Lesson } from '../../admin-dashboard/manage-course/course.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-content-display',
@@ -8,34 +9,41 @@ import { Course } from '../../admin-dashboard/manage-course/course.model';
 })
 export class CourseContentDisplayComponent implements OnInit {
   courseName;
-  public courseDiscription;
+  //public courseDiscription;
 
   @Input()
   course: Course;
 
   contentLength: number;
-  lectures;
+  lectures : Lesson[];
   // courseName: string;
   // lectures: string[] = ["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5"
   // , "Topic 6", "Topic 7",
   // "Topic 8", "Topic 9","Topic 10", "Topic 11",
   // "Topic 12", "Topic 13","Topic 14","Topic 15","Topic 16", "Topic 17", "Topic 18","Topic 19"];
 
-  slide = '../../assets/images/CoursePage/slide.jpg';
+  currentSlide = 'https://onedrive.live.com/embed?cid=1488ABC83D8F1B5E&resid=1488ABC83D8F1B5E%21122&authkey=AOLA8ubRNnNSyFI&em=2';
+  // currentSlide = '';
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.courseName = this.course.title;
-    this.courseDiscription = this.course.description;
+    // this.courseDiscription = this.course.contentModule[1];
+    this.lectures = this.course.contentModule.lesson;
 
-
-    this.lectures = this.course.contentModule;
-    this.lectures = this.lectures[0][2];
 
     // this.contentLength = this.lectures;
-    // console.log(this.contentLength);
 
+
+  }
+  onLectureClick(lecture){
+    this.currentSlide = lecture.pptLink;
+    console.log(currentSlide);
+  }
+
+  getPptUrl(slides){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(slides);
   }
 
 }
