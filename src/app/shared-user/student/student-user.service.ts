@@ -8,6 +8,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class StudentUserService {
+  sdata;
+  pdata;
 
   selectedStudentUser: StudentUser = {
     user_type: 'Student',
@@ -29,10 +31,12 @@ export class StudentUserService {
     skill3: '',
     skill4: '',
     skill5: '',
-    skill6: ''
+    skill6: '',
+    currentOrg: '',
+    yearsExperience: ''
   };
 
-  selectedProfessionalUser: ProfessionalUser = {
+  /*selectedProfessionalUser: ProfessionalUser = {
     user_type: 'Student',
     user_id: '',
     firstName: '',
@@ -54,7 +58,7 @@ export class StudentUserService {
     skill6: '',
     currentOrg: '',
     yearsExperience: ''
-  };
+  };*/
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'}) };
   constructor(private http: HttpClient) { }
@@ -65,22 +69,42 @@ export class StudentUserService {
     return this.http.post(environment.apiBaseUrl+'/student-register', studentUser,this.noAuthHeader);
   }
   
-  postProfessionalUser(professionalUser: ProfessionalUser){
+  /*postProfessionalUser(professionalUser: ProfessionalUser){
     return this.http.post(environment.apiBaseUrl+'/professional-register', professionalUser,this.noAuthHeader);
-  }
+  }*/
   
 
-  login(authCredentials) {
-    return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader);
+  studentLogin(authCredentials) {
+    return this.http.post(environment.apiBaseUrl+'/student-authenticate', authCredentials,this.noAuthHeader) || this.http.post(environment.apiBaseUrl+'/professional-authenticate', authCredentials,this.noAuthHeader);;
   }
+
+  /*professionalLogin(authCredentials) {
+    return this.http.post(environment.apiBaseUrl+'/professional-authenticate', authCredentials,this.noAuthHeader);
+  }*/
 
   getStudentProfile() {
     return this.http.get(environment.apiBaseUrl + '/studentProfile');
   }
 
-  getProfessionalProfile() {
+  /*getStudentStatus() {
+    this.http.get(environment.apiBaseUrl + '/studentProfile').subscribe(data=>{
+      //console.log(data);
+      this.sdata = data as string [];
+    });
+    return this.sdata.status;
+  }*/
+
+  /*getProfessionalProfile() {
     return this.http.get(environment.apiBaseUrl+'/professionalProfile');
-  }
+  }*/
+
+  /*getProfessionalStatus() {
+    this.http.get(environment.apiBaseUrl + '/professonalProfile').subscribe(data=>{
+      //console.log(data);
+      this.pdata = data as string [];
+      return this.pdata.status;
+    });
+  }*/
 
   //helper methods
 
@@ -109,7 +133,7 @@ export class StudentUserService {
   isLoggedIn() {
     var userPayload = this.getUserPayload();
     if(userPayload) {
-      console.log(userPayload.exp > Date.now() / 1000);
+      //console.log(userPayload.exp > Date.now() / 1000);
       return userPayload.exp > Date.now() / 1000;
     }
     else

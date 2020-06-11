@@ -26,14 +26,22 @@ export class StudentSigninComponent implements OnInit {
   }
 
   onSubmit(studentSignin: NgForm) {
-    this.studentUserService.login(studentSignin.value).subscribe(
-      res => {
-        this.studentUserService.setToken(res['token']);
-        this.router.navigateByUrl('/student-dashboard');
-      },
-      err => {
-        this.serverErrorMessage = err.error.message;
-      }
-    )
+      this.studentUserService.studentLogin(studentSignin.value).subscribe(
+        res => {
+          this.studentUserService.setToken(res['token']);
+          this.router.navigateByUrl('/student-dashboard');
+        },
+        err => {
+          this.serverErrorMessage = err.error.message;
+        });
+      /*this.studentUserService.professionalLogin(studentSignin.value).subscribe(
+        res => {
+          this.studentUserService.setToken(res['token']);
+          this.router.navigateByUrl('/student-dashboard');
+        },
+        err => {
+          this.serverErrorMessage = err.error.message;
+        });*/
   }
+  
 }

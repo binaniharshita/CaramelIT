@@ -54,6 +54,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
+
 import { routes } from './routes';
 import { StudentUserService } from './shared-user/student/student-user.service';
 import { InstructorUserService } from './shared-user/instructor/instructor-user.service';
@@ -292,7 +293,7 @@ import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.compo
     MatDialogModule,
     MatExpansionModule,
     SlickCarouselModule,
-    MatTabsModule,
+    MatTabsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -65,6 +65,7 @@ module.exports.professionalProfile = (req, res, next) => {
     );
 }
 
+
 //Reset password Logic
 module.exports.ResetPassword = async(req, res) => {
     if (!req.body.emailAddress) {

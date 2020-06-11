@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 
 import { StudentUser, ProfessionalUser } from '../shared-user/student/student-user.model';
 import { StudentUserService } from '../shared-user/student/student-user.service';
@@ -16,17 +9,6 @@ import { StudentUserService } from '../shared-user/student/student-user.service'
   selector: 'app-student-register',
   templateUrl: './student-register.component.html',
   styleUrls: ['./student-register.component.css'],
-  animations: [
-    trigger('loadForm', [
-      state('show', style({
-        opacity: 1
-      })),
-      state('hide',   style({
-        opacity: 0
-      })),
-      transition('hide => show', animate('1000ms ease-in'))
-    ])
-  ]
 })
 export class StudentRegisterComponent implements OnInit {
   showSuccessMessage: boolean;
@@ -60,7 +42,52 @@ export class StudentRegisterComponent implements OnInit {
     this.show = true;
   }
 
-  onSubmit(studentRegForm: NgForm){
+  onSubmit(studentRegForm: NgForm) {
+    this.studentForm = studentRegForm.value;
+    if(this.studentForm.skillset.indexOf(',')) { 
+      this.skills = this.studentForm.skillset.split(','); 
+      console.log(this.skills);
+      if(this.skills[0] && this.skills[0].length!=0){this.studentForm.skill1 = this.skills[0].trim(); }
+      if(this.skills[1] && this.skills[1].length!=0){this.studentForm.skill2 = this.skills[1].trim(); }
+      if(this.skills[2] && this.skills[2].length!=0){this.studentForm.skill3 = this.skills[2].trim(); }
+      if(this.skills[3] && this.skills[3].length!=0){this.studentForm.skill4 = this.skills[3].trim(); }
+      if(this.skills[4] && this.skills[4].length!=0){this.studentForm.skill5 = this.skills[4].trim(); }
+      if(this.skills[5] && this.skills[5].length!=0){this.studentForm.skill6 = this.skills[5].trim(); }
+    }
+    else { this.studentForm.skill1 = this.studentForm.skillset; }
+    this.studentForm.noOfSkill = this.skills.length.toString();
+    for(let i = 0; i < this.basic_skills.length; i++){
+      for( let j = 0; j < this.skills.length; j++) {
+        if(this.basic_skills[i].toLowerCase()===this.skills[j].toLowerCase()) {
+          this.basic++;
+        }
+      }
+    }
+    if(this.basic < 5) {
+      this.studentForm.user_id  = 'SNSkills_';
+    }
+    else {
+      this.studentForm.user_id  = 'SWSkills_';
+    }
+    studentRegForm.setValue(this.studentForm);
+    console.log(studentRegForm.value);
+    this.studentUserService.postStudentUser(studentRegForm.value).subscribe(
+      res => {
+        this.showSuccessMessage = true;
+        setTimeout(()=> this.showSuccessMessage = false, 4000);
+        this.resetForm(studentRegForm);
+      },
+      err => {
+        if (err.status === 422){
+          this.serverErrorMessage = err.error.join("<br/>");
+        }
+        else{
+          this.serverErrorMessage = 'Something went wrong. Please contact Admin.';
+        }
+    });
+
+  }
+  /*onSubmit(studentRegForm: NgForm){
     //console.log(studentRegForm.value);
     //console.log(studentRegForm.controls['skill'].value);
     this.studentForm = studentRegForm.value;
@@ -68,15 +95,16 @@ export class StudentRegisterComponent implements OnInit {
     if(this.studentForm.userRole === 'Student'){
       if(this.studentForm.skillset.indexOf(',')) { 
       this.skills = this.studentForm.skillset.split(','); 
-      if(this.skills[0]){this.studentForm.skill1 = this.skills[0].trim(); this.count1++;}
-      if(this.skills[1]){this.studentForm.skill2 = this.skills[1].trim(); this.count1++;}
-      if(this.skills[2]){this.studentForm.skill3 = this.skills[2].trim(); this.count1++;}
-      if(this.skills[3]){this.studentForm.skill4 = this.skills[3].trim(); this.count1++;}
-      if(this.skills[4]){this.studentForm.skill5 = this.skills[4].trim(); this.count1++;}
-      if(this.skills[5]){this.studentForm.skill6 = this.skills[5].trim(); this.count1++;}
+      console.log(this.skills);
+      if(this.skills[0] && this.skills[0].length!=0){this.studentForm.skill1 = this.skills[0].trim(); }
+      if(this.skills[1] && this.skills[1].length!=0){this.studentForm.skill2 = this.skills[1].trim(); }
+      if(this.skills[2] && this.skills[2].length!=0){this.studentForm.skill3 = this.skills[2].trim(); }
+      if(this.skills[3] && this.skills[3].length!=0){this.studentForm.skill4 = this.skills[3].trim(); }
+      if(this.skills[4] && this.skills[4].length!=0){this.studentForm.skill5 = this.skills[4].trim(); }
+      if(this.skills[5] && this.skills[5].length!=0){this.studentForm.skill6 = this.skills[5].trim(); }
       }
-      else { this.studentForm.skill1 = this.studentForm.skillset; this.count1++; }
-      this.studentForm.noOfSkill = this.count1.toString();
+      else { this.studentForm.skill1 = this.studentForm.skillset; }
+      this.studentForm.noOfSkill = this.skills.length.toString();
       for(let i = 0; i < this.basic_skills.length; i++){
         for( let j = 0; j < this.skills.length; j++) {
           if(this.basic_skills[i].toLowerCase()===this.skills[j].toLowerCase()) {
@@ -85,17 +113,17 @@ export class StudentRegisterComponent implements OnInit {
         }
       }
       if(this.basic < 5) {
-        this.studentForm.user_id  = this.studentForm.user_id.concat('SNSkills_');
+        this.studentForm.user_id  = 'SNSkills_';
       }
       else {
-        this.studentForm.user_id  = this.studentForm.user_id.concat('SWSkills_');
+        this.studentForm.user_id  = 'SWSkills_';
       }
       studentRegForm.setValue(this.studentForm);
       console.log(studentRegForm.value);
       this.studentUserService.postStudentUser(studentRegForm.value).subscribe(
         res => {
           this.showSuccessMessage = true;
-          setTimeout(()=> this.showSuccessMessage = false, 400);
+          setTimeout(()=> this.showSuccessMessage = false, 4000);
           this.resetForm(studentRegForm);
         },
         err => {
@@ -109,12 +137,12 @@ export class StudentRegisterComponent implements OnInit {
     }
     else {
       this.skills = this.professionalForm.skillset.split(',');
-      if(this.skills[0]){this.studentForm.skill1 = this.skills[0].trim(); this.count2++;}
-      if(this.skills[1]){this.studentForm.skill2 = this.skills[1].trim(); this.count2++;}
-      if(this.skills[2]){this.studentForm.skill3 = this.skills[2].trim(); this.count2++;}
-      if(this.skills[3]){this.studentForm.skill4 = this.skills[3].trim(); this.count2++;}
-      if(this.skills[4]){this.studentForm.skill5 = this.skills[4].trim(); this.count2++;}
-      if(this.skills[5]){this.studentForm.skill6 = this.skills[5].trim(); this.count2++;}
+      if(this.skills[0] && this.skills[0].length!=0){this.studentForm.skill1 = this.skills[0].trim(); this.count2++;}
+      if(this.skills[1] && this.skills[1].length!=0){this.studentForm.skill2 = this.skills[1].trim(); this.count2++;}
+      if(this.skills[2] && this.skills[2].length!=0){this.studentForm.skill3 = this.skills[2].trim(); this.count2++;}
+      if(this.skills[3] && this.skills[3].length!=0){this.studentForm.skill4 = this.skills[3].trim(); this.count2++;}
+      if(this.skills[4] && this.skills[4].length!=0){this.studentForm.skill5 = this.skills[4].trim(); this.count2++;}
+      if(this.skills[5] && this.skills[5].length!=0){this.studentForm.skill6 = this.skills[5].trim(); this.count2++;}
       this.professionalForm.noOfSkill = this.count2.toString();
       if(this.professionalForm.userRole === 'IT Professional')
       { this.professionalForm.user_id = 'ITP'; }
@@ -125,7 +153,7 @@ export class StudentRegisterComponent implements OnInit {
       this.studentUserService.postProfessionalUser(studentRegForm.value).subscribe(
         res=> {
           this.showSuccessMessage = true;
-          setTimeout(()=> this.showSuccessMessage = false, 400);
+          setTimeout(()=> this.showSuccessMessage = false, 4000);
           this.resetForm(studentRegForm);
         },
         err=> {
@@ -137,7 +165,7 @@ export class StudentRegisterComponent implements OnInit {
           }
         });
     }
-  }
+  }*/
 
 
   resetForm(studentForm: NgForm){
@@ -161,9 +189,11 @@ export class StudentRegisterComponent implements OnInit {
       skill3: '',
       skill4: '',
       skill5: '',
-      skill6: ''
+      skill6: '',
+      currentOrg: '',
+      yearsExperience: ''
     };
-    this.studentUserService.selectedProfessionalUser = {
+    /*this.studentUserService.selectedProfessionalUser = {
       user_type: 'Student',
       user_id: '',
       firstName: '',
@@ -185,7 +215,7 @@ export class StudentRegisterComponent implements OnInit {
       skill6: '',
       currentOrg: '',
       yearsExperience: ''
-    };
+    };*/
     studentForm.resetForm();
     this.serverErrorMessage = '';
   }

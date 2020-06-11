@@ -28,9 +28,11 @@ module.exports.register = (req, res, next) => {
     skill4 : req.body.skill4,
     skill5 : req.body.skill5,
     skill6 : req.body.skill6,
+    currentOrganisation: req.body.currentOrganisation,
+    yearsExperience: req.body.yearsExperience,
     createdAt : req.body.creaedAt
     });
-    console.log(student);
+    //console.log(student);
     student.save((err, doc) => {
         if (!err)
             res.send(doc);

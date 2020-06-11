@@ -24,12 +24,11 @@ export class AuthInterceptor implements HttpInterceptor{
         if(req.headers.get('noauth'))
             return next.handle(req.clone());
         else {
-            const clonereq = req.clone({
-                headers: (req.headers.set("Authorization", " Bearer " + this.studentUserService.getToken()) ||
-                req.headers.set("Authorization", " Bearer " + this.instructorUserService.getToken()) || 
-                req.headers.set("Authorization", "Bearer" + this.corporateUserService.getToken()) ||
-                req.headers.set("Authorization", "Bearer" + this.universityUserService.getToken()))
-            });
+            let clonereq = req.clone();
+            if(this.studentUserService.isLoggedIn()) { clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.studentUserService.getToken())}); }
+            else if(this.instructorUserService.isLoggedIn()) { clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.instructorUserService.getToken())}); }
+            else if(this.corporateUserService.isLoggedIn()) { clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.corporateUserService.getToken())}); }
+            else if(this.universityUserService.isLoggedIn()) { clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.universityUserService.getToken())}); }
             return next.handle(clonereq).pipe(
                 tap(
                     event => { },

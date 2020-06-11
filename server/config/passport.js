@@ -2,12 +2,14 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 
 const studentLocalStrategy = require('passport-local').Strategy;
+const professionalLocalStrategy = require('passport-local').Strategy;
 const instructorLocalStrategy = require('passport-local').Strategy;
 const corporateLocalStrategy = require('passport-local').Strategy;
 const universityLocalStrategy = require('passport-local').Strategy;
 const adminLocalStrategy = require('passport-local').Strategy;
 
 var Student = mongoose.model('Student');
+var Professional = mongoose.model('Professional');
 var Instructor = mongoose.model('Instructor');
 var Corporate = mongoose.model('Corporate');
 var University = mongoose.model('University');
@@ -33,6 +35,28 @@ passport.use('studentLocal',
                 });
         })
 );
+
+//professional passport 
+passport.use('professionalLocal',
+    new professionalLocalStrategy({ usernameField: 'emailAddress' },
+        (username, password, done) => {
+            Professional.findOne({ emailAddress: username },
+                (err, professional) => {
+                    if (err)
+                        return done(err);
+                    // unknown student
+                    else if (!professional)
+                        return done(null, false, { message: 'Email is not registered' });
+                    // wrong password
+                    else if (!professional.verifyPassword(password))
+                        return done(null, false, { message: 'Wrong password.' });
+                    // authentication succeeded
+                    else
+                        return done(null, professional);
+                });
+        })
+);
+
 //Instructor passport
 passport.use('instructorLocal',
     new instructorLocalStrategy({ usernameField: 'emailAddress' },

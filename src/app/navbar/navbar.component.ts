@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 import { StudentUserService } from '../shared-user/student/student-user.service';
 import { Router } from '@angular/router';
@@ -17,6 +17,7 @@ import { UniversityUserService } from '../shared-user/university/university-user
 export class NavbarComponent implements OnInit {
 
   userType = '';
+  userDetails;
   showReg = true;
   studentLogin: boolean;
   instructorLogin: boolean;
@@ -29,26 +30,39 @@ export class NavbarComponent implements OnInit {
               private universityUserService: UniversityUserService,
               private router: Router) { }
 
+  
   ngOnInit(): void {
     if (this.studentUserService.isLoggedIn()) {
       this.studentLogin = this.studentUserService.isLoggedIn();
       // window.alert(this.studentUserService.selectedStudentUser.user_type + " " + this.studentLogin);
-      this.userType = this.studentUserService.selectedStudentUser.user_type;
+      this.studentUserService.getStudentProfile().subscribe(
+        res => {
+          this.userDetails = res['student'];
+        },
+        err => { 
+          console.log(err);
+          
+        }
+      );
+      this.userType = this.userDetails.user_type;
       this.showReg = false;
     }
     else if (this.instructorUserService.isLoggedIn()) {
       this.instructorLogin = this.instructorUserService.isLoggedIn();
-      window.alert(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
+      console.log(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
       this.userType = this.instructorUserService.selectedInstructorUser.user_type;
       this.showReg = false;
     }
     else if (this.corporateUserService.isLoggedIn()) {
       this.corporateLogin = this.corporateUserService.isLoggedIn();
+      window.alert(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
       this.userType = this.corporateUserService.selectedCorporateUser.user_type;
       this.showReg = false;
     }
     else if (this.universityUserService.isLoggedIn()) {
       this.universityLogin = this.universityUserService.isLoggedIn();
+      window.alert(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
+
       this.userType = this.universityUserService.selectedUniversityUser.user_type;
       this.showReg = false;
     }

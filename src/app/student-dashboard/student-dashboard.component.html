@@ -21,7 +21,7 @@
         </button>
             </li>
             <li>
-                <button mat-raised-button routerLink="generate-test">Generate Test</button>
+                <button mat-raised-button routerLink="generate-test" routerLinkActive="active">Generate Test</button>
             </li>
         </ul>
     </div>
@@ -91,7 +91,7 @@
     </mat-drawer>
   <mat-drawer-content [ngStyle]="mainHover ? {'opacity': 0.2} : {'opacity':1}"> 
     <div id="prodisplay" >
-      <h1>Welcome Student Name: Student</h1> <!--{{userDetails.name}}-->
+      <h1>Welcome Student: <br/> {{userDetails.firstName}}  {{userDetails.lastName}}</h1> 
       <div class="image-cropper" routerLink="/profile-page" routerLinkActive="active">
       <img src="../../assets/student.svg" class="center">
         </div>

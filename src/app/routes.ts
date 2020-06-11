@@ -84,14 +84,14 @@ import { Contactus1Component } from './contactus1/contactus1.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AcademypageComponent },
   { path: 'home', pathMatch: 'full', component: AcademypageComponent },
-  { path : 'organization-dashboard', component: OrganizationDashboardComponent , children:[
+  { path : 'organization-dashboard', component: OrganizationDashboardComponent,canActivate: [AuthGuard], data: { expectedRole: 'Corporate'} , children:[
     { path: 'dashboard' , component: OrganizationDashComponent },
     { path: 'dashboard/course' , component: OrganizationCourseComponent },
     { path: 'course', component: OrganizationCourseComponent },
     { path : 'notify', component: OrganizationNotifyComponent},
   ] },
 
-  { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
+  { path : 'college-dashboard', component: CollegeDashboardComponent, canActivate: [AuthGuard], data: { expectedRole: 'University'} , children:[
     { path: 'dashboard' , component: DashboardComponent },
     { path: 'dashboard/course' , component: DashboardComponent },
     { path: 'course', component: CollegeCourseComponent },
@@ -182,17 +182,15 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent,canActivate: [AuthGuard], children: [
+  { path: 'student-dashboard', component: StudentDashboardComponent,canActivate: [AuthGuard]  , children: [
     { path: 'enrolledcourses', component: EnrolledcoursesComponent },
     { path: '', pathMatch: 'full', component: RecommendedcoursesComponent },
     { path: 'recommended', pathMatch: 'full', component: RecommendedcoursesComponent },
     { path: 'progrep', component: ProgrepComponent },
-    { path: 'examrep', component: ExamrepComponent }
+    { path: 'examrep', component: ExamrepComponent },
+    { path: 'generate-test', component: GenerateTestComponent }
     ] 
   },
-  { path: 'student-dashboard', component: StudentDashboardComponent, children :[
-    { path : 'generate-test', component : GenerateTestComponent}
-  ] },
   {
     path: 'admin-dashboard', component: AdminDashboard1Component, children: [
       { path: 'manage', component: ManageComponent },
@@ -206,7 +204,7 @@ export const routes: Routes = [
       { path: 'manage/view-structure/viewprogram/:id', component: ProgramSwdComponent }
     ]
   },
-  { path: 'instructor-dashboard', component: InstructordashboardComponent, canActivate: [AuthGuard], children:[
+  { path: 'instructor-dashboard', component: InstructordashboardComponent, canActivate: [AuthGuard], data: { expectedRole: 'Instructor'} , children:[
     { path: 'course-assocition' , component: CourseassociationComponent },
     { path: 'skills' , component: SkillsComponent },
     { path: 'course-assocition/choose-course' , component: ChoosecourseComponent },
