@@ -29,7 +29,9 @@ export class StudentUserService {
     skill3: '',
     skill4: '',
     skill5: '',
-    skill6: ''
+    skill6: '',
+    currentOrg: '',
+    yearsExperience: ''
   };
 
   selectedProfessionalUser: ProfessionalUser = {

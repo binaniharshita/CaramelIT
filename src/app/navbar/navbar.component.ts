@@ -33,46 +33,46 @@ export class NavbarComponent implements OnInit {
     if (this.studentUserService.isLoggedIn()) {
       this.studentLogin = this.studentUserService.isLoggedIn();
       // window.alert(this.studentUserService.selectedStudentUser.user_type + " " + this.studentLogin);
-      this.userType = this.studentUserService.selectedStudentUser.user_type;
+      this.userType = 'Student';
       this.showReg = false;
     }
     else if (this.instructorUserService.isLoggedIn()) {
       this.instructorLogin = this.instructorUserService.isLoggedIn();
       window.alert(this.instructorUserService.selectedInstructorUser.user_type + " " + this.instructorLogin);
-      this.userType = this.instructorUserService.selectedInstructorUser.user_type;
+      this.userType = 'Instuctor';
       this.showReg = false;
     }
     else if (this.corporateUserService.isLoggedIn()) {
       this.corporateLogin = this.corporateUserService.isLoggedIn();
-      this.userType = this.corporateUserService.selectedCorporateUser.user_type;
+      this.userType = 'Corporate';
       this.showReg = false;
     }
     else if (this.universityUserService.isLoggedIn()) {
       this.universityLogin = this.universityUserService.isLoggedIn();
-      this.userType = this.universityUserService.selectedUniversityUser.user_type;
+      this.userType = 'University';
       this.showReg = false;
     }
+    //window.alert(this.userType);
   }
-
   onLogout() {
-    if (this.studentUserService.selectedStudentUser.user_type === 'Student' && this.studentLogin) {
+    if (this.studentUserService.selectedStudentUser.user_type == 'Student' && this.studentLogin) {
       this.studentUserService.deleteToken();
-      this.router.navigate(['student-signin']);
+      this.router.navigate(['home']);
       this.showReg = true;
     }
-    else if (this.instructorUserService.selectedInstructorUser.user_type === 'Instructor' && this.instructorLogin) {
+    else if (this.instructorUserService.selectedInstructorUser.user_type == 'Instructor' && this.instructorLogin) {
       this.studentUserService.deleteToken();
-      this.router.navigate(['instructor-signin']);
+      this.router.navigate(['home']);
       this.showReg = true;
     }
-    else if (this.corporateUserService.selectedCorporateUser.user_type === 'Corporate' && this.corporateLogin) {
+    else if (this.corporateUserService.selectedCorporateUser.user_type == 'Corporate' && this.corporateLogin) {
       this.studentUserService.deleteToken();
-      this.router.navigate(['corporate-signin']);
+      this.router.navigate(['home']);
       this.showReg = true;
     }
-    else if (this.universityUserService.selectedUniversityUser.user_type === 'University' && this.universityLogin) {
+    else if (this.universityUserService.selectedUniversityUser.user_type == 'University' && this.universityLogin) {
       this.studentUserService.deleteToken();
-      this.router.navigate(['university-signin']);
+      this.router.navigate(['home']);
       this.showReg = true;
     }
   }

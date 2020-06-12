@@ -19,6 +19,8 @@ export class StudentUser {
     skill4: string;
     skill5: string;
     skill6: string;
+    currentOrg: string;
+    yearsExperience: string;
 }
 
 export class ProfessionalUser {

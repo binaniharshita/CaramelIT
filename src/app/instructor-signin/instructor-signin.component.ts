@@ -27,8 +27,8 @@ export class InstructorSigninComponent implements OnInit {
     }
   }
 
-  onSubmit(instructorSignin: NgForm) {
-    this.instructorUserService.login(instructorSignin.value).subscribe(
+  onSubmit(instSigninForm: NgForm) {
+    this.instructorUserService.login(instSigninForm.value).subscribe(
       res => {
         this.instructorUserService.setToken(res['token']);
         this.router.navigateByUrl('/instructor-dashboard');

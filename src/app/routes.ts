@@ -79,6 +79,7 @@ import { OrganizationNotifyComponent } from './organization-dashboard/organizati
 import { OrganizationDashComponent } from './organization-dashboard/organization-dash/organization-dash.component';
 import { GenerateTestComponent } from './student-dashboard/generate-test/generate-test.component';
 import { Contactus1Component } from './contactus1/contactus1.component';
+import { CourserecommendationComponent } from './courserecommendation/courserecommendation.component';
 
 
 export const routes: Routes = [
@@ -90,6 +91,7 @@ export const routes: Routes = [
     { path: 'course', component: OrganizationCourseComponent },
     { path : 'notify', component: OrganizationNotifyComponent},
   ] },
+  {path: 'courserecommendation', component: CourserecommendationComponent},
 
   { path : 'college-dashboard', component: CollegeDashboardComponent, children:[
     { path: 'dashboard' , component: DashboardComponent },

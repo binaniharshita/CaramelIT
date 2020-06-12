@@ -24,12 +24,19 @@ export class AuthInterceptor implements HttpInterceptor{
         if(req.headers.get('noauth'))
             return next.handle(req.clone());
         else {
-            const clonereq = req.clone({
-                headers: (req.headers.set("Authorization", " Bearer " + this.studentUserService.getToken()) ||
-                req.headers.set("Authorization", " Bearer " + this.instructorUserService.getToken()) || 
-                req.headers.set("Authorization", "Bearer" + this.corporateUserService.getToken()) ||
-                req.headers.set("Authorization", "Bearer" + this.universityUserService.getToken()))
-            });
+            let clonereq;
+            let s_user = JSON.parse(this.studentUserService.getToken());
+            let i_user = JSON.parse(this.instructorUserService.getToken());
+            let c_user = JSON.parse(this.corporateUserService.getToken());
+            let u_user = JSON.parse(this.universityUserService.getToken());
+            if(s_user)
+                clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.studentUserService.getToken()) });
+            if(i_user)
+                clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.instructorUserService.getToken()) });
+            if(c_user)
+                clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.corporateUserService.getToken()) });
+            if(u_user)
+                clonereq = req.clone({ headers: req.headers.set("Authorization", " Bearer " + this.universityUserService.getToken()) });
             return next.handle(clonereq).pipe(
                 tap(
                     event => { },

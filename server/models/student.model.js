@@ -62,6 +62,12 @@ const studentSchema = new mongoose.Schema({
     skill6: {
         type: String
     },
+    currentOrg: {
+        type: String
+    },
+    yearsExperience: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now

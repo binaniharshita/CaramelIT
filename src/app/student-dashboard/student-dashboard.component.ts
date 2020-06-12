@@ -22,9 +22,17 @@ export class StudentDashboardComponent implements OnInit {
       err => { 
         console.log(err);
         
+      });
+    /*this.studentUserService.getProfessionalProfile().subscribe(
+      res => {
+        this.userDetails = res['professional'];
+      },
+      err => { 
+        console.log(err);
+        
       }
-    );
-  }
+    );*/
+    }
   
   onLogout(){
     this.studentUserService.deleteToken();

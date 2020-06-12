@@ -162,6 +162,7 @@ import { EnrollPanelComponent } from './course-page/enroll-panel/enroll-panel.co
 import { TableOfContentsTabComponent } from './course-page/table-of-contents-tab/table-of-contents-tab.component';
 import { CourseProjectsTabComponent } from './course-page/course-projects-tab/course-projects-tab.component';
 import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.component';
+import { CourserecommendationComponent } from './courserecommendation/courserecommendation.component';
 
 
 @NgModule({
@@ -267,7 +268,8 @@ import { ReviewsTabComponent } from './course-page/reviews-tab/reviews-tab.compo
     EnrollPanelComponent,
     TableOfContentsTabComponent,
     CourseProjectsTabComponent,
-    ReviewsTabComponent
+    ReviewsTabComponent,
+    CourserecommendationComponent
   ],
   imports: [
     BrowserModule,

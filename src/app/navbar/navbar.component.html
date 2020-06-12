@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item" *ngIf="userType === 'Student'">
+                    <li class="nav-item" *ngIf="userType == 'Student'">
                         <div class="dropdown">
                             <a href="#" class="nav-link px-lg-3 alink">Account <i class="fa fa-caret-down"></i></a>
                             <div class="dropdown-content">
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item" *ngIf="userType === 'Instructor'">
+                    <li class="nav-item" *ngIf="userType == 'Instructor'">
                         <div class="dropdown">
                             <a href="#" class="nav-link px-lg-3 alink">Account <i class="fa fa-caret-down"></i></a>
                             <div class="dropdown-content">

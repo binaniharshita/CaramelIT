@@ -21,7 +21,7 @@
         </button>
             </li>
             <li>
-                <button mat-raised-button routerLink="generate-test">Generate Test</button>
+                <button mat-raised-button routerLink="generate-test" routerLinkActive="active">Generate Test</button>
             </li>
         </ul>
     </div>
@@ -67,8 +67,12 @@
         <h1>Logout <i class="fa fa-chevron-circle-right"></i></h1>
     </button>
     </div> -->
-
-    <mat-nav-list>
+    
+    <mat-nav-list fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
       <mat-list-item routerLink="enrolledcourses" routerLinkActive="active">
         <mat-icon mat-list-icon>list</mat-icon>
         <h4 mat-line  *ngIf="showMenu">MY COURSES</h4>
@@ -91,7 +95,7 @@
     </mat-drawer>
   <mat-drawer-content [ngStyle]="mainHover ? {'opacity': 0.2} : {'opacity':1}"> 
     <div id="prodisplay" >
-      <h1>Welcome Student Name: Student</h1> <!--{{userDetails.name}}-->
+      <h1>Welcome Student: <br/> {{userDetails.firstName}}  {{userDetails.lastName}}</h1> 
       <div class="image-cropper" routerLink="/profile-page" routerLinkActive="active">
       <img src="../../assets/student.svg" class="center">
         </div>
