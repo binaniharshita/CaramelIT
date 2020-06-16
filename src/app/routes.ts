@@ -184,7 +184,7 @@ export const routes: Routes = [
   // { path: 'admin-dashboard/manage-group/create-category', component: CreateCategoryComponent, outlet: 'sidebar' },
   // { path: 'admin-dashboard/manage-group', component: MaganeCatSubcatComponent },
   // { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'student-dashboard', component: StudentDashboardComponent,canActivate: [AuthGuard], children: [
+  { path: 'student-dashboard', component: StudentDashboardComponent, children: [
     { path: 'enrolledcourses', component: EnrolledcoursesComponent },
     { path: '', pathMatch: 'full', component: RecommendedcoursesComponent },
     { path: 'recommended', pathMatch: 'full', component: RecommendedcoursesComponent },

@@ -52,6 +52,8 @@ import { CourseService } from './services/course.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 
 import { routes } from './routes';
@@ -295,6 +297,7 @@ import { CourserecommendationComponent } from './courserecommendation/coursereco
     MatExpansionModule,
     SlickCarouselModule,
     MatTabsModule,
+    MatAutocompleteModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

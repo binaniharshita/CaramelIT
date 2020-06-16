@@ -1,3 +1,65 @@
 <app-navbar></app-navbar>
+<br><br/><br/>
+<hr>
+<legend><b>Looking for something new to learn?</b></legend>
+<form #searchForm="ngForm" (ngSubmit)="searchCourse()" >
+    <mat-form-field style="width: 70%; margin-left: 120px; " floatLabel="never" color="primary">
+      <input type="text"
+             placeholder="search for a course"
+             aria-label="course search"
+             matInput
+             [formControl]="searchword"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-button style="outline: none;" color="primary">Search</button>
+  </form>
+  <!--
+<form #searchForm="ngForm" (ngSubmit)="searchCourse()" class="searchbox">
+<input type="text" placeholder="  search for a course"
+[formControl]="searchword" class="searchbar" autocomplete="on"
+name="searchbar" value="" id="searchbar">
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+    {{option}}
+  </mat-option>
+</mat-autocomplete>
+<button type="submit" class="searchbutton">Search</button>
+</form>-->
+<hr>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="30px"
+fxLayoutGap.xs="0">
+<div class="row" fxFlex *ngFor="let course of display; let i = index;">
+  <br *ngIf="i % 3 == 0">
+  <mat-card *ngIf="!showresult" style="max-width: 350px;">
+    <img src="{{course.image}}" width="300" height="200" alt="{{course.name}}">
+    <mat-card-content>
+      <h2>{{course.name}}</h2>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Know More</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="row" fxFlex *ngIf="showResult">
+  <mat-card style="max-width: 350px;">
+    <img src="{{result.image}}" width="300" height="200" alt="{{result.name}}">
+    <mat-card-content>
+      <h2>{{result.name}}</h2>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Know More</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
 
 <app-footer></app-footer>

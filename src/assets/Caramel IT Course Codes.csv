@@ -1,0 +1,90 @@
+Sno,Course Name,Course Code
+1,Core UI,FECU
+2,Advanced UI,FEAU
+3,Angular JS,FEAJ
+4,React JS,FERJ
+5,Vue JS,FEVJ
+6,Java,BEJA
+7,.Net,BEDN
+8,Node JS,BENJ
+9,Ruby,BERU
+10,Python,BEPY
+11,Core Java,FSCJ
+12,Adv Java,FSAJ
+13,.Net,FSDN
+14,.Net Core,FSDC
+15,MEAN,FSME
+16,MESN,FSMS
+17,MEVN,FSMV
+18,GoLang,FSGL
+19,Ruby,FSRU
+20,Flutter,MOFL
+21,Ionic,MOIN
+22,React Native,MORN
+23,Xamarin,MOXA
+24,Onsen UI,MOOU
+25,IOS ,MOIO
+26,Android,MOAN
+27,MySQL,DBSQ
+28,Postgresql,DBPG
+29,MongoDB,DBMD
+30,Dev OPS Foundation,DODF
+31,Dev OPS Expert,DODE
+32,Ansible,DOAN
+33,Chef,DOCH
+34,Docker,DODO
+35,Kubernets,DOKE
+36,Open Stack,DOOS
+37,AWS Cloud Overview,DOAW
+38,DS Boot Camp,DSBC
+39,ML with Python,DSML
+40,Deep Learning,DSDL
+41,Data Analytics,DSDA
+42,Data Scientist Certification,DSDC
+43,Natural Language Processing ,DSNL
+44,R Programming,DSRP
+45,AI / ML Foundation Course,DSFC
+46,AI / ML Expert Course,DSEC
+47,Hadoop,DSHA
+48,AWS Technical Essentials,CCAT
+49,AWS Cloud Practitioner,CCAC
+50,AWS Solution Architect Associate,CCAS
+51,AWS Developer Associate,CCAD
+52,AWS SysOps Associate Administrator,CCAP
+53,Microsoft Azure Fundamentals,CCMF
+54,Microsoft Azure Expert Certification,CCME
+55,CISSP,CSSP
+56,CISA,CSSA
+57,CEH,CSCE
+58,COMPTIA Security++,CSCS
+59,CISM,CSSM
+60,CSA,CSCA
+61,CAP,CSCP
+62,CCSP,CSCC
+63,CALIFORNIA PRIVACY LAW,CSCL
+64,CIPP/US,CSCU
+65,CIPP/EUROPE,CSCE
+66,Digital Marketing Foundation,MADF
+67,Digital Marketing Expert,MADE
+68,SEO,MASE
+69,SMO,MAMO
+70,SCM,MASC
+71,SMM,MAMM
+72,Adwords Foundation,MAAF
+73,Adwords Expert,MAAE
+74,Content Marketing,MACM
+75,Branding,MABR
+76,SAP,ERSA
+77,Oracle,EROR
+78,Infor LN,ERLN
+79,Rootstack,ERRS
+80,ePromis,EREP
+81,Sales Force,ISSF
+82,Service Now,ISSN
+83,Remedy,ISRE
+84,Microsoft Dynamics,ISMD
+85,ITIL Foundation,ICIT
+86,PMP,ICMP
+87,PMI-ACP,ICCP
+88,Agile,ICAG
+89,Prince,ICPR
