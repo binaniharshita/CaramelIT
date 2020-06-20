@@ -30,9 +30,5 @@ export class AdminDashboard1Component implements OnInit {
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;
   }
-  onLogout(){
-    this.adminService.deleteToken();
-    this.router.navigate(['admin-signin']);
-  }
 
 }

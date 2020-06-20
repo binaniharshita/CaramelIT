@@ -39,7 +39,7 @@ fxLayoutGap="30px"
 fxLayoutGap.xs="0">
 <div class="row" fxFlex *ngFor="let course of display; let i = index;">
   <br *ngIf="i % 3 == 0">
-  <mat-card *ngIf="!showresult" style="max-width: 350px;">
+  <mat-card *ngIf="!showResult" style="max-width: 350px;">
     <img src="{{course.image}}" width="300" height="200" alt="{{course.name}}">
     <mat-card-content>
       <h2>{{course.name}}</h2>

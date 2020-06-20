@@ -24,5 +24,9 @@ export class SidebarComponent implements OnInit {
       }
     )
   }
+  onLogout(){
+    this.adminService.deleteToken();
+    this.router.navigateByUrl('/admin-signin');
+  }
 
 }
